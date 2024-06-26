@@ -1,4 +1,4 @@
-# uds-marketplace
+# UDS-Marketplace
 
 | Package Name | [<img alt="Made for UDS" src="https://raw.githubusercontent.com/defenseunicorns/uds-common/main/docs/made-for-uds.svg" height="24px"/>](https://github.com/defenseunicorns/uds-core) | Created On | Updated | Notes |
 |--------------|--------------|------------|---------|-------|
