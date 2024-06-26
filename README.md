@@ -1,6 +1,6 @@
 # UDS-Marketplace
 
-| Package Name | [<img alt="Made for UDS" src="https://raw.githubusercontent.com/defenseunicorns/uds-common/main/docs/made-for-uds.svg" height="24px"/>](https://github.com/defenseunicorns/uds-core) | Created On | Updated | Notes |
+| Package Name | [<img alt="Made for UDS" src="https://raw.githubusercontent.com/defenseunicorns/uds-common/main/docs/made-for-uds.svg" height="24px"/>](https://github.com/defenseunicorns/uds-core) | Created | Updated | Notes |
 |--------------|--------------|------------|---------|-------|
 | [Gitlab](https://github.com/defenseunicorns/uds-package-gitlab) | :white_check_mark: | ![GitHub Created At](https://img.shields.io/github/created-at/defenseunicorns/uds-package-gitlab?label=) | ![GitHub Release Date](https://img.shields.io/github/release-date/defenseunicorns/uds-package-gitlab?label=) | n/a |
 | [Gitlab Runner](https://github.com/defenseunicorns/uds-package-gitlab-runner) | :white_check_mark: | ![GitHub Created At](https://img.shields.io/github/created-at/defenseunicorns/uds-package-gitlab-runner?label=) | ![GitHub Release Date](https://img.shields.io/github/release-date/defenseunicorns/uds-package-gitlab-runner?label=) | n/a |
