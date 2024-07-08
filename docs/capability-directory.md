@@ -1,1 +1,14 @@
-<img width="387" alt="346644924-825dad3b-e5c4-40e0-b1dd-74d0c78078ae" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9">
+<img width="387" alt="UDS Unicorn Delivery Service" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9">
+
+# UDS-Marketplace: Mission Capability Directory
+[![Static Badge](https://img.shields.io/badge/Get_Support-blue)](./placeholders/support-placeholder.md)
+
+| Package Name                                                                          | Notes | Contracting Info |
+| ------------------------------------------------------------------------------------- | ----- | ---------------- |
+| [Software Factory](https://github.com/defenseunicorns/uds-software-factory)           |       |                  |
+## Get Support
+
+Wesa no like da Naboo! Da Naboo tink day so smarty. Day tink day brains so big. Once those droids take control of the surface, they will take control of you. Mesa no tink so.
+Everything's overheated. Oops! This is not good. Noooo! No given up General Ja Ja. Wesa tink of sometin. Hands up! My giv up. My giv up. Your little insurrection is at an end, Your Highness.
+
+[![Schedule a Demo](img/demo.svg)](./placeholders/support-placeholder.md)
