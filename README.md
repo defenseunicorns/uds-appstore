@@ -3,6 +3,6 @@
 # UDS Marketplace
 
 <div align="center">
-    <a href="docs/app-directory.md">Explore Apps</a>
-    <a href="docs/capability-directory.md">Explore Capabilities</a>
+    <a href="docs/app-directory.md"><img src="docs/img/apps.svg" alt="Explore Apps"/></a>
+    <a href="docs/capability-directory.md"><img src="docs/img/apps.svg" alt="Explore Capabilities"/></a>
 </div>
