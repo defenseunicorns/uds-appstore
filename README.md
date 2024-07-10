@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href=""><img width="200" alt="UDS Unicorn Delivery Service" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9"></a>
+<a href="./README.md"><img width="200" alt="UDS Unicorn Delivery Service" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9"></a>
 
 # UDS Marketplace
 
