@@ -10,7 +10,7 @@
 [Contracting Information](#contracting-information) ·
 [Security Report](#security-report) ·
 [Enterprise Support](#get-this-package-in-your-environment) ·
-[Package Guide](#package-guide) ·
+[Package Guide](#package-guide)
 
 ## Description
 
