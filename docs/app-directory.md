@@ -7,7 +7,7 @@
 [Custom Requests](#custom-application-requests) ·
 [Contact Us](https://www.defenseunicorns.com/contactus)
 
-UDS Marketplace is a solution for acquiring secure, mission-ready applications made for government and national security.
+**UDS Marketplace is a solution for acquiring secure, mission-ready applications made for government and national security.**
 
 We curate rapidly deployable, secure applications tailored for national security environments. This unique marketplace guarantees:
 
@@ -18,6 +18,8 @@ We curate rapidly deployable, secure applications tailored for national security
 UDS marketplace packages, significantly reduce the time and complexity of identifying and deploying mission-critical software solutions.
 
 ## Application Catalog
+
+Secure Mission applications that can be deployed, anywhere with UDS.
 
 | Package Name                                                                          | UDS Verified                                                                                                                                                                         | Contracting Info                                                                        | Security Report                                                                             |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
