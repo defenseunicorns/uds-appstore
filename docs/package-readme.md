@@ -6,13 +6,13 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/defenseunicorns/uds-package-gitlab/tag-and-release.yaml)](https://github.com/defenseunicorns/uds-package-gitlab/actions/workflows/tag-and-release.yaml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-gitlab/badge)](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-gitlab)
 
-[Description](#description) ·
+[Overview](#overview) ·
 [Contracting Information](#contracting-information) ·
 [Security Report](#security-report) ·
 [Enterprise Support](#get-this-package-in-your-environment) ·
 [Package Guide](#package-guide)
 
-## Description
+## Overview
 
 GitLab is a comprehensive DevSecOps platform designed to meet the rigorous demands of the Department of Defense. Our single, unified application streamlines the entire software development lifecycle, enhancing collaboration between development, security, and operations teams across the defense ecosystem.
 
