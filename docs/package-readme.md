@@ -6,15 +6,106 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/defenseunicorns/uds-package-gitlab/tag-and-release.yaml)](https://github.com/defenseunicorns/uds-package-gitlab/actions/workflows/tag-and-release.yaml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-gitlab/badge)](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-gitlab)
 
+[Description](#description) ·
+[Contracting Information](#contracting-information) ·
+[Security Report](#security-report) ·
+[Enterprise Support](#get-this-package-in-your-environment) ·
+[Package Guide](#package-guide) ·
+
 ## Description
 
-Wesa no like da Naboo! Da Naboo tink day so smarty. Day tink day brains so big. Once those droids take control of the surface, they will take control of you. Mesa no tink so.
-Everything's overheated. Oops! This is not good. Noooo! No given up General Ja Ja. Wesa tink of sometin. Hands up! My giv up. My giv up. Your little insurrection is at an end, Your Highness.
+GitLab is a comprehensive DevSecOps platform designed to meet the rigorous demands of the Department of Defense. Our single, unified application streamlines the entire software development lifecycle, enhancing collaboration between development, security, and operations teams across the defense ecosystem.
 
-[![Contracting Info](img/contract-info.svg)](./placeholders/contracting-placeholder.md)
-[![Security Package](img/get-security-report.svg)](./placeholders/security-placeholder.md)
+Engineered for mission-critical environments, GitLab accelerates software delivery from months to days while reducing development costs and minimizing application vulnerabilities. This efficiency boost translates to a 200% faster software lifecycle, significantly enhancing operational readiness and mission capabilities.
 
-## Get Suppport
+## Contracting Information
+
+<details><summary>Contracting Document</summary>
+
+```txt
+DoD Contracting Information
+Application Name: [Insert Application Name]
+Vendor: [Insert Vendor Name]
+Contract Vehicle: [e.g., GSA Schedule, SEWP, Other]
+Contract Number: [Insert Contract Number]
+CAGE Code: [Insert Commercial and Government Entity Code]
+NAICS Code: [Insert North American Industry Classification System Code]
+Product Service Code (PSC): [Insert PSC]
+Security Clearance Level: [e.g., Unclassified, Secret, Top Secret]
+Authority to Operate (ATO) Status: [e.g., Approved, Pending, In Process]
+Compliance:
+NIST 800-53: [Yes/No]
+CMMC Level: [Insert Level]
+FedRAMP: [Yes/No - If yes, specify level]
+Pricing Model: [e.g., Per User, Per Instance, Enterprise]
+Small Business Status: [e.g., Small Business, Woman-Owned, Veteran-Owned, etc.]
+Delivery Timeline: [Insert estimated delivery time]
+POC for Contracting:
+Name: [Insert Name]
+Email: [Insert Email]
+Phone: [Insert Phone Number]
+Additional Notes: [Any other relevant contracting information]
+```
+
+</details>
+
+[![Contracting Info](img/contract-info-tall.svg)](./placeholders/contracting-placeholder.md)
+
+## Security Report
+
+<details><summary>Security Document</summary>
+
+```txt
+DoD Security Report Information
+Application Name: [Insert Application Name]
+Version: [Insert Version Number]
+Last Security Assessment Date: [MM/DD/YYYY]
+Security Classification: [e.g., Unclassified, Secret, Top Secret]
+Authority to Operate (ATO) Status:
+Status: [e.g., Full ATO, Interim ATO, In Process]
+Issuing Organization: [e.g., DoD Component]
+Expiration Date: [MM/DD/YYYY]
+Compliance Status:
+NIST 800-53 Rev 5: [Compliant/Non-Compliant]
+DISA STIG: [Compliant/Non-Compliant]
+CMMC Level: [Insert Level]
+FedRAMP: [Authorization level, if applicable]
+Vulnerability Assessment:
+Total Vulnerabilities: [Number]
+Critical: [Number]
+High: [Number]
+Medium: [Number]
+Low: [Number]
+Penetration Test Results:
+Date of Last Test: [MM/DD/YYYY]
+Overall Risk Rating: [e.g., Low, Medium, High]
+Key Findings: [Brief summary]
+Encryption:
+Data at Rest: [Algorithm and strength]
+Data in Transit: [Protocol and strength]
+Access Control:
+Authentication Method: [e.g., CAC, 2FA, MFA]
+Role-Based Access Control: [Yes/No]
+Continuous Monitoring:
+Real-time Threat Detection: [Yes/No]
+Automated Vulnerability Scanning: [Frequency]
+Incident Response Plan: [Yes/No]
+Supply Chain Risk Management:
+SCRM Plan: [Yes/No]
+Third-Party Dependencies Assessed: [Yes/No]
+Additional Security Features: [List any other relevant security features]
+POC for Security Inquiries:
+Name: [Insert Name]
+Email: [Insert Email]
+Phone: [Insert Phone Number]
+Date of Report: [MM/DD/YYYY]
+```
+
+</details>
+
+[![Security Package](img/security-report-tall.svg)](./placeholders/security-placeholder.md)
+
+## Get This Package In Your Environment
 
 Wesa no like da Naboo! Da Naboo tink day so smarty. Day tink day brains so big. Once those droids take control of the surface, they will take control of you. Mesa no tink so.
 Everything's overheated. Oops! This is not good. Noooo! No given up General Ja Ja. Wesa tink of sometin. Hands up! My giv up. My giv up. Your little insurrection is at an end, Your Highness.
