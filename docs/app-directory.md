@@ -45,10 +45,10 @@ We offer enterprise subscriptions for missions who require support deploying our
 1. Prioritized feature development
 1. Prioritized bug fixes & troubleshooting
 
-[![Talk to a Mission Expert](img/talk.svg)](./placeholders/support-placeholder.md)
+[![Talk to a Mission Expert](img/talk.svg)](https://www.defenseunicorns.com/contactus)
 
 ## Custom Application Requests
 
 Don't see the application you need in our catalog? No problem. Our skilled team of DevSecOps engineers can build a custom package for any tool your mission requires. Talk to one of our mission experts to get more information on custom application requests.
 
-[![Talk to a Mission Expert](img/talk.svg)](./placeholders/support-placeholder.md)
+[![Talk to a Mission Expert](img/talk.svg)](https://www.defenseunicorns.com/contactus)
