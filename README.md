@@ -1,10 +1,11 @@
-<img width="387" alt="UDS Unicorn Delivery Service" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9">
+<div align="center">
+
+<img width="200" alt="UDS Unicorn Delivery Service" src="https://github.com/defenseunicorns/uds-marketplace/assets/1349336/52deb6da-bef5-4501-8d97-e8a63b10dbc9">
 
 # UDS Marketplace
 
-<div align="center">
-    <a href="docs/app-directory.md"><img src="docs/img/apps.svg" alt="Explore Apps"/></a>
-    <a href="docs/capability-directory.md"><img src="docs/img/capabilities.svg" alt="Explore Capabilities"/></a>
+[![Schedule a Demo](docs/img/marketplace.svg)](./placeholders/support-placeholder.md)
+
 </div>
 
 ## Marketing (?)
