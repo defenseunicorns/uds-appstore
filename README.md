@@ -4,7 +4,7 @@
 
 # UDS Marketplace
 
-[![Schedule a Demo](docs/img/marketplace.svg)](./placeholders/support-placeholder.md)
+[![Schedule a Demo](docs/img/marketplace.svg)](docs/app-directory.md)
 
 </div>
 
