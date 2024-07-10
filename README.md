@@ -1,3 +1,5 @@
+<img width="387" alt="UDS logo white" src="https://github.com/defenseunicorns/uds-marketplace/assets/92826525/6a3fe1a6-0eb5-4269-84c3-7c02750fe549">
+
 # UDS-Marketplace
 
 | Package Name                                                                          | Latest Version                                                                                                  | UDS Verified                                                                                                                                                                         | Created                                                                                                                          | Updated                                                                                                                              | Notes                          | Contracting Info |
