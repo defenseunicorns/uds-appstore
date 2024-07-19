@@ -37,6 +37,7 @@ Compliance:
 NIST 800-53: [Yes/No]
 CMMC Level: [Insert Level]
 FedRAMP: [Yes/No - If yes, specify level]
+FIPS compliant Image: [Yes/No]
 Pricing Model: [e.g., Per User, Per Instance, Enterprise]
 Small Business Status: [e.g., Small Business, Woman-Owned, Veteran-Owned, etc.]
 Delivery Timeline: [Insert estimated delivery time]
