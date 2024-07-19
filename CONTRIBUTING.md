@@ -44,7 +44,7 @@ We apply these general principles to all User Stories and activities contributin
 2. **Commit Your Changes**: Make your changes and commit them. All commits must be signed.
 3. **Run Tests**: Ensure that your changes pass all tests.
 4. **Push Your Branch**: Push your branch to your fork on GitHub.
-5. **Create a Pull Request**: Open a pull request against the `main` branch of the Bundle repository. Please make sure that your PR passes all CI checks.
+5. **Create a Pull Request**: Open a pull request against the `main` branch of the Bundle repository. Please make sure that your PR passes all CI checks. We use squash commits and default to the PR title for the commit message (it should be formatted in conventional commits style)
 
 ### PR Requirements
 
