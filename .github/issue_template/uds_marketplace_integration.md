@@ -2,7 +2,7 @@
 name: New "New UDS Marketplace Integration"
 about: Add an app or capability to UDS Marketplace
 title: ''
-labels: ''
+labels: epic, needs-triage
 projects: ''
 assignees: ''
 ---
