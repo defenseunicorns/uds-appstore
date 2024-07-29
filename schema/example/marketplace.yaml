@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../marketplace.schema.json
+
+name: Example Package
+version: 0.1.0
+description: |
+  This is an example package.

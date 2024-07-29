@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/metadata",
+  "$defs": {
+    "metadata": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the UDS Package"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the UDS Package"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the UDS Package"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "name",
+        "description",
+        "version"
+      ]
+    }
+  }
+}

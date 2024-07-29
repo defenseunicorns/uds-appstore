@@ -1,0 +1,17 @@
+kind: ZarfPackageConfig
+metadata:
+  name: uds-metadata-test
+  version: 0.1.0
+
+
+components:
+  - name: uds-metadata
+    files:
+      - source: marketplace.json
+        target: marketplace.json
+    actions:
+      onCreate:
+        before:
+          - cmd: yq -o json marketplace.yaml > marketplace.json
+        after:
+          - cmd: rm -f marketplace.json
