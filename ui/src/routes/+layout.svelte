@@ -9,16 +9,20 @@
 	import { Breadcrumb, isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
 	import '../app.postcss';
 
-	onMount(initFlowbite);
+	onMount(() => {
+		initFlowbite();
+	});
 	afterNavigate(initFlowbite);
 </script>
 
 <Navbar />
 
 <Sidebar />
-
+<svelte:head>
+	<title>UDS Marketplace</title>
+</svelte:head>
 <main
-	class="flex h-screen flex-col pt-16 transition-all duration-300 ease-in-out {$isSidebarExpanded
+	class="flex h-screen flex-col pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white {$isSidebarExpanded
 		? 'md:ml-64'
 		: 'md:ml-16'}"
 >

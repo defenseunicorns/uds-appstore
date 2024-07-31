@@ -4,3 +4,6 @@
 import { writable } from 'svelte/store'
 
 export const isSidebarExpanded = writable(true)
+
+
+export const isDarkMode = writable(false)

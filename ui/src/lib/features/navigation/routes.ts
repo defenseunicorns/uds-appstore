@@ -2,15 +2,15 @@
 // SPDX-FileCopyrightText: 2024-Present The UDS Authors
 
 import {
-  ChartCombo,
+  Application   
 } from 'carbon-icons-svelte'
 
 import type { BaseRoute, Route } from './types'
 
 const baseRoutes: BaseRoute[] = [
   {
-    name: 'Overview',
-    icon: ChartCombo,
+    name: 'Apps',
+    icon: Application,
   }
 ]
 

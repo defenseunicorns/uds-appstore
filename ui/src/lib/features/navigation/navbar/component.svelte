@@ -4,6 +4,7 @@
 <script lang="ts">
 	import { NotificationFilled } from 'carbon-icons-svelte';
 	import { isSidebarExpanded } from '../store';
+	import Themetoggle from '../themetoggle/component.svelte';
 </script>
 
 <div class="bg-gray-50 antialiased dark:bg-gray-900">
@@ -44,6 +45,7 @@
 				</a>
 			</div>
 			<div class="flex items-center lg:order-2">
+				<Themetoggle />
 				<!-- Notifications -->
 				<button
 					type="button"
