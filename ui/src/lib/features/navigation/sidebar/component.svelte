@@ -125,7 +125,7 @@
 			id="sidebar-footer"
 			class="mb-16 mt-8 flex hidden justify-center bg-white dark:bg-gray-800 lg:flex"
 		>
-			<!-- Commenting and leanv in for reference -->
+			<!-- Commenting and leave in for reference -->
 			<!-- <SidebarLink href="/preferences" icon={SettingsAdjust} testId="global-sidenav-preferences" />
 			<SidebarLink href="/help" icon={Help} testId="global-sidenav-help" /> -->
 		</div>
