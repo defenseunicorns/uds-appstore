@@ -1,0 +1,49 @@
+repos:
+  ### Global ###
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
+      - id: check-merge-conflict
+      - id: detect-aws-credentials
+        args:
+          - "--allow-missing-credentials"
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.6.6
+    hooks:
+      - id: fix-smartquotes
+
+  # ### Golang ###
+  # - repo: https://github.com/dnephin/pre-commit-golang
+  #   rev: v0.5.1
+  #   hooks:
+  #     - id: go-imports
+  # - repo: https://github.com/golangci/golangci-lint
+  #   rev: v1.59.1
+  #   hooks:
+  #     - id: golangci-lint-full
+  #       args: [--timeout=5m]
+  # - repo: local
+  #   hooks:
+  #     - id: check-docs-and-schema
+  #       name: Check for outdated schema
+  #       entry: ./hack/test-generate-schema.sh
+  #       files: "src/types/types.go"
+  #       types: [go]
+  #       language: script
+  #       description: "Checks for schema changes"
+
+  ### Typescript ###
+  - repo: local
+    hooks:
+      - id: prettier-format
+        name: prettier format
+        entry: sh -c 'cd ui && npm run format'
+        language: system
+        files: \.(js|ts|svelte|css|postcss|scss|json|md)$

@@ -123,7 +123,7 @@
 		<div class="grow"></div>
 		<div
 			id="sidebar-footer"
-			class="mb-16 mt-8 flex hidden justify-center bg-white lg:flex dark:bg-gray-800"
+			class="mb-16 mt-8 flex hidden justify-center bg-white dark:bg-gray-800 lg:flex"
 		>
 			<!-- Commenting and leanv in for reference -->
 			<!-- <SidebarLink href="/preferences" icon={SettingsAdjust} testId="global-sidenav-preferences" />

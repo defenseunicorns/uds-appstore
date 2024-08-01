@@ -1,0 +1,18 @@
+includes:
+  - test: tasks/test.yaml
+  - lint: tasks/lint.yaml
+  - setup: tasks/setup.yaml
+
+variables:
+  - name: REF
+    description: "reference for the runtime image and zarf package"
+    # x-release-please-start-version
+    default: 0.0.0
+    # x-release-please-end
+
+tasks:
+  - name: dev-ui
+    description: "run the ui in dev mode"
+    actions:
+      - cmd: pnpm i && pnpm run dev
+        dir: ui

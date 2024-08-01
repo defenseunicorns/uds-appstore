@@ -1,1 +1,1 @@
-export { stringToSnakeCase } from './helpers'
+export { stringToSnakeCase } from './helpers';

@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-FileCopyrightText: 2024-Present The UDS Authors
 
-import { writable } from 'svelte/store'
+import { writable } from 'svelte/store';
 
-export const isSidebarExpanded = writable(true)
+export const isSidebarExpanded = writable(true);
 
-
-export const isDarkMode = writable(false)
+export const isDarkMode = writable(false);

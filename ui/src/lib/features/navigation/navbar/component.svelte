@@ -18,7 +18,7 @@
 					aria-expanded="true"
 					aria-controls="sidebar"
 					on:click={() => isSidebarExpanded.update((v) => !v)}
-					class="mr-3 hidden cursor-pointer rounded p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 lg:inline dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+					class="mr-3 hidden cursor-pointer rounded p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:inline"
 				>
 					<svg
 						class="h-5 w-5"

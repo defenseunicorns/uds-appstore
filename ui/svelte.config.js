@@ -16,15 +16,15 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html',
-			strict: true,
-		}),
+			strict: true
+		})
 	},
 	alias: {
 		$components: './src/lib/components',
 		$features: './src/lib/features',
 		$navigation: './src/lib/features/navigation',
-		$server: './src/lib/server',
-	},
+		$server: './src/lib/server'
+	}
 };
 
 export default config;
