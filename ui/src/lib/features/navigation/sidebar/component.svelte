@@ -4,17 +4,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	import {
-		ChevronRight,
-		DocumentMultiple_01,
-		Help,
-		SettingsAdjust,
-		SettingsEdit
-	} from 'carbon-icons-svelte';
+	import { ChevronRight } from 'carbon-icons-svelte';
 	import { routes } from '../routes';
 	import { isSidebarExpanded } from '../store';
 	import './styles.postcss';
-	import SidebarLink from '$lib/features/navigation/sidebarlink/component.svelte';
 
 	const toggleSubmenus: Record<string, boolean> = {};
 
@@ -132,9 +125,9 @@
 			id="sidebar-footer"
 			class="mb-16 mt-8 flex hidden justify-center bg-white lg:flex dark:bg-gray-800"
 		>
-			<SidebarLink href="/preferences" icon={SettingsAdjust} testId="global-sidenav-preferences" />
-			<SidebarLink href="/settings" icon={SettingsEdit} testId="global-sidenav-settings" />
-			<SidebarLink href="/help" icon={Help} testId="global-sidenav-help" />
+			<!-- Commenting and leanv in for reference -->
+			<!-- <SidebarLink href="/preferences" icon={SettingsAdjust} testId="global-sidenav-preferences" />
+			<SidebarLink href="/help" icon={Help} testId="global-sidenav-help" /> -->
 		</div>
 	</div>
 </aside>

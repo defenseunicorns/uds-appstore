@@ -23,13 +23,12 @@
 
 	onMount(() => {
 		initTooltips();
-		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		const storedDarkMode = localStorage.getItem('darkMode');
 
 		if (storedDarkMode !== null) {
 			$isDarkMode = storedDarkMode === 'true';
 		} else {
-			$isDarkMode = prefersDark;
+			$isDarkMode = true;
 		}
 		updateDarkMode();
 	});
