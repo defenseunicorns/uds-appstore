@@ -6,29 +6,31 @@ import { Application } from 'carbon-icons-svelte';
 import type { CarbonIcon } from 'carbon-icons-svelte';
 
 export interface Route {
-	name: string;
-	path: string;
-	icon?: typeof CarbonIcon;
-	class?: string;
-	children?: Route[];
+  name: string;
+  path: string;
+  icon?: typeof CarbonIcon;
+  class?: string;
+  children?: Route[];
 }
 
 export const routes = [
-	createRoute({
-		name: 'Apps',
-		icon: Application
-	})
+  createRoute({
+    name: 'Apps',
+    icon: Application
+  })
 ];
 
 // Convert the path to a URL-friendly format
-const createPath = (prefix: string, part: string) => `${prefix}/${part.replace(/\s+/g, '-').toLowerCase()}`;
+function createPath (prefix: string, part: string) {
+  return `${prefix}/${part.replace(/\s+/g, '-').toLowerCase()}`;
+}
 
 function createRoute(r: Partial<Route> & { name: string }, root: string = ''): Route {
-	const path = r.path || createPath(root, r.name);
+  const path = r.path || createPath(root, r.name);
 
-	return {
-		...r,
-		path,
-		children: r.children?.map(c => createRoute(c, path))
-	}
+  return {
+    ...r,
+    path,
+    children: r.children?.map(c => createRoute(c, path))
+  }
 }
