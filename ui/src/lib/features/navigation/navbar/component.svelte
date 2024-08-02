@@ -38,7 +38,7 @@
 				</button>
 
 				<a href="/" class="mr-4 flex">
-					<img src="/doug.svg" class="mr-3 h-8" alt="FlowBite Logo" />
+					<img src="/doug.svg" class="mr-3 h-8" alt="uds marketplace logo" />
 					<span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white"
 						>UDS Marketplace</span
 					>

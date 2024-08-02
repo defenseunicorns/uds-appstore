@@ -44,6 +44,6 @@ repos:
     hooks:
       - id: prettier-format
         name: prettier format
-        entry: sh -c 'cd ui && npm run format'
+        entry: sh -c 'cd ui && npm run format -- --write && git add . && npm run lint'
         language: system
         files: \.(js|ts|svelte|css|postcss|scss|json|md)$
