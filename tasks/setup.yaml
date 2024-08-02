@@ -5,5 +5,5 @@ tasks:
   - name: build-ui
     description: "build ui"
     actions:
-      - cmd: pnpm i && pnpm run build
+      - cmd: npx pnmp i && npm run build
         dir: ui
