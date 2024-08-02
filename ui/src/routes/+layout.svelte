@@ -6,7 +6,7 @@
 
 	import { afterNavigate } from '$app/navigation';
 
-	import { Breadcrumb, isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
+	import { isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
 	import '../app.postcss';
 
 	onMount(() => {
@@ -26,9 +26,6 @@
 		? 'md:ml-64'
 		: 'md:ml-16'}"
 >
-	<div class="p-5">
-		<Breadcrumb />
-	</div>
 	<div class="flex-grow overflow-hidden p-4 pt-0">
 		<slot />
 	</div>
