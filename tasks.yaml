@@ -14,5 +14,5 @@ tasks:
   - name: dev-ui
     description: "run the ui in dev mode"
     actions:
-      - cmd: pnpm i && pnpm run dev
+      - cmd: npx pnpm i && npm run dev
         dir: ui

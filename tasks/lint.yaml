@@ -11,11 +11,11 @@ tasks:
   - name: ui
     description: "Run ui linters"
     actions:
-      - cmd: pnpm i && npm run lint
+      - cmd: npx pnpm i && npm run lint
         dir: ui
 
   - name: format-ui
     description: "Format ui code"
     actions:
-      - cmd: pnpm i && npm run format -- --write
+      - cmd: npx pnpm i && npm run format -- --write
         dir: ui
