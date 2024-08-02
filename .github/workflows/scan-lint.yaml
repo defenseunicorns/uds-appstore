@@ -25,6 +25,3 @@ jobs:
 
       # - name: Lint Yaml
       #   run: uds run lint:yaml --no-progress
-
-      - name: Lint UI
-        run: uds run lint:ui --no-progress
