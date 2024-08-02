@@ -16,12 +16,12 @@ export interface Route {
 export const routes = [
   createRoute({
     name: 'Apps',
-    icon: Application
-  })
+    icon: Application,
+  }),
 ];
 
 // Convert the path to a URL-friendly format
-function createPath (prefix: string, part: string) {
+function createPath(prefix: string, part: string) {
   return `${prefix}/${part.replace(/\s+/g, '-').toLowerCase()}`;
 }
 
@@ -31,6 +31,6 @@ function createRoute(r: Partial<Route> & { name: string }, root: string = ''): R
   return {
     ...r,
     path,
-    children: r.children?.map(c => createRoute(c, path))
-  }
+    children: r.children?.map((c) => createRoute(c, path)),
+  };
 }

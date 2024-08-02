@@ -23,7 +23,7 @@ export default {
         'Apple Color Emoji',
         'Segoe UI Emoji',
         'Segoe UI Symbol',
-        'Noto Color Emoji'
+        'Noto Color Emoji',
       ],
       sans: [
         'Montserrat',
@@ -40,9 +40,9 @@ export default {
         'Apple Color Emoji',
         'Segoe UI Emoji',
         'Segoe UI Symbol',
-        'Noto Color Emoji'
-      ]
-    }
+        'Noto Color Emoji',
+      ],
+    },
   },
 
   variants: {},

@@ -12,17 +12,17 @@ export default defineConfig(({ mode }) => ({
       // Proxy all requests starting with /api to the go server
       '/api': {
         target: 'http://localhost:8080',
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
   test: {
     include: ['src/**/*.test.{js,ts}'],
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['src/setupTests.ts']
+    setupFiles: ['src/setupTests.ts'],
   },
   resolve: {
-    conditions: mode === 'test' ? ['browser'] : []
-  }
+    conditions: mode === 'test' ? ['browser'] : [],
+  },
 }));

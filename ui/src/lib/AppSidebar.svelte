@@ -4,7 +4,14 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  import { Sidebar, SidebarDropdownItem, SidebarDropdownWrapper, SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte';
+  import {
+    Sidebar,
+    SidebarDropdownItem,
+    SidebarDropdownWrapper,
+    SidebarGroup,
+    SidebarItem,
+    SidebarWrapper,
+  } from 'flowbite-svelte';
   import { routes } from '$lib/data';
 
   export let sidebarHidden: boolean = false;
@@ -20,11 +27,13 @@
 
 <Sidebar
   class={sidebarHidden ? 'hidden' : ''}
-  activeUrl={activeUrl}
+  {activeUrl}
   activeClass="bg-gray-100 dark:bg-gray-700"
   asideClass="fixed inset-0 z-30 flex-none h-full w-64 lg:h-auto border-e border-gray-200 dark:border-gray-600 lg:overflow-y-visible lg:pt-16 lg:block"
 >
-  <SidebarWrapper divClass="overflow-y-auto px-3 pt-20 lg:pt-5 h-full bg-white scrolling-touch max-w-2xs lg:h-[calc(100vh-4rem)] lg:block dark:bg-gray-800 lg:me-0 lg:sticky top-2">
+  <SidebarWrapper
+    divClass="overflow-y-auto px-3 pt-20 lg:pt-5 h-full bg-white scrolling-touch max-w-2xs lg:h-[calc(100vh-4rem)] lg:block dark:bg-gray-800 lg:me-0 lg:sticky top-2"
+  >
     <SidebarGroup ulClass={groupClass}>
       {#each routes as route}
         {#if route.children}
@@ -34,7 +43,8 @@
             </svelte:fragment>
 
             {#each route.children as child}
-              <SidebarDropdownItem class={itemClass} label={child.name} href={route.path + child.path}></SidebarDropdownItem>
+              <SidebarDropdownItem class={itemClass} label={child.name} href={route.path + child.path}
+              ></SidebarDropdownItem>
             {/each}
           </SidebarDropdownWrapper>
         {:else}

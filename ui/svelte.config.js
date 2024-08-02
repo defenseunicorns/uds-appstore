@@ -16,7 +16,7 @@ export default {
       pages: 'build',
       assets: 'build',
       fallback: 'index.html',
-      strict: true
-    })
+      strict: true,
+    }),
   },
 };
