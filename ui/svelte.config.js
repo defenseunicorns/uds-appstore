@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
@@ -19,12 +19,4 @@ const config = {
 			strict: true
 		})
 	},
-	alias: {
-		$components: './src/lib/components',
-		$features: './src/lib/features',
-		$navigation: './src/lib/features/navigation',
-		$server: './src/lib/server'
-	}
 };
-
-export default config;

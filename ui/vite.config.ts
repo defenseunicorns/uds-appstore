@@ -3,9 +3,10 @@
 
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
+import { purgeCss } from 'vite-plugin-tailwind-purgecss';
 
 export default defineConfig(({ mode }) => ({
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), purgeCss()],
 	server: {
 		proxy: {
 			// Proxy all requests starting with /api to the go server

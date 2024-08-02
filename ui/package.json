@@ -12,8 +12,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest",
-		"preinstall": "npx only-allow pnpm"
+		"test:unit": "vitest"
 	},
 	"devDependencies": {
 		"@kubernetes/client-node": "1.0.0-rc6",
@@ -32,6 +31,7 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.43.0",
 		"flowbite": "2.4.1",
+		"flowbite-svelte": "^0.46.15",
 		"globals": "15.8.0",
 		"jsdom": "24.1.1",
 		"prettier": "3.3.3",
@@ -46,6 +46,7 @@
 		"typescript-eslint": "8.0.0-alpha.52",
 		"uds-core-types": "defenseunicorns/uds-core#1f2005b",
 		"vite": "5.3.4",
+		"vite-plugin-tailwind-purgecss": "^0.3.3",
 		"vitest": "2.0.4"
 	},
 	"type": "module"

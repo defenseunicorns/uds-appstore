@@ -1,35 +1,23 @@
 <script lang="ts">
-	import 'flowbite';
-	import { initFlowbite } from 'flowbite';
-	import 'flowbite/dist/flowbite.css';
-	import { onMount } from 'svelte';
+	import '../app.css';
 
-	import { afterNavigate } from '$app/navigation';
+	import AppNavbar from '$lib/AppNavbar.svelte';
+	import AppSidebar from '$lib/AppSidebar.svelte';
 
-	import { Breadcrumb, isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
-	import '../app.postcss';
-
-	onMount(() => {
-		initFlowbite();
-	});
-	afterNavigate(initFlowbite);
+	let sidebarHidden: boolean = false;
 </script>
 
-<Navbar />
 
-<Sidebar />
-<svelte:head>
-	<title>UDS Marketplace</title>
-</svelte:head>
-<main
-	class="flex h-screen flex-col pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white {$isSidebarExpanded
-		? 'md:ml-64'
-		: 'md:ml-16'}"
+<header
+	class="fixed top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800"
 >
-	<div class="p-5">
-		<Breadcrumb />
-	</div>
-	<div class="flex-grow overflow-hidden p-4 pt-0">
+	<AppNavbar bind:sidebarHidden />
+</header>
+
+<main class="overflow-hidden lg:flex">
+	<AppSidebar bind:sidebarHidden />
+
+	<div class="relative h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
 		<slot />
 	</div>
 </main>
