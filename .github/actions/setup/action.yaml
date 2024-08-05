@@ -1,0 +1,28 @@
+name: Setup Environment
+description: Environment Setup
+
+runs:
+  using: composite
+  steps:
+    - name: Install Go
+      uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+      with:
+        go-version: 1.21.x
+
+    - name: Setup Node.js
+      uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+      with:
+        node-version: 21.1.0
+
+    - name: Set up Homebrew
+      uses: Homebrew/actions/setup-homebrew@584b164680f7635c2bb88e26a56dde79146ca66d # master
+
+    - name: Install UDS CLI
+      shell: bash
+      run: |
+        brew tap defenseunicorns/tap
+        brew install uds@0.12.0
+
+    - name: Install k3d
+      shell: bash
+      run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.6.3 bash

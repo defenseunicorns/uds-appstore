@@ -1,0 +1,9 @@
+includes:
+  - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
+
+tasks:
+  - name: build-ui
+    description: "build ui"
+    actions:
+      - cmd: npx pnpm i && npm run build
+        dir: ui

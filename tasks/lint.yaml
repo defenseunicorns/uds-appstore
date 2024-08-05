@@ -1,0 +1,21 @@
+includes:
+  - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/lint.yaml
+  - setup: ./setup.yaml
+
+tasks:
+  - name: all
+    description: "Run all linters"
+    actions:
+      - task: ui
+
+  - name: ui
+    description: "Run ui linters"
+    actions:
+      - cmd: npx pnpm i && npm run lint
+        dir: ui
+
+  - name: format-ui
+    description: "Format ui code"
+    actions:
+      - cmd: npx pnpm i && npm run format -- --write
+        dir: ui

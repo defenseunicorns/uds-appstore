@@ -1,0 +1,14 @@
+includes:
+  - setup: ./setup.yaml
+
+tasks:
+  - name: ui-unit
+    description: "run frontend unit tests"
+    actions:
+      - cmd: npx pnpm i && npm run test:unit
+        dir: ui
+  - name: ui-e2e
+    description: "run frontend e2e tests"
+    actions:
+      - cmd: npx pnpm i && npm run test:integration
+        dir: ui

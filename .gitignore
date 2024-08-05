@@ -1,0 +1,30 @@
+
+# Output
+.output
+.vercel
+/ui/.svelte-kit
+/ui/build
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# # Playwright/ Vitest
+/ui/test-results
+
+# Dev
+zarf-sbom
+tmp/
+*.tar.zst
+.tool-versions
