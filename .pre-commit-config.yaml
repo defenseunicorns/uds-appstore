@@ -19,16 +19,16 @@ repos:
     hooks:
       - id: fix-smartquotes
 
-  # ### Golang ###
-  # - repo: https://github.com/dnephin/pre-commit-golang
-  #   rev: v0.5.1
-  #   hooks:
-  #     - id: go-imports
-  # - repo: https://github.com/golangci/golangci-lint
-  #   rev: v1.59.1
-  #   hooks:
-  #     - id: golangci-lint-full
-  #       args: [--timeout=5m]
+  ### Golang ###
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+      - id: go-imports
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v1.59.1
+    hooks:
+      - id: golangci-lint-full
+        args: [--timeout=5m]
   # - repo: local
   #   hooks:
   #     - id: check-docs-and-schema
