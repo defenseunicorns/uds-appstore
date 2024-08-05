@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: uds-runtime
+  name: uds-marketplace
   namespace: {{ .Release.Namespace }}
 spec:
   selector:
-    app: uds-runtime
+    app: uds-marketplace
   ports:
     - protocol: TCP
       port: 8080

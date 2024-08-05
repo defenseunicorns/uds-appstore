@@ -13,9 +13,9 @@ spec:
       labels:
         app: uds-runtime
     spec:
-      serviceAccountName: uds-runtime-sa
+      serviceAccountName: uds-marketplace-sa
       containers:
-        - name: uds-runtime
+        - name: uds-marketplace
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

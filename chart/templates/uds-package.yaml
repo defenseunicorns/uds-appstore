@@ -1,20 +1,20 @@
 apiVersion: uds.dev/v1alpha1
 kind: Package
 metadata:
-  name: uds-runtime
+  name: uds-marketplace
   namespace: {{ .Release.Namespace }}
 spec:
   network:
     expose:
-      - service: uds-runtime
+      - service: uds-marketplace
         selector:
-          app: uds-runtime
-        host: runtime
+          app: uds-marketplace
+        host: marketplace
         gateway: admin
         port: 8080
         targetPort: 8080
     allow:
       - direction: Egress
         selector:
-          app: uds-runtime
+          app: uds-marketplace
         remoteGenerated: KubeAPI
