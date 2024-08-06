@@ -28,3 +28,4 @@ zarf-sbom
 tmp/
 *.tar.zst
 .tool-versions
+venv
