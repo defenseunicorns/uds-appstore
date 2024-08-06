@@ -31,3 +31,4 @@ tmp/
 .tool-versions
 venv
 .vscode
+.venv

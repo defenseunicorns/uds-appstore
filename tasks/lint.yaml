@@ -7,7 +7,21 @@ tasks:
   - name: all
     description: "Run all linters"
     actions:
+      - task: yaml
+      - task: golangci
       - task: ui
+
+  - name: golangci
+    description: "Run golang linters"
+    actions:
+      - cmd: which golangci-lint || echo "install golangci-lint -- https://golangci-lint.run/welcome/install/#local-installation" exit 1
+      - cmd: golangci-lint run --timeout 5m0s
+
+  - name: yaml
+    description: "Run yaml linters"
+    actions:
+      - task: common:deps
+      - task: common:yaml
 
   - name: ui
     description: "Run ui linters"

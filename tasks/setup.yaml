@@ -53,6 +53,13 @@ tasks:
       - cmd: git clone https://github.com/defenseunicorns/uds-core.git
         dir: .github/
 
+  - name: yamllint
+    description: "Install yamllint using venv"
+    actions:
+      - cmd: python3 -m venv .venv
+      - cmd: source .venv/bin/activate
+      - cmd: pip install yamllint
+
   - name: metrics-server
     description: "Create and deploy metrics server from cloned core"
     actions:
