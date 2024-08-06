@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: defenseunicorns/uds-marketplace
+  repository: ghcr.io/defenseunicorns/uds-marketplace
   # x-release-please-start-version
   tag: 0.0.0
   # x-release-please-end

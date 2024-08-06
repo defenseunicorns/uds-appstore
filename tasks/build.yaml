@@ -14,8 +14,7 @@ tasks:
     actions:
       - task: push-container
       - task: build-zarf-packages
-      # TODO: uncomment this once we want to publish public packages
-      # - task: publish-zarf-packages
+      - task: publish-zarf-packages
 
   - name: build-all
     description: "build container and push to GHCR (multi-arch)"
@@ -27,14 +26,14 @@ tasks:
     actions:
       - task: build-all
       - cmd: |
-          docker buildx build --platform linux/amd64,linux/arm64 -t defenseunicorns/uds-marketplace:${REF} --push .
+          docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
 
   - name: push-container-local
     description: "build container and push to local docker registry (TODO: remove this once registry supports multi-arch)"
     actions:
       - task: build-all
       - cmd: |
-          docker build -t defenseunicorns/uds-marketplace:${REF} .
+          docker build -t ghcr.io/defenseunicorns/uds-marketplace:${REF} .
 
   - name: build-local
     description: "build the uds marketplace zarf package locally"

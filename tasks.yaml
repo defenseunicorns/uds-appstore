@@ -30,23 +30,9 @@ tasks:
     actions:
       - task: build:build-all
 
-  - name: deploy-local
-    description: "deploy the uds marketplace to a local cluster"
-    actions:
-      - task: build:build-local
-      - cmd: uds zarf package deploy zarf-package-uds-marketplace-*-0.0.0.tar.zst --confirm
-        dir: build
-
-  - name: connect
-    description: "forward the port to the uds marketplace cluster"
-    actions:
-      - cmd: kubectl -n uds-marketplace port-forward $(kubectl -n uds-marketplace get pods -o jsonpath='{.items[0].metadata.name}') 8080:8080
-
   - name: clean
     description: "clean the build directories"
     actions:
       - cmd: rm -rf build
       - cmd: rm -rf build
         dir: ui
-      - cmd: rm -rf uds-core
-        dir: .github

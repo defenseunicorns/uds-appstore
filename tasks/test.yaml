@@ -3,11 +3,17 @@ includes:
   - setup: ./setup.yaml
 
 tasks:
+  - name: go
+    description: "run api server unit tests"
+    actions:
+      - cmd: go test -failfast -v -timeout 30m ./...
+
   - name: ui-unit
     description: "run frontend unit tests"
     actions:
       - cmd: npx pnpm i && npm run test:unit
         dir: ui
+
   - name: ui-e2e
     description: "run frontend e2e tests"
     actions:
