@@ -8,9 +8,9 @@ ARG TARGETARCH
 USER 65532:65532
 
 # copy binary from local and expose port
-COPY --chown=65532:65532 build/uds-runtime-${TARGETARCH} /app/uds-runtime
+COPY --chown=65532:65532 build/uds-marketplace-${TARGETARCH} /app/uds-marketplace
 ENV PORT=8080
 EXPOSE 8080
 
 # run binary
-CMD ["./app/uds-runtime"]
+CMD ["./app/uds-marketplace"]

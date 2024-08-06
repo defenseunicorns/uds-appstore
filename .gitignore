@@ -5,6 +5,7 @@
 /ui/.svelte-kit
 /ui/build
 /build
+.github/uds-core/
 
 # OS
 .DS_Store

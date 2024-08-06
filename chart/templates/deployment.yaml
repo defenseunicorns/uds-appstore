@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uds-runtime
+  name: uds-marketplace
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: uds-runtime
+      app: uds-marketplace
   template:
     metadata:
       labels:
-        app: uds-runtime
+        app: uds-marketplace
     spec:
       serviceAccountName: uds-marketplace-sa
       containers:
