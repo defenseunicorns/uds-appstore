@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/maru-runner/main/tasks.schema.json
 includes:
   - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/lint.yaml
   - setup: ./setup.yaml
@@ -19,3 +20,8 @@ tasks:
     actions:
       - cmd: npx pnpm i && npm run format -- --write
         dir: ui
+
+  - name: pre-commit
+    description: "Run pre-commit hooks"
+    actions:
+      - cmd: pre-commit run --all-files
