@@ -4,6 +4,7 @@
 - [UDS Marketplace Developer Guide](#uds-marketplace-developer-guide)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
+  - [Environment Setup](#environment-setup)
   - [Development](#development)
     - [Starting the API Server](#starting-the-api-server)
     - [Starting the UI Dev Server](#starting-the-ui-dev-server)
@@ -23,7 +24,8 @@ Ensure you have the following tools installed:
 - [Homebrew](https://brew.sh/)
 - [UDS CLI](https://github.com/defenseunicorns/uds-cli)
 
-Install UDS CLI:```bash
+Install UDS CLI:
+```bash
 brew tap defenseunicorns/tap
 brew install uds
 ```

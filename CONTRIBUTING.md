@@ -15,6 +15,7 @@ If you are looking to contribute a new package, please refer to the UDS Marketpl
   - [Submitting a Pull Request](#submitting-a-pull-request)
     - [PR Requirements](#pr-requirements)
   - [Contact](#contact)
+  - [Development](#development)
 
 ## Developer Experience
 
@@ -56,3 +57,7 @@ We apply these general principles to all User Stories and activities contributin
 ## Contact
 
 For any questions or concerns, please open an issue on GitHub or contact the maintainers.
+
+## Development
+
+see [developer.md](developer.md)
