@@ -23,6 +23,10 @@ jobs:
       - name: Install golangci-lint
         run: uds run setup:golangci --no-progress
 
+      # api and ui tidy and install deps
+      - name: install deps
+        run: uds run setup:deps --no-progress
+
       # build ui so ui/build exists when pre-commit runs
       - name: build-ui
         run: uds run build:build-ui --no-progress
