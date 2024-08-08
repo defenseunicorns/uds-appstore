@@ -25,7 +25,7 @@ Integrating a Package fundamentally means:
 
 ### Licensing Considerations
 
-- Defense Unicorns uses Apache 2.0 licenses exclusively products, see the [Open Source Policy](https://github.com/defenseunicorns/uds-common/blob/main/docs/adrs/0002-apache-2.0-for-all-uds-products.md)
+- Defense Unicorns uses Apache 2.0 licensed products exclusively, see the [Open Source Policy](https://github.com/defenseunicorns/uds-common/blob/main/docs/adrs/0002-apache-2.0-for-all-uds-products.md).
 - This may exclude licenses like AGPLv3 or other copyleft licenses from being a valid choice for UDS integration.
 - In other casesVendors in the marketplace will carry forward their license and associated fees.
 
