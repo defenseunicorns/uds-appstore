@@ -60,6 +60,7 @@ tasks:
   - name: pre-commit
     description: "run all pre-commit hooks"
     actions:
+      - task: test:all
       - task: lint:pre-commit
 
   - name: clean
@@ -72,4 +73,4 @@ tasks:
   - name: connect-k3d
     description: "port forward the uds-marketplace service to :8080"
     actions:
-      - cmd:  uds zarf tools kubectl port-forward svc/uds-marketplace -n uds-marketplace 8080:8080
+      - cmd: uds zarf tools kubectl port-forward svc/uds-marketplace -n uds-marketplace 8080:8080
