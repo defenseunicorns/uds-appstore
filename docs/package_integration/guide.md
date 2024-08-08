@@ -38,7 +38,7 @@ Before beginning the integration process, familiarize yourself with the followin
 2. [Zarf Documentation](https://docs.zarf.dev): Zarf is a tool for declarative creation & distribution of software.
 3. [UDS Common Repository](https://github.com/defenseunicorns/uds-common): Contains information and best practices for UDS integration.
 4. [UDS Applications Tracker](https://coda.io/d/Product_dGmk3eNjmm8/Applications_sux6H#_luFRc): Lists many backlogged and completed applications for UDS integration.
-5. Briefly review [Pepr Documentation](https://docs.pepr.dev/) it may become useful when you begin integrating with UDS Core.
+5. Briefly review [Pepr Documentation](https://docs.pepr.dev/): it may become useful when you begin integrating with UDS Core.
 
 
 ## Integration Checklist
