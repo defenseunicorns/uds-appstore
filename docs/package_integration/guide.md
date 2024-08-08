@@ -13,7 +13,7 @@ This guide is intended for developers integrating applications with UDS (Unicorn
 Integrating a Package fundamentally means:
 1. Creating a repository `uds-package-<name>`
 2. Integrating the upstream deployment mechanism (helm, manifests, kustomize, etc...) as a zarf package `zarf.yaml` to build a declarative OCI artifact
-3. Adding a UDS package Custom Resrouce `uds-package.yaml` to integrate with UDS Core via Pepr
+3. Adding a UDS package Custom Resource `uds-package.yaml` to integrate with UDS Core via Pepr
 4. Build a 'zero CVE' package by replacing images with a `*-unicorn` flavored image
 
 
