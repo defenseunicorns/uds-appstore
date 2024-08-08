@@ -103,5 +103,4 @@ uds run k3d-dev-deploy
 ## Additional Notes
 
 - The project uses maru runner via `uds run <task>`. To view available top level tasks, run `uds run -t` or `uds run -T` for all tasks.
-- The project follows trunk-based development. Ensure your code is always in a releasable state when merging to the main branch.
-- For more detailed contribution guidelines, refer to the `CONTRIBUTING.md` file in the repository.
+- For more detailed contribution guidelines, refer to the [CONTRIBUTING.md](CONTRIBUTING.md).
