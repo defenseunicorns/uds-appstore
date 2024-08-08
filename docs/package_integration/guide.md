@@ -52,7 +52,7 @@ Your goal is to bundle the upstream deployment mechanism and images into a singl
 *reminder https://docs.zarf.dev*
 
 - [ ] Evaluate the application's deployment mechanism to determine the best Zarf package component (e.g., Helm, Kustomize, etc.).
-- [ ] The Command `uds zarf dev generate` may be useful to generate an initial zarf.yaml file for your application.
+- [ ] The Command `uds zarf dev generate` may be useful to generate an initial `zarf.yaml` file for your application.
 - [ ] Identify the application's images, the command `uds zarf dev find-images` may be useful.
 - [ ] The application may require additional configurations at build time or runtime, consider [Zarf Component Actions](https://docs.zarf.dev/ref/examples/component-actions/)
 
