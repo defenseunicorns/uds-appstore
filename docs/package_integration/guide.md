@@ -19,7 +19,7 @@ Integrating a Package fundamentally means:
 
 ## Prerequisites
 
-- UDS generally assumes applications are containerized and can be deployed via Kubernetes. (exceptions are possible, but rare and require additional work e.g. KubeVirt)
+- UDS generally assumes applications are containerized and can be deployed via Kubernetes. (exceptions are possible, but rare, and require additional work e.g. KubeVirt)
 - The integrator (you) should have access to the application image and deployment code.
 - The "App" should have a compatible license for UDS integration (Apache 2.0 or similar) [see Licensing Considerations](#licensing-considerations).
 
