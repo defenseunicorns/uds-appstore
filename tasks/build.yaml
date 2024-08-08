@@ -10,6 +10,27 @@ variables:
     # x-release-please-end
 
 tasks:
+  - name: all
+    description: "build the go api server (multi-arch)"
+    actions:
+      - task: setup:deps
+      - task: build-ui
+      - task: build-api-linux-amd64
+      - task: build-api-linux-arm64
+
+  - name: all-dev
+    description: "build the go api server (local arch) and ui"
+    actions:
+      - task: setup:deps
+      - task: build-ui
+      - task: build-api-local
+
+  - name: build-ui
+    description: "build ui (requires setup:deps to be run first)"
+    actions:
+      - cmd: npm run build
+        dir: ui
+
   - name: publish-uds-marketplace
     description: "publish the uds marketplace including its image and Zarf pkg (multi-arch)"
     actions:
@@ -17,30 +38,45 @@ tasks:
       - task: build-zarf-packages
       - task: publish-zarf-packages
 
-  - name: build-all
-    description: "build container and push to GHCR (multi-arch)"
-    actions:
-      - task: setup:build
-
   - name: push-container
     description: "build container and push to GHCR (multi-arch)"
     actions:
-      - task: build-all
+      - task: all
       - cmd: |
           docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
 
-  - name: push-container-local
-    description: "build container and push to local docker registry (TODO: remove this once registry supports multi-arch)"
+  - name: push-container-dev
+    description: "build container and push to local docker registry (works with mac docker desktop)"
     actions:
-      - task: build-all
+      - task: all
       - cmd: |
           docker build -t ghcr.io/defenseunicorns/uds-marketplace:${REF} .
 
-  - name: build-local
+  - name: build-api-local
+    description: "build the go api server for the local platform"
+    actions:
+      - cmd: |
+          GOOS=$(go env GOOS)
+          GOARCH=$(go env GOARCH)
+          echo "Building for $GOOS/$GOARCH"
+          CGO_ENABLED=0 go build -o build/uds-marketplace-$GOOS-$GOARCH .
+
+  - name: build-zarf-package-local
     description: "build the uds marketplace zarf package locally"
     actions:
-      - task: push-container-local
+      - task: all
+      - task: push-container-dev
       - cmd: uds zarf p create --confirm -o build/
+
+  - name: build-api-linux-amd64
+    description: "build the go api server for linux amd64 (used for multi-arch container)"
+    actions:
+      - cmd: CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o build/uds-marketplace-amd64 .
+
+  - name: build-api-linux-arm64
+    description: "build the go api server for linux arm64 (used for multi-arch container)"
+    actions:
+      - cmd: CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build -o build/uds-marketplace-arm64 .
 
   - name: build-zarf-packages
     description: "build the uds marketplace zarf packages (multi-arch)"

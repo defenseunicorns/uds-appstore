@@ -13,22 +13,54 @@ variables:
     # x-release-please-end
 
 tasks:
+  - name: dev
+    description: "run the api server with built ui and hot-reloading"
+    actions:
+      - task: setup:deps
+      - task: dev-server
+
+  - name: dev-api
+    description: "run the api server in dev mode"
+    actions:
+      - cmd: air -c .air.toml
+
   - name: dev-ui
     description: "run the ui in dev mode"
     actions:
-      - cmd: npx pnpm i && npm run dev
+      - task: setup:deps
+      - cmd: npm run dev
         dir: ui
 
   - name: dev-server
-    description: "run the api server in dev mode (requires air https://github.com/air-verse/air?tab=readme-ov-file#installation)"
+    description: "run the api server in dev mode with ui hot-reloading"
     actions:
-      - cmd: go install github.com/air-verse/air@latest
-      - cmd: air -c .air.toml
+      - task: setup:deps
+      - cmd: air -c .air.toml -build.cmd="cd ui && npm run build && cd .. && go build -o ./build/uds-marketplace main.go"
 
   - name: compile
     description: "compile the api server and ui outputting to build/"
     actions:
-      - task: build:build-all
+      - task: build:all
+
+  - name: k3d-dev-deploy
+    description: "deploy marketplace to uds slim k3d cluster (requires k3d)"
+    actions:
+      - task: clean
+      - cmd: k3d cluster delete uds
+      - task: build:build-zarf-package-local
+      - task: setup:slim-cluster
+      - cmd: uds zarf p deploy --confirm build/zarf-package-uds-marketplace-*-${REF}.tar.zst
+      - task: connect-k3d
+
+  - name: tests
+    description: "run all tests"
+    actions:
+      - task: test:all
+
+  - name: pre-commit
+    description: "run all pre-commit hooks"
+    actions:
+      - task: lint:pre-commit
 
   - name: clean
     description: "clean the build directories"
@@ -36,3 +68,8 @@ tasks:
       - cmd: rm -rf build
       - cmd: rm -rf build
         dir: ui
+
+  - name: connect-k3d
+    description: "port forward the uds-marketplace service to :8080"
+    actions:
+      - cmd:  uds zarf tools kubectl port-forward svc/uds-marketplace -n uds-marketplace 8080:8080

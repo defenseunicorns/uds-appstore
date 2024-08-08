@@ -22,6 +22,7 @@ tasks:
     actions:
       - task: common:deps
       - task: common:yaml
+      - cmd: deactivate
 
   - name: ui
     description: "Run ui linters"
