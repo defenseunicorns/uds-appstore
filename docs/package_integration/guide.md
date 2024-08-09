@@ -12,7 +12,7 @@ This guide is intended for developers integrating applications with UDS (Unicorn
 
 Integrating a Package fundamentally means:
 1. Creating a repository `uds-package-<name>`
-2. Integrating the upstream deployment mechanism (helm, manifests, kustomize, etc...) as a zarf package `zarf.yaml` to build a declarative OCI artifact
+2. Integrating the upstream helm chart as a zarf package `zarf.yaml` to build a declarative OCI artifact
 3. Adding a UDS package Custom Resource `uds-package.yaml` to integrate with UDS Core via Pepr
 4. Build a 'zero CVE' package by replacing images with a `*-unicorn` flavored image
 
@@ -26,8 +26,8 @@ Integrating a Package fundamentally means:
 ### Licensing Considerations
 
 - Defense Unicorns uses Apache 2.0 licensed products exclusively, see the [Open Source Policy](https://github.com/defenseunicorns/uds-common/blob/main/docs/adrs/0002-apache-2.0-for-all-uds-products.md).
-- This may exclude licenses like AGPLv3 or other copyleft licenses from being a valid choice for UDS integration.
-- In other casesVendors in the marketplace will carry forward their license and associated fees.
+- Vendors in the marketplace will carry forward their license and associated fees.
+- When in doubt, ask in the #product-support channel in Slack. Legal and Business considerations are being evaluated.
 
 
 ## Getting Started
@@ -47,14 +47,15 @@ When integrating an application with UDS, consider the following requirements an
 
 ### Step 1 - Zarf Package
 
-Your goal is to bundle the upstream deployment mechanism and images into a single Zarf package, defined in a `zarf.yaml`
+Your goal is to bundle the upstream helm chart and images into a single Zarf package, defined in a `zarf.yaml`
 
 *reminder https://docs.zarf.dev*
 
-- [ ] Evaluate the application's deployment mechanism to determine the best Zarf package component (e.g., Helm, Kustomize, etc.).
+- [ ] Understand zarf's [helm chart component](https://docs.zarf.dev/ref/components/#helm-charts)
 - [ ] The Command `uds zarf dev generate` may be useful to generate an initial `zarf.yaml` file for your application.
 - [ ] Identify the application's images, the command `uds zarf dev find-images` may be useful.
 - [ ] The application may require additional configurations at build time or runtime, consider [Zarf Component Actions](https://docs.zarf.dev/ref/examples/component-actions/)
+- [ ] Start to monitor for the application reaching out to the internet, for example [sonarqube](https://github.com/defenseunicorns/uds-package-sonarqube/tree/main/src/monitoring-image). In Step 2, you can add rules to block or redirect these requests - depending on the situation.
 
 #### Checkout
 Your repository has a `zarf.yaml`, you can build a single artifact with `uds zarf package create`, and deploy it to a [k3d-core-dev-slim cluster](https://github.com/defenseunicorns/uds-core?tab=readme-ov-file#uds-package-development) using `uds zarf package deploy`
@@ -65,49 +66,10 @@ Your goal is to integrate the Zarf package application with [UDS Core](https://g
 
 - [ ] If you haven't already, read the docs on [UDS Operator](https://uds.defenseunicorns.com/core/configuration/uds-operator/)
 
-
-#### Istio (Networking)
-- [ ] Define external interfaces under the `expose` key.
-- [ ] Ensure successful deployment with Istio injection enabled.
-- [ ] Avoid workarounds like disabling strict mTLS peer authentication.
-
-#### Network Policies
-- [ ] Define required network policies under the `allow` key.
-- [ ] Minimize network policies to specific selectors for Ingress/Egress traffic.
-- [ ] Consider templating network policy keys for flexibility.
-
-### Keycloak (SSO Integration)
-- [ ] Use the `sso` key to create a Keycloak client for end-user login.
-- [ ] Implement secure defaults (e.g., SAML w/SCIM vs OIDC).
-- [ ] Follow naming conventions for clients and client IDs.
-
-### Prometheus
-- [ ] Implement monitors for each application metrics endpoint.
-
-### Exemptions
-- [ ] Minimize scope and number of exemptions.
-- [ ] Document rationale for any exemptions.
-
-### Structure
-- [ ] Expose configuration through a Helm chart.
-- [ ] Limit use of Zarf variable templates.
-- [ ] Implement multiple flavors when possible.
-
-### Testing
-- [ ] Implement Journey Testing for basic user flows.
-- [ ] Implement Upgrade Testing.
-- [ ] Lint configurations with appropriate tools.
-
-### Maintenance
-- [ ] Configure a dependency management bot.
-- [ ] Release packages to the appropriate namespace.
-
-### General
-- [ ] Ensure capability to operate in an air-gapped environment.
-- [ ] Have a resourced team explicitly defined for maintenance.
+- [ ] [UDS Package Practices](https://github.com/defenseunicorns/uds-common/blob/main/docs/uds-package-practices.md) provides an extensive list of best practices, considerations, and tasks to for package
 
 #### Checkout
-Your repository has a `uds-package.yaml` manifest added to your `zarf.yaml` and you can deploy to a K3d Core Dev Slim cluster.
+Your repository has a `uds-package.yaml` manifest added to the appropriate helm chart and you can deploy to a K3d Core Dev Slim cluster, via zarf package.
 
 ## Examples
 
