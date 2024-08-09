@@ -3,14 +3,15 @@ module github.com/defenseunicorns/uds-marketplace
 go 1.22.5
 
 require (
+	github.com/alecthomas/jsonschema v0.0.0-20220216202328-9eeeec9d044b
+	github.com/defenseunicorns/uds-cli v0.14.0
 	github.com/go-chi/chi/v5 v5.1.0
 	github.com/zarf-dev/zarf v0.37.0
 )
 
 require (
-	github.com/alecthomas/jsonschema v0.0.0-20220216202328-9eeeec9d044b // indirect
-	github.com/defenseunicorns/uds-cli v0.14.0 // indirect
 	github.com/iancoleman/orderedmap v0.0.0-20190318233801-ac98e3ecb4b0 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	k8s.io/apimachinery v0.30.3 // indirect
 	k8s.io/utils v0.0.0-20231127182322-b307cd553661 // indirect
 )
@@ -26,7 +27,6 @@ require (
 	github.com/fatih/color v1.17.0 // indirect
 	github.com/gookit/color v1.5.4 // indirect
 	github.com/invopop/jsonschema v0.12.0 // indirect
-	github.com/kr/pretty v0.3.1 // indirect
 	github.com/lithammer/fuzzysearch v1.1.8 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
