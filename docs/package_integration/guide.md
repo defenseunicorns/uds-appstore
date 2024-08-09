@@ -55,7 +55,7 @@ Your goal is to bundle the upstream helm chart and images into a single Zarf pac
 - [ ] The Command `uds zarf dev generate` may be useful to generate an initial `zarf.yaml` file for your application.
 - [ ] Identify the application's images, the command `uds zarf dev find-images` may be useful.
 - [ ] The application may require additional configurations at build time or runtime, consider [Zarf Component Actions](https://docs.zarf.dev/ref/examples/component-actions/)
-- [ ] Start to monitor for the application reaching out to the internet, for example [sonarqube](https://github.com/defenseunicorns/uds-package-sonarqube/tree/main/src/monitoring-image). In Step 2, you can add rules to block or redirect these requests - depending on the situation.
+- [ ] Start to monitor for the application reaching out to the internet For example [sonarqube](https://github.com/defenseunicorns/uds-package-sonarqube/tree/main/src/monitoring-image) Sonarqube tries to download a jar file from Maven central to enable monitoring with Prometheus (it is not baked into their images) - this custom image takes a Chainguard busybox base, adds the correct jar file, and creates a simple script that calls itself "curl" that doesn't curl and instead copies the Jar file it already has to make that piece work in the Air Gap. Its basically a shim around the way the upstream chart works.
 
 #### Checkout
 Your repository has a `zarf.yaml`, you can build a single artifact with `uds zarf package create`, and deploy it to a [k3d-core-dev-slim cluster](https://github.com/defenseunicorns/uds-core?tab=readme-ov-file#uds-package-development) using `uds zarf package deploy`
@@ -76,6 +76,7 @@ Your repository has a `uds-package.yaml` manifest added to the appropriate helm 
 For reference, consider these well-maintained UDS package examples:
 - [UDS Package GitLab](https://github.com/defenseunicorns/uds-package-gitlab) (More complex example)
 - [UDS Package Mattermost](https://github.com/defenseunicorns/uds-package-mattermost) (Simpler example)
+- [UDS Common NGINX _coming soon_](https://github.com/defenseunicorns/uds-common/pull/191)
 
 ## Conclusion
 
