@@ -45,7 +45,7 @@ tasks:
       - cmd: |
           docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
 
-  - name: push-container-dev
+  - name: build-container-dev
     description: "build container and push to local docker registry (works with mac docker desktop)"
     actions:
       - task: all
@@ -65,7 +65,7 @@ tasks:
     description: "build the uds marketplace zarf package locally"
     actions:
       - task: all
-      - task: push-container-dev
+      - task: build-container-dev
       - cmd: uds zarf p create --confirm -o build/
 
   - name: build-api-linux-amd64

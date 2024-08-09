@@ -3,32 +3,6 @@ includes:
   - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
 
 tasks:
-  - name: slim-cluster
-    description: "Create a k3d cluster and deploy core slim dev with metrics server"
-    actions:
-      - task: common:k3d-test-cluster
-      - task: clone-core
-      - task: metrics-server
-
-  - name: simple-cluster
-    description: "Create a k3d cluster, no core"
-    actions:
-      - cmd: uds zarf package deploy oci://ghcr.io/defenseunicorns/packages/uds-k3d:0.7.0 --confirm --no-progress
-
-  - name: clone-core
-    description: "Clone uds-core for custom slim dev setup"
-    actions:
-      - cmd: rm -r uds-core || true
-        dir: .github/
-      - cmd: git clone https://github.com/defenseunicorns/uds-core.git
-        dir: .github/
-
-  - name: metrics-server
-    description: "Create and deploy metrics server from cloned core"
-    actions:
-      - cmd: uds zarf package create .github/uds-core/src/metrics-server --confirm --flavor upstream -o build/
-      - cmd: uds zarf package deploy build/zarf-package-uds-core-metrics-server*.tar.zst --confirm
-
   - name: install-tools
     description: "Install all tools"
     actions:
@@ -43,7 +17,7 @@ tasks:
       - cmd: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.59.1
 
   - name: air
-    description: "Install air to GOPATH using install.sh"
+    description: "Install air to GOPATH using go install"
     actions:
       - cmd: go install github.com/air-verse/air@latest
 
@@ -51,7 +25,6 @@ tasks:
     description: "Install pnpm with npm"
     actions:
       - cmd: npm install -g pnpm
-
 
   - name: yamllint
     description: "Install yamllint using venv"
@@ -65,14 +38,11 @@ tasks:
     actions:
       - cmd: brew install pre-commit
 
-  - name: uds-cli
-    description: "Install uds-cli using homebrew"
-    actions:
-      - cmd: brew tap defenseunicorns/tap && brew install uds
-
   - name: deps
     description: "lock and tidy dependencies"
     actions:
       - cmd: npx pnpm i
+        dir: ui
+      - cmd: npx playwright install
         dir: ui
       - cmd: go mod tidy

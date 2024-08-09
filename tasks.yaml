@@ -4,12 +4,14 @@ includes:
   - lint: tasks/lint.yaml
   - setup: tasks/setup.yaml
   - build: tasks/build.yaml
+  - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
+
 
 variables:
   - name: REF
     description: "reference for the marketplace image and zarf package"
     # x-release-please-start-version
-    default: 0.0.0
+    default: 0.0.1
     # x-release-please-end
 
 tasks:
@@ -48,7 +50,7 @@ tasks:
       - task: clean
       - cmd: k3d cluster delete uds
       - task: build:build-zarf-package-local
-      - task: setup:slim-cluster
+      - task: common:k3d-test-cluster
       - cmd: uds zarf p deploy --confirm build/zarf-package-uds-marketplace-*-${REF}.tar.zst
       - task: connect-k3d
 
@@ -66,7 +68,6 @@ tasks:
   - name: clean
     description: "clean the build directories"
     actions:
-      - cmd: rm -rf build
       - cmd: rm -rf build
         dir: ui
 

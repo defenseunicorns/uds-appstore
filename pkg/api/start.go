@@ -21,7 +21,7 @@ import (
 )
 
 // @title UDS Marketplace API
-// @version 0.0.0
+// @version 0.0.1
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 // @BasePath /api/v1

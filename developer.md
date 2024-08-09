@@ -1,6 +1,7 @@
 # UDS Marketplace Developer Guide
 
 ## Table of Contents
+
 - [UDS Marketplace Developer Guide](#uds-marketplace-developer-guide)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
@@ -18,6 +19,7 @@
 ## Prerequisites
 
 Ensure you have the following tools installed:
+
 - [Go](https://go.dev/dl/)
 - [Node.js](https://nodejs.org/en)
 - [Docker](https://www.docker.com/products/docker-desktop/)
@@ -25,6 +27,7 @@ Ensure you have the following tools installed:
 - [UDS CLI](https://github.com/defenseunicorns/uds-cli)
 
 Install UDS CLI:
+
 ```bash
 brew tap defenseunicorns/tap
 brew install uds
@@ -33,12 +36,14 @@ brew install uds
 ## Environment Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/defenseunicorns/uds-marketplace.git
    cd uds-marketplace
    ```
 
 2. Install dependencies:
+
    ```bash
    uds run setup:deps
    ```
@@ -87,6 +92,7 @@ uds run tests
 ```bash
 uds run pre-commit
 ```
+
 > Note: may fix formatting and need `git add .` post pre-commit
 
 ## Deployment
@@ -99,8 +105,7 @@ To create a k3d cluster and deploy a slim version of UDS with metrics server and
 uds run k3d-dev-deploy
 ```
 
-
 ## Additional Notes
 
-- The project uses maru runner via `uds run <task>`. To view available top level tasks, run `uds run -t` or `uds run -T` for all tasks.
+- The project uses maru runner via `uds run <task>`. To view available top level tasks, run `uds run --list` or `uds run --list-all` for all tasks.
 - For more detailed contribution guidelines, refer to the [CONTRIBUTING.md](CONTRIBUTING.md).
