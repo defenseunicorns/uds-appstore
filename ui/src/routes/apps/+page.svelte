@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <div class="h-screen overflow-y-auto">
@@ -9,7 +12,7 @@
 				<img src="{base}/images/dougandserver.svg" alt="UDS Logo" class="h-auto w-full" />
 			</div>
 			<h1 class="mb-4 text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
-				UDS applications coming soon!
+				UDS applications ({data.apps.length}) coming soon!
 			</h1>
 		</div>
 	</div>

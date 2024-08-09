@@ -1,0 +1,24 @@
+kind: Application
+metadata:
+  name: gitlab
+spec:
+  repository: ghcr.io/defenseunicorns/packages/uds/gitlab
+  description: |
+    GitLab is the most comprehensive AI-powered DevSecOps Platform.
+  icons:
+    - src: "https://images.ctfassets.net/xz1dnu24egyd/1IRkfXmxo8VP2RAE5jiS1Q/ea2086675d87911b0ce2d34c354b3711/gitlab-logo-500.png"
+      type: "image/png"
+      size: "500x500"
+  keywords:
+    - gitlab
+    - source-control
+    - ci-cd
+  links:
+    - description: About
+      url: "https://about.gitlab.com/"
+    - description: Docs
+      url: "https://docs.gitlab.com/"
+    - description: UDS Package
+      url: "https://github.com/defenseunicorns/uds-package-gitlab"
+  versions: []
+  maintainers: []

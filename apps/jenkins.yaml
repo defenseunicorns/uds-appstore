@@ -1,0 +1,9 @@
+kind: Application
+metadata:
+  name: jenkins
+spec:
+  repository: ghcr.io/defenseunicorns/packages/uds/jenkins
+  links:
+    - description: UDS Package
+      url: "https://github.com/defenseunicorns/uds-package-jenkins"
+  versions: []

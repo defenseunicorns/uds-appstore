@@ -6,6 +6,7 @@
 /ui/build
 /build
 .github/uds-core/
+/ui/static/api
 
 # OS
 .DS_Store

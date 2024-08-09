@@ -1,0 +1,9 @@
+kind: Application
+metadata:
+  name: valkey
+spec:
+  repository: ghcr.io/defenseunicorns/packages/uds/valkey
+  links:
+    - description: UDS Package
+      url: "https://github.com/defenseunicorns/uds-package-valkey"
+  versions: []

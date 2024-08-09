@@ -14,7 +14,7 @@ type genTypes struct {
 	ZarfPackage v1alpha1.ZarfPackage
 }
 
-// go run main.go | npx quicktype -s schema -o ../ui/src/types.ts
+//go:generate sh -c "go run . | npx quicktype -s schema --just-types -o ../ui/src/types/gen.ts"
 func main() {
 	schema := jsonschema.Reflect(&genTypes{})
 	output, err := json.Marshal(schema)

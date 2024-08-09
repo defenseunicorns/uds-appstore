@@ -1,0 +1,9 @@
+kind: Application
+metadata:
+  name: postgres-operator
+spec:
+  repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
+  links:
+    - description: UDS Package
+      url: "https://github.com/defenseunicorns/uds-package-postgres-operator"
+  versions: []
