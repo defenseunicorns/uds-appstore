@@ -1,0 +1,10 @@
+apiVersion: v2
+name: uds-marketplace
+description: A Helm chart for Defense Unicorns Marketplace
+type: application
+version: 0.0.1
+
+
+# x-release-please-start-version
+appVersion: "0.0.1"
+# x-release-please-end

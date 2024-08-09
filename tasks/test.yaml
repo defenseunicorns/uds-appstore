@@ -1,15 +1,31 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/maru-runner/main/tasks.schema.json
-includes:
-  - setup: ./setup.yaml
-
 tasks:
+  - name: go
+    description: "run api server unit tests"
+    actions:
+      - cmd: go test -failfast -v -timeout 30m ./...
+
   - name: ui-unit
     description: "run frontend unit tests"
     actions:
-      - cmd: npx pnpm i && npm run test:unit
+      - cmd: npm run test:unit
         dir: ui
+
   - name: ui-e2e
     description: "run frontend e2e tests"
     actions:
       - cmd: npx pnpm i && npm run test:integration
         dir: ui
+
+  - name: ui-unit-watch
+    description: "run frontend unit tests in watch mode"
+    actions:
+      - cmd: npm run test:unit:watch
+        dir: ui
+
+  - name: all
+    description: "run all tests"
+    actions:
+      - task: go
+      - task: ui-unit
+      - task: ui-e2e
