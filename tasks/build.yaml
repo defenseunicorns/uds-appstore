@@ -28,6 +28,7 @@ tasks:
   - name: build-ui
     description: "build ui (requires setup:deps to be run first)"
     actions:
+      - task: generate
       - cmd: npm run build
         dir: ui
 
@@ -89,3 +90,8 @@ tasks:
     actions:
       - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-amd64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
       - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-arm64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
+
+  - name: generate
+    description: "Generate Catalog"
+    actions:
+      - cmd: ./hack/gen-data.sh

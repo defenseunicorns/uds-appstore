@@ -1,5 +1,5 @@
 # Generated Code
-src/types/gen.ts
+src/lib/types/gen.ts
 
 # Package Managers
 package-lock.json

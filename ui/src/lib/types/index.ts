@@ -1,18 +1,16 @@
 export * from './gen';
 
 export interface Application {
-	kind: 'Application';
-	meta: {
+	kind: string;
+	metadata: {
 		name: string;
 	};
 	spec: {
-		description: string;
 		repository: string;
-		links: {
+		links: Array<{
 			description: string;
 			url: string;
-		}[];
-		keywords: string[];
+		}>;
 		versions: string[];
 	};
 }
