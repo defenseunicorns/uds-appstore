@@ -10,6 +10,7 @@ tasks:
       - task: air
       - task: pnpm
       - task: pre-commit
+      - task: oras
 
   - name: golangci
     description: "Install golangci-lint to GOPATH using install.sh"
@@ -46,3 +47,8 @@ tasks:
       - cmd: npx playwright install
         dir: ui
       - cmd: go mod tidy
+
+  - name: oras
+    description: "Install oras cli"
+    actions:
+      - cmd: brew install oras

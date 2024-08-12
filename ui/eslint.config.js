@@ -28,6 +28,11 @@ export default [
 		}
 	},
 	{
-		ignores: ['build/', '.svelte-kit/', 'dist/']
+		ignores: [
+			'src/lib/types/gen.ts', // generated code
+			'build/',
+			'.svelte-kit/',
+			'dist/'
+		]
 	}
 ];

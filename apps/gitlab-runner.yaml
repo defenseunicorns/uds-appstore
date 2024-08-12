@@ -1,0 +1,13 @@
+kind: Application
+metadata:
+  name: gitlab-runner
+spec:
+  repository: ghcr.io/defenseunicorns/packages/uds/gitlab-runner
+  links:
+    - description: About
+      url: "https://about.gitlab.com/"
+    - description: Docs
+      url: "https://docs.gitlab.com/"
+    - description: UDS Package
+      url: "https://github.com/defenseunicorns/uds-package-gitlab-runner"
+  versions: []
