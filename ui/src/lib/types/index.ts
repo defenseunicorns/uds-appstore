@@ -4,6 +4,10 @@ export interface Application {
 	kind: string;
 	metadata: {
 		name: string;
+		vendor: {
+			name: string;
+			url: string;
+		};
 	};
 	spec: {
 		icons: Array<{
