@@ -6,7 +6,11 @@ import AppCard from './component.svelte';
 describe('AppCard', () => {
 	const mockApp: Application = {
 		metadata: {
-			name: 'Test App'
+			name: 'Test App',
+			vendor: {
+				name: 'Defense Unicorns',
+				url: 'https://defenseunicorns.com/contactus'
+			}
 		},
 		spec: {
 			description: 'This is a test description for the app.',

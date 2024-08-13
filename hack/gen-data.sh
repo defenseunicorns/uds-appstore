@@ -24,8 +24,6 @@ for file in apps/*.yaml; do
   digest=$(echo $manifest | $yq '.layers[] | select(.annotations["org.opencontainers.image.title"] == "zarf.yaml") | .digest')
   oras blob fetch --output - "$REPO@$digest" | $yq -o=json >"ui/static/api/packages/$PACKAGE.json"
 
-  # Add vendor information to the package JSON's metadata as well
-  $yq -i '.metadata.vendor = {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"}' "ui/static/api/packages/$PACKAGE.json"
 done
 
 $yq eval-all -o=json '. as $item ireduce ([]; . + $item)' ui/static/api/apps/*.json >"ui/static/api/apps/index.json"
