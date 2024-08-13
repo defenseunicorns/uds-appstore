@@ -49,5 +49,8 @@
 		"vite": "5.3.4",
 		"vitest": "2.0.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"flowbite-svelte": "^0.46.15"
+	}
 }
