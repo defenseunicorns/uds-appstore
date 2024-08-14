@@ -8,11 +8,10 @@
 
 	import { isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
 	import '../app.postcss';
-	import { applicationsStore } from '$lib/stores';
+	import { applicationStore } from '$lib/stores';
 
 	onMount(async () => {
-		initFlowbite();
-		await applicationsStore.fetchCatalog();
+		await applicationStore.fetchCatalog();
 	});
 	afterNavigate(initFlowbite);
 </script>

@@ -1,6 +1,6 @@
 import { type Application } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { applicationsStore } from './applicationstore';
+import * as applicationsStore from './applicationstore';
 
 describe('applicationsStore', () => {
 	const sampleApp: Application = {
@@ -88,6 +88,6 @@ describe('applicationsStore', () => {
 
 		await applicationsStore.fetchCatalog();
 		const error = applicationsStore.getError();
-		expect(error).toBe('Failed to fetch resource: Not Found');
+		expect(error).toBe('Failed to fetch applications: Not Found');
 	});
 });

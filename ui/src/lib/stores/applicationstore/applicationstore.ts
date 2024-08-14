@@ -17,10 +17,12 @@ const initialState = (): ApplicationStore => ({
 // Create a writable store
 const store = writable<ApplicationStore>(initialState());
 const { subscribe, set, update } = store;
+export { subscribe };
 
 // Function to add or update an application
 export function addOrUpdateApplication(application: Application): void {
 	update((state) => {
+		// TODO: use a unique identifier for the application?
 		state.applications.set(application.metadata.name, application);
 		return state;
 	});
@@ -83,7 +85,7 @@ export async function fetchCatalog(): Promise<void> {
 				return state;
 			});
 		} else {
-			throw new Error(`Failed to fetch resource: ${response.statusText}`);
+			throw new Error(`Failed to fetch applications: ${response.statusText}`);
 		}
 	} catch (e) {
 		console.error('Error fetching catalog:', e);
@@ -98,14 +100,3 @@ export async function fetchCatalog(): Promise<void> {
 		});
 	}
 }
-
-export const applicationsStore = {
-	subscribe,
-	addOrUpdateApplication,
-	getApplicationByName,
-	getApplications,
-	size,
-	clearStore,
-	fetchCatalog,
-	getError
-};

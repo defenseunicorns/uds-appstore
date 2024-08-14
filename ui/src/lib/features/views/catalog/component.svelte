@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { AppCard } from '$lib/components';
-	import { applicationsStore } from '$lib/stores/applicationstore/applicationstore';
+	import { applicationStore } from '$lib/stores';
 	import type { Application } from '$lib/types';
 	import { onMount } from 'svelte';
 
@@ -9,7 +9,7 @@
 	let error: string | undefined;
 	let applications: Application[] = [];
 
-	const unsubscribe = applicationsStore.subscribe(($store) => {
+	const unsubscribe = applicationStore.subscribe(($store) => {
 		isLoading = $store.loading;
 		error = $store.error;
 		applications = Array.from($store.applications.values());
