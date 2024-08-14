@@ -1,49 +1,46 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { AppCard } from '$lib/components';
+	import { applicationStore } from '$lib/stores';
 	import type { Application } from '$lib/types';
 	import { onMount } from 'svelte';
 
-	let catalog: Application[] = [];
 	let isLoading = true;
-	let error: string | null = null;
+	let error: string | undefined;
+	let applications: Application[] = [];
 
-	async function fetchCatalog(): Promise<void> {
-		try {
-			const response = await fetch('/api/apps/index.json');
-			if (response.ok) {
-				catalog = await response.json();
-			} else {
-				throw new Error(`Failed to fetch resource: ${response.statusText}`);
-			}
-		} catch (e) {
-			console.error('Error fetching catalog:', e);
-			error = e instanceof Error ? e.message : 'An unknown error occurred';
-			catalog = [];
-		} finally {
-			isLoading = false;
-		}
-	}
+	const unsubscribe = applicationStore.subscribe(($store) => {
+		isLoading = $store.loading;
+		error = $store.error;
+		applications = Array.from($store.applications.values());
+	});
 
 	onMount(() => {
-		fetchCatalog();
+		return () => {
+			unsubscribe();
+		};
 	});
 </script>
 
-<div class="h-screen overflow-y-auto">
-	<div class="w-full max-w-full px-4 py-4 sm:py-8 md:py-12 lg:py-16">
-		<div class="mx-auto max-w-3xl">
-			<div class="mx-auto mb-8 max-w-sm drop-shadow-2xl sm:mb-12 md:mb-16">
-				<img src="{base}/images/dougandserver.svg" alt="UDS Logo" class="h-auto w-full" />
+<div class="h-full overflow-y-auto">
+	<div class="container mx-auto px-4 py-8">
+		{#if isLoading}
+			<div class="flex h-full items-center justify-center">
+				<img src="{base}/images/dougandserver.svg" alt="UDS Logo" class="h-20 w-20" />
+				<p class="ml-4 text-lg">Loading applications...</p>
 			</div>
-			{#if isLoading}
-				<p class="text-center">Loading applications...</p>
-			{:else if error}
-				<p class="text-center text-red-500">Error: {error}</p>
-			{:else}
-				<h1 class="mb-4 text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
-					UDS Packages ({catalog.length}) coming soon!
-				</h1>
-			{/if}
-		</div>
+		{:else if error}
+			<p class="text-center text-lg text-red-500">Error: {error}</p>
+		{:else}
+			<div class="-mx-2 flex flex-wrap">
+				{#each applications as app}
+					<div class="mb-4 w-full px-2 md:w-1/2 xl:w-1/3">
+						<div class="flex justify-center md:justify-start">
+							<AppCard {app} />
+						</div>
+					</div>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </div>
