@@ -6,7 +6,7 @@
 
 	import { afterNavigate } from '$app/navigation';
 
-	import { isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
+	import { Navbar } from '$lib/features/navigation';
 	import '../app.postcss';
 	import { applicationStore } from '$lib/stores';
 
@@ -18,14 +18,11 @@
 
 <Navbar />
 
-<Sidebar />
 <svelte:head>
 	<title>UDS Marketplace</title>
 </svelte:head>
 <main
-	class="flex h-screen flex-col pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white {$isSidebarExpanded
-		? 'md:ml-64'
-		: 'md:ml-16'}"
+	class="flex h-screen flex-col pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
 	<div class="flex-grow overflow-hidden p-4 pt-0">
 		<slot />
