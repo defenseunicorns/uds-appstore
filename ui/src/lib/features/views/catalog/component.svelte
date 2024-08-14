@@ -1,32 +1,20 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { AppCard } from '$lib/components';
-	import type { Application } from '$lib/types';
+	import { applicationsStore } from '$lib/stores/applicationstore/applicationstore';
 	import { onMount } from 'svelte';
 
-	let catalog: Application[] = [];
 	let isLoading = true;
 	let error: string | null = null;
 
-	async function fetchCatalog(): Promise<void> {
+	onMount(async () => {
 		try {
-			const response = await fetch('/api/apps/index.json');
-			if (response.ok) {
-				catalog = await response.json();
-			} else {
-				throw new Error(`Failed to fetch resource: ${response.statusText}`);
-			}
+			await applicationsStore.fetchCatalog();
+			isLoading = false;
 		} catch (e) {
-			console.error('Error fetching catalog:', e);
 			error = e instanceof Error ? e.message : 'An unknown error occurred';
-			catalog = [];
-		} finally {
 			isLoading = false;
 		}
-	}
-
-	onMount(() => {
-		fetchCatalog();
 	});
 </script>
 
@@ -41,7 +29,7 @@
 			<p class="text-center text-lg text-red-500">Error: {error}</p>
 		{:else}
 			<div class="-mx-2 flex flex-wrap">
-				{#each catalog as app}
+				{#each applicationsStore.getApplications() as app}
 					<div class="mb-4 w-full px-2 md:w-1/2 xl:w-1/3">
 						<div class="flex justify-center md:justify-start">
 							<AppCard {app} />
