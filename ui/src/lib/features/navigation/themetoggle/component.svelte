@@ -37,7 +37,7 @@
 <button
 	type="button"
 	id="theme-toggle"
-	class="mr-1 rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600"
+	class="mr-1 rounded-lg p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-4 focus:ring-gray-600"
 	on:click={toggleDarkMode}
 	data-tooltip-target="tooltip-toggle"
 	data-tooltip-placement="bottom"
