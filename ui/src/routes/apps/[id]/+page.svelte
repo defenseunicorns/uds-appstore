@@ -1,17 +1,21 @@
 <script lang="ts">
-  import type { PageData } from './$types';
   import { Tabs, TabItem } from 'flowbite-svelte';
+  import { page } from '$app/stores';
+	import type { PageData } from './$types';
+	import { AppCardHeader } from '$lib/components';
 
   export let data: PageData;
+
+  $: app = data.apps.find(a => a.metadata.name == $page.params.id)!;
 </script>
 
-<h1>{data.app.metadata.name}</h1>
+<AppCardHeader app={app} />
 
 <Tabs tabStyle="underline" contentClass="p-4 mt-4">
   <TabItem open title="Product Overview">
     <div class="grid grid-cols-5">
       <p class="col-span-3">
-        {data.app.spec.description}
+        {app.spec.description}
       </p>
       <div class="col-span-2">
         <div class="max-h-full rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:p-6">
