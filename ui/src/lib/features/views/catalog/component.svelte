@@ -2,19 +2,23 @@
 	import { base } from '$app/paths';
 	import { AppCard } from '$lib/components';
 	import { applicationsStore } from '$lib/stores/applicationstore/applicationstore';
+	import type { Application } from '$lib/types';
 	import { onMount } from 'svelte';
 
 	let isLoading = true;
-	let error: string | null = null;
+	let error: string | undefined;
+	let applications: Application[] = [];
 
-	onMount(async () => {
-		try {
-			await applicationsStore.fetchCatalog();
-			isLoading = false;
-		} catch (e) {
-			error = e instanceof Error ? e.message : 'An unknown error occurred';
-			isLoading = false;
-		}
+	const unsubscribe = applicationsStore.subscribe(($store) => {
+		isLoading = $store.loading;
+		error = $store.error;
+		applications = Array.from($store.applications.values());
+	});
+
+	onMount(() => {
+		return () => {
+			unsubscribe();
+		};
 	});
 </script>
 
@@ -29,7 +33,7 @@
 			<p class="text-center text-lg text-red-500">Error: {error}</p>
 		{:else}
 			<div class="-mx-2 flex flex-wrap">
-				{#each applicationsStore.getApplications() as app}
+				{#each applications as app}
 					<div class="mb-4 w-full px-2 md:w-1/2 xl:w-1/3">
 						<div class="flex justify-center md:justify-start">
 							<AppCard {app} />

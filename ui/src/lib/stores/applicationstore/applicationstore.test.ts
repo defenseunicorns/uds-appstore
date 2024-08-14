@@ -1,5 +1,5 @@
 import { type Application } from '$lib/types';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { applicationsStore } from './applicationstore';
 
 describe('applicationsStore', () => {
@@ -59,5 +59,35 @@ describe('applicationsStore', () => {
 		expect(app).toBeUndefined();
 		const count = applicationsStore.size();
 		expect(count).toBe(0);
+	});
+
+	it('should get the error', () => {
+		const error = applicationsStore.getError();
+		expect(error).toBeUndefined();
+	});
+
+	it('should fetch and add applications to the store', async () => {
+		const mockFetch = vi.fn().mockResolvedValue({
+			ok: true,
+			json: async () => [sampleApp, anotherApp]
+		});
+		global.fetch = mockFetch;
+
+		await applicationsStore.fetchCatalog();
+		const apps = applicationsStore.getApplications();
+		expect(apps).toEqual([sampleApp, anotherApp]);
+		expect(applicationsStore.getError()).toBeUndefined();
+	});
+
+	it('should handle fetch errors', async () => {
+		const mockFetch = vi.fn().mockResolvedValue({
+			ok: false,
+			statusText: 'Not Found'
+		});
+		global.fetch = mockFetch;
+
+		await applicationsStore.fetchCatalog();
+		const error = applicationsStore.getError();
+		expect(error).toBe('Failed to fetch resource: Not Found');
 	});
 });

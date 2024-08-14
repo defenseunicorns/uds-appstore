@@ -1,16 +1,25 @@
 import { type Application } from '$lib/types';
 import { writable } from 'svelte/store';
 
-// Initial state
-const initialState = {
-	applications: new Map()
+export type ApplicationStore = {
+	applications: Map<string, Application>;
+	error: string | undefined;
+	loading: boolean;
 };
 
+// Initial state
+const initialState = (): ApplicationStore => ({
+	applications: new Map(),
+	error: undefined,
+	loading: false
+});
+
 // Create a writable store
-const { subscribe, set, update } = writable(initialState);
+const store = writable<ApplicationStore>(initialState());
+const { subscribe, set, update } = store;
 
 // Function to add or update an application
-function addOrUpdateApplication(application: Application): void {
+export function addOrUpdateApplication(application: Application): void {
 	update((state) => {
 		state.applications.set(application.metadata.name, application);
 		return state;
@@ -18,51 +27,75 @@ function addOrUpdateApplication(application: Application): void {
 }
 
 // Function to get an application by name
-function getApplicationByName(name: string): Application | undefined {
+export function getApplicationByName(name: string): Application | undefined {
 	let app: Application | undefined;
-	subscribe((state) => {
+	store.subscribe((state) => {
 		app = state.applications.get(name);
 	})();
 	return app;
 }
 
 // Function to get all applications
-function getApplications(): Application[] {
+export function getApplications(): Application[] {
 	let apps: Application[] = [];
-	subscribe((state) => {
+	store.subscribe((state) => {
 		apps = Array.from(state.applications.values());
 	})();
 	return apps;
 }
 
 // Count the number of applications
-function size(): number {
+export function size(): number {
 	let count = 0;
-	subscribe((state) => {
+	store.subscribe((state) => {
 		count = state.applications.size;
 	})();
 	return count;
 }
 
+// Function to get the error
+export function getError(): string | undefined {
+	let error: string | undefined;
+	store.subscribe((state) => {
+		error = state.error;
+	})();
+	return error;
+}
+
 // Function to clear the store
-function clearStore(): void {
-	set({
-		applications: new Map()
-	});
+export function clearStore(): void {
+	set(initialState());
 }
 
 // Function to fetch and add applications to the store
-async function fetchCatalog(): Promise<void> {
+export async function fetchCatalog(): Promise<void> {
+	update((state) => {
+		state.loading = true;
+		return state;
+	});
 	try {
 		const response = await fetch('/api/apps/index.json');
 		if (response.ok) {
 			const catalog: Application[] = await response.json();
 			catalog.forEach((app) => addOrUpdateApplication(app));
+			update((state) => {
+				state.error = initialState().error; // Clear any previous error
+				return state;
+			});
 		} else {
 			throw new Error(`Failed to fetch resource: ${response.statusText}`);
 		}
 	} catch (e) {
 		console.error('Error fetching catalog:', e);
+		update((state) => {
+			state.error = e instanceof Error ? e.message : 'An unknown error occurred';
+			return state;
+		});
+	} finally {
+		update((state) => {
+			state.loading = false;
+			return state;
+		});
 	}
 }
 
@@ -73,5 +106,6 @@ export const applicationsStore = {
 	getApplications,
 	size,
 	clearStore,
-	fetchCatalog // Export the fetchCatalog function
+	fetchCatalog,
+	getError
 };
