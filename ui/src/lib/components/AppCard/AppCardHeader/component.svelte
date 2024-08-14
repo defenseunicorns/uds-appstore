@@ -4,7 +4,6 @@
 	export let app: Application;
 
 	$: image = (app.spec.icons?.[0]?.src ?? `${base}/doug.svg`) as string;
-	// TODO: get vendor name / url
 	$: vendor = app.metadata.vendor.name;
 	$: vendorUrl = app.metadata.vendor.url;
 </script>
@@ -25,14 +24,16 @@
 		<div class="inline-flex items-start justify-start gap-2 self-stretch">
 			<div class="inline-flex shrink grow basis-0 flex-col items-start justify-start gap-2">
 				<div
-					class="app-card-header-title self-stretch text-xl font-semibold leading-[25px] text-white"
+					class="app-card-header-title self-stretch text-xl font-semibold leading-[25px] text-gray-900 dark:text-white"
 				>
 					{app.metadata.name}
 				</div>
 				<div class="inline-flex h-[21px] items-start justify-start gap-4 self-stretch">
 					<div class="flex items-center justify-start gap-2">
 						<div class="text-center">
-							<span style="text-gray-300 text-xs font-normal leading-[18px]">By: </span>
+							<span class="text-xs font-normal leading-[18px] text-gray-500 dark:text-gray-400"
+								>By:
+							</span>
 							<a
 								class="text-xs font-normal leading-[18px] text-blue-600 underline hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400"
 								href={vendorUrl}

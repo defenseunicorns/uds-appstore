@@ -39,7 +39,7 @@ test.describe('Catalog View', () => {
 			if (app.spec.description) {
 				const descriptionText =
 					app.spec.description.slice(0, 150) + (app.spec.description.length > 150 ? '...' : '');
-				const descriptionElement = await appCard.$('.text-gray-300');
+				const descriptionElement = await appCard.$('.app-card-description');
 				expect(descriptionElement).not.toBeNull();
 				const actualDescriptionText = await descriptionElement.textContent();
 				expect(actualDescriptionText).toContain(descriptionText);
