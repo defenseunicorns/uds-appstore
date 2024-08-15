@@ -1,4 +1,5 @@
 import flowbitePlugin from 'flowbite/plugin';
+import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -45,5 +46,5 @@ export default {
 
 	variants: {},
 
-	plugins: [flowbitePlugin]
+	plugins: [flowbitePlugin, typography]
 } as Config;

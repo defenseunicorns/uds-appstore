@@ -1,8 +1,9 @@
 <script lang="ts">
+	import SvelteMarkdown from 'svelte-markdown';
 	import { Tabs, TabItem } from 'flowbite-svelte';
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
-	import { AppCardHeader } from '$lib/components';
+	import { AppCardHeader, DescriptionListGroup, DescriptionListItem } from '$lib/components';
 
 	export let data: PageData;
 
@@ -13,44 +14,33 @@
 
 <Tabs tabStyle="underline" contentClass="p-4 mt-4">
 	<TabItem open title="Product Overview">
-		<div class="grid grid-cols-5">
-			<p class="col-span-3">
-				{app.spec.description}
-			</p>
-			<div class="col-span-2">
-				<div
-					class="max-h-full rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:p-6"
-				>
-					<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Contracting Details</h2>
+		<div class="grid grid-cols-5 gap-6">
+			<div class="col-span-3">
+				<div class="prose dark:prose-invert max-w-none">
+					<SvelteMarkdown source={app.spec.description} />
+				</div>
+			</div>
+			<div class="col-span-2 mt-4">
+				<div class="mt-4 grid w-full grid-cols-1 gap-4">
+					<DescriptionListGroup title="Contracting Details">
+						<DescriptionListItem key="Contracting Number" value={app.spec.contractingDetails?.number} />
+						<DescriptionListItem key="Pricing Model" value={app.spec.contractingDetails?.pricing} />
+						<DescriptionListItem key="Small Business Status" value={app.spec.contractingDetails?.smallBusinessStatus} />
+						<DescriptionListItem key="Delivery Timeline" value="-" />
+						<DescriptionListItem key="Business Category" value={app.spec.keywords?.join(', ')} />
+					</DescriptionListGroup>
 
-					<div class="mt-2 divide-y divide-gray-200 dark:divide-gray-700 dark:border-gray-800">
-						<dl class="flex items-center justify-between gap-4 py-2">
-							<dt class="text-sm font-medium text-gray-900 dark:text-white">Contracting Number</dt>
-							<dd class="text-sm font-normal text-gray-500 dark:text-gray-400">-</dd>
-						</dl>
+					<DescriptionListGroup title="Authorization Details">
+						<DescriptionListItem key="FIPS Compliant Image(s)" value={app.spec.authorizationDetails?.fips ? 'Yes' : 'No'} />
+						<DescriptionListItem key="NIST 800-53" value={app.spec.authorizationDetails?.nist800_53 ? 'Available' : '-'} />
+						<DescriptionListItem key="CVE Report" value={app.spec.authorizationDetails?.cveReport ? 'Yes' : 'No'} />
+						<DescriptionListItem key="SBOM" value={app.spec.authorizationDetails?.sbom ? 'Yes' : 'No'} />
+					</DescriptionListGroup>
 
-						<dl class="flex items-center justify-between gap-4 py-2">
-							<dt class="text-sm font-medium text-gray-900 dark:text-white">Pricing Model</dt>
-							<dd class="text-sm font-normal text-gray-500 dark:text-gray-400">-</dd>
-						</dl>
-
-						<dl class="flex items-center justify-between gap-4 py-2">
-							<dt class="text-sm font-medium text-gray-900 dark:text-white">License</dt>
-							<dd class="text-sm font-normal text-gray-500 dark:text-gray-400">-</dd>
-						</dl>
-
-						<dl class="flex items-center justify-between gap-4 py-2">
-							<dt class="text-sm font-medium text-gray-900 dark:text-white">
-								Small Business Status
-							</dt>
-							<dd class="text-sm font-normal text-gray-500 dark:text-gray-400">-</dd>
-						</dl>
-
-						<dl class="flex items-center justify-between gap-4 py-2">
-							<dt class="text-sm font-medium text-gray-900 dark:text-white">Delivery Timeline</dt>
-							<dd class="text-sm font-normal text-gray-500 dark:text-gray-400">-</dd>
-						</dl>
-					</div>
+					<DescriptionListGroup title="Technical Details">
+						<DescriptionListItem key="Infrastructure" value={app.spec.providers?.join(', ')} />
+						<DescriptionListItem key="Architecture(s)" value={app.spec.architecture?.join(', ')} />
+					</DescriptionListGroup>
 				</div>
 			</div>
 		</div>

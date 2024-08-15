@@ -14,14 +14,17 @@ for file in apps/*.yaml; do
   latest=$(echo "$VERSIONS" | tail -n 1)
   echo "$REPO:$latest"
 
+  export ARCHS=$(oras manifest fetch "$REPO:$latest" | $yq '.manifests[].platform.architecture')
+  echo "$ARCHS"
+
   $yq '
-    .spec.repository = .spec.repository // env(REPO) |
     .spec.versions = (env(VERSIONS) | split(" ") | reverse) |
-    .metadata.vendor = .metadata.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"}
+    .spec.architecture = (env(ARCHS) | split(" ") | sort) |
+    .spec.repository = .spec.repository // env(REPO) |
+    .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
+    .spec.providers = .metadata.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air-Gapped"]
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
 
-  ## TODO @marshall007: fetch supported architectures
-  # archs=$(oras manifest fetch "$repo:$latest" | $yq '.manifests[].platform.architecture')
   manifest=$(oras manifest fetch --platform=multi/amd64 "$REPO:$latest")
   digest=$(echo $manifest | $yq '.layers[] | select(.annotations["org.opencontainers.image.title"] == "zarf.yaml") | .digest')
   oras blob fetch --output - "$REPO@$digest" | $yq -o=json >"ui/static/api/packages/$PACKAGE.json"

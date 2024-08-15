@@ -2,6 +2,7 @@ kind: Application
 metadata:
   name: jenkins
 spec:
+  title: Jenkins
   repository: ghcr.io/defenseunicorns/packages/uds/jenkins
   links:
     - description: UDS Package

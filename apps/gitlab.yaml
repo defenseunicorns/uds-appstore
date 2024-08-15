@@ -2,9 +2,46 @@ kind: Application
 metadata:
   name: gitlab
 spec:
-  repository: ghcr.io/defenseunicorns/packages/uds/gitlab
+  title: GitLab
   description: |
-    GitLab is the most comprehensive AI-powered DevSecOps Platform.
+    **GitLab: The Comprehensive DevOps Platform for Secure, Efficient Development**
+
+    **Mission Heroes** face a unique set of challenges:  rigorous security requirements, complex workflows, and the need to deliver mission-critical software on time. **GitLab** provides a single, unified platform for the entire DevOps lifecycle, enabling your teams to collaborate seamlessly, streamline development, and meet the highest standards of security and compliance.
+
+    **Key Benefits for Mission Heroes**
+
+    - **Enhanced Security:**
+      - **Built-in security scanning and testing tools** help identify vulnerabilities early in the development process, reducing the risk of breaches.
+      - **Granular access controls and permissions** ensure that sensitive data and code are protected at all times.
+      - **Compliance features** help you meet strict regulatory requirements, such as NIST 800-53 and FedRAMP.
+    - **Streamlined Collaboration:**
+      - **A single platform for all development activities** eliminates the need to juggle multiple tools and systems, improving efficiency and communication.
+      - **Real-time code reviews and merge requests** facilitate collaboration and ensure code quality.
+      - **Built-in issue tracking and project management tools** help keep teams organized and on track.
+    - **Accelerated Development:**
+      - **Continuous integration and continuous delivery (CI/CD) pipelines** automate build, test, and deployment processes, enabling faster, more frequent releases.
+      - **Infrastructure as code (IaC)** capabilities enable you to provision and manage environments consistently and efficiently.
+      - **Support for a wide range of programming languages and frameworks** gives your teams the flexibility to work with the tools they prefer.
+    - **Cost Savings:**
+      - **Eliminate the need for multiple point solutions,** reducing licensing and maintenance costs.
+      - **Optimize resource utilization** by automating manual tasks and streamlining workflows.
+      - **Improve productivity** by enabling teams to focus on delivering value, rather than managing tools.
+
+    **GitLab in Action**
+
+    GitLab empowers Mission Heroes to:
+
+    - **Develop and deliver secure software faster,** reducing time-to-market for mission-critical applications.
+    - **Improve collaboration and communication** across development, security, and operations teams.
+    - **Ensure compliance** with strict regulatory requirements.
+    - **Reduce costs** by streamlining workflows and optimizing resource utilization.
+
+    **Choose GitLab**
+
+    GitLab is the ideal DevOps platform for Mission Heroes seeking to modernize their development processes, enhance security, and accelerate innovation. With its comprehensive feature set, robust security capabilities, and commitment to open source, GitLab is the partner you can trust to help you achieve your mission objectives.
+
+    **Contact us today to learn more about how GitLab can help your organization.**
+  repository: ghcr.io/defenseunicorns/packages/uds/gitlab
   icons:
     - src: "https://images.ctfassets.net/xz1dnu24egyd/1IRkfXmxo8VP2RAE5jiS1Q/ea2086675d87911b0ce2d34c354b3711/gitlab-logo-500.png"
       type: "image/png"
@@ -21,4 +58,3 @@ spec:
     - description: UDS Package
       url: "https://github.com/defenseunicorns/uds-package-gitlab"
   versions: []
-  maintainers: []
