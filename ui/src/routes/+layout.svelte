@@ -2,17 +2,12 @@
 	import 'flowbite';
 	import { initFlowbite } from 'flowbite';
 	import 'flowbite/dist/flowbite.css';
-	import { onMount } from 'svelte';
 
 	import { afterNavigate } from '$app/navigation';
 
 	import { isSidebarExpanded, Navbar, Sidebar } from '$lib/features/navigation';
 	import '../app.postcss';
-	import { applicationStore } from '$lib/stores';
 
-	onMount(async () => {
-		await applicationStore.fetchCatalog();
-	});
 	afterNavigate(initFlowbite);
 </script>
 
@@ -27,7 +22,7 @@
 		? 'md:ml-64'
 		: 'md:ml-16'}"
 >
-	<div class="flex-grow overflow-hidden p-4 pt-0">
+	<div class="flex-grow overflow-hidden overflow-y-auto p-4">
 		<slot />
 	</div>
 </main>
