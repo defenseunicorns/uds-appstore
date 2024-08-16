@@ -36,9 +36,9 @@ tasks:
   - name: build-image
     description: "build container and push to GHCR (multi-arch)"
     actions:
-      # NOTE: buildx does not support `--load` with multiple `--platform` args :( so we have to build twice
-      - cmd: docker buildx build --platform linux/amd64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} . --load
-      - cmd: docker buildx build --platform linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} . --load
+      - cmd: |
+          # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
+          docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-runtime:${REF} --push .
 
   - name: build-api-linux-amd64
     description: "build the go api server for linux amd64 (used for multi-arch container)"
