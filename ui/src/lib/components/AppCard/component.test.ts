@@ -6,20 +6,20 @@ import AppCard from './component.svelte';
 describe('AppCard', () => {
 	const mockApp: Application = {
 		metadata: {
-			name: 'Test App',
+			name: 'Test App'
+		},
+		spec: {
 			vendor: {
 				name: 'Defense Unicorns',
 				url: 'https://defenseunicorns.com/contactus'
-			}
-		},
-		spec: {
+			},
 			description: 'This is a test description for the app.',
 			icons: [{ src: 'test-icon.svg', type: 'test-type', size: 'test-size' }],
 			repository: 'https://example.com/repo',
 			links: [{ description: 'Test Link', url: 'https://example.com' }],
 			versions: ['1.0.0']
 		}
-	} as Application;
+	} as unknown as Application;
 
 	it('renders the app name', () => {
 		render(AppCard, { props: { app: mockApp } });
@@ -54,6 +54,9 @@ describe('AppCard', () => {
 	it('uses fallback image when no icon is provided', () => {
 		const noIconApp: Application = {
 			...mockApp,
+			metadata: {
+				...mockApp.metadata
+			},
 			spec: {
 				...mockApp.spec,
 				icons: []

@@ -88,7 +88,6 @@ export async function fetchCatalog(): Promise<void> {
 			throw new Error(`Failed to fetch applications: ${response.statusText}`);
 		}
 	} catch (e) {
-		console.error('Error fetching catalog:', e);
 		update((state) => {
 			state.error = e instanceof Error ? e.message : 'An unknown error occurred';
 			return state;

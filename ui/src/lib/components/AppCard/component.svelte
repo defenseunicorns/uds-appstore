@@ -18,7 +18,6 @@
 		>
 			{description}
 		</div>
-		<!-- TODO: connect to app detail page -->
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
 			<a
 				href="/apps/{app.metadata.name}"
