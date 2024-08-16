@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.0...v0.1.0) (2024-08-16)
+
+
+### Bug Fixes
+
+* release publish artifact ([#126](https://github.com/defenseunicorns/uds-marketplace/issues/126)) ([9dc2a52](https://github.com/defenseunicorns/uds-marketplace/commit/9dc2a52eb2b80a993580c4f8b044dd21cd019372))
+
 ## 0.1.0 (2024-08-16)
 
 
