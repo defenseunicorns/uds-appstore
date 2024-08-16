@@ -4,8 +4,8 @@
 	export let app: Application;
 
 	$: image = (app.spec.icons?.[0]?.src ?? `${base}/doug.svg`) as string;
-	$: vendor = app.metadata.vendor.name;
-	$: vendorUrl = app.metadata.vendor.url;
+	$: vendor = app.spec.vendor.name;
+	$: vendorUrl = app.spec.vendor.url;
 </script>
 
 <div class="app-card-header inline-flex items-center justify-start gap-3">
@@ -26,7 +26,7 @@
 				<div
 					class="app-card-header-title self-stretch text-xl font-semibold leading-[25px] text-gray-900 dark:text-white"
 				>
-					{app.metadata.name}
+					{app.spec.title || app.metadata.name}
 				</div>
 				<div class="inline-flex h-[21px] items-start justify-start gap-4 self-stretch">
 					<div class="flex items-center justify-start gap-2">

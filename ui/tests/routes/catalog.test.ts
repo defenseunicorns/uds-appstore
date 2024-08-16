@@ -33,7 +33,7 @@ test.describe('Catalog View', () => {
 			const appNameElement = await appCard.$('.app-card-header-title');
 			expect(appNameElement).not.toBeNull();
 			const appNameText = (await appNameElement?.textContent()) ?? '';
-			expect(appNameText).toBe(app.metadata.name);
+			expect(appNameText).toBe(app.spec.title || app.metadata.name);
 
 			// Check for app description
 			if (app.spec.description) {

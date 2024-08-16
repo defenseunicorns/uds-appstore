@@ -18,9 +18,9 @@
 		>
 			{description}
 		</div>
-		<!-- TODO: connect to app detail page -->
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
-			<div
+			<a
+				href="/apps/{app.metadata.name}"
 				class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-gray-100 px-5 py-2.5 dark:border-gray-600 dark:bg-gray-700"
 			>
 				<div class="text-sm font-medium leading-[21px] text-gray-700 dark:text-gray-300">
@@ -29,7 +29,7 @@
 				<div class="relative h-3.5 w-3.5">
 					<ArrowRight />
 				</div>
-			</div>
+			</a>
 		</div>
 	</div>
 </div>

@@ -1,26 +1,47 @@
 export * from './gen';
 
 export interface Application {
-	kind: string;
+	kind: 'Application';
 	metadata: {
 		name: string;
+	};
+	spec: {
+		title: string;
+		description: string;
+		repository: string;
+		icons: Icon[];
 		vendor: {
 			name: string;
 			url: string;
+			icons: Icon[];
 		};
-	};
-	spec: {
-		icons: Array<{
-			src: string;
-			type: string;
-			size: string;
-		}>;
-		repository: string;
-		description: string;
-		links: Array<{
-			description: string;
-			url: string;
-		}>;
+		contractingDetails: {
+			number: string;
+			vehicle: string;
+			pricing: 'FOSS' | 'SaaS' | 'Per Instance' | 'Per User';
+			smallBusinessStatus: string;
+		};
+		authorizationDetails: {
+			nist800_53: boolean;
+			fips: boolean;
+			cveReport: boolean;
+			sbom: boolean;
+		};
+		architecture: string[];
+		providers: string[];
+		keywords: string[];
+		links: ResourceLink[];
 		versions: string[];
 	};
+}
+
+export interface Icon {
+	src: string;
+	type: string;
+	size: string;
+}
+
+export interface ResourceLink {
+	description: string;
+	url: string;
 }
