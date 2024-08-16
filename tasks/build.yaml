@@ -11,19 +11,14 @@ variables:
 
 tasks:
   - name: all
-    description: "build the go api server (multi-arch)"
+    description: "build the uds marketplace zarf packages and dependencies"
     actions:
       - task: setup:deps
       - task: build-ui
       - task: build-api-linux-amd64
       - task: build-api-linux-arm64
-
-  - name: all-dev
-    description: "build the go api server (local arch) and ui"
-    actions:
-      - task: setup:deps
-      - task: build-ui
-      - task: build-api-local
+      - task: build-image
+      - task: build-zarf-packages
 
   - name: build-ui
     description: "build ui (requires setup:deps to be run first)"
@@ -35,39 +30,14 @@ tasks:
   - name: publish-uds-marketplace
     description: "publish the uds marketplace including its image and Zarf pkg (multi-arch)"
     actions:
-      - task: push-container
-      - task: build-zarf-packages
-      - task: publish-zarf-packages
+      - task: all
 
-  - name: push-container
+  - name: build-image
     description: "build container and push to GHCR (multi-arch)"
     actions:
-      - task: all
-      - cmd: |
-          docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
-
-  - name: build-container-dev
-    description: "build container and push to local docker registry (works with mac docker desktop)"
-    actions:
-      - task: all
-      - cmd: |
-          docker build -t ghcr.io/defenseunicorns/uds-marketplace:${REF} .
-
-  - name: build-api-local
-    description: "build the go api server for the local platform"
-    actions:
-      - cmd: |
-          GOOS=$(go env GOOS)
-          GOARCH=$(go env GOARCH)
-          echo "Building for $GOOS/$GOARCH"
-          CGO_ENABLED=0 go build -o build/uds-marketplace-$GOOS-$GOARCH .
-
-  - name: build-zarf-package-local
-    description: "build the uds marketplace zarf package locally"
-    actions:
-      - task: all
-      - task: build-container-dev
-      - cmd: uds zarf p create --confirm -o build/
+      # NOTE: buildx does not support `--load` with multiple `--platform` args :( so we have to build twice
+      - cmd: docker buildx build --platform linux/amd64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} . --load
+      - cmd: docker buildx build --platform linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} . --load
 
   - name: build-api-linux-amd64
     description: "build the go api server for linux amd64 (used for multi-arch container)"

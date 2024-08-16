@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/maru-runner/main/tasks.schema.json
 includes:
+  - development: tasks/dev.yaml
   - test: tasks/test.yaml
   - lint: tasks/lint.yaml
   - setup: tasks/setup.yaml
   - build: tasks/build.yaml
   - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
-
+  - deploy: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/deploy.yaml
 
 variables:
   - name: REF
@@ -16,28 +17,9 @@ variables:
 
 tasks:
   - name: dev
-    description: "run the api server with built ui and hot-reloading"
+    description: "run the api server and ui in dev mode"
     actions:
-      - task: setup:deps
-      - task: dev-server
-
-  - name: dev-api
-    description: "run the api server in dev mode"
-    actions:
-      - cmd: air -c .air.toml
-
-  - name: dev-ui
-    description: "run the ui in dev mode"
-    actions:
-      - task: setup:deps
-      - cmd: npm run dev
-        dir: ui
-
-  - name: dev-server
-    description: "run the api server in dev mode with ui hot-reloading"
-    actions:
-      - task: setup:deps
-      - cmd: air -c .air.toml -build.cmd="cd ui && npm run build && cd .. && go build -o ./build/uds-marketplace main.go"
+      - task: development:dev-reload
 
   - name: compile
     description: "compile the api server and ui outputting to build/"
@@ -49,10 +31,9 @@ tasks:
     actions:
       - task: clean
       - cmd: k3d cluster delete uds
-      - task: build:build-zarf-package-local
+      - task: build:all
       - task: common:k3d-test-cluster
-      - cmd: uds zarf p deploy --confirm build/zarf-package-uds-marketplace-*-${REF}.tar.zst
-      - task: connect-k3d
+      - task: deploy:package
 
   - name: tests
     description: "run all tests"
@@ -69,9 +50,5 @@ tasks:
     description: "clean the build directories"
     actions:
       - cmd: rm -rf build
+      - cmd: rm -rf build
         dir: ui
-
-  - name: connect-k3d
-    description: "port forward the uds-marketplace service to :8080"
-    actions:
-      - cmd: uds zarf tools kubectl port-forward svc/uds-marketplace -n uds-marketplace 8080:8080
