@@ -2,6 +2,7 @@ kind: Application
 metadata:
   name: postgres-operator
 spec:
+  title: Postgres Operator
   repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
   links:
     - description: UDS Package

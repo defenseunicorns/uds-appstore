@@ -2,6 +2,7 @@ kind: Application
 metadata:
   name: gitlab-runner
 spec:
+  title: GitLab Runner
   repository: ghcr.io/defenseunicorns/packages/uds/gitlab-runner
   links:
     - description: About
