@@ -34,7 +34,6 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.43.0",
 		"flowbite": "2.4.1",
-		"flowbite-svelte": "^0.46.15",
 		"globals": "15.8.0",
 		"jsdom": "24.1.1",
 		"prettier": "3.3.3",
@@ -53,6 +52,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"flowbite-svelte": "^0.46.15",
 		"svelte-markdown": "^0.4.1"
 	}
 }

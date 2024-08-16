@@ -26,7 +26,7 @@ export interface Application {
 			fips: boolean;
 			cveReport: boolean;
 			sbom: boolean;
-		}
+		};
 		architecture: string[];
 		providers: string[];
 		keywords: string[];

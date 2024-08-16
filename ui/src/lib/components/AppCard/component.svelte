@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+	class="app-card inline-flex h-[329px] w-[360px] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800"
 >
 	<AppCardHeader {app} />
 	<div class="flex h-[201px] flex-col items-start justify-start gap-5 self-stretch pt-5">
@@ -18,6 +18,7 @@
 		>
 			{description}
 		</div>
+		<!-- TODO: connect to app detail page -->
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
 			<a
 				href="/apps/{app.metadata.name}"

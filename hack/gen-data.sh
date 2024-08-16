@@ -2,7 +2,7 @@
 
 dir="ui/static/api/apps"
 rm -rf "$dir"
-mkdir -p "$dir" "ui/static/api/packages"
+mkdir -p "$dir"
 
 yq="uds zarf tools yq"
 
