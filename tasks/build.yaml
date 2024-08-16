@@ -31,6 +31,7 @@ tasks:
     description: "publish the uds marketplace including its image and Zarf pkg (multi-arch)"
     actions:
       - task: all
+      - task: publish-zarf-packages
 
   - name: build-image
     description: "build container and push to GHCR (multi-arch)"
