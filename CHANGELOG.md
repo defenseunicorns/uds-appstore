@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.0...v0.1.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* release multi-arch build ([#128](https://github.com/defenseunicorns/uds-marketplace/issues/128)) ([339fb54](https://github.com/defenseunicorns/uds-marketplace/commit/339fb544f893708c9241f77f66e37dd273697be7))
+
+
+### Miscellaneous
+
+* **ci:** update ci workflow to include testing ([#130](https://github.com/defenseunicorns/uds-marketplace/issues/130)) ([ff30a26](https://github.com/defenseunicorns/uds-marketplace/commit/ff30a2672052435089d0cdea6a1950a21b76abe8))
+
 ## [0.1.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.0...v0.1.0) (2024-08-16)
 
 
