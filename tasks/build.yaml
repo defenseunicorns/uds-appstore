@@ -13,12 +13,17 @@ tasks:
   - name: all
     description: "build the uds marketplace zarf packages and dependencies"
     actions:
+      - task: compile
+      - task: build-image
+      - task: build-zarf-packages
+
+  - name: compile
+    description: "compile the api server and ui"
+    actions:
       - task: setup:deps
       - task: build-ui
       - task: build-api-linux-amd64
       - task: build-api-linux-arm64
-      - task: build-image
-      - task: build-zarf-packages
 
   - name: build-ui
     description: "build ui (requires setup:deps to be run first)"

@@ -22,9 +22,9 @@ tasks:
       - task: development:dev-reload
 
   - name: compile
-    description: "compile the api server and ui outputting to build/"
+    description: "compile the api server and ui"
     actions:
-      - task: build:all
+      - task: build:compile
 
   - name: k3d-dev-deploy
     description: "deploy marketplace to uds slim k3d cluster (requires k3d)"
