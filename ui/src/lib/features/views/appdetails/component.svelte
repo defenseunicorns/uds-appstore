@@ -36,17 +36,21 @@
 	<div class="flex h-full flex-col overflow-hidden">
 		<AppCardHeader {app} />
 
-		<Tabs tabStyle="underline" contentClass="p-4 mt-4 h-full overflow-y-auto">
+		<Tabs tabStyle="underline" contentClass="p-4 mt-4">
 			<TabItem open title="Product Overview">
-				<div class="flex overflow-hidden">
-					<div class="w-3/5 overflow-y-auto pr-6">
+				<div class="grid grid-cols-5 gap-6">
+					<div class="col-span-3">
 						<div class="prose max-w-none dark:prose-invert">
 							<SvelteMarkdown source={app.spec.description} />
 						</div>
 					</div>
-					<div class="w-2/5 overflow-y-auto pl-6">
-						<div class="mt-4 flex flex-col gap-4">
+					<div class="col-span-2 mt-4">
+						<div class="mt-4 grid w-full grid-cols-1 gap-4">
 							<DescriptionListGroup title="Contracting Details">
+								<DescriptionListItem
+									key="Contracting Vehicle(s)"
+									value={app.spec.contractingDetails?.vehicle?.join(', ')}
+								/>
 								<DescriptionListItem
 									key="Contracting Number"
 									value={app.spec.contractingDetails?.number}
@@ -59,29 +63,32 @@
 									key="Small Business Status"
 									value={app.spec.contractingDetails?.smallBusinessStatus}
 								/>
-								<DescriptionListItem key="Delivery Timeline" value="-" />
 								<DescriptionListItem
 									key="Business Category"
 									value={app.spec.keywords?.join(', ')}
 								/>
 							</DescriptionListGroup>
 
-							<DescriptionListGroup title="Authorization Details">
+							<!-- <DescriptionListGroup title="Authorization Details">
+								<DescriptionListItem key="FedRAMP Status" value="-" />
+							</DescriptionListGroup> -->
+
+							<DescriptionListGroup title="Security & Compliance">
 								<DescriptionListItem
 									key="FIPS Compliant Image(s)"
-									value={app.spec.authorizationDetails?.fips ? 'Yes' : 'No'}
+									value={app.spec.security?.fips ? 'Yes' : 'No'}
 								/>
 								<DescriptionListItem
 									key="NIST 800-53"
-									value={app.spec.authorizationDetails?.nist800_53 ? 'Available' : '-'}
+									value={app.spec.security?.nist800_53 ? 'Available' : '-'}
 								/>
 								<DescriptionListItem
 									key="CVE Report"
-									value={app.spec.authorizationDetails?.cveReport ? 'Yes' : 'No'}
+									value={app.spec.security?.cveReport ? 'Available' : '-'}
 								/>
 								<DescriptionListItem
 									key="SBOM"
-									value={app.spec.authorizationDetails?.sbom ? 'Yes' : 'No'}
+									value={app.spec.security?.sbom ? 'Available' : '-'}
 								/>
 							</DescriptionListGroup>
 

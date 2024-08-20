@@ -3,6 +3,7 @@ metadata:
   name: gitlab
 spec:
   title: GitLab
+  repository: ghcr.io/defenseunicorns/packages/uds/gitlab
   description: |
     **GitLab: The Comprehensive DevOps Platform for Secure, Efficient Development**
 
@@ -41,7 +42,6 @@ spec:
     GitLab is the ideal DevOps platform for Mission Heroes seeking to modernize their development processes, enhance security, and accelerate innovation. With its comprehensive feature set, robust security capabilities, and commitment to open source, GitLab is the partner you can trust to help you achieve your mission objectives.
 
     **Contact us today to learn more about how GitLab can help your organization.**
-  repository: ghcr.io/defenseunicorns/packages/uds/gitlab
   icons:
     - src: "https://images.ctfassets.net/xz1dnu24egyd/1IRkfXmxo8VP2RAE5jiS1Q/ea2086675d87911b0ce2d34c354b3711/gitlab-logo-500.png"
       type: "image/png"
@@ -50,11 +50,20 @@ spec:
     - gitlab
     - source-control
     - ci-cd
+  contractingDetails:
+    pricing: Bring Your Own License
+  security:
+    fips: false
+    nist800_53: false
+    cveReport: true
+    sbom: false
   links:
-    - description: About
-      url: "https://about.gitlab.com/"
-    - description: Docs
-      url: "https://docs.gitlab.com/"
-    - description: UDS Package
+    - description: Product Website
+      url: https://about.gitlab.com/
+    - description: Documentation
+      url: https://docs.gitlab.com/
+    - description: Helm Chart
+      url: https://gitlab.com/gitlab-org/charts/gitlab
+    - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-gitlab"
   versions: []
