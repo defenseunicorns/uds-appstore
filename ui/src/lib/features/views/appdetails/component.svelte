@@ -51,18 +51,18 @@
 									key="Contracting Vehicle(s)"
 									value={app.spec.contractingDetails?.vehicle?.join(', ')}
 								/>
-								<DescriptionListItem
+								<!-- <DescriptionListItem
 									key="Contracting Number"
 									value={app.spec.contractingDetails?.number}
-								/>
+								/> -->
 								<DescriptionListItem
 									key="Pricing Model"
-									value={app.spec.contractingDetails?.pricing}
+									value={app.spec.contractingDetails?.pricing?.join(', ')}
 								/>
-								<DescriptionListItem
+								<!-- <DescriptionListItem
 									key="Small Business Status"
 									value={app.spec.contractingDetails?.smallBusinessStatus}
-								/>
+								/> -->
 								<DescriptionListItem
 									key="Business Category"
 									value={app.spec.keywords?.join(', ')}
@@ -76,7 +76,7 @@
 							<DescriptionListGroup title="Security & Compliance">
 								<DescriptionListItem
 									key="FIPS Compliant Image(s)"
-									value={app.spec.security?.fips ? 'Yes' : 'No'}
+									value={app.spec.security?.fips ? 'Available' : '-'}
 								/>
 								<DescriptionListItem
 									key="NIST 800-53"

@@ -4,7 +4,39 @@ metadata:
 spec:
   title: Mattermost
   repository: ghcr.io/defenseunicorns/packages/uds/mattermost
+  description: |
+    **Mattermost: Secure, Self-Hosted Collaboration for Mission Heroes**
+
+    Secure communication and seamless collaboration are paramount. **Mattermost** is a self-hosted, open-source messaging and collaboration platform designed to meet the stringent security and compliance requirements of the defense industry.
+
+    **Key Benefits for Mission Heroes:**
+
+    * **Uncompromising Security:** Mattermost gives you complete control over your sensitive data, with end-to-end encryption, granular access controls, and compliance features that align with strict regulatory standards.
+    * **Self-Hosted Flexibility:** Deploy Mattermost on your own infrastructure, behind your firewall, maintaining full ownership and control of your data.
+    * **Seamless Collaboration:** Facilitate real-time communication and collaboration across teams, departments, and even external partners, fostering a unified mission focus.
+    * **Customizable & Extensible:** Tailor Mattermost to your unique workflows and integrate with your existing toolchain, creating a cohesive and efficient digital workspace.
+    * **Cost-Effective:** Mattermost's open-source nature and self-hosted model offer a cost-effective alternative to proprietary collaboration platforms, reducing licensing and operational expenses.
+
+    **Empower Your Teams with Mattermost**
+
+    * **Secure Communication:** Share sensitive information, discuss classified projects, and collaborate with confidence, knowing your data is protected.
+    * **Streamlined Workflows:** Integrate Mattermost with your development, project management, and security tools, creating a unified hub for your mission-critical operations.
+    * **Enhanced Productivity:** Foster a culture of collaboration and innovation, enabling your teams to work together seamlessly, regardless of location.
+    * **Regulatory Compliance:** Meet strict industry regulations and data sovereignty requirements, ensuring your communication remains secure and compliant.
+
+    **Mattermost in Action:**
+
+    * **Securely share classified documents and discuss sensitive projects** without the risk of data breaches.
+    * **Streamline incident response and crisis management** with real-time communication and centralized information sharing.
+    * **Foster collaboration between geographically dispersed teams,** enhancing productivity and innovation.
+    * **Integrate with your existing tools and workflows,** creating a seamless and efficient digital workspace.
+
+    **Choose Mattermost**
+
+    Mattermost is the ideal collaboration platform for Mission Heroes seeking a secure, self-hosted solution that empowers teams, streamlines workflows, and safeguards sensitive data.
+
+    **Secure your communications, empower your teams, and achieve mission success with Mattermost.**
+
   links:
-    - description: UDS Package
+    - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-mattermost"
-  versions: []

@@ -22,9 +22,9 @@
 	<title>UDS Marketplace</title>
 </svelte:head>
 <main
-	class="flex h-screen flex-col px-24 pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+	class="flex flex-col px-24 pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
-	<div class="flex-grow overflow-hidden p-4 pt-0">
+	<div class="flex-grow p-4 pt-0">
 		<slot />
 	</div>
 </main>

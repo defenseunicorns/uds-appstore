@@ -18,7 +18,7 @@ export interface Application {
 		contractingDetails: {
 			number: string;
 			vehicle: string[];
-			pricing: 'Free' | 'Bring Your Own License';
+			pricing: ('Free' | 'Bring Your Own License')[];
 			smallBusinessStatus: string;
 		};
 		security: {

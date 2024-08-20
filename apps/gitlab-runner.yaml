@@ -47,16 +47,8 @@ spec:
       type: "image/png"
       size: "500x500"
   keywords:
-    - gitlab
     - source-control
     - ci-cd
-  contractingDetails:
-    pricing: Bring Your Own License
-  security:
-    fips: false
-    nist800_53: false
-    cveReport: true
-    sbom: false
   links:
     - description: Product Website
       url: https://about.gitlab.com/
@@ -66,4 +58,3 @@ spec:
       url: https://gitlab.com/gitlab-org/charts/gitlab-runner
     - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-gitlab"
-  versions: []

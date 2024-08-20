@@ -21,7 +21,10 @@ for file in apps/*.yaml; do
     .spec.versions = (env(VERSIONS) | split(" ") | reverse) |
     .spec.architecture = (env(ARCHS) | split(" ") | sort) |
     .spec.repository = .spec.repository // env(REPO) |
-    .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["GSA Schedule", "SBIR III", "Tradewinds"] |
+    .spec.security.fips = .spec.security.fips // true |
+    .spec.security.cveReport = .spec.security.cveReport // true |
+    .spec.security.sbom = .spec.security.sbom // true |
+    .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
     .spec.providers = .metadata.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air-Gapped"]
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
