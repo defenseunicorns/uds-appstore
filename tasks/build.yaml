@@ -42,7 +42,7 @@ tasks:
     description: "build container and push to GHCR (multi-arch)"
     actions:
         # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
-      - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-runtime:${REF} --push .
+      - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
 
   - name: build-api-linux-amd64
     description: "build the go api server for linux amd64 (used for multi-arch container)"
