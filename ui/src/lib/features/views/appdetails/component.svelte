@@ -105,7 +105,6 @@
 			</TabItem>
 			<TabItem title="Security & Compliance"></TabItem>
 			<TabItem title="Package Config"></TabItem>
-			<TabItem title="Contracting Info"></TabItem>
 		</Tabs>
 	</div>
 {/if}
