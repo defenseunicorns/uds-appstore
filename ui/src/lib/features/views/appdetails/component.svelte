@@ -35,7 +35,19 @@
 
 {#if app}
 	<div class="h-full overflow-y-auto">
-		<AppCardHeader {app} />
+		<div class="flex flex-wrap items-center justify-between">
+			<div class="flex items-center justify-start">
+				<AppCardHeader {app} />
+			</div>
+			<div class="items-right flex">
+				<a
+					class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					href="https://www.defenseunicorns.com/contactus"
+				>
+					Talk with a Mission Specialist
+				</a>
+			</div>
+		</div>
 
 		<Tabs tabStyle="underline" contentClass="p-4 mt-4">
 			<TabItem open title="Product Overview">
