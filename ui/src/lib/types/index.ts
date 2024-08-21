@@ -17,15 +17,16 @@ export interface Application {
 		};
 		contractingDetails: {
 			number: string;
-			vehicle: string;
-			pricing: 'FOSS' | 'SaaS' | 'Per Instance' | 'Per User';
+			vehicle: string[];
+			pricing: ('Free' | 'Bring Your Own License')[];
 			smallBusinessStatus: string;
 		};
-		authorizationDetails: {
+		security: {
 			nist800_53: boolean;
 			fips: boolean;
 			cveReport: boolean;
 			sbom: boolean;
+			impactLevel: string[];
 		};
 		architecture: string[];
 		providers: string[];

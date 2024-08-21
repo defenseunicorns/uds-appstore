@@ -34,6 +34,7 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.43.0",
 		"flowbite": "2.4.1",
+		"flowbite-svelte": "^0.46.15",
 		"globals": "15.8.0",
 		"jsdom": "24.1.1",
 		"prettier": "3.3.3",
@@ -42,6 +43,7 @@
 		"prettier-plugin-tailwindcss": "0.6.5",
 		"svelte": "4.2.18",
 		"svelte-check": "3.8.4",
+		"svelte-markdown": "^0.4.1",
 		"tailwindcss": "3.4.6",
 		"tslib": "2.6.3",
 		"typescript": "5.5.4",
@@ -50,9 +52,5 @@
 		"vite": "5.3.4",
 		"vitest": "2.0.4"
 	},
-	"type": "module",
-	"dependencies": {
-		"flowbite-svelte": "^0.46.15",
-		"svelte-markdown": "^0.4.1"
-	}
+	"type": "module"
 }

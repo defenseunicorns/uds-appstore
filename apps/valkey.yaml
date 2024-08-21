@@ -4,7 +4,42 @@ metadata:
 spec:
   title: Valkey
   repository: ghcr.io/defenseunicorns/packages/uds/valkey
+  description: |
+    **Valkey: Powering Real-Time Defense Applications with Lightning-Fast Performance**
+
+    Split-second decisions can be the difference between mission success and failure, application performance is paramount. Valkey, the in-memory data store renowned for its blazing-fast speed and versatility, empowers your mission-critical applications to deliver real-time insights and responsiveness.
+
+    **Key Benefits for Mission Heroes**
+
+    * **Unmatched Speed:** Valkey' in-memory architecture delivers sub-millisecond response times, enabling your applications to process vast amounts of data in real-time, even under heavy loads.
+    * **Versatility:** Valkey' rich set of data structures and modules supports a wide range of use cases, from caching and session management to real-time analytics and geospatial data processing.
+    * **High Availability & Scalability:** Valkey' replication and clustering capabilities ensure high availability and horizontal scalability, allowing your applications to grow with your needs.
+    * **Security:** Valkey offers robust security features, including access control lists, data encryption, and support for secure connections, protecting your sensitive data from unauthorized access.
+    * **Cost-Effective:** Valkey' open-source nature and efficient resource utilization make it a cost-effective solution for organizations of all sizes, maximizing your return on investment.
+
+    **Empower Your Mission-Critical Applications**
+
+    * **Real-Time Analytics:** Process and analyze streaming data in real-time, providing actionable insights to decision-makers.
+    * **Command & Control Systems:** Deliver real-time situational awareness and enable rapid response to evolving threats.
+    * **Geospatial Applications:** Store and query geospatial data with lightning-fast performance, enabling real-time tracking and mapping.
+    * **Caching & Session Management:** Accelerate application performance and improve user experience by caching frequently accessed data and managing user sessions.
+    * **Messaging & Queues:** Build reliable, scalable messaging and queueing systems for real-time communication and data processing.
+
+    **Valkey in Action**
+
+    Valkey is the data store of choice for a wide range of defense applications, including:
+
+    * **Intelligence, Surveillance, and Reconnaissance (ISR) Systems:** Process and analyze real-time sensor data, enabling rapid threat detection and response.
+    * **Cybersecurity:** Detect and mitigate cyberattacks in real-time, protecting critical infrastructure and sensitive data.
+    * **Logistics and Supply Chain Management:** Optimize resource allocation and track assets with real-time visibility, improving operational efficiency.
+    * **Simulation & Training Systems:** Deliver realistic, high-performance simulations for training and mission rehearsal.
+
+    **Choose Valkey**
+
+    Valkey is the trusted in-memory data store that empowers Mission Heroes to build and deploy real-time, high-performance applications. With its unmatched speed, versatility, and unwavering commitment to open-source innovation, Valkey is the key to unlocking the full potential of your mission-critical systems.
+
+    **Accelerate your mission, empower your applications, and achieve success with Valkey.**
+
   links:
-    - description: UDS Package
+    - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-valkey"
-  versions: []
