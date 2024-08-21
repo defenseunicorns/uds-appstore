@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.1...v0.2.0) (2024-08-21)
+
+
+### Features
+
+* flesh out details page with more data ([#120](https://github.com/defenseunicorns/uds-marketplace/issues/120)) ([f1d0435](https://github.com/defenseunicorns/uds-marketplace/commit/f1d0435e0b391f04d5de45c31a40a0efcf71cf42))
+
+
+### Miscellaneous
+
+* **fix:** comment error in task file ([#131](https://github.com/defenseunicorns/uds-marketplace/issues/131)) ([7849c07](https://github.com/defenseunicorns/uds-marketplace/commit/7849c07b9fbbfea1d4f2dc791b11e1bfa7c5f6d0))
+
 ## [0.1.1](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.0...v0.1.1) (2024-08-19)
 
 
