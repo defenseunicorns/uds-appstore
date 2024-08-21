@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/defenseunicorns/uds-marketplace/compare/v0.2.0...v0.2.1) (2024-08-21)
+
+
+### Miscellaneous
+
+* **ci:** add docker buildx setup ([#147](https://github.com/defenseunicorns/uds-marketplace/issues/147)) ([5e0b141](https://github.com/defenseunicorns/uds-marketplace/commit/5e0b141c7373b3b4b3083affe35a04a669054c2c))
+
 ## [0.2.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.1...v0.2.0) (2024-08-21)
 
 
