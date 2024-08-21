@@ -41,5 +41,9 @@ spec:
     **Accelerate your mission, empower your applications, and achieve success with Valkey.**
 
   links:
+    - description: Product Website
+      url: https://valkey.io/
+    - description: Documentation
+      url: https://valkey.io/docs/
     - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-valkey"

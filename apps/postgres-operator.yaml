@@ -39,7 +39,12 @@ spec:
     PostgreSQL is the trusted database for Mission Heroes who demand the highest levels of security, reliability, and performance. With its proven track record, extensive feature set, and unwavering commitment to open-source innovation, PostgreSQL is the foundation your mission-critical applications deserve.
 
     **Secure your data, empower your mission, and achieve success with PostgreSQL.**
-
+  icons:
+    - src: https://avatars.githubusercontent.com/u/1564818?s=256&v=4
   links:
+    - description: Documentation
+      url: https://postgres-operator.readthedocs.io/en/latest/
+    - description: Helm Chart
+      url: https://github.com/zalando/postgres-operator/tree/master/charts/postgres-operator
     - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-postgres-operator"

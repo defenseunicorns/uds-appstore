@@ -42,5 +42,11 @@ spec:
   icons:
     - src: https://ftp-nyc.osuosl.org/pub/jenkins/art/jenkins-logo/logo.svg
   links:
+    - description: Product Website
+      url: https://www.jenkins.io
+    - description: Documentation
+      url: https://www.jenkins.io/doc/
+    - description: Helm Chart
+      url: https://charts.jenkins.io
     - description: UDS Package Repository
       url: "https://github.com/defenseunicorns/uds-package-jenkins"
