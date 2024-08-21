@@ -24,6 +24,7 @@ for file in apps/*.yaml; do
     .spec.security.fips = .spec.security.fips // true |
     .spec.security.cveReport = .spec.security.cveReport // true |
     .spec.security.sbom = .spec.security.sbom // true |
+    .spec.security.impactLevel = .spec.security.impactLevel // [ "2", "4", "5", "6" ] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
     .spec.providers = .metadata.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air-Gapped"]
