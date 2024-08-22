@@ -1,0 +1,17 @@
+kind: Application
+metadata:
+  name: archivista
+spec:
+  title: Archivista
+  repository: ghcr.io/defenseunicorns/packages/uds/archivista
+  description: |
+    <todo>
+  icons:
+    - src: https://github.com/in-toto/archivista/blob/main/docs/assets/logo.png?raw=true
+  links:
+    - description: Product Website
+      url: https://github.com/in-toto/archivista
+    - description: Helm Chart
+      url: https://github.com/in-toto/archivista
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-archivista

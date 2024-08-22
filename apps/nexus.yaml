@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: nexus
+spec:
+  title: Nexus Repository
+  repository: ghcr.io/defenseunicorns/packages/uds/nexus
+  description: |
+    <todo>
+  icons:
+    - src: https://www.sonatype.com/hs-fs/hubfs/sonatype-repository-logo%201.png?width=198&height=42&name=sonatype-repository-logo%201.png
+  links:
+    - description: Product Website
+      url: https://www.sonatype.com/products/sonatype-nexus-repository
+    - description: Documentation
+      url: https://help.sonatype.com/en/sonatype-nexus-repository.html
+    - description: Helm Chart
+      url: https://repo1.dso.mil/big-bang/product/packages/nexus
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-nexus

@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: argocd
+spec:
+  title: ArgoCD
+  repository: ghcr.io/defenseunicorns/packages/uds/argocd
+  description: |
+    <todo>
+  icons:
+    - src: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+  links:
+    - description: Product Website
+      url: https://github.com/argoproj/argo-cd
+    - description: Documentation
+      url: https://argo-cd.readthedocs.io/en/stable/
+    - description: Helm Chart
+      url: https://argoproj.github.io/argo-helm
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-argocd

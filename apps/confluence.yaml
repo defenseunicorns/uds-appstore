@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: confluence
+spec:
+  title: Atlassian Confluence
+  repository: ghcr.io/defenseunicorns/packages/uds/confluence
+  description: |
+    <todo>
+  icons:
+    - src: https://wac-cdn.atlassian.com/misc-assets/adg4-nav/HeaderLogoConfluence2.svg
+  links:
+    - description: Product Website
+      url: https://www.atlassian.com/software/confluence
+    - description: Documentation
+      url: https://www.atlassian.com/software/confluence/resources
+    - description: Helm Chart
+      url: https://github.com/atlassian/data-center-helm-charts/tree/main/src/main/charts/confluence
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-confluence

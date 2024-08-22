@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: jira
+spec:
+  title: Atlassian Jira
+  repository: ghcr.io/defenseunicorns/packages/uds/jira
+  description: |
+    <todo>
+  icons:
+    - src: https://wac-cdn.atlassian.com/misc-assets/adg4-nav/HeaderLogoJira.svg
+  links:
+    - description: Product Website
+      url: https://www.atlassian.com/software/jira
+    - description: Documentation
+      url: https://www.atlassian.com/software/jira/guides/getting-started/introduction#what-is-jira-software
+    - description: Helm Chart
+      url: https://github.com/atlassian/data-center-helm-charts/tree/main/src/main/charts/jira
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-jira

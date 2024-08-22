@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: artifactory
+spec:
+  title: JFrog Artifactory
+  repository: ghcr.io/defenseunicorns/packages/uds/artifactory
+  description: |
+    <todo>
+  icons:
+    - src: https://speedmedia.jfrog.com/08612fe1-9391-4cf3-ac1a-6dd49c36b276/media.jfrog.com/wp-content/uploads/2021/12/29113553/jfrog-logo-2022.svg
+  links:
+    - description: Product Website
+      url: https://jfrog.com/artifactory/
+    - description: Documentation
+      url: https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-artifactory
+    - description: Helm Chart
+      url: https://github.com/jfrog/charts/tree/master/stable/artifactory
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-artifactory

@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: secure-code-box
+spec:
+  title: SecureCodeBox
+  repository: ghcr.io/defenseunicorns/packages/uds/securecodebox
+  description: |
+    <todo>
+  icons:
+    - src: https://www.securecodebox.io/img/Logo_White.svg
+  links:
+    - description: Product Website
+      url: https://www.securecodebox.io/
+    - description: Documentation
+      url: https://www.securecodebox.io/docs/getting-started/installation
+    # - description: Helm Chart
+    #   url:
+    # - description: UDS Package Repository
+    #   url: https://github.com/defenseunicorns/uds-package-securecodebox

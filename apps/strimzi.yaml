@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: strimzi
+spec:
+  title: Strimzi
+  repository: ghcr.io/defenseunicorns/packages/uds/strimzi
+  description: |
+    <todo>
+  icons:
+    - src: https://strimzi.io/assets/images/strimzi_logo.png
+  links:
+    - description: Product Website
+      url: https://strimzi.io/
+    - description: Documentation
+      url: https://strimzi.io/documentation/
+    - description: Helm Chart
+      url: https://quay.io/strimzi-helm/strimzi-kafka-operator
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-strimzi

@@ -1,0 +1,19 @@
+kind: Application
+metadata:
+  name: redpanda
+spec:
+  title: redpanda Repository
+  repository: ghcr.io/defenseunicorns/packages/uds/redpanda
+  description: |
+    <todo>
+  icons:
+    - src: https://cdn.prod.website-files.com/6632a83042773c5a1a5f4443/6647694a827e35299ffead7f_redpanda-logo-red.svg
+  links:
+    - description: Product Website
+      url: https://www.redpanda.com/
+    - description: Documentation
+      url: https://docs.redpanda.com/home/
+    - description: Helm Chart
+      url: https://charts.redpanda.com/
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-redpanda
