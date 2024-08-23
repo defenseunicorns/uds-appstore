@@ -34,9 +34,9 @@
 </script>
 
 {#if app}
-	<div class="h-full overflow-y-auto">
+	<div class="p-4">
 		<div class="flex flex-wrap items-center justify-between">
-			<div class="flex items-center justify-start">
+			<div class="hflex items-center justify-start">
 				<AppCardHeader {app} />
 			</div>
 			<div class="items-right flex">

@@ -2,7 +2,7 @@ kind: Application
 metadata:
   name: redpanda
 spec:
-  title: redpanda Repository
+  title: RedPanda
   repository: ghcr.io/defenseunicorns/packages/uds/redpanda
   description: |
     **The Unified Streaming Data Platform**
