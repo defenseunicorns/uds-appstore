@@ -14,7 +14,7 @@ spec:
     compromising performance, while offering seamless scalability and predictable
     latencies for mission-critical data environments.
   icons:
-    - src: https://cdn.prod.website-files.com/6632a83042773c5a1a5f4443/6647694a827e35299ffead7f_redpanda-logo-red.svg
+    - src: /images/icons/redpanda.svg
   links:
     - description: Product Website
       url: https://www.redpanda.com/

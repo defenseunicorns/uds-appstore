@@ -19,7 +19,7 @@ spec:
     to streamline their software supply chain, improve automation, and maintain
     integrity in their development and delivery processes.
   icons:
-    - src: https://speedmedia.jfrog.com/08612fe1-9391-4cf3-ac1a-6dd49c36b276/media.jfrog.com/wp-content/uploads/2021/12/29113553/jfrog-logo-2022.svg
+    - src: /images/icons/jfrog.svg
   links:
     - description: Product Website
       url: https://jfrog.com/artifactory/

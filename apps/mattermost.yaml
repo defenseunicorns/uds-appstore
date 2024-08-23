@@ -18,7 +18,7 @@ spec:
     and missions looking to enhance internal collaboration while maintaining control
     over their infrastructure.
   icons:
-    - src: https://mattermost.com/wp-content/themes/mattermost-2021/frontend/dist/img/mattermost-logo-horizontal.svg
+    - src: /images/icons/mattermost.svg
   links:
     - description: Product Website
       url: https://mattermost.com/

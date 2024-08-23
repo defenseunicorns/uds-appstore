@@ -12,9 +12,7 @@ spec:
     so you can improve your team's software development AND accelerate your software
     delivery into critical mission environments.
   icons:
-    - src: "https://images.ctfassets.net/xz1dnu24egyd/1IRkfXmxo8VP2RAE5jiS1Q/ea2086675d87911b0ce2d34c354b3711/gitlab-logo-500.png"
-      type: "image/png"
-      size: "500x500"
+    - src: /images/icons/gitlab.svg
   keywords:
     - source-control
     - ci-cd

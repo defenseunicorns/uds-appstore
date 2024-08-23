@@ -14,6 +14,8 @@ spec:
     collection of datatypes, including strings, numbers, hashes, lists, sets,
     sorted sets, bitmaps, hyperloglogs and more. You can operate on data structures
     in-place with an expressive collection of commands.
+  icons:
+    - src: /images/icons/valkey.svg
   links:
     - description: Product Website
       url: https://valkey.io/

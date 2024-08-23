@@ -21,7 +21,7 @@ spec:
     teams and large enterprises alike, making it the go-to solution for organizations
     seeking to enhance productivity and streamline their project management practices.
   icons:
-    - src: https://wac-cdn.atlassian.com/misc-assets/adg4-nav/HeaderLogoJira.svg
+    - src: /images/icons/jira.svg
   links:
     - description: Product Website
       url: https://www.atlassian.com/software/jira

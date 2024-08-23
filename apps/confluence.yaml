@@ -16,7 +16,7 @@ spec:
     other Atlassian tools and supports a wide range of content types, from meeting
     notes to technical documentation.
   icons:
-    - src: https://wac-cdn.atlassian.com/misc-assets/adg4-nav/HeaderLogoConfluence2.svg
+    - src: /images/icons/confluence.svg
   links:
     - description: Product Website
       url: https://www.atlassian.com/software/confluence

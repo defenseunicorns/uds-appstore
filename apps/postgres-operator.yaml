@@ -17,7 +17,7 @@ spec:
     custom functions, even write code from different programming languages without
     recompiling your database!
   icons:
-    - src: https://avatars.githubusercontent.com/u/1564818?s=256&v=4
+    - src: /images/icons/postgres-operator.svg
   links:
     - description: Documentation
       url: https://postgres-operator.readthedocs.io/en/latest/

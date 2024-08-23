@@ -14,7 +14,7 @@ spec:
     management and application portability across any cloud, making it ideal for
     large-scale data lakes, enterprise applications, and diverse database workloads.
   icons:
-    - src: https://min.io/resources/img/logo.svg
+    - src: /images/icons/minio.svg
   links:
     - description: Product Website
       url: https://min.io/

@@ -22,7 +22,7 @@ spec:
     making it a versatile solution for DevOps workflows.
 
   icons:
-    - src: https://www.sonatype.com/hs-fs/hubfs/sonatype-repository-logo%201.png?width=198&height=42&name=sonatype-repository-logo%201.png
+    - src: /images/icons/nexus.svg
   links:
     - description: Product Website
       url: https://www.sonatype.com/products/sonatype-nexus-repository

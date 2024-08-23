@@ -17,7 +17,7 @@ spec:
     Azure Pipelines, and Jenkins, allowing for automated code scans and quality checks
     throughout the development process.
   icons:
-    - src: https://assets-eu-01.kc-usercontent.com/64ba5402-320b-01f3-758a-878c16f16a91/12e3974b-220d-4cde-8f17-2ff9fa9d9c27/SonarQube_Logo.svg
+    - src: /images/icons/sonarqube.svg
   links:
     - description: Product Website
       url: https://www.sonarsource.com/products/sonarqube/

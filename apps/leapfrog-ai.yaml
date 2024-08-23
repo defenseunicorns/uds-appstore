@@ -19,6 +19,8 @@ spec:
     "Chat With Your Docs," multi-language translation and transcription for intelligence
     operations, text summarization for quick briefings, and AI-assisted code generation
     for defense software development.
+  icons:
+    - src: /images/icons/leapfrog-ai.svg
   links:
     - description: Product Website
       url: https://github.com/defenseunicorns/leapfrogai

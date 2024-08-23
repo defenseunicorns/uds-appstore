@@ -17,7 +17,7 @@ spec:
   keywords:
     - ci-cd
   icons:
-    - src: https://ftp-nyc.osuosl.org/pub/jenkins/art/jenkins-logo/logo.svg
+    - src: /images/icons/jenkins.svg
   links:
     - description: Product Website
       url: https://www.jenkins.io
