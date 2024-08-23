@@ -5,38 +5,15 @@ spec:
   title: Jenkins
   repository: ghcr.io/defenseunicorns/packages/uds/jenkins
   description: |
-    **Jenkins: Empowering Mission Heroes to Deliver Secure, Reliable Software**
+    **Build Great Things at Any Scale**
 
-    Your software development teams are the unsung **Mission Heroes** who safeguard national security. Jenkins, the leading open-source automation server, equips your heroes with the tools they need to accelerate software delivery, strengthen security, and ensure mission success.
-
-    **Key Benefits for Mission Heroes**
-
-    * **Accelerated Delivery**: Jenkins automates the entire software delivery pipeline – from build to test to deployment – enabling your teams to release new features and fixes faster, with fewer errors.
-    * **Enhanced Security**: Jenkins integrates seamlessly with industry-leading security tools, helping you identify and mitigate vulnerabilities early in the development lifecycle.
-    * **Unwavering Reliability**: Jenkins' robust architecture and extensive plugin ecosystem ensure your software delivery pipelines run smoothly, even under the most demanding conditions.
-    * **Flexible & Customizable**: Jenkins adapts to your unique workflows and toolchains, empowering your teams to work in the ways that best suit their missions.
-    * **Cost-Effective**: Jenkins' open-source nature and active community support make it a highly cost-effective solution for organizations of all sizes.
-
-    **How Jenkins Empowers Mission Heroes**
-
-    * **Developers**: Automate tedious tasks, focus on innovation, and deliver high-quality code with confidence.
-    * **Security Teams**: Integrate security checks into every stage of the pipeline, ensuring your software remains resilient to threats.
-    * **Operations Teams**: Deploy software with ease and confidence, knowing your infrastructure is secure and stable.
-    * **Project Managers**: Gain real-time visibility into project progress, identify bottlenecks, and make data-driven decisions.
-
-    **Jenkins in Action**
-
-    Jenkins helps defense contractors:
-
-    * **Streamline development processes**: Automate manual tasks, eliminate bottlenecks, and accelerate software delivery.
-    * **Strengthen security posture**: Integrate security checks into every stage of the pipeline, reducing vulnerabilities.
-    * **Improve collaboration**: Foster transparency and communication across development, security, and operations teams.
-    * **Ensure compliance**: Meet rigorous regulatory requirements with Jenkins' audit trails and traceability features.
-
-    **Choose Jenkins *
-
-    Jenkins is the proven automation server that empowers Mission Heroes to deliver the secure, reliable software that safeguards our nation. With its flexibility, scalability, and unwavering commitment to open-source innovation, Jenkins is the partner you can trust to support your critical missions.
-
+    Jenkins is an open-source automation server that helps you automate the building,
+    testing, and deployment of any project across multiple platforms. Jenkins helps
+    to avoid breaking changes so that you can save time and ensure the delivery of
+    high-quality software. Its web interface provides an easy way to manage and
+    test your applications before taking them to production. This image bundles
+    the latest versions of community-recommended plugins, including pipelines and
+    Git integration.
   keywords:
     - ci-cd
   icons:

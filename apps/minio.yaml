@@ -5,7 +5,14 @@ spec:
   title: minio Repository
   repository: ghcr.io/defenseunicorns/packages/uds/minio
   description: |
-    <todo>
+    **Object Storage that Runs in Any Environment**
+
+    MinIO Enterprise Object Store is a high-performance, cloud-native object storage
+    solution for modern data infrastructure across various environments. It offers
+    unparalleled simplicity, speed, and scalability for private, public, colo, and
+    edge deployments. MinIO's software-defined approach enables consistent data
+    management and application portability across any cloud, making it ideal for
+    large-scale data lakes, enterprise applications, and diverse database workloads.
   icons:
     - src: https://min.io/resources/img/logo.svg
   links:

@@ -5,7 +5,14 @@ spec:
   title: redpanda Repository
   repository: ghcr.io/defenseunicorns/packages/uds/redpanda
   description: |
-    <todo>
+    **The Unified Streaming Data Platform**
+
+    Redpanda is a Kafka-compatible streaming data platform designed for data-intensive
+    applications. It centralizes, processes, and manages real-time data streams,
+    supporting up to 18 package formats in a single deployment. Redpanda significantly
+    enhances development efficiency and reduces total Kafka costs by up to 6x without
+    compromising performance, while offering seamless scalability and predictable
+    latencies for mission-critical data environments.
   icons:
     - src: https://cdn.prod.website-files.com/6632a83042773c5a1a5f4443/6647694a827e35299ffead7f_redpanda-logo-red.svg
   links:

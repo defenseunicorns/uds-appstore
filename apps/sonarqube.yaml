@@ -5,40 +5,17 @@ spec:
   title: SonarQube
   repository: ghcr.io/defenseunicorns/packages/uds/sonarqube
   description: |
-    **SonarQube: Fortify Your Code, Secure Your Mission**
+    **Clean Code, Under Your Control**
 
-    Software vulnerabilities can compromise national security. SonarQube, the leading code quality and security analysis platform, empowers your development teams to write cleaner, safer code, ensuring the resilience of your mission-critical applications.
-
-    **Key Benefits for Mission Heroes**
-
-    * **Uncompromising Code Security:** SonarQube's deep code analysis identifies vulnerabilities, security hotspots, and coding flaws early in the development lifecycle, allowing you to proactively address potential threats before they become breaches.
-    * **Continuous Code Quality:** SonarQube continuously monitors your codebase for quality issues, such as bugs, code smells, and technical debt, helping you maintain a clean and maintainable codebase.
-    * **Regulatory Compliance:** SonarQube's comprehensive reporting and audit trails help you meet stringent industry regulations and security standards, ensuring your software remains compliant and secure.
-    * **Seamless Integration:** SonarQube integrates seamlessly with your existing development tools and workflows, providing continuous feedback to developers and empowering them to write better code from the start.
-    * **Cost-Effective:** SonarQube's open-source Community Edition and flexible licensing options make it a cost-effective solution for organizations of all sizes, maximizing your return on investment.
-
-    **Empower Your Development Teams**
-
-    * **Developers:** Write cleaner, safer code with real-time feedback and actionable insights from SonarQube.
-    * **Security Teams:** Proactively identify and mitigate vulnerabilities, ensuring the security of your software.
-    * **Project Managers:** Gain visibility into code quality and security trends, enabling data-driven decision-making.
-    * **Executives:** Ensure your software meets the highest standards of quality and security, safeguarding your mission-critical operations.
-
-    **SonarQube in Action**
-
-    SonarQube helps Mission Heroes:
-
-    * **Reduce vulnerabilities:** Identify and fix security flaws early in the development lifecycle, minimizing the risk of breaches.
-    * **Improve code quality:** Continuously monitor your codebase for quality issues, enhancing maintainability and reducing technical debt.
-    * **Accelerate development:** Empower developers to write better code from the start, reducing rework and accelerating time-to-market.
-    * **Ensure compliance:** Meet stringent industry regulations and security standards with comprehensive reporting and audit trails.
-
-    **Choose SonarQube**
-
-    SonarQube is the trusted code quality and security analysis platform that empowers defense contractors to build resilient, secure software. With its deep code analysis, seamless integration, and unwavering commitment to open-source innovation, SonarQube is the partner you can rely on to safeguard your mission-critical applications.
-
-    **Fortify your code, secure your mission, and achieve success with SonarQube.**
-
+    SonarQube is a comprehensive code quality and security tool that helps developers
+    deliver and maintain high-quality, secure code. It performs static code analysis
+    to detect bugs, vulnerabilities, and code smells across multiple programming
+    languages, providing actionable insights to improve code health. By integrating
+    seamlessly into development workflows, SonarQube enables teams to catch and fix
+    issues early, reducing technical debt and enhancing overall software quality.
+    The platform integrates with popular DevOps tools like GitHub, GitLab,
+    Azure Pipelines, and Jenkins, allowing for automated code scans and quality checks
+    throughout the development process.
   icons:
     - src: https://assets-eu-01.kc-usercontent.com/64ba5402-320b-01f3-758a-878c16f16a91/12e3974b-220d-4cde-8f17-2ff9fa9d9c27/SonarQube_Logo.svg
   links:

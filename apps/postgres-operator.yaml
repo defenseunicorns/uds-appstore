@@ -5,40 +5,17 @@ spec:
   title: Postgres Operator
   repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
   description: |
-    **PostgreSQL: The Rock-Solid Database for Mission-Critical Defense Applications**
+    **The World's Most Advanced Open Source Relational Database**
 
-    Data integrity, security, and reliability are non-negotiable. PostgreSQL, the world's most advanced open-source relational database, provides the robust foundation your mission-critical applications demand.
-
-    **Key Benefits for Mission Heroes**
-
-    * **Uncompromising Security:** PostgreSQL's advanced security features, including row-level security, granular access controls, and data encryption, ensure your sensitive information remains protected from unauthorized access and cyber threats.
-    * **Rock-Solid Reliability:** PostgreSQL's proven architecture and ACID compliance guarantee data consistency and integrity, even under the most demanding workloads.
-    * **Scalability & Performance:** PostgreSQL effortlessly handles massive datasets and high transaction volumes, empowering your applications to perform at their peak, even during mission-critical operations.
-    * **Extensibility:** PostgreSQL's rich ecosystem of extensions and plugins allows you to tailor the database to your unique needs, ensuring seamless integration with your existing toolchain.
-    * **Cost-Effective:** PostgreSQL's open-source nature and active community support make it a highly cost-effective solution for organizations of all sizes, maximizing your return on investment.
-
-    **Empower Your Mission with PostgreSQL**
-
-    * **Store and manage vast amounts of sensitive data** with confidence, knowing it's protected by PostgreSQL's robust security features.
-    * **Build and deploy high-performance applications** that can handle the most demanding workloads, ensuring mission success.
-    * **Integrate PostgreSQL seamlessly** with your existing tools and workflows, streamlining development and operations.
-    * **Benefit from the expertise of a vibrant community** of developers and contributors, ensuring ongoing innovation and support.
-    * **Reduce costs** by leveraging PostgreSQL's open-source nature and eliminating expensive licensing fees.
-
-    **PostgreSQL in Action**
-
-    PostgreSQL is the database of choice for a wide range of defense applications, including:
-
-    * **Intelligence analysis:** Store, manage, and analyze massive volumes of intelligence data, empowering analysts to uncover critical insights.
-    * **Command and control systems:** Provide real-time situational awareness and decision support, ensuring mission success.
-    * **Logistics and supply chain management:** Optimize resource allocation and track assets with precision, improving operational efficiency.
-    * **Cybersecurity:** Detect and respond to threats in real time, safeguarding critical infrastructure and sensitive data.
-
-    **Choose PostgreSQL**
-
-    PostgreSQL is the trusted database for Mission Heroes who demand the highest levels of security, reliability, and performance. With its proven track record, extensive feature set, and unwavering commitment to open-source innovation, PostgreSQL is the foundation your mission-critical applications deserve.
-
-    **Secure your data, empower your mission, and achieve success with PostgreSQL.**
+    PostgreSQL is a powerful, open source object-relational database system that uses
+    and extends the SQL language combined with many features that safely store and scale
+    the most complicated data workloads. PostgreSQL comes with many features aimed to
+    help developers build applications, administrators to protect data integrity and
+    build fault-tolerant environments, and help you manage your data no matter how big
+    or small the dataset. In addition to being free and open source, PostgreSQL is
+    highly extensible. For example, you can define your own data types, build out
+    custom functions, even write code from different programming languages without
+    recompiling your database!
   icons:
     - src: https://avatars.githubusercontent.com/u/1564818?s=256&v=4
   links:

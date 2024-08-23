@@ -5,7 +5,22 @@ spec:
   title: Nexus Repository
   repository: ghcr.io/defenseunicorns/packages/uds/nexus
   description: |
-    <todo>
+    **Build Fast with the World's Leading Artifact Repository Manager**
+
+    Nexus Repository by  is a comprehensive binary and artifact management tool that
+    centralizes, stores, and manages software components across various package formats.
+    It optimizes build performance and storage costs by caching artifacts, while
+    providing teams with a single source of truth for every component. Nexus Repository
+    enhances development efficiency and scalability, supporting up to 18 package formats
+    in a single deployment and allowing teams to deploy highly available clusters and
+    edge nodes without per-node charges.
+
+    Key features include private hosted repositories, on-demand proxying, global
+    component search, and repository health checks. Nexus Repository integrates
+    seamlessly with popular CI/CD tools like Jenkins, Atlassian Bamboo, and CircleCI,
+    as well as various package managers including Maven, npm, Docker, and PyPi,
+    making it a versatile solution for DevOps workflows.
+
   icons:
     - src: https://www.sonatype.com/hs-fs/hubfs/sonatype-repository-logo%201.png?width=198&height=42&name=sonatype-repository-logo%201.png
   links:
