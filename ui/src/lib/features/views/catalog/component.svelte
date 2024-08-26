@@ -23,10 +23,10 @@
 </script>
 
 <div class="inline-flex h-[71px] flex-col items-start justify-start gap-2 px-4">
-	<div class="text-center font-['Inter'] text-2xl font-semibold leading-9 text-white">
+	<div class="text-center text-2xl font-semibold leading-9 text-white">
 		Applications Deployable on UDS
 	</div>
-	<div class="text-center font-['Inter'] text-lg font-normal leading-[27px] text-white">
+	<div class="text-center text-lg font-normal leading-[27px] text-white">
 		Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
 	</div>
 </div>
