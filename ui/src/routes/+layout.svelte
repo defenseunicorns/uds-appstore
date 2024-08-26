@@ -9,6 +9,7 @@
 	import { Navbar } from '$lib/features/navigation';
 	import '../app.postcss';
 	import { applicationStore } from '$lib/stores';
+	import { Sidebar } from '$lib/components';
 
 	onMount(async () => {
 		await applicationStore.fetchCatalog();
@@ -23,7 +24,8 @@
 	class="relative h-screen w-full overflow-auto transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
 	<Navbar />
-	<div class="relative h-full w-full overflow-y-auto pt-16">
+	<Sidebar />
+	<div class="relative h-full w-full overflow-y-auto px-9 py-16 pb-0 md:pl-72">
 		<slot />
 	</div>
 </main>
