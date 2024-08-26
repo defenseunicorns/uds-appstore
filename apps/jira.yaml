@@ -1,0 +1,33 @@
+kind: Application
+metadata:
+  name: jira
+spec:
+  title: Atlassian Jira
+  repository: ghcr.io/defenseunicorns/packages/uds/jira
+  description: |
+    **Agile Project Management and Issue Tracking for Modern Teams**
+
+    Jira is a powerful project management and issue-tracking software designed to help
+    teams plan, track, and manage agile software development projects. It offers a
+    flexible, customizable platform that adapts to various workflows, from software
+    development and IT operations to non-tech business processes. Jira's intuitive
+    interface features drag-and-drop boards, detailed reporting, and real-time
+    collaboration tools, enabling teams to visualize work progress, identify bottlenecks,
+    and continuously improve their processes. Key features include customizable
+    workflows, robust search and filtering capabilities, time tracking, and extensive
+    integration options with popular development and productivity tools. With both
+    cloud-based and self-hosted deployment options, as well as a marketplace of add-ons
+    for extended functionality, Jira scales effortlessly to meet the needs of small
+    teams and large enterprises alike, making it the go-to solution for organizations
+    seeking to enhance productivity and streamline their project management practices.
+  icons:
+    - src: /images/icons/jira.svg
+  links:
+    - description: Product Website
+      url: https://www.atlassian.com/software/jira
+    - description: Documentation
+      url: https://www.atlassian.com/software/jira/guides/getting-started/introduction#what-is-jira-software
+    - description: Helm Chart
+      url: https://github.com/atlassian/data-center-helm-charts/tree/main/src/main/charts/jira
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-jira

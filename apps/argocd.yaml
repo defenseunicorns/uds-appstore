@@ -1,0 +1,30 @@
+kind: Application
+metadata:
+  name: argocd
+spec:
+  title: ArgoCD
+  repository: ghcr.io/defenseunicorns/packages/uds/argocd
+  description: |
+    Argo CD is a continuous delivery tool for Kubernetes that automates the deployment
+    and lifecycle management of applications based on declarative, version-controlled
+    configurations. It enables organizations to maintain application definitions,
+    configurations, and environments in Git repositories, ensuring auditable and easily
+    understandable deployment processes. Argo CD simplifies the management of multiple
+    clusters and supports various config management tools, providing a flexible and
+    powerful solution for implementing GitOps practices.
+
+    The platform features a web-based UI that offers real-time views of application
+    activity and health status analysis. Key features include automated configuration
+    drift detection, rollback capabilities, multi-tenancy support with RBAC policies,
+    and integration with multiple SSO providers.
+  icons:
+    - src: /images/icons/argocd.svg
+  links:
+    - description: Product Website
+      url: https://github.com/argoproj/argo-cd
+    - description: Documentation
+      url: https://argo-cd.readthedocs.io/en/stable/
+    - description: Helm Chart
+      url: https://argoproj.github.io/argo-helm
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-argocd

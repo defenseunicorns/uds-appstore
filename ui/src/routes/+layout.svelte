@@ -16,15 +16,14 @@
 	afterNavigate(initFlowbite);
 </script>
 
-<Navbar />
-
 <svelte:head>
 	<title>UDS Marketplace</title>
 </svelte:head>
 <main
-	class="flex h-screen flex-col px-24 pt-16 transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+	class="relative h-screen w-full overflow-auto transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
-	<div class="flex-grow overflow-hidden p-4 pt-0">
+	<Navbar />
+	<div class="relative h-full w-full overflow-y-auto pt-16">
 		<slot />
 	</div>
 </main>

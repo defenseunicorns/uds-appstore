@@ -1,0 +1,28 @@
+kind: Application
+metadata:
+  name: leapfrog-ai
+spec:
+  title: LeapfrogAI
+  repository: ghcr.io/defenseunicorns/packages/uds/leapfrog
+  description: |
+    **Secure Generative AI for Mission-Critical Defense Operations**
+
+    LeapfrogAI is a cutting-edge, secure generative AI tool tailored specifically for
+    Department of Defense (DoD) operations. It brings advanced generative AI
+    capabilities to classified and air-gapped environments, enabling rapid processing
+    and analysis of sensitive mission data without compromising security. LeapfrogAI
+    enhances decision-making in defense contexts by providing AI-powered insights while
+    maintaining complete data sovereignty.
+
+    The platform offers a user-friendly interface featuring secure chat history and
+    dynamic interactions. Key features include document analysis through
+    "Chat With Your Docs," multi-language translation and transcription for intelligence
+    operations, text summarization for quick briefings, and AI-assisted code generation
+    for defense software development.
+  icons:
+    - src: /images/icons/leapfrog-ai.svg
+  links:
+    - description: Product Website
+      url: https://github.com/defenseunicorns/leapfrogai
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/leapfrogai
