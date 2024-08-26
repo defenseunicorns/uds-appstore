@@ -1,0 +1,34 @@
+kind: Application
+metadata:
+  name: secure-code-box
+spec:
+  title: SecureCodeBox
+  repository: ghcr.io/defenseunicorns/packages/uds/securecodebox
+  description: |
+    **Automated Security Testing Tool**
+
+    secureCodeBox is an open-source multi-scanner platform that automates and scales
+    security testing for networks and applications. It integrates over 15 leading
+    open-source security scanners to provide comprehensive vulnerability detection
+    across various layers, from individual applications to entire IT landscapes.
+    The platform features a simple, lightweight interface accessible to both security
+    professionals and DevOps teams, with key features including quick installation,
+    plug-and-play architecture for easy scanner integration, and flexible configuration
+    options. secureCodeBox supports a wide range of scanners, such as Nmap for network
+    discovery, ZAP for web application testing, and Trivy for container scanning, while
+    offering various hooks for result persistence and processing, including integration
+    with DefectDojo, Elasticsearch, and Azure Monitor. This enables continuous and
+    automated security testing, allowing teams to efficiently identify vulnerabilities
+    and seamlessly integrate security checks into their CI/CD pipelines or Kubernetes
+    environments.
+  icons:
+    - src: https://www.securecodebox.io/img/Logo_White.svg
+  links:
+    - description: Product Website
+      url: https://www.securecodebox.io/
+    - description: Documentation
+      url: https://www.securecodebox.io/docs/getting-started/installation
+    # - description: Helm Chart
+    #   url:
+    # - description: UDS Package Repository
+    #   url: https://github.com/defenseunicorns/uds-package-securecodebox

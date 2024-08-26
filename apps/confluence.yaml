@@ -1,0 +1,28 @@
+kind: Application
+metadata:
+  name: confluence
+spec:
+  title: Atlassian Confluence
+  repository: ghcr.io/defenseunicorns/packages/uds/confluence
+  description: |
+    **Team Collaboration and Knowledge Management Made Simple**
+
+    Confluence is a powerful team workspace platform that centralizes document creation,
+    project collaboration, and knowledge sharing within organizations. It provides a
+    flexible, web-based environment where teams can create, organize, and discuss work
+    in real-time, fostering better communication and productivity across departments.
+    Confluence streamlines information flow and reduces silos by creating a single
+    source of truth for company knowledge. Confluence also integrates seamlessly with
+    other Atlassian tools and supports a wide range of content types, from meeting
+    notes to technical documentation.
+  icons:
+    - src: /images/icons/confluence.svg
+  links:
+    - description: Product Website
+      url: https://www.atlassian.com/software/confluence
+    - description: Documentation
+      url: https://www.atlassian.com/software/confluence/resources
+    - description: Helm Chart
+      url: https://github.com/atlassian/data-center-helm-charts/tree/main/src/main/charts/confluence
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-confluence
