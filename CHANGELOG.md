@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.2.1...v0.3.0) (2024-08-26)
+
+
+### Features
+
+* catalog page content header ([#150](https://github.com/defenseunicorns/uds-marketplace/issues/150)) ([8b59eb1](https://github.com/defenseunicorns/uds-marketplace/commit/8b59eb10ab90306896d23a5a1be54146cc832042))
+* global nav bar name ([#151](https://github.com/defenseunicorns/uds-marketplace/issues/151)) ([d5c02c6](https://github.com/defenseunicorns/uds-marketplace/commit/d5c02c6c72a3feecf24e01641219d53ebf152f5a))
+
+
+### Miscellaneous
+
+* add links and icons ([#149](https://github.com/defenseunicorns/uds-marketplace/issues/149)) ([c9a1c90](https://github.com/defenseunicorns/uds-marketplace/commit/c9a1c901d39f3f8b0488807b814a4826f010ccb0))
+
 ## [0.2.1](https://github.com/defenseunicorns/uds-marketplace/compare/v0.2.0...v0.2.1) (2024-08-21)
 
 
