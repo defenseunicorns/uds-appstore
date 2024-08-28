@@ -20,12 +20,16 @@
 <svelte:head>
 	<title>UDS Marketplace</title>
 </svelte:head>
+<Navbar />
+<Sidebar routes={['/apps']} />
+
 <main
-	class="relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+	class="dark:focus:ring-primary-900 relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
-	<Navbar />
-	<Sidebar />
-	<div class="relative h-full w-full overflow-y-hidden px-9 py-16 md:pl-72">
+	<div
+		class="relative
+		 mt-[var(--nav-height)] h-full overflow-y-auto px-9 py-9 md:mx-0 md:ml-[var(--sidebar-width)] md:px-24"
+	>
 		<slot />
 	</div>
 </main>

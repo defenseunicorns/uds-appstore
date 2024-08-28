@@ -3,10 +3,20 @@
 
 <script lang="ts">
 	import Themetoggle from '../themetoggle/component.svelte';
+	import { onMount } from 'svelte';
+
+	let navElement: HTMLElement;
+
+	onMount(() => {
+		if (navElement) {
+			document.documentElement.style.setProperty('--nav-height', `${navElement.offsetHeight}px`);
+		}
+	});
 </script>
 
 <div class="bg-gray-900 antialiased">
 	<nav
+		bind:this={navElement}
 		class="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-gray-800 px-6 py-2.5 dark:border-gray-700"
 	>
 		<div class="flex flex-wrap items-center justify-between">

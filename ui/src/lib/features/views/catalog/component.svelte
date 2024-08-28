@@ -22,16 +22,16 @@
 	});
 </script>
 
-<div class="inline-flex h-[71px] flex-col items-start justify-start gap-2 px-4">
-	<div class="text-center text-2xl font-semibold leading-9 text-white">
-		Applications Deployable on UDS
+<div class="w-100 container pb-8">
+	<div class="mb-8 flex flex-col items-start justify-start">
+		<h1 class="mb-2 text-2xl font-semibold leading-9 text-white md:text-3xl">
+			Applications Deployable on UDS
+		</h1>
+		<p class="text-lg font-normal leading-[27px] text-white">
+			Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
+		</p>
 	</div>
-	<div class="text-center text-lg font-normal leading-[27px] text-white">
-		Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
-	</div>
-</div>
-<div class="h-full overflow-y-auto">
-	<div class="container mx-auto px-4 py-8">
+	<div class="container">
 		{#if isLoading}
 			<div class="flex h-full items-center justify-center">
 				<img src="{base}/images/dougandserver.svg" alt="UDS Logo" class="h-20 w-20" />
@@ -42,8 +42,8 @@
 		{:else}
 			<div class="-mx-2 flex flex-wrap">
 				{#each applications as app}
-					<div class="mb-4 w-full px-2 md:w-1/2 xl:w-1/3">
-						<div class="flex justify-center md:justify-start">
+					<div class="mb-4 px-2">
+						<div class="flex justify-center">
 							<AppCard {app} />
 						</div>
 					</div>

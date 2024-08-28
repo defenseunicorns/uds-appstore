@@ -34,7 +34,7 @@
 </script>
 
 {#if app}
-	<div class="p-4">
+	<div class="pb-8">
 		<div class="flex flex-wrap items-center justify-between">
 			<div class="flex items-center justify-start">
 				<AppCardHeader {app} />
@@ -48,8 +48,8 @@
 
 		<Tabs tabStyle="underline" contentClass="p-4 mt-4">
 			<TabItem open title="Product Overview">
-				<div class="grid grid-cols-5 gap-6">
-					<div class="col-span-3">
+				<div class="flex flex-wrap gap-6">
+					<div class="flex-[3_3_0%]">
 						<div
 							class="prose max-w-none dark:prose-invert prose-a:font-light prose-a:text-blue-600 prose-a:no-underline dark:prose-a:text-blue-500"
 						>
@@ -81,65 +81,59 @@
 							{/each}
 						</div>
 					</div>
-					<div class="col-span-2">
-						<div class="grid w-full grid-cols-1 gap-4">
-							<DescriptionListGroup title="Contracting Details">
-								<DescriptionListItem
-									key="Contracting Vehicle(s)"
-									value={app.spec.contractingDetails?.vehicle?.join(', ')}
-								/>
-								<!-- <DescriptionListItem
-									key="Contracting Number"
-									value={app.spec.contractingDetails?.number}
-								/> -->
-								<DescriptionListItem
-									key="Pricing Model"
-									value={app.spec.contractingDetails?.pricing?.join(', ')}
-								/>
-								<!-- <DescriptionListItem
-									key="Small Business Status"
-									value={app.spec.contractingDetails?.smallBusinessStatus}
-								/> -->
-								<DescriptionListItem
-									key="Business Category"
-									value={app.spec.keywords?.join(', ')}
-								/>
-							</DescriptionListGroup>
+					<div class="md:flex md:flex-row">
+						<!-- Assume product overview is here -->
+						<div class="mt-4 md:mt-0 md:flex-[2_2_0%]">
+							<div class="flex flex-col gap-4">
+								<DescriptionListGroup title="Contracting Details">
+									<DescriptionListItem
+										key="Contracting Vehicle(s)"
+										value={app.spec.contractingDetails?.vehicle?.join(', ')}
+									/>
+									<DescriptionListItem
+										key="Pricing Model"
+										value={app.spec.contractingDetails?.pricing?.join(', ')}
+									/>
+									<DescriptionListItem
+										key="Business Category"
+										value={app.spec.keywords?.join(', ')}
+									/>
+								</DescriptionListGroup>
 
-							<!-- <DescriptionListGroup title="Authorization Details">
-								<DescriptionListItem key="FedRAMP Status" value="-" />
-							</DescriptionListGroup> -->
+								<DescriptionListGroup title="Security & Compliance">
+									<DescriptionListItem
+										key="FIPS Compliant Image(s)"
+										value={app.spec.security?.fips ? 'Available' : '-'}
+									/>
+									<DescriptionListItem
+										key="NIST 800-53"
+										value={app.spec.security?.nist800_53 ? 'Available' : '-'}
+									/>
+									<DescriptionListItem
+										key="Impact Level"
+										value={app.spec.security?.impactLevel?.join(', ')}
+									/>
+									<DescriptionListItem
+										key="CVE Report"
+										value={app.spec.security?.cveReport ? 'Available' : '-'}
+									/>
+									<DescriptionListItem
+										key="SBOM"
+										value={app.spec.security?.sbom ? 'Available' : '-'}
+									/>
+								</DescriptionListGroup>
 
-							<DescriptionListGroup title="Security & Compliance">
-								<DescriptionListItem
-									key="FIPS Compliant Image(s)"
-									value={app.spec.security?.fips ? 'Available' : '-'}
-								/>
-								<DescriptionListItem
-									key="NIST 800-53"
-									value={app.spec.security?.nist800_53 ? 'Available' : '-'}
-								/>
-								<DescriptionListItem
-									key="Impact Level"
-									value={app.spec.security?.impactLevel?.join(', ')}
-								/>
-								<DescriptionListItem
-									key="CVE Report"
-									value={app.spec.security?.cveReport ? 'Available' : '-'}
-								/>
-								<DescriptionListItem
-									key="SBOM"
-									value={app.spec.security?.sbom ? 'Available' : '-'}
-								/>
-							</DescriptionListGroup>
-
-							<DescriptionListGroup title="Technical Details">
-								<DescriptionListItem key="Infrastructure" value={app.spec.providers?.join(', ')} />
-								<DescriptionListItem
-									key="Architecture(s)"
-									value={app.spec.architecture?.join(', ')}
-								/>
-							</DescriptionListGroup>
+								<DescriptionListGroup title="Technical Details">
+									<DescriptionListItem
+										key="Infrastructure"
+										value={app.spec.providers?.join(', ')}
+									/>
+									<DescriptionListItem
+										key="Architecture(s)"
+										value={app.spec.architecture?.join(', ')}
+									/>
+								</DescriptionListGroup>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 <script lang="ts">
 	import { base } from '$app/paths';
 	import type { Application } from '$lib/types';
