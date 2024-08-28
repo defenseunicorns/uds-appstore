@@ -24,10 +24,10 @@
 
 <div class="w-100 container pb-8">
 	<div class="mb-8 flex flex-col items-start justify-start">
-		<h1 class="mb-2 text-2xl font-semibold leading-9 text-white md:text-3xl">
+		<h1 class="mb-2 text-2xl font-semibold leading-9 md:text-3xl">
 			Applications Deployable on UDS
 		</h1>
-		<p class="text-lg font-normal leading-[27px] text-white">
+		<p class="text-lg font-normal leading-[27px]">
 			Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
 		</p>
 	</div>

@@ -49,7 +49,7 @@
 		<Tabs tabStyle="underline" contentClass="p-4 mt-4">
 			<TabItem open title="Product Overview">
 				<div class="flex flex-wrap gap-6">
-					<div class="flex-[3_3_0%]">
+					<div class="flex shrink-[3] grow-[3] basis-0">
 						<div
 							class="prose max-w-none dark:prose-invert prose-a:font-light prose-a:text-blue-600 prose-a:no-underline dark:prose-a:text-blue-500"
 						>
