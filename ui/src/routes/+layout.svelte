@@ -21,11 +21,11 @@
 	<title>UDS Marketplace</title>
 </svelte:head>
 <main
-	class="relative h-screen w-full overflow-auto transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+	class="relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
 	<Navbar />
 	<Sidebar />
-	<div class="relative h-full w-full overflow-y-auto px-9 py-16 pb-0 md:pl-72">
+	<div class="relative h-full w-full overflow-y-hidden px-9 py-16 md:pl-72">
 		<slot />
 	</div>
 </main>
