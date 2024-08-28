@@ -7,10 +7,13 @@
 	export const isOpen = writable(true);
 	export let routes: string[] = [];
 
+	// Create a writable store for selected categories
+	export const selectedCategoriesStore = writable<string[]>([]);
+
 	let innerWidth: number;
 	let navElement: HTMLElement;
 
-	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md); // Tailwind's default md breakpoint
+	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
 
 	$: isSmallScreen = innerWidth < mdBreakpoint;
 	$: isAppsRoute = routes.includes($page.url.pathname);
@@ -24,6 +27,17 @@
 		if (navElement) {
 			document.documentElement.style.setProperty('--sidebar-width', `${navElement.offsetWidth}px`);
 		}
+	}
+
+	function handleCategoryChange(category: string) {
+		selectedCategoriesStore.update((categories) => {
+			const index = categories.indexOf(category);
+			if (index === -1) {
+				return [...categories, category];
+			} else {
+				return categories.filter((c) => c !== category);
+			}
+		});
 	}
 
 	onMount(() => {
@@ -49,15 +63,20 @@
 		<div class="flex w-full flex-col items-start justify-start gap-3 p-4">
 			<div class="flex w-full items-center justify-between">
 				<h2 class="text-base font-semibold text-white">Category</h2>
-				<div class="h-3 w-3"></div>
 			</div>
 			<div class="flex w-full flex-col items-start justify-start gap-3">
 				{#each ['AI/ML', 'Arcade', 'Business', 'Databases', 'Developer Tools', 'Kubernetes (K8s)', 'Networking', 'Productivity', 'Security', 'Web'] as category}
 					<div class="flex w-full items-center justify-start">
-						<div class="flex items-center gap-2 rounded">
-							<div class="h-4 w-4 rounded border border-gray-600 bg-gray-700"></div>
+						<label class="flex items-center gap-2 rounded" for={`category-${category}`}>
+							<input
+								id={`category-${category}`}
+								type="checkbox"
+								checked={$selectedCategoriesStore.includes(category)}
+								on:change={() => handleCategoryChange(category)}
+								class="h-4 w-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
+							/>
 							<span class="text-sm font-medium text-white">{category}</span>
-						</div>
+						</label>
 					</div>
 				{/each}
 			</div>

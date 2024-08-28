@@ -5,10 +5,15 @@
 	import type { Application } from '$lib/types';
 	import { ArrowRight } from 'carbon-icons-svelte';
 	import SvelteMarkdown from 'svelte-markdown';
+	import { truncateString } from '$lib/utils/helpers';
 	export let app: Application;
 
-	$: description = (app.spec.description ?? 'No description available').slice(0, 150);
-	$: if (description.length === 150) description += '...';
+	let description = 'No description available';
+	$: {
+		if (app.spec.description) {
+			description = truncateString(app.spec.description, 150);
+		}
+	}
 </script>
 
 <div
