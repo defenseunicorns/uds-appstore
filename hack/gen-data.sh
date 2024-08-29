@@ -24,10 +24,12 @@ for file in apps/*.yaml; do
     .spec.security.fips = .spec.security.fips // true |
     .spec.security.cveReport = .spec.security.cveReport // true |
     .spec.security.sbom = .spec.security.sbom // true |
+    .spec.security.nist80053 = .spec.security.nist80053 // false |
     .spec.security.impactLevel = .spec.security.impactLevel // [ "2", "4", "5", "6" ] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
-    .spec.providers = .metadata.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air-Gapped"]
+    .spec.provider = .metadata.provider // ["AWS", "Azure", "GCP", "On-Prem", "Air Gapped"]|
+    .spec.categories = .spec.categories // ["AI/ML", "Arcade", "Business", "Databases", "Development Tools", "Kubernetes", "Networking", "Productivity", "Security", "Web"]
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
 
   manifest=$(oras manifest fetch --platform=multi/amd64 "$REPO:$latest")
