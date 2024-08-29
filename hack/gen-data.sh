@@ -28,8 +28,8 @@ for file in apps/*.yaml; do
     .spec.security.impactLevel = .spec.security.impactLevel // [ "2", "4", "5", "6" ] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
-    .spec.provider = .metadata.provider // ["AWS", "Azure", "GCP", "On-Prem", "Air Gapped"]|
-    .spec.categories = .spec.categories // ["AI/ML", "Arcade", "Business", "Databases", "Development Tools", "Kubernetes", "Networking", "Productivity", "Security", "Web"]
+    .spec.providers = .spec.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air Gapped"]|
+    .spec.categories = .spec.categories // []
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
 
   manifest=$(oras manifest fetch --platform=multi/amd64 "$REPO:$latest")

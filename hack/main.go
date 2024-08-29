@@ -39,6 +39,7 @@ func generateSchema(schemaType string) ([]byte, error) {
 }
 
 //go:generate sh -c "go run . all | npx quicktype -s schema --just-types -o ../ui/src/lib/types/gen.ts"
+//go:generate sh -c "echo '// SPDX-License-Identifier: Apache-2.0\n// SPDX-FileCopyrightText: 2024-Present The UDS Authors\n' | cat - ../ui/src/lib/types/gen.ts > temp && mv temp ../ui/src/lib/types/gen.ts"
 //go:generate sh -c "go run . application > ../schemas/application.schema.json"
 func main() {
 	if len(os.Args) < 2 {

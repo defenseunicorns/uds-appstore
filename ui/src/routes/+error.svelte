@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
+
 <section class="bg-white dark:bg-gray-900">
 	<div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
 		<div class="mx-auto max-w-screen-sm text-center">

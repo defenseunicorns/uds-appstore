@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 export const stringToSnakeCase = (name: string) => name.split(' ').join('-').toLocaleLowerCase();
 
 // Truncates a string to a maximum length, adding ellipses if necessary, and ensuring "words" are not cut off

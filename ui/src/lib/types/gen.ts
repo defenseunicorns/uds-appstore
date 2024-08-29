@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 export interface Gen {
     Application?: Application;
     UDSBundle?:   UdsBundle;
@@ -25,7 +28,7 @@ export interface Spec {
     icons?:              IconElement[];
     keywords?:           string[];
     links?:              LinkElement[];
-    provider?:           Provider[];
+    providers?:          Provider[];
     repository?:         string;
     security?:           Security;
     title?:              string;
@@ -83,15 +86,15 @@ export enum Provider {
     Aws = "AWS",
     Azure = "Azure",
     Gcp = "GCP",
-    OnPrem = "On Prem",
+    OnPrem = "On-Prem",
 }
 
 export interface Security {
-    cveReport?:      boolean;
-    fips?:           boolean;
-    "impact-level"?: ImpactLevel[];
-    nist80053?:      boolean;
-    sbom?:           boolean;
+    cveReport?:   boolean;
+    fips?:        boolean;
+    impactLevel?: ImpactLevel[];
+    nist80053?:   boolean;
+    sbom?:        boolean;
     [property: string]: any;
 }
 

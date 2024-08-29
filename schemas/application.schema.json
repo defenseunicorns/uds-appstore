@@ -91,7 +91,7 @@
         "sbom": {
           "type": "boolean"
         },
-        "impact-level": {
+        "impactLevel": {
           "items": {
             "type": "string",
             "enum": [
@@ -160,14 +160,14 @@
           },
           "type": "array"
         },
-        "provider": {
+        "providers": {
           "items": {
             "type": "string",
             "enum": [
               "AWS",
               "Azure",
               "GCP",
-              "On Prem",
+              "On-Prem",
               "Air Gapped"
             ]
           },

@@ -1,13 +1,15 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
+
 <script lang="ts">
 	import { base } from '$app/paths';
 	import type { Application } from '$lib/types';
 	export let app: Application;
 
-	$: image = (app.spec.icons?.[0]?.src ?? `${base}/doug.svg`) as string;
-	$: vendor = app.spec.vendor.name;
-	$: vendorUrl = app.spec.vendor.url;
+	$: image = (app.spec?.icons?.[0]?.src ?? `${base}/doug.svg`) as string;
+	$: vendor = app.spec?.vendor?.name;
+	$: vendorUrl = app.spec?.vendor?.url;
+	$: title = app.spec?.title || app.metadata?.name;
 </script>
 
 <div class="app-card-header inline-flex items-center justify-start gap-3">
@@ -28,7 +30,7 @@
 				<div
 					class="app-card-header-title self-stretch text-xl font-semibold leading-[25px] text-gray-900 dark:text-white"
 				>
-					{app.spec.title || app.metadata.name}
+					{title}
 				</div>
 				<div class="inline-flex h-[21px] items-start justify-start gap-4 self-stretch">
 					<div class="flex items-center justify-start gap-2">

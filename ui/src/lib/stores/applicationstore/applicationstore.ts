@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 import { type Application } from '$lib/types';
 import { writable } from 'svelte/store';
 
@@ -23,7 +26,9 @@ export { subscribe };
 export function addOrUpdateApplication(application: Application): void {
 	update((state) => {
 		// TODO: use a unique identifier for the application?
-		state.applications.set(application.metadata.name, application);
+		if (application.metadata?.name) {
+			state.applications.set(application.metadata.name, application);
+		}
 		return state;
 	});
 }

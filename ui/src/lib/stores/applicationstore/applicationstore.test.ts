@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { type Application } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import * as applicationsStore from './applicationstore';

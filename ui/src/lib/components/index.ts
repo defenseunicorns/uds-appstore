@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 export { default as AppCardHeader } from './AppCard/AppCardHeader/component.svelte';
 export { default as AppCard } from './AppCard/component.svelte';
 export { default as DescriptionListGroup } from './DescriptionListGroup/component.svelte';

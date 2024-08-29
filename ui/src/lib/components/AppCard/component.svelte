@@ -10,7 +10,7 @@
 
 	let description = 'No description available';
 	$: {
-		if (app.spec.description) {
+		if (app.spec?.description) {
 			description = truncateString(app.spec.description, 150);
 		}
 	}
@@ -24,7 +24,7 @@
 		<div
 			class="app-card-description h-[120px] self-stretch overflow-hidden text-base font-normal leading-normal text-gray-700 dark:text-gray-300"
 		>
-			{#if app.spec.description}
+			{#if app.spec?.description}
 				<SvelteMarkdown source={description} />
 			{:else}
 				{description}
@@ -32,7 +32,7 @@
 		</div>
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
 			<a
-				href="/apps/{app.metadata.name}"
+				href="/apps/{app.metadata?.name}"
 				class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-gray-100 px-5 py-2.5 dark:border-gray-600 dark:bg-gray-700"
 			>
 				<div class="text-sm font-medium leading-[21px] text-gray-700 dark:text-gray-300">

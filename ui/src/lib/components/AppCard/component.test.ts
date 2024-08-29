@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 import type { Application } from '$lib/types';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';

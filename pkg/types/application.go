@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 package types
 
 type Application struct {
@@ -20,7 +23,7 @@ type ApplicationSpec struct {
 	ContractingDetails ApplicationContractingDetails `json:"contractingDetails" yaml:"contractingDetails" xml:"contractingDetails"`
 	Security           ApplicationSecurity           `json:"security" yaml:"security" xml:"security"`
 	Architecture       []ApplicationArchitecture     `json:"architecture" yaml:"architecture" xml:"architecture" jsonschema:"enum=arm64,enum=amd64"`
-	Provider           []ApplicationProvider         `json:"provider" yaml:"provider" xml:"provider" jsonschema:"enum=AWS,enum=Azure,enum=GCP,enum=On Prem,enum=Air Gapped"`
+	Providers          []ApplicationProvider         `json:"providers" yaml:"providers" xml:"providers" jsonschema:"enum=AWS,enum=Azure,enum=GCP,enum=On-Prem,enum=Air Gapped"`
 	Keywords           []string                      `json:"keywords" yaml:"keywords" xml:"keywords"`
 	Links              []ApplicationResourceLink     `json:"links" yaml:"links" xml:"links"`
 	Versions           []string                      `json:"versions" yaml:"versions" xml:"versions"`
@@ -44,7 +47,7 @@ type ApplicationSecurity struct {
 	Fips        bool          `json:"fips" yaml:"fips" xml:"fips"`
 	CveReport   bool          `json:"cveReport" yaml:"cveReport" xml:"cveReport"`
 	Sbom        bool          `json:"sbom" yaml:"sbom" xml:"sbom"`
-	ImpactLevel []ImpactLevel `json:"impact-level" yaml:"impact-level" xml:"impact-level" jsonschema:"enum=2,enum=4,enum=5,enum=6"`
+	ImpactLevel []ImpactLevel `json:"impactLevel" yaml:"impactLevel" xml:"impactLevel" jsonschema:"enum=2,enum=4,enum=5,enum=6"`
 }
 
 type ApplicationIcon struct {
@@ -83,7 +86,7 @@ const (
 	ApplicationProviderAws       ApplicationProvider = "AWS"
 	ApplicationProviderAzure     ApplicationProvider = "Azure"
 	ApplicationProviderGcp       ApplicationProvider = "GCP"
-	ApplicationProviderOnPrem    ApplicationProvider = "On Prem"
+	ApplicationProviderOnPrem    ApplicationProvider = "On-Prem"
 	ApplicationProviderAirGapped ApplicationProvider = "Air Gapped"
 
 	ApplicationCategoryAiMl         ApplicationCategory = "AI/ML"

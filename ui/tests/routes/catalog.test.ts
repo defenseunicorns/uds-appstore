@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-Present The UDS Authors
+
 import { expect, test } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
@@ -39,7 +42,7 @@ test.describe('Catalog View', () => {
 			if (app.spec.description) {
 				const descriptionElement = await appCard.$('.app-card-description');
 				expect(descriptionElement).not.toBeNull();
-				const actualDescriptionText = await descriptionElement.textContent();
+				const actualDescriptionText = await descriptionElement?.textContent();
 				expect(actualDescriptionText).not.toBeNull();
 				if (actualDescriptionText) {
 					expect(actualDescriptionText.length).toBeLessThanOrEqual(150);
@@ -74,10 +77,10 @@ test.describe('Catalog View', () => {
 			expect(appIcon).not.toBeNull();
 
 			if (app.spec.icons && app.spec.icons.length > 0) {
-				const iconSrc = await appIcon.getAttribute('src');
+				const iconSrc = await appIcon?.getAttribute('src');
 				expect(iconSrc).toBe(app.spec.icons[0].src);
 			} else {
-				const iconSrc = await appIcon.getAttribute('src');
+				const iconSrc = await appIcon?.getAttribute('src');
 				expect(iconSrc).toContain('/doug.svg');
 			}
 		}
