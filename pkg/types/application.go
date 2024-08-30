@@ -3,6 +3,8 @@
 
 package types
 
+// Source of truth for the application type
+// ./hack/go generate to create schema + ui types
 type Application struct {
 	Kind     string              `json:"kind" yaml:"kind" xml:"kind"`
 	Metadata ApplicationMetadata `json:"metadata" yaml:"metadata" xml:"metadata"`
@@ -13,8 +15,12 @@ type ApplicationMetadata struct {
 	Name string `json:"name" yaml:"name" xml:"name"`
 }
 
+// TODO: validate fields with team
+// TODO: Should be one icon
+// TODO: validate required fields (add jsonschema tags)
 type ApplicationSpec struct {
-	Title              string                        `json:"title" yaml:"title" xml:"title"`
+	Title              string                        `json:"title" yaml:"title" xml:"title" `
+	TagLine            string                        `json:"tagline" yaml:"tagline" xml:"tagline"`
 	Description        string                        `json:"description" yaml:"description" xml:"description"`
 	Repository         string                        `json:"repository" yaml:"repository" xml:"repository"`
 	Icons              []ApplicationIcon             `json:"icons" yaml:"icons" xml:"icons"`
@@ -23,7 +29,7 @@ type ApplicationSpec struct {
 	ContractingDetails ApplicationContractingDetails `json:"contractingDetails" yaml:"contractingDetails" xml:"contractingDetails"`
 	Security           ApplicationSecurity           `json:"security" yaml:"security" xml:"security"`
 	Architecture       []ApplicationArchitecture     `json:"architecture" yaml:"architecture" xml:"architecture" jsonschema:"enum=arm64,enum=amd64"`
-	Providers          []ApplicationProvider         `json:"providers" yaml:"providers" xml:"providers" jsonschema:"enum=AWS,enum=Azure,enum=GCP,enum=On-Prem,enum=Air Gapped"`
+	Infrastructure     []ApplicationInfrastructure   `json:"infrastructure" yaml:"infrastructure" xml:"infrastructure" jsonschema:"enum=AWS Gov,enum=Azure Gov,enum=On-Prem,enum=AirGapped"`
 	Keywords           []string                      `json:"keywords" yaml:"keywords" xml:"keywords"`
 	Links              []ApplicationResourceLink     `json:"links" yaml:"links" xml:"links"`
 	Versions           []string                      `json:"versions" yaml:"versions" xml:"versions"`
@@ -63,11 +69,11 @@ type ApplicationResourceLink struct {
 
 // Enum types
 type (
-	ApplicationPricing      string
-	ImpactLevel             string
-	ApplicationArchitecture string
-	ApplicationProvider     string
-	ApplicationCategory     string
+	ApplicationPricing        string
+	ImpactLevel               string
+	ApplicationArchitecture   string
+	ApplicationInfrastructure string
+	ApplicationCategory       string
 )
 
 // Enum constants
@@ -83,11 +89,10 @@ const (
 	ApplicationArchitectureArm64 ApplicationArchitecture = "arm64"
 	ApplicationArchitectureAmd64 ApplicationArchitecture = "amd64"
 
-	ApplicationProviderAws       ApplicationProvider = "AWS"
-	ApplicationProviderAzure     ApplicationProvider = "Azure"
-	ApplicationProviderGcp       ApplicationProvider = "GCP"
-	ApplicationProviderOnPrem    ApplicationProvider = "On-Prem"
-	ApplicationProviderAirGapped ApplicationProvider = "Air Gapped"
+	ApplicationInfrastructureAwsGov    ApplicationInfrastructure = "AWS Gov"
+	ApplicationInfrastructureAzureGov  ApplicationInfrastructure = "Azure Gov"
+	ApplicationInfrastructureOnPrem    ApplicationInfrastructure = "On-Prem"
+	ApplicationInfrastructureAirGapped ApplicationInfrastructure = "AirGapped"
 
 	ApplicationCategoryAiMl         ApplicationCategory = "AI/ML"
 	ApplicationCategoryArcade       ApplicationCategory = "Arcade"

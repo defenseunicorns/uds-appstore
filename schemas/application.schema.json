@@ -111,6 +111,9 @@
         "title": {
           "type": "string"
         },
+        "tagline": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
@@ -160,15 +163,14 @@
           },
           "type": "array"
         },
-        "providers": {
+        "infrastructure": {
           "items": {
             "type": "string",
             "enum": [
-              "AWS",
-              "Azure",
-              "GCP",
+              "AWS Gov",
+              "Azure Gov",
               "On-Prem",
-              "Air Gapped"
+              "AirGapped"
             ]
           },
           "type": "array"

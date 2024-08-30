@@ -28,7 +28,7 @@ for file in apps/*.yaml; do
     .spec.security.impactLevel = .spec.security.impactLevel // [ "2", "4", "5", "6" ] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
-    .spec.providers = .spec.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air Gapped"]|
+    .spec.infrastructure = .spec.infrastructure // [] |
     .spec.categories = .spec.categories // []
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
 

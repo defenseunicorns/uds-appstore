@@ -86,7 +86,7 @@
 					<div class="md:flex md:flex-row">
 						<!-- Assume product overview is here -->
 						<div class="mt-4 md:mt-0 md:flex-[2_2_0%]">
-							<div class="flex max-w-[512px] flex-col gap-4">
+							<div class="flex flex-col gap-4 sm:w-[512px]">
 								<DescriptionListGroup title="Contracting Details">
 									<DescriptionListItem
 										key="Contracting Vehicle(s)"
@@ -128,7 +128,7 @@
 								<DescriptionListGroup title="Technical Details">
 									<DescriptionListItem
 										key="Infrastructure"
-										value={app.spec?.providers?.join(', ') ?? '-'}
+										value={app.spec?.infrastructure?.join(', ') ?? '-'}
 									/>
 									<DescriptionListItem
 										key="Architecture(s)"

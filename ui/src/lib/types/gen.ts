@@ -26,11 +26,12 @@ export interface Spec {
     contractingDetails?: ContractingDetails;
     description?:        string;
     icons?:              IconElement[];
+    infrastructure?:     Infrastructure[];
     keywords?:           string[];
     links?:              LinkElement[];
-    providers?:          Provider[];
     repository?:         string;
     security?:           Security;
+    tagline?:            string;
     title?:              string;
     vendor?:             Vendor;
     versions?:           string[];
@@ -75,18 +76,17 @@ export interface IconElement {
     [property: string]: any;
 }
 
+export enum Infrastructure {
+    AWSGov = "AWS Gov",
+    AirGapped = "AirGapped",
+    AzureGov = "Azure Gov",
+    OnPrem = "On-Prem",
+}
+
 export interface LinkElement {
     description?: string;
     url?:         string;
     [property: string]: any;
-}
-
-export enum Provider {
-    AirGapped = "Air Gapped",
-    Aws = "AWS",
-    Azure = "Azure",
-    Gcp = "GCP",
-    OnPrem = "On-Prem",
 }
 
 export interface Security {
