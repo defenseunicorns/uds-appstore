@@ -12,7 +12,9 @@
 	import { Navbar } from '$lib/features/navigation';
 	import '../app.postcss';
 	import { applicationStore } from '$lib/stores';
-	import { Sidebar } from '$lib/components';
+
+	// TODO: finish sidebar #139 need to push other fixes first
+	// import { Sidebar } from '$lib/components';
 
 	onMount(async () => {
 		await applicationStore.fetchCatalog();
@@ -24,7 +26,8 @@
 	<title>UDS Marketplace</title>
 </svelte:head>
 <Navbar />
-<Sidebar routes={['/apps']} />
+<!-- TODO: finish sidebar #139 need to push other fixes first-->
+<!-- <Sidebar routes={['/apps']} /> -->
 
 <main
 	class="dark:focus:ring-primary-900 relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
