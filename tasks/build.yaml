@@ -41,7 +41,7 @@ tasks:
   - name: build-image
     description: "build container and push to GHCR (multi-arch)"
     actions:
-        # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
+      # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
       - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
 
   - name: build-api-linux-amd64
@@ -70,3 +70,11 @@ tasks:
     description: "Generate Catalog"
     actions:
       - cmd: ./hack/gen-data.sh
+      - task: generate-types
+
+  - name: generate-types
+    description: "Generate Types"
+    actions:
+      - cmd: cd hack
+      - cmd: go generate
+      - cmd: cd ..

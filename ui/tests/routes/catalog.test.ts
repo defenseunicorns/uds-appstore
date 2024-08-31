@@ -5,7 +5,7 @@ import { expect, test } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import { Architecture } from '../../src/lib/types/gen';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const catalogData = JSON.parse(
 	fs.readFileSync(path.join(__dirname, '../../static/api/apps/index.json'), 'utf-8')
@@ -84,5 +84,74 @@ test.describe('Catalog View', () => {
 				expect(iconSrc).toContain('/doug.svg');
 			}
 		}
+	});
+});
+
+test.describe('Sidebar', () => {
+	test('displays all filter categories', async ({ page }) => {
+		await page.goto('/apps');
+		const filterCategories = [
+			'Category',
+			'Pricing Model',
+			'Impact Level',
+			'Infrastructure',
+			'Architecture'
+		];
+		for (const category of filterCategories) {
+			const categoryButton = await page.waitForSelector(`button:has-text("${category}")`);
+			expect(categoryButton).not.toBeNull();
+		}
+	});
+	test('toggles filter category visibility', async ({ page }) => {
+		await page.goto('/apps');
+
+		// Wait for the sidebar to be visible
+		await page.waitForSelector('#filter-sidebar');
+
+		// Check if the Category filter exists
+		const categoryFilter = page.locator('button:has-text("Category")');
+		await expect(categoryFilter).toBeVisible();
+
+		// Check if the filter values container exists
+		const filterValuesContainer = page.locator('#filter-values-Category');
+		await expect(filterValuesContainer).toBeVisible();
+
+		// Click the category button to collapse the filter
+		await categoryFilter.click();
+
+		// Check if the filter values are hidden after clicking
+		await expect(filterValuesContainer).toBeHidden();
+
+		// Click the category button again to expand the filter
+		await categoryFilter.click();
+
+		// Check if the filter values are visible again
+		await expect(filterValuesContainer).toBeVisible();
+	});
+
+	test('applies and removes filters', async ({ page }) => {
+		await page.goto('/apps');
+		// Wait for the app cards to be visible
+		await page.waitForSelector('.app-card', { state: 'visible' });
+		const unfilteredResults = await page.$$('.app-card');
+		const unfilteredResultsLength = unfilteredResults.length;
+		console.log(`Unfiltered results: ${unfilteredResultsLength}`);
+		// Apply a filter
+		await page.click(`label:has-text("${Architecture.Arm64}")`);
+
+		// Check if the filter is applied (you may need to adjust this based on how filtered results are displayed)
+		const filteredResults = await page.$$('.app-card');
+		const filteredResultsLength = filteredResults.length;
+		console.log(`Filtered results: ${filteredResultsLength}`);
+		expect(filteredResultsLength).toBeLessThan(unfilteredResultsLength);
+
+		// Remove the filter
+		await page.click(`label:has-text("${Architecture.Arm64}")`);
+
+		// Check if all results are shown again
+		const allResults = await page.$$('.app-card');
+		const allResultsLength = allResults.length;
+		console.log(`All results: ${allResultsLength}`);
+		expect(allResultsLength).toBe(unfilteredResultsLength);
 	});
 });

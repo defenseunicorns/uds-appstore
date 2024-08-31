@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: minio
 spec:
   title: minio Repository
   repository: ghcr.io/defenseunicorns/packages/uds/minio
-  description: |
+  tagline: |
     **Object Storage that Runs in Any Environment**
-
+  description: |
     MinIO Enterprise Object Store is a high-performance, cloud-native object storage
     solution for modern data infrastructure across various environments. It offers
     unparalleled simplicity, speed, and scalability for private, public, colo, and

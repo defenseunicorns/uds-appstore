@@ -1,3 +1,4 @@
+---
 kind: Application
 metadata:
   name: gitlab-runner

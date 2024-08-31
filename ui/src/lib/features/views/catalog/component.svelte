@@ -23,6 +23,7 @@
 			unsubscribe();
 		};
 	});
+	$: console.log('applications', applications);
 </script>
 
 <div class="w-100 container pb-8">

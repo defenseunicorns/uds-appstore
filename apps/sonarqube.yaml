@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: sonarqube
 spec:
   title: SonarQube
   repository: ghcr.io/defenseunicorns/packages/uds/sonarqube
-  description: |
+  tagline: |
     **Clean Code, Under Your Control**
-
+  description: |
     SonarQube is a comprehensive code quality and security tool that helps developers
     deliver and maintain high-quality, secure code. It performs static code analysis
     to detect bugs, vulnerabilities, and code smells across multiple programming

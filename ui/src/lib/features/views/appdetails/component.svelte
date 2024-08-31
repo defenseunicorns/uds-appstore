@@ -55,7 +55,8 @@
 						<div
 							class="prose max-w-none dark:prose-invert prose-a:font-light prose-a:text-blue-600 prose-a:no-underline dark:prose-a:text-blue-500"
 						>
-							<SvelteMarkdown source={app.spec?.description} />
+							<SvelteMarkdown source={app.spec?.tagline} />
+							<p>{app.spec?.description}</p>
 
 							<h4>Why Deploy on UDS:</h4>
 							<p>

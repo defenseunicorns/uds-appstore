@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: postgres-operator
 spec:
   title: Postgres Operator
   repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
-  description: |
+  tagline: |
     **The World's Most Advanced Open Source Relational Database**
-
+  description: |
     PostgreSQL is a powerful, open source object-relational database system that uses
     and extends the SQL language combined with many features that safely store and scale
     the most complicated data workloads. PostgreSQL comes with many features aimed to

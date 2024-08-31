@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: mattermost
 spec:
   title: Mattermost
   repository: ghcr.io/defenseunicorns/packages/uds/mattermost
-  description: |
+  tagline: |
     **Collaboration for Mission-Critical Work**
-
+  description: |
     Mattermost is a secure, open-source collaboration platform designed for teams who
     prioritize data control and privacy. This self-hosted messaging system offers a
     robust alternative to cloud-based chat services, allowing organizations to maintain
