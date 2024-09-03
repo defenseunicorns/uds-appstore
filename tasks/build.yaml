@@ -75,6 +75,4 @@ tasks:
   - name: generate-types
     description: "Generate Types"
     actions:
-      - cmd: cd hack
-      - cmd: go generate
-      - cmd: cd ..
+      - cmd: go generate ./hack
