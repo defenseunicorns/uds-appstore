@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: nexus
 spec:
   title: Nexus Repository
   repository: ghcr.io/defenseunicorns/packages/uds/nexus
-  description: |
+  tagline: |
     **Build Fast with the World's Leading Artifact Repository Manager**
-
+  description: |
     Nexus Repository by  is a comprehensive binary and artifact management tool that
     centralizes, stores, and manages software components across various package formats.
     It optimizes build performance and storage costs by caching artifacts, while

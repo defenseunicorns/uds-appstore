@@ -12,6 +12,11 @@ export default defineConfig(({ mode }) => ({
 		globals: true,
 		setupFiles: ['src/setupTests.ts']
 	},
+	server: {
+		fs: {
+			allow: ['tailwind.config.ts']
+		}
+	},
 	resolve: {
 		conditions: mode === 'test' ? ['browser'] : []
 	}

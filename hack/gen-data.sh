@@ -21,13 +21,15 @@ for file in apps/*.yaml; do
     .spec.versions = (env(VERSIONS) | split(" ") | reverse) |
     .spec.architecture = (env(ARCHS) | split(" ") | sort) |
     .spec.repository = .spec.repository // env(REPO) |
-    .spec.security.fips = .spec.security.fips // true |
-    .spec.security.cveReport = .spec.security.cveReport // true |
+    .spec.security.fips = .spec.security.fips // false |
+    .spec.security.cveReport = .spec.security.cveReport // false |
     .spec.security.sbom = .spec.security.sbom // true |
-    .spec.security.impactLevel = .spec.security.impactLevel // [ "2", "4", "5", "6" ] |
+    .spec.security.nist80053 = .spec.security.nist80053 // false |
+    .spec.security.impactLevel = .spec.security.impactLevel // [] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
-    .spec.providers = .metadata.providers // ["AWS", "Azure", "GCP", "On-Prem", "Air-Gapped"]
+    .spec.infrastructure = .spec.infrastructure // [] |
+    .spec.categories = .spec.categories // []
   ' "apps/$PACKAGE.yaml" -o=json >"$dir/$PACKAGE.json"
 
   manifest=$(oras manifest fetch --platform=multi/amd64 "$REPO:$latest")

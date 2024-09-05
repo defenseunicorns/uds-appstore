@@ -1,4 +1,12 @@
-import { type Application } from '$lib/types';
+// SPDX-License-Identifier: Apache-2.0
+import {
+	Architecture,
+	Category,
+	ImpactLevel,
+	Infrastructure,
+	PricingModel,
+	type Application
+} from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import * as applicationsStore from './applicationstore';
 
@@ -66,6 +74,61 @@ describe('applicationsStore', () => {
 		expect(error).toBeUndefined();
 	});
 
+	it('should get unfiltered applications', () => {
+		applicationsStore.addOrUpdateApplication(sampleApp);
+		applicationsStore.addOrUpdateApplication(anotherApp);
+		const unfilteredApps = applicationsStore.getUnfilteredApplications();
+		expect(unfilteredApps).toEqual([sampleApp, anotherApp]);
+	});
+
+	it('should filter applications', () => {
+		const app1: Application = {
+			...sampleApp,
+			spec: {
+				categories: [Category.AIMl],
+				pricingModel: [PricingModel.Free],
+				security: { impactLevel: [ImpactLevel.The2] },
+				infrastructure: [Infrastructure.OnPrem],
+				architecture: [Architecture.Amd64]
+			}
+		};
+		const app2: Application = {
+			...anotherApp,
+			spec: {
+				categories: [Category.Arcade],
+				pricingModel: [PricingModel.BringYourOwnLicense],
+				security: { impactLevel: [ImpactLevel.The4] },
+				infrastructure: [Infrastructure.OnPrem],
+				architecture: [Architecture.Amd64]
+			}
+		};
+
+		applicationsStore.clearStore();
+		applicationsStore.addOrUpdateApplication(app1);
+		applicationsStore.addOrUpdateApplication(app2);
+
+		const filters = new Map<string, string[]>([
+			['categories', [Category.Arcade]],
+			['pricingModel', [PricingModel.BringYourOwnLicense]]
+		]);
+
+		applicationsStore.filterApplications(filters);
+		const filteredApps = applicationsStore.getApplications();
+		expect(filteredApps).toEqual([app2]);
+	});
+
+	it('should clear filtered applications', () => {
+		applicationsStore.addOrUpdateApplication(sampleApp);
+		applicationsStore.addOrUpdateApplication(anotherApp);
+
+		const filters = new Map<string, string[]>([['categories', [Category.Arcade]]]);
+		applicationsStore.filterApplications(filters);
+
+		applicationsStore.clearFilteredApplications();
+		const apps = applicationsStore.getApplications();
+		expect(apps).toEqual([sampleApp, anotherApp]);
+	});
+
 	it('should fetch and add applications to the store', async () => {
 		const mockFetch = vi.fn().mockResolvedValue({
 			ok: true,
@@ -76,6 +139,7 @@ describe('applicationsStore', () => {
 		await applicationsStore.fetchCatalog();
 		const apps = applicationsStore.getApplications();
 		expect(apps).toEqual([sampleApp, anotherApp]);
+		expect(applicationsStore.getUnfilteredApplications()).toEqual([sampleApp, anotherApp]);
 		expect(applicationsStore.getError()).toBeUndefined();
 	});
 

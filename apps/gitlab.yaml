@@ -1,11 +1,13 @@
+---
 kind: Application
 metadata:
   name: gitlab
 spec:
   title: GitLab
   repository: ghcr.io/defenseunicorns/packages/uds/gitlab
-  description: |
+  tagline: |
     **The Complete DevOps Platform**
+  description: |
 
     GitLab is one platform that covers 100% of your software development lifecycle with
     issues, code review, CI, CD, and release cycle analytics wrapped into an elegant UI

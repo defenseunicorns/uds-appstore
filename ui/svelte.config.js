@@ -23,7 +23,8 @@ const config = {
 		$components: './src/lib/components',
 		$features: './src/lib/features',
 		$navigation: './src/lib/features/navigation',
-		$server: './src/lib/server'
+		$server: './src/lib/server',
+		$src: './src'
 	}
 };
 

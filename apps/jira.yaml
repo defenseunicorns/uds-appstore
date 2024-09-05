@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: jira
 spec:
   title: Atlassian Jira
   repository: ghcr.io/defenseunicorns/packages/uds/jira
-  description: |
+  tagline: |
     **Agile Project Management and Issue Tracking for Modern Teams**
-
+  description: |
     Jira is a powerful project management and issue-tracking software designed to help
     teams plan, track, and manage agile software development projects. It offers a
     flexible, customizable platform that adapts to various workflows, from software

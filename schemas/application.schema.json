@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/defenseunicorns/uds-marketplace/pkg/types/application",
+  "$ref": "#/$defs/Application",
+  "$defs": {
+    "Application": {
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/$defs/ApplicationMetadata"
+        },
+        "spec": {
+          "$ref": "#/$defs/ApplicationSpec"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationContractingDetails": {
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "vehicle": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pricingModel": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "Free",
+              "Bring Your Own License"
+            ]
+          },
+          "type": "array"
+        },
+        "smallBusinessStatus": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationIcon": {
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationMetadata": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationResourceLink": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationSecurity": {
+      "properties": {
+        "nist80053": {
+          "type": "boolean"
+        },
+        "fips": {
+          "type": "boolean"
+        },
+        "cveReport": {
+          "type": "boolean"
+        },
+        "sbom": {
+          "type": "boolean"
+        },
+        "impactLevel": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "2",
+              "4",
+              "5",
+              "6"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationSpec": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "icons": {
+          "items": {
+            "$ref": "#/$defs/ApplicationIcon"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "AI/ML",
+              "Arcade",
+              "Business",
+              "Databases",
+              "Development Tools",
+              "Kubernetes",
+              "Networking",
+              "Productivity",
+              "Security",
+              "Web"
+            ]
+          },
+          "type": "array"
+        },
+        "vendor": {
+          "$ref": "#/$defs/ApplicationVendor"
+        },
+        "contractingDetails": {
+          "$ref": "#/$defs/ApplicationContractingDetails"
+        },
+        "security": {
+          "$ref": "#/$defs/ApplicationSecurity"
+        },
+        "architecture": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "arm64",
+              "amd64"
+            ]
+          },
+          "type": "array"
+        },
+        "infrastructure": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "AWS Gov",
+              "Azure Gov",
+              "On-Prem",
+              "AirGapped"
+            ]
+          },
+          "type": "array"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/$defs/ApplicationResourceLink"
+          },
+          "type": "array"
+        },
+        "versions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVendor": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "icons": {
+          "items": {
+            "$ref": "#/$defs/ApplicationIcon"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

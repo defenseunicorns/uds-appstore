@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: confluence
 spec:
   title: Atlassian Confluence
   repository: ghcr.io/defenseunicorns/packages/uds/confluence
-  description: |
+  tagline: |
     **Team Collaboration and Knowledge Management Made Simple**
-
+  description: |
     Confluence is a powerful team workspace platform that centralizes document creation,
     project collaboration, and knowledge sharing within organizations. It provides a
     flexible, web-based environment where teams can create, organize, and discuss work

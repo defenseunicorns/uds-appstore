@@ -1,5 +1,5 @@
-import flowbitePlugin from 'flowbite/plugin';
 import typography from '@tailwindcss/typography';
+import flowbitePlugin from 'flowbite/plugin';
 import type { Config } from 'tailwindcss';
 
 export default {

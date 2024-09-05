@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: secure-code-box
 spec:
   title: SecureCodeBox
   repository: ghcr.io/defenseunicorns/packages/uds/securecodebox
-  description: |
+  tagline: |
     **Automated Security Testing Tool**
-
+  description: |
     secureCodeBox is an open-source multi-scanner platform that automates and scales
     security testing for networks and applications. It integrates over 15 leading
     open-source security scanners to provide comprehensive vulnerability detection

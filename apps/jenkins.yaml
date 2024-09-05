@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: jenkins
 spec:
   title: Jenkins
   repository: ghcr.io/defenseunicorns/packages/uds/jenkins
-  description: |
+  tagline: |
     **Build Great Things at Any Scale**
-
+  description: |
     Jenkins is an open-source automation server that helps you automate the building,
     testing, and deployment of any project across multiple platforms. Jenkins helps
     to avoid breaking changes so that you can save time and ensure the delivery of

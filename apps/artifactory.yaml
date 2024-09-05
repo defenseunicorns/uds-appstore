@@ -1,12 +1,13 @@
+---
 kind: Application
 metadata:
   name: artifactory
 spec:
   title: JFrog Artifactory
   repository: ghcr.io/defenseunicorns/packages/uds/artifactory
-  description: |
+  tagline: |
     **Curate, Secure, and Deliver Your Software Assets at Scale**
-
+  description: |
     JFrog Artifactory is a comprehensive artifact repository manager that centralizes
     the storage and management of software components throughout the development
     lifecycle. It supports over 30 package types and offers flexible deployment options

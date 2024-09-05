@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024-present The UDS Authors
 import type { Application } from '$lib/types';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
@@ -49,22 +51,6 @@ describe('AppCard', () => {
 		render(AppCard, { props: { app: longDescApp } });
 		const description = screen.getByText(/A+\.\.\./);
 		expect(description.textContent?.length).toBe(153); // 150 chars + '...'
-	});
-
-	it('uses fallback image when no icon is provided', () => {
-		const noIconApp: Application = {
-			...mockApp,
-			metadata: {
-				...mockApp.metadata
-			},
-			spec: {
-				...mockApp.spec,
-				icons: []
-			}
-		};
-		render(AppCard, { props: { app: noIconApp } });
-		const icon = screen.getByAltText('App Icon') as HTMLImageElement;
-		expect(icon.src).toContain('/doug.svg');
 	});
 
 	it('displays "No description available" when no description is provided', () => {

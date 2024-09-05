@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
+
 <script lang="ts">
 	import 'flowbite';
 	import { initFlowbite } from 'flowbite';
@@ -9,6 +12,7 @@
 	import { Navbar } from '$lib/features/navigation';
 	import '../app.postcss';
 	import { applicationStore } from '$lib/stores';
+	import { Sidebar } from '$lib/components';
 
 	onMount(async () => {
 		await applicationStore.fetchCatalog();
@@ -19,11 +23,16 @@
 <svelte:head>
 	<title>UDS Marketplace</title>
 </svelte:head>
+<Navbar />
+<Sidebar routes={['/apps']} />
+
 <main
-	class="relative h-screen w-full overflow-auto transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+	class="dark:focus:ring-primary-900 relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
-	<Navbar />
-	<div class="relative h-full w-full overflow-y-auto pt-16">
+	<div
+		class="relative
+		 mt-[var(--nav-height)] h-full overflow-y-auto px-9 py-9 md:mx-0 md:ml-[var(--sidebar-width)] md:px-24"
+	>
 		<slot />
 	</div>
 </main>
