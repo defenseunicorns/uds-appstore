@@ -53,22 +53,6 @@ describe('AppCard', () => {
 		expect(description.textContent?.length).toBe(153); // 150 chars + '...'
 	});
 
-	it('uses fallback image when no icon is provided', () => {
-		const noIconApp: Application = {
-			...mockApp,
-			metadata: {
-				...mockApp.metadata
-			},
-			spec: {
-				...mockApp.spec,
-				icons: []
-			}
-		};
-		render(AppCard, { props: { app: noIconApp } });
-		const icon = screen.getByAltText('App Icon') as HTMLImageElement;
-		expect(icon.src).toContain('/doug.svg');
-	});
-
 	it('displays "No description available" when no description is provided', () => {
 		const noDescApp: Application = {
 			...mockApp,

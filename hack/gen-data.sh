@@ -25,7 +25,7 @@ for file in apps/*.yaml; do
     .spec.security.cveReport = .spec.security.cveReport // false |
     .spec.security.sbom = .spec.security.sbom // true |
     .spec.security.nist80053 = .spec.security.nist80053 // false |
-    .spec.security.impactLevel = .spec.security.impactLevel // [ ] |
+    .spec.security.impactLevel = .spec.security.impactLevel // [] |
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
     .spec.infrastructure = .spec.infrastructure // [] |

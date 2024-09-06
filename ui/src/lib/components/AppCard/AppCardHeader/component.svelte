@@ -2,11 +2,10 @@
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 
 <script lang="ts">
-	import { base } from '$app/paths';
 	import type { Application } from '$lib/types';
 	export let app: Application;
 
-	$: image = (app.spec?.icons?.[0]?.src ?? `${base}/doug.svg`) as string;
+	$: image = app.spec?.icons?.[0]?.src;
 	$: vendor = app.spec?.vendor?.name;
 	$: vendorUrl = app.spec?.vendor?.url;
 	$: title = app.spec?.title || app.metadata?.name;
