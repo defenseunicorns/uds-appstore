@@ -5,18 +5,13 @@
 	import 'flowbite';
 	import { initFlowbite } from 'flowbite';
 	import 'flowbite/dist/flowbite.css';
-	import { onMount } from 'svelte';
 
 	import { afterNavigate } from '$app/navigation';
 
 	import { Navbar } from '$lib/features/navigation';
 	import '../app.postcss';
-	import { applicationStore } from '$lib/stores';
 	import { Sidebar } from '$lib/components';
 
-	onMount(async () => {
-		await applicationStore.fetchCatalog();
-	});
 	afterNavigate(initFlowbite);
 </script>
 

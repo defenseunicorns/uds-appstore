@@ -3,4 +3,4 @@
 
 export * as applicationStore from './applicationstore/applicationstore';
 
-export type { ApplicationStore, FilterMap } from './applicationstore/applicationstore';
+export type { Filter, SelectedFilters } from './applicationstore/applicationstore';

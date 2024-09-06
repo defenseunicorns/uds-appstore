@@ -77,7 +77,7 @@ describe('applicationsStore', () => {
 	it('should get unfiltered applications', () => {
 		applicationsStore.addOrUpdateApplication(sampleApp);
 		applicationsStore.addOrUpdateApplication(anotherApp);
-		const unfilteredApps = applicationsStore.getUnfilteredApplications();
+		const unfilteredApps = applicationsStore.getFilteredApplications();
 		expect(unfilteredApps).toEqual([sampleApp, anotherApp]);
 	});
 
@@ -129,6 +129,8 @@ describe('applicationsStore', () => {
 		expect(apps).toEqual([sampleApp, anotherApp]);
 	});
 
+	it('should ');
+
 	it('should fetch and add applications to the store', async () => {
 		const mockFetch = vi.fn().mockResolvedValue({
 			ok: true,
@@ -139,7 +141,89 @@ describe('applicationsStore', () => {
 		await applicationsStore.fetchCatalog();
 		const apps = applicationsStore.getApplications();
 		expect(apps).toEqual([sampleApp, anotherApp]);
-		expect(applicationsStore.getUnfilteredApplications()).toEqual([sampleApp, anotherApp]);
+		expect(applicationsStore.getFilteredApplications()).toEqual([sampleApp, anotherApp]);
+		expect(applicationsStore.getError()).toBeUndefined();
+	});
+
+	it('should handle fetch errors', async () => {
+		const mockFetch = vi.fn().mockResolvedValue({
+			ok: false,
+			statusText: 'Not Found'
+		});
+		global.fetch = mockFetch;
+
+		await applicationsStore.fetchCatalog();
+		const error = applicationsStore.getError();
+		expect(error).toBe('Failed to fetch applications: Not Found');
+	});
+
+	it('should search and set applications based on a query', () => {
+		const app1: Application = {
+			...sampleApp,
+			metadata: { name: 'Test App 1' },
+			spec: { description: 'This is a test application' }
+		};
+		const app2: Application = {
+			...anotherApp,
+			metadata: { name: 'Another App' },
+			spec: { description: 'This is another application' }
+		};
+
+		applicationsStore.clearStore();
+		applicationsStore.addOrUpdateApplication(app1);
+		applicationsStore.addOrUpdateApplication(app2);
+
+		applicationsStore.searchAndSetApps('test');
+		const searchResults = applicationsStore.getApplications();
+		expect(searchResults).toEqual([app1]);
+
+		applicationsStore.searchAndSetApps('another');
+		const anotherSearchResults = applicationsStore.getApplications();
+		expect(anotherSearchResults).toEqual([app2]);
+
+		applicationsStore.searchAndSetApps('application');
+		const allResults = applicationsStore.getApplications();
+		expect(allResults).toEqual([app1, app2]);
+
+		applicationsStore.searchAndSetApps('nonexistent');
+		const noResults = applicationsStore.getApplications();
+		expect(noResults).toEqual([]);
+	});
+
+	it('should reset to all applications when search query is empty', () => {
+		const app1: Application = {
+			...sampleApp,
+			metadata: { name: 'Test App 1' }
+		};
+		const app2: Application = {
+			...anotherApp,
+			metadata: { name: 'Another App' }
+		};
+
+		applicationsStore.clearStore();
+		applicationsStore.addOrUpdateApplication(app1);
+		applicationsStore.addOrUpdateApplication(app2);
+
+		applicationsStore.searchAndSetApps('test');
+		expect(applicationsStore.getApplications()).toEqual([app1]);
+
+		applicationsStore.searchAndSetApps('');
+		expect(applicationsStore.getApplications()).toEqual([app1, app2]);
+	});
+
+	it('should ');
+
+	it('should fetch and add applications to the store', async () => {
+		const mockFetch = vi.fn().mockResolvedValue({
+			ok: true,
+			json: async () => [sampleApp, anotherApp]
+		});
+		global.fetch = mockFetch;
+
+		await applicationsStore.fetchCatalog();
+		const apps = applicationsStore.getApplications();
+		expect(apps).toEqual([sampleApp, anotherApp]);
+		expect(applicationsStore.getFilteredApplications()).toEqual([sampleApp, anotherApp]);
 		expect(applicationsStore.getError()).toBeUndefined();
 	});
 

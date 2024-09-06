@@ -16,9 +16,9 @@
 	let app: Application | undefined;
 	let appCount: number;
 	let error: string | undefined;
-	const unsubscribe = applicationStore.subscribe(($store) => {
-		app = $store.applications.get(id);
-		appCount = $store.applications.size || 0;
+	const unsubscribe = applicationStore.catalog.subscribe(($store) => {
+		app = $store.appMap.get(id);
+		appCount = $store.appMap.size || 0;
 		error = $store.error;
 	});
 
@@ -29,6 +29,7 @@
 	});
 
 	$: {
+		// redirect to 404 if the app is not found or there is an error
 		if ((appCount && !app) || error) {
 			goto('/404', { replaceState: true });
 		}

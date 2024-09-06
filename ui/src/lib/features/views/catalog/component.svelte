@@ -12,10 +12,10 @@
 	let error: string | undefined;
 	let applications: Application[] = [];
 
-	const unsubscribe = applicationStore.subscribe(($store) => {
+	const unsubscribe = applicationStore.catalog.subscribe(($store) => {
 		isLoading = $store.loading;
 		error = $store.error;
-		applications = Array.from($store.applications.values());
+		applications = $store.filteredApplications;
 	});
 
 	onMount(() => {
@@ -23,7 +23,6 @@
 			unsubscribe();
 		};
 	});
-	$: console.log('applications', applications);
 </script>
 
 <div class="w-100 container pb-8">

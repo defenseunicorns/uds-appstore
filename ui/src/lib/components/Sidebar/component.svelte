@@ -7,48 +7,42 @@
 	import tailwindConfig from '$lib/tailwind-config';
 	import { Category, PricingModel, Infrastructure, Architecture, ImpactLevel } from '$lib/types';
 	import { ChevronDown } from 'carbon-icons-svelte';
-	import { applicationStore, type FilterMap } from '$lib/stores';
+	import { type SelectedFilters, type Filter, applicationStore } from '$lib/stores';
 
 	export const isOpen = writable(true);
 	export let routes: string[] = [];
 
 	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
 
-	type FilterDropdowns = {
-		label: string;
-		values?: string[];
-		key: string;
-	};
-
-	const sidebarFilters: FilterDropdowns[] = [
+	const sidebarFilters: Filter[] = [
 		{
 			label: 'Category',
-			values: Object.values(Category),
-			key: 'categories'
+			values: Object.values(Category) as string[],
+			field: 'spec.categories'
 		},
 		{
 			label: 'Pricing Model',
 			values: Object.values(PricingModel) as string[],
-			key: 'pricingModel'
+			field: 'spec.contractingDetails.pricingModel'
 		},
 		{
 			label: 'Impact Level',
 			values: Object.values(ImpactLevel) as string[],
-			key: 'impactLevel'
+			field: 'spec.security.impactLevel'
 		},
 		{
 			label: 'Infrastructure',
 			values: Object.values(Infrastructure) as string[],
-			key: 'infrastructure'
+			field: 'spec.infrastructure'
 		},
 		{
 			label: 'Architecture',
 			values: Object.values(Architecture) as string[],
-			key: 'architecture'
+			field: 'spec.architecture'
 		}
 	];
 
-	const selectedFilters: Writable<FilterMap> = writable(new Map());
+	const selectedFilters: Writable<SelectedFilters> = writable(new Map());
 
 	let innerWidth: number;
 	let navElement: HTMLElement;
@@ -69,15 +63,15 @@
 		collapsedFilters[filter] = !collapsedFilters[filter];
 	}
 
-	function handleFilterChange(filter: string, category: string) {
+	function handleFilterChange(filter: Filter, category: string) {
 		selectedFilters.update((currentFilters) => {
-			const filterValues = currentFilters.get(filter) || [];
+			const filterValues = currentFilters.get(filter.field) || [];
 			if (!filterValues.includes(category)) {
 				filterValues.push(category);
 			} else {
 				filterValues.splice(filterValues.indexOf(category), 1);
 			}
-			currentFilters.set(filter, filterValues);
+			currentFilters.set(filter.field, filterValues);
 			return currentFilters;
 		});
 
@@ -149,8 +143,8 @@
 									<input
 										id={`category-${category}`}
 										type="checkbox"
-										checked={$selectedFilters.get(filter.key)?.includes(category)}
-										on:change={() => handleFilterChange(filter.key, category)}
+										checked={$selectedFilters.get(filter.field)?.includes(category)}
+										on:change={() => handleFilterChange(filter, category)}
 										class="h-4 w-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
 									/>
 									<span class="text-sm font-medium text-white">{category}</span>
