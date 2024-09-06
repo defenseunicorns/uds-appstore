@@ -127,13 +127,14 @@ export function populateCatalog(applications: Application[]): void {
 				catalog.appMap.set(application.metadata.name, application);
 			}
 		});
+		miniSearch.addAll(applications);
 		return catalog;
 	});
 }
 
 export function filterApplications(selectedFilters: SelectedFilters) {
 	const applications: Application[] = getApplications();
-	const filteredApplications: Application[] = [];
+	const filteredApplications: Map<string, Application> = new Map();
 	const hasFilters = Array.from(selectedFilters.values()).some((values) => values.length > 0);
 
 	if (!hasFilters) {
@@ -153,17 +154,16 @@ export function filterApplications(selectedFilters: SelectedFilters) {
 			combineWith: 'and',
 			fields: [field]
 		});
-		console.log('results', results);
 		results.forEach((result) => {
 			const application = getAppByName(result.id);
-			if (application) {
-				filteredApplications.push(application);
+			if (application && application.metadata && application.metadata.name) {
+				filteredApplications.set(application.metadata.name, application);
 			}
 		});
 	}
 
 	catalog.update((catalog: CatalogStore) => {
-		catalog.filteredApplications = filteredApplications;
+		catalog.filteredApplications = Array.from(filteredApplications.values());
 		return catalog;
 	});
 }
@@ -180,7 +180,6 @@ export async function fetchCatalog(): Promise<void> {
 		if (response.ok) {
 			const applications: Application[] = await response.json();
 			populateCatalog(applications);
-			miniSearch.addAll(applications);
 		} else {
 			throw new Error(`Failed to fetch applications: ${response.statusText}`);
 		}
