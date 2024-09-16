@@ -50,5 +50,12 @@ tasks:
     description: "clean the build directories"
     actions:
       - cmd: rm -rf build
-      - cmd: rm -rf build
+      - cmd: rm -rf build static/api test-results
+        dir: ui
+
+  - name: deep-clean
+    description: "clean everything as if a fresh clone"
+    actions:
+      - task: clean
+      - cmd: rm -rf node_modules .svelte-kit
         dir: ui

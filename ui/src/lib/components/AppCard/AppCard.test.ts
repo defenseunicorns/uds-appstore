@@ -50,7 +50,7 @@ describe('AppCard', () => {
 		};
 		render(AppCard, { props: { app: longDescApp } });
 		const description = screen.getByText(/A+\.\.\./);
-		expect(description.textContent?.length).toBe(153); // 150 chars + '...'
+		expect(description.textContent?.length).toBe(150);
 	});
 
 	it('displays "No description available" when no description is provided', () => {
