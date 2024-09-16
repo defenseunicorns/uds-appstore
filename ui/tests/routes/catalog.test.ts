@@ -171,7 +171,7 @@ test.describe('Search Functionality', () => {
 		const initialCount = initialAppCards.length;
 
 		// Use the first app's name as the search query
-		const searchQuery = catalogData[0].metadata.name;
+		const searchQuery = catalogData[0].spec.title;
 		await page.fill('#application-search', searchQuery);
 
 		// Wait for the debounce
