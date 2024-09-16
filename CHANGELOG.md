@@ -1,11 +1,6 @@
 # Changelog
 
-## 1.0.0 (2024-09-16)
-
-
-### ⚠ BREAKING CHANGES
-
-* sidebar filter (#157, #139)
+## 0.1.0 (2024-09-16)
 
 ### Features
 
