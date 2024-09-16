@@ -14,7 +14,7 @@ spec:
     architecture and robust feature set, GitLab Runner helps development teams
     streamline their workflows and deliver high-quality software faster.
   icons:
-    - src: /images/icons/gitlab.svg
+    - src: /images/icons/gitlab-runner.svg
   keywords:
     - source-control
     - ci-cd
