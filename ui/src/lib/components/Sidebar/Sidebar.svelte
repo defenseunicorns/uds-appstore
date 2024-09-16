@@ -1,18 +1,26 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
+	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
 	import { onMount, afterUpdate } from 'svelte';
 	import tailwindConfig from '$lib/tailwind-config';
 	import { Category, PricingModel, Infrastructure, Architecture, ImpactLevel } from '$lib/types';
 	import { ChevronDown } from 'carbon-icons-svelte';
-	import { type SelectedFilters, type Filter, applicationStore } from '$lib/stores';
+	import { type Filter, applicationStore } from '$lib/stores';
+	import type {
+		CatalogStore,
+		SelectedFilters
+	} from '$lib/stores/applicationstore/applicationstore';
 
 	export const isOpen = writable(true);
 	export let routes: string[] = [];
 
 	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
+	let innerWidth: number;
+	let sidebarElement: HTMLElement;
+	let selectedFilters: SelectedFilters;
+	let collapsedFilters: { [key: string]: boolean } = {};
 
 	const sidebarFilters: Filter[] = [
 		{
@@ -42,21 +50,13 @@
 		}
 	];
 
-	const selectedFilters: Writable<SelectedFilters> = writable(new Map());
-
-	let innerWidth: number;
-	let navElement: HTMLElement;
-	let collapsedFilters: { [key: string]: boolean } = {};
+	const unsubscribeCatalog = applicationStore.subscribe((store) => {
+		selectedFilters = store.selectedFilters;
+	});
 
 	function handleResize() {
 		isOpen.set(!isSmallScreen);
 		updateSidebarWidth();
-	}
-
-	function updateSidebarWidth() {
-		if (navElement) {
-			document.documentElement.style.setProperty('--sidebar-width', `${navElement.offsetWidth}px`);
-		}
 	}
 
 	function toggleFilter(filter: string) {
@@ -64,38 +64,51 @@
 	}
 
 	function handleFilterChange(filter: Filter, category: string) {
-		selectedFilters.update((currentFilters) => {
-			const filterValues = currentFilters.get(filter.field) || [];
+		applicationStore.update((store: CatalogStore) => {
+			const filterValues = store.selectedFilters.get(filter.field) || [];
 			if (!filterValues.includes(category)) {
 				filterValues.push(category);
 			} else {
 				filterValues.splice(filterValues.indexOf(category), 1);
 			}
-			currentFilters.set(filter.field, filterValues);
-			return currentFilters;
+			store.selectedFilters.set(filter.field, filterValues);
+			return store;
 		});
-
-		applicationStore.filterApplications($selectedFilters);
+		applicationStore.filterApplications();
 	}
 
 	function clearFilters() {
-		selectedFilters.set(new Map());
-		applicationStore.filterApplications($selectedFilters);
+		applicationStore.setSelectedFilters(new Map());
+		applicationStore.filterApplications();
+	}
+
+	function updateSidebarWidth() {
+		if (sidebarElement && isValidRoute) {
+			const sidebarWidth = sidebarElement.offsetWidth;
+			document.documentElement.style.setProperty('--sidebar-width', `${sidebarWidth}px`);
+		} else {
+			document.documentElement.style.setProperty('--sidebar-width', '0px');
+		}
 	}
 
 	onMount(() => {
 		handleResize();
+		updateSidebarWidth();
+		window.addEventListener('resize', handleResize);
 		return () => {
 			clearFilters();
+			unsubscribeCatalog();
+			window.removeEventListener('resize', handleResize);
 		};
 	});
 
+	// Handle navigation change
 	afterUpdate(() => {
 		updateSidebarWidth();
 	});
 
 	$: isSmallScreen = innerWidth < mdBreakpoint;
-	$: isAppsRoute = routes.includes($page.url.pathname);
+	$: isValidRoute = routes.includes($page.url.pathname);
 	$: {
 		if (isSmallScreen) {
 			clearFilters();
@@ -105,9 +118,9 @@
 
 <svelte:window bind:innerWidth on:resize={handleResize} />
 
-{#if isAppsRoute}
+{#if isValidRoute}
 	<div
-		bind:this={navElement}
+		bind:this={sidebarElement}
 		id="filter-sidebar"
 		class="fixed left-0 top-[var(--nav-height)] z-40 flex h-[calc(100vh-var(--nav-height))] w-64 flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
 		class:translate-x-0={$isOpen}
@@ -143,7 +156,7 @@
 									<input
 										id={`category-${category}`}
 										type="checkbox"
-										checked={$selectedFilters.get(filter.field)?.includes(category)}
+										checked={selectedFilters.get(filter.field)?.includes(category)}
 										on:change={() => handleFilterChange(filter, category)}
 										class="h-4 w-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
 									/>

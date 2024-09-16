@@ -1,36 +1,36 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 <script lang="ts">
-	import { Launch, Information } from 'carbon-icons-svelte';
-	import SvelteMarkdown from 'svelte-markdown';
-	import { Tabs, TabItem, Alert, Button } from 'flowbite-svelte';
-	import { applicationStore } from '$lib/stores';
-	import { AppCardHeader, DescriptionListGroup, DescriptionListItem } from '$lib/components';
-
-	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	import SvelteMarkdown from 'svelte-markdown';
 	import type { Application } from '$lib/types';
+	import { applicationStore } from '$lib/stores';
+	import { Launch, Information } from 'carbon-icons-svelte';
+	import { Tabs, TabItem, Alert, Button } from 'flowbite-svelte';
+	import { AppCardHeader, DescriptionListGroup, DescriptionListItem } from '$lib/components';
 
 	export let id: string;
 
 	let app: Application | undefined;
 	let appCount: number;
+	let isLoading = true;
 	let error: string | undefined;
-	const unsubscribe = applicationStore.catalog.subscribe(($store) => {
-		app = $store.appMap.get(id);
-		appCount = $store.appMap.size || 0;
-		error = $store.error;
-	});
 
 	onMount(() => {
+		const unsubscribe = applicationStore.subscribe(($store) => {
+			app = $store.appMap.get(id);
+			appCount = $store.appMap.size || 0;
+			isLoading = $store.loading;
+			error = $store.error;
+		});
 		return () => {
 			unsubscribe();
 		};
 	});
 
 	$: {
-		// redirect to 404 if the app is not found or there is an error
-		if ((appCount && !app) || error) {
+		if ((!isLoading && appCount && !app) || error) {
 			goto('/404', { replaceState: true });
 		}
 	}
@@ -38,11 +38,11 @@
 
 {#if app}
 	<div class="pb-8">
-		<div class="flex flex-wrap items-center justify-between">
+		<div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
 			<div class="flex items-center justify-start">
 				<AppCardHeader {app} />
 			</div>
-			<div class="items-right flex">
+			<div class="flex items-start sm:items-center">
 				<Button size="md" color="blue" href="https://www.defenseunicorns.com/contactus">
 					Talk with a Mission Specialist
 				</Button>
@@ -51,13 +51,17 @@
 
 		<Tabs tabStyle="underline" contentClass="p-4 mt-4">
 			<TabItem open title="Product Overview">
-				<div class="flex flex-wrap gap-6">
-					<div class="flex shrink-[3] grow-[3] basis-0">
+				<div class="flex flex-col gap-6 md:flex-row">
+					<div class="flex-1">
 						<div
 							class="prose max-w-none dark:prose-invert prose-a:font-light prose-a:text-blue-600 prose-a:no-underline dark:prose-a:text-blue-500"
 						>
-							<SvelteMarkdown source={app.spec?.tagline} />
-							<p>{app.spec?.description}</p>
+							{#if app.spec?.tagline}
+								<SvelteMarkdown source={app.spec.tagline} />
+							{/if}
+							{#if app.spec?.description}
+								<p>{app.spec.description}</p>
+							{/if}
 
 							<h4>Why Deploy on UDS:</h4>
 							<p>
@@ -85,59 +89,56 @@
 							{/each}
 						</div>
 					</div>
-					<div class="md:flex md:flex-row">
-						<!-- Assume product overview is here -->
-						<div class="mt-4 md:mt-0 md:flex-[2_2_0%]">
-							<div class="flex flex-col gap-4 sm:w-[512px]">
-								<DescriptionListGroup title="Contracting Details">
-									<DescriptionListItem
-										key="Contracting Vehicle(s)"
-										value={app.spec?.contractingDetails?.vehicle?.join(', ') ?? '-'}
-									/>
-									<DescriptionListItem
-										key="Pricing Model"
-										value={app.spec?.contractingDetails?.pricingModel?.join(', ') ?? '-'}
-									/>
-									<DescriptionListItem
-										key="Business Category"
-										value={app.spec?.categories?.join(', ') ?? '-'}
-									/>
-								</DescriptionListGroup>
+					<div class="flex-1 md:max-w-[512px]">
+						<div class="flex flex-col gap-4">
+							<DescriptionListGroup title="Contracting Details">
+								<DescriptionListItem
+									key="Contracting Vehicle(s)"
+									value={app.spec?.contractingDetails?.vehicle?.join(', ') ?? '-'}
+								/>
+								<DescriptionListItem
+									key="Pricing Model"
+									value={app.spec?.contractingDetails?.pricingModel?.join(', ') ?? '-'}
+								/>
+								<DescriptionListItem
+									key="Business Category"
+									value={app.spec?.categories?.join(', ') ?? '-'}
+								/>
+							</DescriptionListGroup>
 
-								<DescriptionListGroup title="Security & Compliance">
-									<DescriptionListItem
-										key="FIPS Compliant Image(s)"
-										value={app.spec?.security?.fips ? 'Available' : '-'}
-									/>
-									<DescriptionListItem
-										key="NIST 800-53"
-										value={app.spec?.security?.nist80053 ? 'Available' : '-'}
-									/>
-									<DescriptionListItem
-										key="Impact Level"
-										value={app.spec?.security?.impactLevel?.join(', ') ?? '-'}
-									/>
-									<DescriptionListItem
-										key="CVE Report"
-										value={app.spec?.security?.cveReport ? 'Available' : '-'}
-									/>
-									<DescriptionListItem
-										key="SBOM"
-										value={app.spec?.security?.sbom ? 'Available' : '-'}
-									/>
-								</DescriptionListGroup>
+							<DescriptionListGroup title="Security & Compliance">
+								<DescriptionListItem
+									key="FIPS Compliant Image(s)"
+									value={app.spec?.security?.fips ? 'Available' : '-'}
+								/>
+								<DescriptionListItem
+									key="NIST 800-53"
+									value={app.spec?.security?.nist80053 ? 'Available' : '-'}
+								/>
+								<DescriptionListItem
+									key="Impact Level"
+									value={app.spec?.security?.impactLevel?.join(', ') ?? '-'}
+								/>
+								<DescriptionListItem
+									key="CVE Report"
+									value={app.spec?.security?.cveReport ? 'Available' : '-'}
+								/>
+								<DescriptionListItem
+									key="SBOM"
+									value={app.spec?.security?.sbom ? 'Available' : '-'}
+								/>
+							</DescriptionListGroup>
 
-								<DescriptionListGroup title="Technical Details">
-									<DescriptionListItem
-										key="Infrastructure"
-										value={app.spec?.infrastructure?.join(', ') ?? '-'}
-									/>
-									<DescriptionListItem
-										key="Architecture(s)"
-										value={app.spec?.architecture?.join(', ') ?? '-'}
-									/>
-								</DescriptionListGroup>
-							</div>
+							<DescriptionListGroup title="Technical Details">
+								<DescriptionListItem
+									key="Infrastructure"
+									value={app.spec?.infrastructure?.join(', ') ?? '-'}
+								/>
+								<DescriptionListItem
+									key="Architecture(s)"
+									value={app.spec?.architecture?.join(', ') ?? '-'}
+								/>
+							</DescriptionListGroup>
 						</div>
 					</div>
 				</div>

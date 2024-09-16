@@ -4,6 +4,7 @@ go 1.22.5
 
 require (
 	github.com/go-chi/chi/v5 v5.1.0
+	github.com/invopop/jsonschema v0.12.0
 	github.com/zarf-dev/zarf v0.37.0
 )
 
@@ -22,7 +23,6 @@ require (
 	github.com/defenseunicorns/pkg/helpers/v2 v2.0.1 // indirect
 	github.com/fatih/color v1.17.0 // indirect
 	github.com/gookit/color v1.5.4 // indirect
-	github.com/invopop/jsonschema v0.12.0 // indirect
 	github.com/lithammer/fuzzysearch v1.1.8 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

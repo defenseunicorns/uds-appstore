@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { Architecture, Category, Infrastructure, type Application } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import * as applicationsStore from './applicationstore';
+import { applicationStore } from './applicationstore';
 
 describe('applicationsStore', () => {
 	const sampleApp: Application = {
@@ -29,48 +29,64 @@ describe('applicationsStore', () => {
 	} as Application;
 
 	beforeEach(() => {
-		applicationsStore.catalog.set({
+		applicationStore.update((store) => ({
+			...store,
 			loading: false,
 			error: undefined,
 			appMap: new Map(),
-			filteredApplications: []
-		});
-		applicationsStore.miniSearch.removeAll();
+			filteredApplications: [],
+			selectedFilters: new Map(),
+			searchQuery: ''
+		}));
 	});
 
 	it('should populate catalog and miniSearch', () => {
-		applicationsStore.populateCatalog([sampleApp, anotherApp]);
-		expect(applicationsStore.getApplications().length).toEqual(2);
-		expect(applicationsStore.miniSearch.documentCount).toBe(2);
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		expect(applicationStore.getApplications().length).toEqual(2);
 	});
 
 	it('should get application by name', () => {
-		applicationsStore.populateCatalog([sampleApp, anotherApp]);
-		expect(applicationsStore.getAppByName('app1')).toEqual(sampleApp);
-		expect(applicationsStore.getAppByName('nonexistent')).toBeUndefined();
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		expect(applicationStore.getAppByName('app1')).toEqual(sampleApp);
+		expect(applicationStore.getAppByName('nonexistent')).toBeUndefined();
 	});
 
 	it('should search applications', () => {
-		applicationsStore.populateCatalog([sampleApp, anotherApp]);
-		const nameSearch = applicationsStore.search('app1');
-		const vendorSearch = applicationsStore.search('vendor 2');
-		const typoSearch = applicationsStore.search('nonexistent');
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		applicationStore.setSearchQuery('app1');
+		applicationStore.filterApplications();
+		let filteredApps: Application[] = [];
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps[0]).toStrictEqual(sampleApp);
 
-		expect(nameSearch[0]).toStrictEqual(sampleApp);
-		expect(vendorSearch[0]).toStrictEqual(anotherApp);
-		expect(typoSearch.length).toBe(0);
+		applicationStore.setSearchQuery('vendor 2');
+		applicationStore.filterApplications();
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps[0]).toStrictEqual(anotherApp);
+
+		applicationStore.setSearchQuery('nonexistent');
+		applicationStore.filterApplications();
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps.length).toBe(0);
 	});
 
 	it('should filter applications', () => {
-		applicationsStore.populateCatalog([sampleApp, anotherApp]);
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
 		const filters = new Map([
 			['spec.categories', [Category.Security]],
 			['spec.infrastructure', [Infrastructure.OnPrem]]
 		]);
-		applicationsStore.filterApplications(filters);
+		applicationStore.setSelectedFilters(filters);
+		applicationStore.filterApplications();
 		let filteredApps: Application[] = [];
-		applicationsStore.catalog.subscribe((catalog) => {
-			filteredApps = catalog.filteredApplications;
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
 		})();
 		expect(filteredApps).toEqual([sampleApp]);
 	});
@@ -81,9 +97,8 @@ describe('applicationsStore', () => {
 			json: async () => [sampleApp, anotherApp]
 		});
 
-		await applicationsStore.fetchCatalog();
-		expect(applicationsStore.getApplications()).toEqual([sampleApp, anotherApp]);
-		expect(applicationsStore.miniSearch.documentCount).toBe(2);
+		await applicationStore.fetchCatalog();
+		expect(applicationStore.getApplications()).toEqual([sampleApp, anotherApp]);
 	});
 
 	it('should handle fetch errors', async () => {
@@ -92,10 +107,10 @@ describe('applicationsStore', () => {
 			statusText: 'Not Found'
 		});
 
-		await applicationsStore.fetchCatalog();
+		await applicationStore.fetchCatalog();
 		let error: string | undefined;
-		applicationsStore.catalog.subscribe((catalog) => {
-			error = catalog.error;
+		applicationStore.subscribe((store) => {
+			error = store.error;
 		})();
 		expect(error).toBe('Failed to fetch applications: Not Found');
 	});

@@ -12,7 +12,7 @@
 	let error: string | undefined;
 	let applications: Application[] = [];
 
-	const unsubscribe = applicationStore.catalog.subscribe(($store) => {
+	const unsubscribe = applicationStore.subscribe(($store) => {
 		isLoading = $store.loading;
 		error = $store.error;
 		applications = $store.filteredApplications;
@@ -25,16 +25,16 @@
 	});
 </script>
 
-<div class="w-100 container pb-8">
-	<div class="mb-8 flex flex-col items-start justify-start">
+<div class="container mx-auto p-4 md:p-6">
+	<div class="w-full">
 		<h1 class="mb-2 text-2xl font-semibold leading-9 md:text-3xl">
 			Applications Deployable on UDS
 		</h1>
-		<p class="text-lg font-normal leading-[27px]">
+		<h2 class="text-lg font-normal">
 			Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
-		</p>
+		</h2>
 	</div>
-	<div class="container">
+	<div class="w-full pt-4">
 		{#if isLoading}
 			<div class="flex h-full items-center justify-center">
 				<img src="{base}/images/dougandserver.svg" alt="UDS Logo" class="h-20 w-20" />
@@ -43,7 +43,7 @@
 		{:else if error}
 			<p class="text-center text-lg text-red-500">Error: {error}</p>
 		{:else}
-			<div class="-mx-2 flex flex-wrap">
+			<div class="flex flex-wrap justify-center md:justify-start">
 				{#each applications as app}
 					<div class="mb-4 px-2">
 						<div class="flex justify-center">

@@ -1,11 +1,12 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 <script lang="ts">
-	import { AppCardHeader } from '$lib/components';
-	import type { Application } from '$lib/types';
-	import { ArrowRight } from 'carbon-icons-svelte';
 	import SvelteMarkdown from 'svelte-markdown';
+	import type { Application } from '$lib/types';
+	import { AppCardHeader } from '$lib/components';
+	import { ArrowRight } from 'carbon-icons-svelte';
 	import { truncateString } from '$lib/utils/helpers';
+
 	export let app: Application;
 
 	let description = 'No description available';
@@ -24,10 +25,12 @@
 		<div
 			class="app-card-description h-[120px] self-stretch overflow-hidden text-base font-normal leading-normal text-gray-700 dark:text-gray-300"
 		>
-			{#if app.spec?.description}
+			{#if description && description.trim() !== ''}
 				<SvelteMarkdown source={description} />
 			{:else}
-				{description}
+				<div class="text-sm font-medium leading-[21px] text-gray-700 dark:text-gray-300">
+					{description}
+				</div>
 			{/if}
 		</div>
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
