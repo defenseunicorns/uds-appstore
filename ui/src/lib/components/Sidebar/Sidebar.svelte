@@ -16,11 +16,12 @@
 	export const isOpen = writable(true);
 	export let routes: string[] = [];
 
-	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
 	let innerWidth: number;
 	let sidebarElement: HTMLElement;
 	let selectedFilters: SelectedFilters;
 	let collapsedFilters: { [key: string]: boolean } = {};
+
+	const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
 
 	const sidebarFilters: Filter[] = [
 		{
@@ -50,38 +51,46 @@
 		}
 	];
 
+	// Subscribe to the application store
 	const unsubscribeCatalog = applicationStore.subscribe((store) => {
 		selectedFilters = store.selectedFilters;
 	});
 
-	function handleResize() {
-		isOpen.set(!isSmallScreen);
-		updateSidebarWidth();
-	}
+	// Toggle the collapsed state of a filter
 
 	function toggleFilter(filter: string) {
 		collapsedFilters[filter] = !collapsedFilters[filter];
 	}
 
+	// Handle filter change
 	function handleFilterChange(filter: Filter, category: string) {
 		applicationStore.update((store: CatalogStore) => {
+			// Update the selected filters
 			const filterValues = store.selectedFilters.get(filter.field) || [];
+
+			// Add or remove the category from the selected filters
 			if (!filterValues.includes(category)) {
 				filterValues.push(category);
 			} else {
 				filterValues.splice(filterValues.indexOf(category), 1);
 			}
+
+			// Update the selected filters
 			store.selectedFilters.set(filter.field, filterValues);
 			return store;
 		});
+
+		// Filter the applications
 		applicationStore.filterApplications();
 	}
 
+	// Clear the selected filters
 	function clearFilters() {
 		applicationStore.setSelectedFilters(new Map());
 		applicationStore.filterApplications();
 	}
 
+	// Update the sidebar --sidebar-width css variable
 	function updateSidebarWidth() {
 		if (sidebarElement && isValidRoute) {
 			const sidebarWidth = sidebarElement.offsetWidth;
@@ -89,6 +98,12 @@
 		} else {
 			document.documentElement.style.setProperty('--sidebar-width', '0px');
 		}
+	}
+
+	// Update the sidebar width and visibility on window resize
+	function handleResize() {
+		isOpen.set(!isSmallScreen);
+		updateSidebarWidth();
 	}
 
 	onMount(() => {
@@ -102,7 +117,7 @@
 		};
 	});
 
-	// Handle navigation change
+	// Update the sidebar width and visibility on navigation change
 	afterUpdate(() => {
 		updateSidebarWidth();
 	});

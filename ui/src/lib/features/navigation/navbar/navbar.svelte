@@ -13,12 +13,11 @@
 	function handleSearch(searchQuery: string) {
 		applicationStore.setSearchQuery(searchQuery);
 		applicationStore.filterApplications();
-		if (searchQuery !== '' && window.location.pathname !== '/apps') {
-			console.log('going to apps');
+		if (window.location.pathname !== '/apps') {
 			goto(`/apps`);
 		}
 	}
-
+	// Updates the --nav-height css variable
 	function updateNavHeight() {
 		if (navElement) {
 			const navHeight = navElement.offsetHeight;
@@ -26,17 +25,15 @@
 		}
 	}
 
-	function handleResize() {
-		updateNavHeight();
-	}
-
+	// update the nav height on mount and resize using window.addEventListener
 	onMount(() => {
 		updateNavHeight();
-		window.addEventListener('resize', handleResize);
+		window.addEventListener('resize', updateNavHeight);
 		return () => {
-			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('resize', updateNavHeight);
 		};
 	});
+	// ensure the nav height is updated when the page is updated specifically ensures subroutes are updated such as /apps/[:id]
 	afterUpdate(updateNavHeight);
 </script>
 

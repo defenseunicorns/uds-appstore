@@ -155,3 +155,80 @@ test.describe('Sidebar', () => {
 		expect(allResultsLength).toBe(unfilteredResultsLength);
 	});
 });
+
+test.describe('Search Functionality', () => {
+	test('displays search input in navbar', async ({ page }) => {
+		await page.goto('/apps');
+		const searchInput = await page.waitForSelector('#application-search');
+		expect(searchInput).not.toBeNull();
+	});
+
+	test('filters apps based on search query', async ({ page }) => {
+		await page.goto('/apps');
+		await page.waitForSelector('.app-card', { state: 'visible' });
+
+		const initialAppCards = await page.$$('.app-card');
+		const initialCount = initialAppCards.length;
+
+		// Use the first app's name as the search query
+		const searchQuery = catalogData[0].metadata.name;
+		await page.fill('#application-search', searchQuery);
+
+		// Wait for the debounce
+		await page.waitForTimeout(600);
+
+		const filteredAppCards = await page.$$('.app-card');
+		expect(filteredAppCards.length).toBeLessThan(initialCount);
+
+		// Check if the filtered results contain the search query
+		for (const card of filteredAppCards) {
+			const titleElement = await card.$('.app-card-header-title');
+			const title = await titleElement?.textContent();
+			expect(title?.toLowerCase()).toContain(searchQuery.toLowerCase());
+		}
+	});
+
+	test('clears search results when query is emptied', async ({ page }) => {
+		await page.goto('/apps');
+		await page.waitForSelector('.app-card', { state: 'visible' });
+
+		const initialAppCards = await page.$$('.app-card');
+		const initialCount = initialAppCards.length;
+
+		// Search for something
+		await page.fill('#application-search', 'test');
+		await page.waitForTimeout(600);
+
+		// Clear the search
+		await page.fill('#application-search', '');
+		await page.waitForTimeout(600);
+
+		const finalAppCards = await page.$$('.app-card');
+		expect(finalAppCards.length).toBe(initialCount);
+	});
+
+	test('navigates to /apps when searching from another page', async ({ page }) => {
+		await page.goto('/apps/archivista');
+		await page.fill('#application-search', 'test');
+		await page.waitForTimeout(600);
+
+		expect(page.url().endsWith('/apps')).toBe(true);
+	});
+
+	test('keyboard shortcut focuses search input', async ({ page }) => {
+		await page.goto('/apps');
+		await page.waitForSelector('#application-search');
+
+		// Use keyboard.down and keyboard.up instead of keyboard.press
+		await page.keyboard.down('Control');
+		await page.keyboard.press('k');
+		await page.keyboard.up('Control');
+
+		// Wait for a short time to allow for focus to change
+		await page.waitForTimeout(100);
+
+		const focusedElement = await page.evaluate(() => document.activeElement?.id);
+
+		expect(focusedElement).toBe('application-search');
+	});
+});

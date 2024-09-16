@@ -37,7 +37,7 @@
 </script>
 
 {#if app}
-	<div class="pb-8">
+	<div class="p-8">
 		<div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
 			<div class="flex items-center justify-start">
 				<AppCardHeader {app} />
