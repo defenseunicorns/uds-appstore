@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.4.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.3.0...v0.4.0) (2024-09-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* sidebar filter (#157, #139)
+
+### Features
+
+* 73 add searchbar to ui ([#179](https://github.com/defenseunicorns/uds-marketplace/issues/179)) ([81e440c](https://github.com/defenseunicorns/uds-marketplace/commit/81e440c93fbe6082e9b8c60593da9fcfe9fc1e57))
+* sidebar filter ([#157](https://github.com/defenseunicorns/uds-marketplace/issues/157), [#139](https://github.com/defenseunicorns/uds-marketplace/issues/139)) ([3f25151](https://github.com/defenseunicorns/uds-marketplace/commit/3f25151a64fcffc4c6e11c2bee7cc5de557e9ef5))
+
+
+### Miscellaneous
+
+* update CODEOWNERS ([#161](https://github.com/defenseunicorns/uds-marketplace/issues/161)) ([7ed4d35](https://github.com/defenseunicorns/uds-marketplace/commit/7ed4d35d842a11b1953298515e340b329c3c84a5))
+
 ## [0.3.0](https://github.com/defenseunicorns/uds-marketplace/compare/v0.2.1...v0.3.0) (2024-08-26)
 
 
