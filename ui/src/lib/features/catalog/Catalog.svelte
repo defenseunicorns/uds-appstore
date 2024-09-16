@@ -26,11 +26,11 @@
 </script>
 
 <div class="container mx-auto p-4 md:p-6">
-	<div class="w-full">
-		<h1 class="mb-2 text-2xl font-semibold leading-9 md:text-3xl">
+	<div class="flex w-full flex-col items-center justify-center md:items-start">
+		<h1 class="mb-2 max-w-[360px] text-2xl font-semibold leading-9 md:max-w-full md:text-3xl">
 			Applications Deployable on UDS
 		</h1>
-		<h2 class="text-lg font-normal">
+		<h2 class="max-w-[360px] text-lg font-normal md:max-w-full">
 			Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
 		</h2>
 	</div>
@@ -42,13 +42,15 @@
 			</div>
 		{:else if error}
 			<p class="text-center text-lg text-red-500">Error: {error}</p>
+		{:else if applications.length === 0}
+			<p class="rounded-lg bg-red-300 p-4 text-center text-lg dark:bg-red-400">
+				No applications found matching your search.
+			</p>
 		{:else}
-			<div class="flex flex-wrap justify-center md:justify-start">
+			<div class="flex flex-wrap justify-center gap-4 md:justify-start">
 				{#each applications as app}
-					<div class="mb-4 px-2">
-						<div class="flex justify-center">
-							<AppCard {app} />
-						</div>
+					<div class="mb-4">
+						<AppCard {app} />
 					</div>
 				{/each}
 			</div>
