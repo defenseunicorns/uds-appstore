@@ -3,7 +3,7 @@
 import type { Application } from '$lib/types';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-import AppCard from './component.svelte';
+import AppCard from './AppCard.svelte';
 
 describe('AppCard', () => {
 	const mockApp: Application = {

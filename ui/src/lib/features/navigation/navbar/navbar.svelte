@@ -5,7 +5,7 @@
 	import { goto } from '$app/navigation';
 	import SearchInput from '$lib/components/SearchInput/SearchInput.svelte';
 	import { applicationStore } from '$lib/stores/applicationstore/applicationstore';
-	import Themetoggle from '../themetoggle/component.svelte';
+	import Themetoggle from '../themetoggle/themetoggle.svelte';
 	import { onMount, afterUpdate } from 'svelte';
 
 	let navElement: HTMLElement;
