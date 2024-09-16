@@ -50,5 +50,5 @@ tasks:
     description: "clean the build directories"
     actions:
       - cmd: rm -rf build
-      - cmd: rm -rf build
+      - cmd: rm -rf build static/api test-results
         dir: ui
