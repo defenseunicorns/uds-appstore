@@ -11,7 +11,7 @@ components:
     required: true
     # x-release-please-start-version
     images:
-      - ghcr.io/defenseunicorns/uds-marketplace:1.0.0
+      - ghcr.io/defenseunicorns/uds-marketplace:0.1.0
     # x-release-please-end
     charts:
       - name: uds-marketplace
