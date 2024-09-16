@@ -1,195 +1,271 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-FileCopyrightText: 2024-Present The UDS Authors
 
-import {
-	Architecture,
-	Category,
-	ImpactLevel,
-	Infrastructure,
-	PricingModel,
-	type Application
-} from '$lib/types';
-import { writable } from 'svelte/store';
+import type { Application } from '$lib/types';
+import MiniSearch from 'minisearch';
+import { writable, type Writable } from 'svelte/store';
 
-export type ApplicationStore = {
-	applications: Map<string, Application>;
-	unfilteredApplications: Application[];
-	error: string | undefined;
+export interface Filter {
+	values: string[];
+	label: string;
+	field: string;
+}
+
+export interface CatalogStore {
 	loading: boolean;
-};
-
-export type FilterMap = Map<string, string[]>;
-
-// Initial state
-const initialState = (): ApplicationStore => ({
-	applications: new Map(),
-	unfilteredApplications: [],
-	error: undefined,
-	loading: false
-});
-
-// Create a writable store
-const store = writable<ApplicationStore>(initialState());
-const { subscribe, set, update } = store;
-export { subscribe };
-
-// Function to add or update an application
-export function addOrUpdateApplication(application: Application): void {
-	update((state) => {
-		if (application.metadata?.name) {
-			if (!state.applications.has(application.metadata.name)) {
-				state.unfilteredApplications.push(application);
-			}
-			state.applications.set(application.metadata.name, application);
-		}
-		return state;
-	});
+	error: string | undefined;
+	appMap: Map<string, Application>;
+	filteredApplications: Application[];
+	selectedFilters: SelectedFilters;
+	searchQuery: string;
 }
 
-// Function to get an application by name
-export function getApplicationByName(name: string): Application | undefined {
-	let app: Application | undefined;
-	store.subscribe((state) => {
-		app = state.applications.get(name);
-	})();
-	return app;
-}
+export type SelectedFilters = Map<string, string[]>;
 
-function clearApplications(): void {
-	update((state) => {
-		state.applications = new Map();
-		return state;
-	});
-}
+function extractField(application: Application, fieldName: string): string {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const getValue = (obj: Application, path: string[]): any => {
+		return path.reduce((acc, part) => acc && acc[part], obj);
+	};
 
-// Function to get all applications
-export function getApplications(): Application[] {
-	let apps: Application[] = [];
-	store.subscribe((state) => {
-		apps = Array.from(state.applications.values());
-	})();
-	return apps;
-}
+	const fieldPath = fieldName.split('.');
+	const value = getValue(application, fieldPath);
 
-// Count the number of applications
-export function size(): number {
-	let count = 0;
-	store.subscribe((state) => {
-		count = state.applications.size;
-	})();
-	return count;
-}
-
-// Function to get the error
-export function getError(): string | undefined {
-	let error: string | undefined;
-	store.subscribe((state) => {
-		error = state.error;
-	})();
-	return error;
-}
-
-// Function to clear the store
-export function clearStore(): void {
-	set(initialState());
-}
-
-export function getUnfilteredApplications(): Application[] {
-	let apps: Application[] = [];
-	store.subscribe((state) => {
-		apps = state.unfilteredApplications;
-	})();
-	return apps;
-}
-
-export function filterApplications(filters: FilterMap): void {
-	clearApplications();
-	const hasFilters = Array.from(filters.values()).some((values) => values.length > 0);
-	if (!hasFilters) {
-		for (const app of getUnfilteredApplications()) {
-			addOrUpdateApplication(app);
-		}
-		return;
+	if (value === undefined || value === null) {
+		return '';
 	}
-	for (const app of getUnfilteredApplications()) {
-		if (!app.spec) {
-			continue;
-		}
-		for (const [field, values] of filters) {
-			if (values.length === 0) {
-				continue;
-			}
-			switch (field) {
-				case 'categories':
-					if (values.some((value) => app.spec?.categories?.includes(value as Category))) {
-						addOrUpdateApplication(app);
-					}
-					break;
-				case 'pricingModel':
-					if (values.some((value) => app.spec?.pricingModel.includes(value as PricingModel))) {
-						addOrUpdateApplication(app);
-					}
-					break;
-				case 'impactLevel':
-					if (
-						values.some((value) => app.spec?.security?.impactLevel?.includes(value as ImpactLevel))
-					) {
-						addOrUpdateApplication(app);
-					}
-					break;
-				case 'infrastructure':
-					if (values.some((value) => app.spec?.infrastructure?.includes(value as Infrastructure))) {
-						addOrUpdateApplication(app);
-					}
-					break;
-				case 'architecture':
-					if (values.some((value) => app.spec?.architecture?.includes(value as Architecture))) {
-						addOrUpdateApplication(app);
-					}
-					break;
-			}
-		}
+
+	if (Array.isArray(value)) {
+		return value.join(', ');
+	} else {
+		return String(value);
 	}
 }
 
-export function clearFilteredApplications(): void {
-	update((state) => {
-		state.applications = new Map();
-		return state;
-	});
-	for (const app of getUnfilteredApplications()) {
-		addOrUpdateApplication(app);
-	}
-}
+class ApplicationStore {
+	private catalog: Writable<CatalogStore>;
+	private miniSearch: MiniSearch;
 
-// Function to fetch and add applications to the store
-export async function fetchCatalog(): Promise<void> {
-	update((state) => {
-		state.loading = true;
-		return state;
-	});
-	try {
-		const response = await fetch('/api/apps/index.json');
-		if (response.ok) {
-			const catalog: Application[] = await response.json();
-			catalog.forEach((app) => addOrUpdateApplication(app));
-			update((state) => {
-				state.unfilteredApplications = catalog;
-				state.error = initialState().error; // Clear any previous error
-				return state;
+	constructor() {
+		this.catalog = writable<CatalogStore>({
+			loading: false,
+			error: undefined,
+			appMap: new Map(),
+			filteredApplications: [],
+			selectedFilters: new Map(),
+			searchQuery: ''
+		});
+
+		this.miniSearch = new MiniSearch({
+			idField: 'metadata.name',
+			fields: [
+				'kind',
+				'metadata.name',
+				'spec.title',
+				'spec.tagline',
+				'spec.description',
+				'spec.architecture',
+				'spec.categories',
+				'spec.contractingDetails.number',
+				'spec.contractingDetails.pricingModel',
+				'spec.contractingDetails.smallBusinessStatus',
+				'spec.contractingDetails.vehicle',
+				'spec.infrastructure',
+				'spec.keywords',
+				'spec.repository',
+				'spec.security.impactLevel',
+				'spec.vendor.name',
+				'spec.vendor.url',
+				'spec.versions'
+			],
+			extractField: extractField,
+			searchOptions: {
+				boost: {
+					'spec.title': 2,
+					'spec.tagline': 2,
+					'spec.description': 2,
+					'spec.categories': 2,
+					'spec.vendor.name': 2
+				}
+			}
+		});
+	}
+
+	private clearDocuments(): void {
+		this.miniSearch.removeAll();
+	}
+
+	private populateDocuments(): void {
+		this.clearDocuments();
+		this.miniSearch.addAll(this.getApplications());
+	}
+
+	private search(): Application[] {
+		const searchQuery = this.getSearchQuery();
+		const results = this.miniSearch.search(searchQuery, {
+			prefix: true,
+			combineWith: 'and',
+			fuzzy: true
+		});
+		let appMap: Map<string, Application> = new Map();
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			appMap = catalog.appMap;
+			return catalog;
+		})();
+		return results.map((result) => appMap.get(result.id)).filter(Boolean) as Application[];
+	}
+
+	public getSelectedFilters(): SelectedFilters {
+		let selectedFilters: SelectedFilters = new Map();
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			selectedFilters = catalog.selectedFilters;
+			return catalog;
+		})();
+		return selectedFilters;
+	}
+
+	public getSearchQuery(): string {
+		let searchQuery = '';
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			searchQuery = catalog.searchQuery;
+			return catalog;
+		})();
+		return searchQuery;
+	}
+
+	public setSelectedFilters(selectedFilters: SelectedFilters): void {
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			catalog.selectedFilters = selectedFilters;
+			return catalog;
+		})();
+	}
+
+	public setSearchQuery(searchQuery: string): void {
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			catalog.searchQuery = searchQuery;
+			return catalog;
+		})();
+	}
+
+	public getApplications(): Application[] {
+		let applications: Application[] = [];
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			applications = Array.from(catalog.appMap.values());
+		})();
+		return applications;
+	}
+
+	public getAppByName(name: string): Application | undefined {
+		let application: Application | undefined;
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			application = catalog.appMap.get(name);
+		})();
+		return application;
+	}
+
+	public getCatalog(): Map<string, Application> {
+		let appMap: Map<string, Application> = new Map();
+		this.catalog.subscribe((catalog: CatalogStore) => {
+			appMap = catalog.appMap;
+		})();
+		return appMap;
+	}
+
+	public populateCatalog(applications: Application[]): void {
+		this.catalog.update((catalog: CatalogStore) => {
+			catalog.filteredApplications = applications;
+			catalog.appMap.clear();
+			applications.forEach((application) => {
+				if (application.metadata && application.metadata.name) {
+					catalog.appMap.set(application.metadata.name, application);
+				}
 			});
+			return catalog;
+		});
+		this.populateDocuments();
+	}
+
+	public filterApplications(): void {
+		const searchQuery = this.getSearchQuery();
+		let searchResults: Application[] = [];
+		if (searchQuery === '') {
+			searchResults = this.getApplications();
 		} else {
-			throw new Error(`Failed to fetch applications: ${response.statusText}`);
+			searchResults = this.search();
+			this.clearDocuments();
+			this.miniSearch.addAll(searchResults);
 		}
-	} catch (e) {
-		update((state) => {
-			state.error = e instanceof Error ? e.message : 'An unknown error occurred';
-			return state;
+		const selectedFilters = this.getSelectedFilters();
+		const hasFilters = Array.from(selectedFilters.values()).some((values) => values.length > 0);
+
+		let filteredApplications: Application[];
+
+		if (!hasFilters) {
+			filteredApplications = searchResults;
+		} else {
+			const filteredMap = new Map();
+			for (const [field, values] of selectedFilters.entries()) {
+				if (values.length === 0) {
+					continue;
+				}
+				const results = this.miniSearch.search(values.join(','), {
+					prefix: true,
+					combineWith: 'and',
+					fields: [field]
+				});
+				results.forEach((result) => {
+					const application = this.getAppByName(result.id);
+					if (application && application.metadata && application.metadata.name) {
+						filteredMap.set(application.metadata.name, application);
+					}
+				});
+			}
+			filteredApplications = Array.from(filteredMap.values());
+		}
+
+		this.catalog.update((catalog: CatalogStore) => {
+			catalog.filteredApplications = filteredApplications;
+			return catalog;
 		});
-	} finally {
-		update((state) => {
-			state.loading = false;
-			return state;
+
+		this.populateDocuments();
+	}
+
+	public async fetchCatalog(): Promise<void> {
+		this.catalog.update((catalog: CatalogStore) => {
+			catalog.loading = true;
+			catalog.error = undefined;
+			return catalog;
 		});
+
+		try {
+			const response = await fetch('/api/apps/index.json');
+			if (response.ok) {
+				const applications: Application[] = await response.json();
+				this.populateCatalog(applications);
+			} else {
+				throw new Error(`Failed to fetch applications: ${response.statusText}`);
+			}
+		} catch (e) {
+			this.catalog.update((catalog: CatalogStore) => {
+				catalog.error = e instanceof Error ? e.message : 'An unknown error occurred';
+				return catalog;
+			});
+		} finally {
+			this.catalog.update((catalog: CatalogStore) => {
+				catalog.loading = false;
+				return catalog;
+			});
+		}
+	}
+
+	public subscribe(callback: (value: CatalogStore) => void) {
+		return this.catalog.subscribe(callback);
+	}
+
+	public update(callback: (value: CatalogStore) => CatalogStore) {
+		this.catalog.update(callback);
 	}
 }
+
+export const applicationStore = new ApplicationStore();

@@ -1,157 +1,117 @@
 // SPDX-License-Identifier: Apache-2.0
-import {
-	Architecture,
-	Category,
-	ImpactLevel,
-	Infrastructure,
-	PricingModel,
-	type Application
-} from '$lib/types';
+import { Architecture, Category, Infrastructure, type Application } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import * as applicationsStore from './applicationstore';
+import { applicationStore } from './applicationstore';
 
 describe('applicationsStore', () => {
 	const sampleApp: Application = {
 		metadata: { name: 'app1' },
-		vendor: { name: 'vendorName', url: 'vendorUrl' }
-		// ... other properties
-	} as unknown as Application;
+		spec: {
+			title: 'App 1',
+			description: 'This is app 1',
+			vendor: { name: 'Vendor 1', url: 'https://vendor1.com' },
+			categories: [Category.Security],
+			infrastructure: [Infrastructure.OnPrem],
+			architecture: [Architecture.Amd64]
+		}
+	} as Application;
 
 	const anotherApp: Application = {
-		metadata: {
-			name: 'app2',
-			vendor: { name: 'vendorName', url: 'vendorUrl' }
+		metadata: { name: 'app2' },
+		spec: {
+			title: 'App 2',
+			description: 'This is app 2',
+			vendor: { name: 'Vendor 2', url: 'https://vendor2.com' },
+			categories: [Category.Arcade],
+			infrastructure: [Infrastructure.AWSGov],
+			architecture: [Architecture.Arm64]
 		}
-		// ... other properties
-	} as unknown as Application;
+	} as Application;
 
 	beforeEach(() => {
-		applicationsStore.clearStore();
+		applicationStore.update((store) => ({
+			...store,
+			loading: false,
+			error: undefined,
+			appMap: new Map(),
+			filteredApplications: [],
+			selectedFilters: new Map(),
+			searchQuery: ''
+		}));
 	});
 
-	it('should add or update an application', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		const app = applicationsStore.getApplicationByName('app1');
-		expect(app).toEqual(sampleApp);
+	it('should populate catalog and miniSearch', () => {
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		expect(applicationStore.getApplications().length).toEqual(2);
 	});
 
-	it('should get an application by name', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		const app = applicationsStore.getApplicationByName('app1');
-		expect(app).toEqual(sampleApp);
+	it('should get application by name', () => {
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		expect(applicationStore.getAppByName('app1')).toEqual(sampleApp);
+		expect(applicationStore.getAppByName('nonexistent')).toBeUndefined();
 	});
 
-	it('should return undefined for non-existent application', () => {
-		const app = applicationsStore.getApplicationByName('nonExistentApp');
-		expect(app).toBeUndefined();
-	});
+	it('should search applications', () => {
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		applicationStore.setSearchQuery('app1');
+		applicationStore.filterApplications();
+		let filteredApps: Application[] = [];
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps[0]).toStrictEqual(sampleApp);
 
-	it('should get all applications', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		applicationsStore.addOrUpdateApplication(anotherApp);
-		const apps = applicationsStore.getApplications();
-		expect(apps).toEqual([sampleApp, anotherApp]);
-	});
+		applicationStore.setSearchQuery('vendor 2');
+		applicationStore.filterApplications();
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps[0]).toStrictEqual(anotherApp);
 
-	it('should count the number of applications', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		applicationsStore.addOrUpdateApplication(anotherApp);
-		const count = applicationsStore.size();
-		expect(count).toBe(2);
-	});
-
-	it('should clear the store', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		applicationsStore.clearStore();
-		const app = applicationsStore.getApplicationByName('app1');
-		expect(app).toBeUndefined();
-		const count = applicationsStore.size();
-		expect(count).toBe(0);
-	});
-
-	it('should get the error', () => {
-		const error = applicationsStore.getError();
-		expect(error).toBeUndefined();
-	});
-
-	it('should get unfiltered applications', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		applicationsStore.addOrUpdateApplication(anotherApp);
-		const unfilteredApps = applicationsStore.getUnfilteredApplications();
-		expect(unfilteredApps).toEqual([sampleApp, anotherApp]);
+		applicationStore.setSearchQuery('nonexistent');
+		applicationStore.filterApplications();
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps.length).toBe(0);
 	});
 
 	it('should filter applications', () => {
-		const app1: Application = {
-			...sampleApp,
-			spec: {
-				categories: [Category.AIMl],
-				pricingModel: [PricingModel.Free],
-				security: { impactLevel: [ImpactLevel.The2] },
-				infrastructure: [Infrastructure.OnPrem],
-				architecture: [Architecture.Amd64]
-			}
-		};
-		const app2: Application = {
-			...anotherApp,
-			spec: {
-				categories: [Category.Arcade],
-				pricingModel: [PricingModel.BringYourOwnLicense],
-				security: { impactLevel: [ImpactLevel.The4] },
-				infrastructure: [Infrastructure.OnPrem],
-				architecture: [Architecture.Amd64]
-			}
-		};
-
-		applicationsStore.clearStore();
-		applicationsStore.addOrUpdateApplication(app1);
-		applicationsStore.addOrUpdateApplication(app2);
-
-		const filters = new Map<string, string[]>([
-			['categories', [Category.Arcade]],
-			['pricingModel', [PricingModel.BringYourOwnLicense]]
+		applicationStore.populateCatalog([sampleApp, anotherApp]);
+		const filters = new Map([
+			['spec.categories', [Category.Security]],
+			['spec.infrastructure', [Infrastructure.OnPrem]]
 		]);
-
-		applicationsStore.filterApplications(filters);
-		const filteredApps = applicationsStore.getApplications();
-		expect(filteredApps).toEqual([app2]);
+		applicationStore.setSelectedFilters(filters);
+		applicationStore.filterApplications();
+		let filteredApps: Application[] = [];
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps).toEqual([sampleApp]);
 	});
 
-	it('should clear filtered applications', () => {
-		applicationsStore.addOrUpdateApplication(sampleApp);
-		applicationsStore.addOrUpdateApplication(anotherApp);
-
-		const filters = new Map<string, string[]>([['categories', [Category.Arcade]]]);
-		applicationsStore.filterApplications(filters);
-
-		applicationsStore.clearFilteredApplications();
-		const apps = applicationsStore.getApplications();
-		expect(apps).toEqual([sampleApp, anotherApp]);
-	});
-
-	it('should fetch and add applications to the store', async () => {
-		const mockFetch = vi.fn().mockResolvedValue({
+	it('should fetch catalog', async () => {
+		global.fetch = vi.fn().mockResolvedValue({
 			ok: true,
 			json: async () => [sampleApp, anotherApp]
 		});
-		global.fetch = mockFetch;
 
-		await applicationsStore.fetchCatalog();
-		const apps = applicationsStore.getApplications();
-		expect(apps).toEqual([sampleApp, anotherApp]);
-		expect(applicationsStore.getUnfilteredApplications()).toEqual([sampleApp, anotherApp]);
-		expect(applicationsStore.getError()).toBeUndefined();
+		await applicationStore.fetchCatalog();
+		expect(applicationStore.getApplications()).toEqual([sampleApp, anotherApp]);
 	});
 
 	it('should handle fetch errors', async () => {
-		const mockFetch = vi.fn().mockResolvedValue({
+		global.fetch = vi.fn().mockResolvedValue({
 			ok: false,
 			statusText: 'Not Found'
 		});
-		global.fetch = mockFetch;
 
-		await applicationsStore.fetchCatalog();
-		const error = applicationsStore.getError();
+		await applicationStore.fetchCatalog();
+		let error: string | undefined;
+		applicationStore.subscribe((store) => {
+			error = store.error;
+		})();
 		expect(error).toBe('Failed to fetch applications: Not Found');
 	});
 });
