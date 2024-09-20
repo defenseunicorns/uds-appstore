@@ -8,3 +8,7 @@ export { default as DescriptionListGroup } from './DescriptionListGroup/Descript
 export { default as DescriptionListItem } from './DescriptionListItem/DescriptionListItem.svelte';
 export { default as SearchInput } from './SearchInput/SearchInput.svelte';
 export { default as Sidebar } from './Sidebar/Sidebar.svelte';
+
+// Tabs
+export { default as TabItem } from './Tabs/TabItem.svelte';
+export { default as TabList } from './Tabs/TabList.svelte';
