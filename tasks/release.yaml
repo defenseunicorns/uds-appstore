@@ -1,0 +1,12 @@
+includes:
+  - build: build.yaml
+
+tasks:
+  - name: release-marketplace
+    description: "Build the UDS Marketplace and publish a release. NOTE: task isn't intended to be ran local"
+    actions:
+      - task: build:generate-catalog
+      - task: build:generate-types
+      - task: build:compile
+      - task: build:build-zarf-packages
+      - task: build:publish-zarf-packages

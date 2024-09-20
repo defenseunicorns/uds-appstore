@@ -10,13 +10,6 @@ variables:
     # x-release-please-end
 
 tasks:
-  - name: all
-    description: "build the uds marketplace zarf packages and dependencies"
-    actions:
-      - task: compile
-      - task: build-image
-      - task: build-zarf-packages
-
   - name: compile
     description: "compile the api server and ui"
     actions:
@@ -28,7 +21,7 @@ tasks:
   - name: build-ui
     description: "build ui (requires setup:deps to be run first)"
     actions:
-      - task: generate
+      - task: generate-catalog
       - cmd: npm run build
         dir: ui
 
@@ -66,11 +59,10 @@ tasks:
       - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-amd64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
       - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-arm64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
 
-  - name: generate
+  - name: generate-catalog
     description: "Generate Catalog"
     actions:
       - cmd: ./hack/gen-data.sh
-      - task: generate-types
 
   - name: generate-types
     description: "Generate Types"

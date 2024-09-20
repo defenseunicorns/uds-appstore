@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/maru-runner/main/tasks.schema.json
 includes:
-  - development: tasks/dev.yaml
   - test: tasks/test.yaml
   - lint: tasks/lint.yaml
   - setup: tasks/setup.yaml
   - build: tasks/build.yaml
   - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
   - deploy: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/deploy.yaml
+  - release: tasks/release.yaml
 
 variables:
   - name: REF
@@ -19,21 +19,13 @@ tasks:
   - name: dev
     description: "run the api server and ui in dev mode"
     actions:
-      - task: development:dev-reload
+      - task: setup:deps
+      - cmd: air -c .air.toml -build.cmd="cd ui && npm run build && cd .. && go build -o ./build/uds-marketplace main.go"
 
   - name: compile
     description: "compile the api server and ui"
     actions:
       - task: build:compile
-
-  - name: k3d-dev-deploy
-    description: "deploy marketplace to uds slim k3d cluster (requires k3d)"
-    actions:
-      - task: clean
-      - cmd: k3d cluster delete uds
-      - task: build:all
-      - task: common:k3d-test-cluster
-      - task: deploy:package
 
   - name: tests
     description: "run all tests"
