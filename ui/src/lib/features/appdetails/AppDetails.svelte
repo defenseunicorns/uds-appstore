@@ -5,9 +5,8 @@
 	import { goto } from '$app/navigation';
 	import type { Application } from '$lib/types';
 	import { applicationStore } from '$lib/stores';
-	import { Button } from 'flowbite-svelte';
-	import { AppCardHeader } from '$lib/components';
-	import Sections from './Sections/Sections.svelte';
+	import { AppCardHeader, Button } from '$lib/components';
+	import SectionNav from './SectionNav/SectionNav.svelte';
 
 	export let id: string;
 
@@ -42,12 +41,12 @@
 				<AppCardHeader {app} />
 			</div>
 			<div class="flex items-start sm:items-center">
-				<Button size="md" color="blue" href="https://www.defenseunicorns.com/contactus">
+				<Button href="https://www.defenseunicorns.com/contactus">
 					Talk with a Mission Specialist
 				</Button>
 			</div>
 		</div>
 
-		<Sections {app} />
+		<SectionNav {app} />
 	</div>
 {/if}

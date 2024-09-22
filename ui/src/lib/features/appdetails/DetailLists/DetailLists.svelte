@@ -1,6 +1,8 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
+
 <script lang="ts">
-	import DescriptionListGroup from '$lib/components/DescriptionListGroup/DescriptionListGroup.svelte';
-	import DescriptionListItem from '$lib/components/DescriptionListItem/DescriptionListItem.svelte';
+	import { DescriptionListGroup, DescriptionListItem } from '$lib/components';
 	import type { Application } from '$lib/types/gen';
 
 	export let app: Application = {

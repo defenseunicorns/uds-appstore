@@ -4,6 +4,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { AppCard } from '$lib/components';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import { applicationStore } from '$lib/stores';
 	import type { Application } from '$lib/types';
 	import { onMount } from 'svelte';
@@ -41,11 +42,13 @@
 				<p class="ml-4 text-lg">Loading applications...</p>
 			</div>
 		{:else if error}
-			<p class="text-center text-lg text-red-500">Error: {error}</p>
+			<Alert color="danger" title="Error" message="Failed to fetch applications"></Alert>
 		{:else if applications.length === 0}
-			<p class="rounded-lg bg-red-300 p-4 text-center text-lg dark:bg-red-400">
-				No applications found matching your search.
-			</p>
+			<Alert
+				color="info"
+				title="No applications found"
+				message={`The search query "${applicationStore.getSearchQuery()}" did not match any known applications.`}
+			/>
 		{:else}
 			<div class="flex flex-wrap justify-center gap-4 md:justify-start">
 				{#each applications as app}
