@@ -137,13 +137,13 @@
 	<div
 		bind:this={sidebarElement}
 		id="filter-sidebar"
-		class="fixed left-0 top-[var(--nav-height)] z-40 flex h-[calc(100vh-var(--nav-height))] w-64 flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
+		class="flex h-[calc(100vh-var(--nav-height))] min-w-64 flex-col items-start justify-start gap-3 overflow-y-hidden border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
 		class:translate-x-0={$isOpen}
 		class:-translate-x-full={!$isOpen}
 		class:hidden={isSmallScreen}
 		class:md:block={!isSmallScreen}
 	>
-		<div class="flex w-full flex-col items-start justify-start gap-3 p-4">
+		<div class="flex h-full w-full flex-col items-start justify-start gap-3 overflow-y-scroll p-4">
 			{#each sidebarFilters as filter}
 				<div
 					class="flex w-full flex-col items-start justify-start gap-3 border-b border-gray-700 p-4"
