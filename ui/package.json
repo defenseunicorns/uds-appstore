@@ -34,9 +34,9 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.43.0",
 		"flowbite": "2.4.1",
-		"flowbite-svelte": "0.46.15",
 		"globals": "15.8.0",
 		"jsdom": "24.1.1",
+		"minisearch": "7.1.0",
 		"prettier": "3.3.3",
 		"prettier-plugin-organize-imports": "4.0.0",
 		"prettier-plugin-svelte": "3.2.6",
@@ -50,8 +50,7 @@
 		"typescript-eslint": "8.0.0-alpha.52",
 		"uds-core-types": "github:defenseunicorns/uds-core#1f2005b",
 		"vite": "5.3.4",
-		"vitest": "2.0.4",
-		"minisearch": "7.1.0"
+		"vitest": "2.0.4"
 	},
 	"type": "module"
 }

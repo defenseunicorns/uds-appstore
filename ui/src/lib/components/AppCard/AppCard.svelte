@@ -3,13 +3,15 @@
 <script lang="ts">
 	import SvelteMarkdown from 'svelte-markdown';
 	import type { Application } from '$lib/types';
-	import { AppCardHeader } from '$lib/components';
+	import { AppCardHeader, Button } from '$lib/components';
 	import { ArrowRight } from 'carbon-icons-svelte';
 	import { truncateString } from '$lib/utils/helpers';
+	import { goto } from '$app/navigation';
 
 	export let app: Application;
 
 	let description = 'No description available';
+
 	$: {
 		if (app.spec?.description) {
 			description = truncateString(app.spec.description, 150);
@@ -34,17 +36,19 @@
 			{/if}
 		</div>
 		<div class="inline-flex items-center justify-end gap-2.5 self-stretch">
-			<a
-				href="/apps/{app.metadata?.name}"
-				class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-gray-100 px-5 py-2.5 dark:border-gray-600 dark:bg-gray-700"
+			<Button
+				color="alternative"
+				class="dark:border-gray-300 dark:text-gray-300"
+				size="md"
+				on:click={() => {
+					goto(`/apps/${app.metadata?.name}`);
+				}}
 			>
-				<div class="text-sm font-medium leading-[21px] text-gray-700 dark:text-gray-300">
-					Learn More
-				</div>
-				<div class="relative h-3.5 w-3.5">
+				Learn More
+				<svelte:fragment slot="iconRight">
 					<ArrowRight />
-				</div>
-			</a>
+				</svelte:fragment>
+			</Button>
 		</div>
 	</div>
 </div>
