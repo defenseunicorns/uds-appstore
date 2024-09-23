@@ -29,9 +29,9 @@
 <div class="flex h-full w-full overflow-hidden">
 	<Sidebar routes={['/apps']} />
 	<div class="container flex h-full flex-shrink flex-col overflow-y-auto py-9">
-		<div class="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+		<div class="mx-auto w-full max-w-[1200px] gap-y-9 px-4 sm:px-6 lg:px-8">
 			<div class="application-title mb-8">
-				<div class="mb-2 text-2xl font-semibold leading-9">Applications Deployable on UDS</div>
+				<div class="text-2xl font-semibold leading-9">Applications Deployable on UDS</div>
 				<div class="text-lg font-normal">
 					Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
 				</div>
