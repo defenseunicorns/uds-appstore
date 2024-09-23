@@ -30,7 +30,7 @@
 	<Sidebar routes={['/apps']} />
 	<div class="container flex h-full flex-shrink flex-col overflow-y-auto py-9">
 		<div class="mx-auto w-full max-w-[1200px] gap-y-9 px-4 sm:px-6 lg:px-8">
-			<div class="application-title mb-8">
+			<div class="catalog-header mb-8">
 				<div class="text-2xl font-semibold leading-9">Applications Deployable on UDS</div>
 				<div class="text-lg font-normal">
 					Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
@@ -50,7 +50,7 @@
 					message={`The search query "${applicationStore.getSearchQuery()}" did not match any known applications.`}
 				/>
 			{:else}
-				<div class="apps-container flex flex-wrap justify-center gap-2 md:justify-start md:gap-6">
+				<div class="catalog-apps flex flex-wrap justify-center gap-2 md:justify-start md:gap-6">
 					{#each applications as app}
 						<div class="mb-4 w-full sm:w-auto">
 							<AppCard {app} />
