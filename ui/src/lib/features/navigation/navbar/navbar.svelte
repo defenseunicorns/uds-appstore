@@ -44,9 +44,9 @@
 	>
 		<div class="flex flex-col items-center justify-between sm:flex-row">
 			<div class="mb-4 flex w-full items-center justify-between sm:mb-0 sm:w-auto">
-				<a href="/" class="flex items-center text-2xl leading-9 text-white">
-					<img src="/doug.svg" class="mr-3 h-8" alt="uds marketplace logo" />
-					<span class="font-normal">UDS <span class="font-semibold">Marketplace</span></span>
+				<a href="/" class="flex items-center text-2xl font-medium leading-9 text-white">
+					<img src="/doug.svg" alt="uds marketplace logo" />
+					<span>UDS Marketplace</span>
 				</a>
 				<div class="sm:hidden">
 					<Themetoggle />

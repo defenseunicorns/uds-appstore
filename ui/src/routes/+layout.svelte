@@ -9,10 +9,6 @@
 	afterNavigate(initFlowbite);
 </script>
 
-<svelte:head>
-	<title>UDS Marketplace</title>
-</svelte:head>
-
 <Navbar />
 
 <main
