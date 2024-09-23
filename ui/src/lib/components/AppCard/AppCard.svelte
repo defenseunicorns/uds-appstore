@@ -6,6 +6,7 @@
 	import { AppCardHeader, Button } from '$lib/components';
 	import { ArrowRight } from 'carbon-icons-svelte';
 	import { truncateString } from '$lib/utils/helpers';
+	import { goto } from '$app/navigation';
 
 	export let app: Application;
 
@@ -39,7 +40,9 @@
 				color="alternative"
 				class="dark:border-gray-300 dark:text-gray-300"
 				size="md"
-				href="/apps/{app.metadata?.name}"
+				on:click={() => {
+					goto(`/apps/${app.metadata?.name}`);
+				}}
 			>
 				Learn More
 				<svelte:fragment slot="iconRight">

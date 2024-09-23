@@ -16,14 +16,11 @@
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { $$scope: _, $$slots: slots, class: classProp, href, ...restProps } = $$props;
 
-	export function getIconSize(): string {
-		return iconSize;
-	}
+	const styleClass =
+		'font-medium text-center rounded-lg inline-flex items-center justify-center gap-2';
 
 	$: ({ sizeClasses, colorClasses, iconSize } = getButtonClasses(size, color, disabled));
-	$: {
-		classes = `${sizeClasses} ${colorClasses} font-medium text-center rounded-lg inline-flex items-center justify-center gap-2 ${classProp || ''}`;
-	}
+	$: classes = `${sizeClasses} ${colorClasses} ${styleClass} ${classProp || ''}`;
 </script>
 
 {#if href && !disabled}

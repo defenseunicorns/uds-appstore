@@ -4,7 +4,7 @@
 // Components
 export { default as Alert } from './Alert/Alert.svelte';
 export { default as AppCard } from './AppCard/AppCard.svelte';
-export { default as AppCardHeader } from './AppCard/AppCardHeader/component.svelte';
+export { default as AppCardHeader } from './AppCard/AppCardHeader/AppCardHeader.svelte';
 export { default as Button } from './Button/Button.svelte';
 export { default as DescriptionListGroup } from './DescriptionListGroup/DescriptionListGroup.svelte';
 export { default as DescriptionListItem } from './DescriptionListItem/DescriptionListItem.svelte';
