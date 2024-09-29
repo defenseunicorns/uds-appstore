@@ -11,7 +11,7 @@ spec:
 
     Strimzi simplifies Kafka deployment and management on Kubernetes, offering features like rack awareness for high availability and easy scaling. It also provides seamless integration with existing Kubernetes processes and tools, allowing users to manage complete Kafka applications using familiar workflows.
   icons:
-    - src: https://strimzi.io/assets/images/strimzi_logo.png
+    - src: /images/icons/strimzi.png
   links:
     - description: Product Website
       url: https://strimzi.io/
