@@ -1,0 +1,28 @@
+---
+kind: Application
+metadata:
+  name: bitbucket
+spec:
+  title: Bitbucket
+  repository: ghcr.io/defenseunicorns/packages/uds/bitbucket
+  tagline: |
+    **Code and CI/CD, Powered by the Atlassian Platform**
+  description: |
+    Bitbucket is a comprehensive version control and CI/CD platform that streamlines software development from planning to production. It offers code hosting, built-in continuous integration and delivery, and seamless integration with other Atlassian tools.
+
+    Bitbucket accelerates development velocity by eliminating tedious tasks through AI and automation, while centralizing workflows to reduce context switching. It boosts collaboration across software, ITOps, and business teams by easily sharing updates about code and CI/CD via integration with Jira, Confluence, and the broader Atlassian ecosystem.
+
+    The platform provides a user-friendly interface for code management, including features like AI-generated PR descriptions, granular access controls, and org-wide quality control through custom merge checks. It also offers built-in security capabilities, platform-level CI/CD orchestration, and AI-powered tools to enhance developer productivity.
+
+    Bitbucket integrates seamlessly with Jira for issue tracking, Confluence for documentation, and supports a wide range of third-party tools for AI code generation, security, testing, and monitoring. It includes Atlassian Intelligence features in its Premium tier and offers migration tools for users transitioning from Bitbucket Server or Data Center to the cloud version. Additionally, it provides APIs for custom integrations to meet specific organizational needs.
+  icons:
+    - src: /images/icons/bitbucket.svg
+  links:
+    - description: Product Website
+      url: https://bitbucket.org/product/
+    - description: Documentation
+      url: https://confluence.atlassian.com/bitbucketserver/bitbucket-data-center-documentation-776639749.html
+    - description: Helm Chart
+      url: https://atlassian.github.io/data-center-helm-charts
+    - description: UDS Package Repository
+      url: "https://github.com/defenseunicorns/uds-package-bitbucket"
