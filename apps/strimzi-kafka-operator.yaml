@@ -3,7 +3,7 @@ metadata:
   name: strimzi
 spec:
   title: Strimzi
-  repository: ghcr.io/defenseunicorns/packages/uds/strimzi
+  repository: ghcr.io/defenseunicorns/packages/uds/strimzi-kafka-operator
   tagline: |
     **Stream Processing Made Simple on Kubernetes**
   description: |
@@ -20,4 +20,4 @@ spec:
     - description: Helm Chart
       url: https://quay.io/strimzi-helm/strimzi-kafka-operator
     - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-strimzi
+      url: https://github.com/defenseunicorns/uds-package-strimzi-kafka-operator

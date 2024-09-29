@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: zookeeper
 spec:
-  title: zookeeper
+  title: Zookeeper
   repository: ghcr.io/defenseunicorns/packages/uds/zookeeper
   tagline: |
     **Reliable Distributed Coordination Made Simple**
