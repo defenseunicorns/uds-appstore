@@ -1,0 +1,28 @@
+---
+kind: Application
+metadata:
+  name: zookeeper
+spec:
+  title: zookeeper
+  repository: ghcr.io/defenseunicorns/packages/uds/zookeeper
+  tagline: |
+    **Reliable Distributed Coordination Made Simple**
+  description: |
+    Apache ZooKeeper is an open-source server that provides essential services for distributed systems. It offers centralized management of configuration information, naming services, distributed synchronization, and group services, which are crucial for maintaining consistency and coordination across distributed applications.
+
+    ZooKeeper significantly reduces the complexity and potential for errors in distributed systems by offering a robust, centralized solution for common coordination tasks. This allows developers to focus on core application logic rather than reimplementing complex distributed algorithms, resulting in more reliable and manageable distributed applications.
+
+    While ZooKeeper itself doesn't have a graphical user interface, it provides a set of primitives that applications can use to implement higher-level services. These include a hierarchical namespace for storing data (similar to a file system), watches for change notifications, and ephemeral nodes for implementing group membership protocols.
+
+    ZooKeeper integrates seamlessly with various distributed systems and is commonly used in conjunction with Apache Hadoop, Apache Kafka, and other big data technologies. It includes client libraries for multiple programming languages, allowing easy integration into diverse application ecosystems. ZooKeeper's architecture supports high availability through replication and can scale to handle large clusters, making it suitable for both small-scale development and large production environments.
+  icons:
+    - src: /images/icons/zookeepr.gif
+  links:
+    - description: Product Website
+      url: https://zookeeper.apache.org/
+    - description: Documentation
+      url: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
+    - description: Helm Chart
+      url: https://artifacthub.io/packages/helm/bitnami/zookeeper
+    - description: UDS Package Repository
+      url: "https://github.com/defenseunicorns/uds-package-zookeeper"
