@@ -1,0 +1,28 @@
+---
+kind: Application
+metadata:
+  name: kafkaui
+spec:
+  title: Kafka UI
+  repository: ghcr.io/defenseunicorns/packages/uds/argocd
+  tagline: |
+    **Versatile, Fast, and Lightweight Web UI for Managing Apache Kafka Clusters**
+  description: |
+    UI for Apache Kafka is a free, open-source web application that provides comprehensive monitoring and management capabilities for Apache Kafka clusters. It offers a user-friendly interface to observe data flows, troubleshoot issues, and optimize performance across multiple Kafka clusters.
+
+    This tool makes Kafka data flows observable and helps users find and resolve issues faster while delivering optimal performance. Its lightweight dashboard simplifies tracking of key metrics for Kafka clusters, including brokers, topics, partitions, production, and consumption.
+
+    The intuitive interface allows users to easily create and configure topics, browse messages with various encoding options, manage consumer groups, and monitor broker status. It also provides dynamic topic configuration, custom serialization/deserialization plugins, role-based access control, and data masking for sensitive information.
+
+    UI for Apache Kafka includes support for multi-cluster management, performance monitoring with a metrics dashboard, and configurable authentication options such as Github/Gitlab/Google OAuth 2.0. It offers compatibility with various schema registry types (Avro, JSON Schema, and Protobuf) and can be deployed locally or in the cloud using Docker containers or Helm charts for Kubernetes environments.
+  icons:
+    - src: /images/icons/kafka-ui.png
+  links:
+    - description: Product Website
+      url: https://github.com/provectus/kafka-ui
+    - description: Documentation
+      url: https://docs.kafka-ui.provectus.io/
+    - description: Helm Chart
+      url: https://kafbat.github.io/helm-charts
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-kafka-ui

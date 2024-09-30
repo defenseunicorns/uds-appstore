@@ -1,0 +1,23 @@
+kind: Application
+metadata:
+  name: strimzi
+spec:
+  title: Strimzi
+  repository: ghcr.io/defenseunicorns/packages/uds/strimzi-kafka-operator
+  tagline: |
+    **Stream Processing Made Simple on Kubernetes**
+  description: |
+    Strimzi is a powerful tool that enables running and managing Apache Kafka clusters on Kubernetes. It provides a flexible and scalable solution for deploying Kafka in various configurations, from quick development setups to production-ready environments.
+
+    Strimzi simplifies Kafka deployment and management on Kubernetes, offering features like rack awareness for high availability and easy scaling. It also provides seamless integration with existing Kubernetes processes and tools, allowing users to manage complete Kafka applications using familiar workflows.
+  icons:
+    - src: /images/icons/strimzi.png
+  links:
+    - description: Product Website
+      url: https://strimzi.io/
+    - description: Documentation
+      url: https://strimzi.io/documentation/
+    - description: Helm Chart
+      url: https://quay.io/strimzi-helm/strimzi-kafka-operator
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-strimzi-kafka-operator
