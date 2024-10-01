@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.1](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.0...v0.1.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* navbar logo and name style ([#223](https://github.com/defenseunicorns/uds-marketplace/issues/223)) ([a0e720c](https://github.com/defenseunicorns/uds-marketplace/commit/a0e720c23298b4c7ac6fdc4a2fe86fca8c8fe16c))
+
+
+### Miscellaneous
+
+* **apps:** add apps to marketplace ([#260](https://github.com/defenseunicorns/uds-marketplace/issues/260)) ([b39d087](https://github.com/defenseunicorns/uds-marketplace/commit/b39d0874f28acb1d89a3ad2f0dc101d8bf8ec12f))
+* **tasks:** cleanup tasks ([#222](https://github.com/defenseunicorns/uds-marketplace/issues/222)) ([e01add3](https://github.com/defenseunicorns/uds-marketplace/commit/e01add3018a5ffc7f14a1e83fb91e9a8cdc49622))
+* update title ([#259](https://github.com/defenseunicorns/uds-marketplace/issues/259)) ([85e0a5b](https://github.com/defenseunicorns/uds-marketplace/commit/85e0a5bdf7439693e899dec91b38296e0f367562))
+
 ## 0.1.0 (2024-09-16)
 
 ### Features
