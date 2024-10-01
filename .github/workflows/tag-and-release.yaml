@@ -45,4 +45,4 @@ jobs:
 
       - name: Publish
         run: |
-          uds run build:publish-uds-marketplace
+          uds run release:release-marketplace
