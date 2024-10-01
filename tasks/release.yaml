@@ -8,5 +8,6 @@ tasks:
       - task: build:generate-catalog
       - task: build:generate-types
       - task: build:compile
+      - task: build:build-image
       - task: build:build-zarf-packages
       - task: build:publish-zarf-packages
