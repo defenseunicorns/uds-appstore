@@ -15,8 +15,6 @@ spec:
     The platform provides a user-friendly interface for code management, including features like AI-generated PR descriptions, granular access controls, and org-wide quality control through custom merge checks. It also offers built-in security capabilities, platform-level CI/CD orchestration, and AI-powered tools to enhance developer productivity.
 
     Bitbucket integrates seamlessly with Jira for issue tracking, Confluence for documentation, and supports a wide range of third-party tools for AI code generation, security, testing, and monitoring. It includes Atlassian Intelligence features in its Premium tier and offers migration tools for users transitioning from Bitbucket Server or Data Center to the cloud version. Additionally, it provides APIs for custom integrations to meet specific organizational needs.
-  icons:
-    - src: /images/icons/bitbucket.svg
   links:
     - description: Product Website
       url: https://bitbucket.org/product/

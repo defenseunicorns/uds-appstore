@@ -1,10 +1,10 @@
 ---
 kind: Application
 metadata:
-  name: kafkaui
+  name: kafka-ui
 spec:
   title: Kafka UI
-  repository: ghcr.io/defenseunicorns/packages/uds/argocd
+  repository: ghcr.io/defenseunicorns/packages/uds/kafka-ui
   tagline: |
     **Versatile, Fast, and Lightweight Web UI for Managing Apache Kafka Clusters**
   description: |
@@ -15,8 +15,6 @@ spec:
     The intuitive interface allows users to easily create and configure topics, browse messages with various encoding options, manage consumer groups, and monitor broker status. It also provides dynamic topic configuration, custom serialization/deserialization plugins, role-based access control, and data masking for sensitive information.
 
     UI for Apache Kafka includes support for multi-cluster management, performance monitoring with a metrics dashboard, and configurable authentication options such as Github/Gitlab/Google OAuth 2.0. It offers compatibility with various schema registry types (Avro, JSON Schema, and Protobuf) and can be deployed locally or in the cloud using Docker containers or Helm charts for Kubernetes environments.
-  icons:
-    - src: /images/icons/kafka-ui.png
   links:
     - description: Product Website
       url: https://github.com/provectus/kafka-ui
