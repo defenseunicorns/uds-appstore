@@ -14,8 +14,6 @@ spec:
 
 
     ZooKeeper integrates seamlessly with various distributed systems and is commonly used in conjunction with Apache Hadoop, Apache Kafka, and other big data technologies. It includes client libraries for multiple programming languages, allowing easy integration into diverse application ecosystems. ZooKeeper's architecture supports high availability through replication and can scale to handle large clusters, making it suitable for both small-scale development and large production environments.
-  icons:
-    - src: /images/icons/zookeepr.gif
   links:
     - description: Product Website
       url: https://zookeeper.apache.org/
