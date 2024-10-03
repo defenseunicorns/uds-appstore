@@ -79,8 +79,7 @@ for file in $files; do
     .spec.contractingDetails.vehicle = .spec.contractingDetails.vehicle // ["Available"] |
     .spec.vendor = .spec.vendor // {"name": "Defense Unicorns", "url": "https://defenseunicorns.com/contactus"} |
     .spec.infrastructure = .spec.infrastructure // [] |
-    .spec.categories = .spec.categories // [] |
-    .spec.icons[0].src = .spec.icons[0].src // "/images/icons/default.svg"
+    .spec.categories = .spec.categories // []
   ' "$file" -o=json >"$apps_dir/$PACKAGE.json"
 
   echo "Fetching manifest for $REPO:$latest..."

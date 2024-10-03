@@ -5,7 +5,9 @@
 	import type { Application } from '$lib/types';
 	export let app: Application;
 
-	$: image = app.spec?.icons?.[0]?.src;
+	const DEFAULT_ICON = '/images/icons/default.svg';
+
+	$: image = app.spec?.icons?.[0]?.src || DEFAULT_ICON;
 	$: vendor = app.spec?.vendor?.name;
 	$: vendorUrl = app.spec?.vendor?.url;
 	$: title = app.spec?.title || app.metadata?.name;
