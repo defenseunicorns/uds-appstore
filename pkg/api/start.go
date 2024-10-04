@@ -13,12 +13,12 @@ import (
 
 	"strings"
 
-	"github.com/defenseunicorns/uds-marketplace/pkg/api/udsmiddleware"
+	"github.com/defenseunicorns/uds-appstore/pkg/api/udsmiddleware"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-// @title UDS Marketplace API
+// @title UDS Appstore API
 // @version 0.0.1
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html

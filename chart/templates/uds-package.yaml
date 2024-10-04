@@ -1,14 +1,14 @@
 apiVersion: uds.dev/v1alpha1
 kind: Package
 metadata:
-  name: uds-marketplace
+  name: uds-appstore
   namespace: {{ .Release.Namespace }}
 spec:
   network:
     expose:
-      - service: uds-marketplace
+      - service: uds-appstore
         selector:
-          app: uds-marketplace
+          app: uds-appstore
         host: apps
         gateway: tenant
         port: 8080
@@ -16,5 +16,5 @@ spec:
     allow:
       - direction: Egress
         selector:
-          app: uds-marketplace
+          app: uds-appstore
         remoteGenerated: KubeAPI

@@ -6,12 +6,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/defenseunicorns/uds-marketplace/pkg/types"
+	"github.com/defenseunicorns/uds-appstore/pkg/types"
 	"github.com/invopop/jsonschema"
 )
 
-// MarketplaceGenTypes is a struct that contains all the types that need to be included in the schema
-type MarketplaceGenTypes struct {
+// AppstoreGenTypes is a struct that contains all the types that need to be included in the schema
+type AppstoreGenTypes struct {
 	Application types.Application
 }
 
@@ -24,7 +24,7 @@ func generateSchema(schemaType string) ([]byte, error) {
 	var schema *jsonschema.Schema
 	switch schemaType {
 	case "all":
-		schema = reflector.Reflect(&MarketplaceGenTypes{})
+		schema = reflector.Reflect(&AppstoreGenTypes{})
 	case "application":
 		schema = reflector.Reflect(&types.Application{})
 

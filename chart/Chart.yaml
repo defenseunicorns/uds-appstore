@@ -1,6 +1,6 @@
 apiVersion: v2
-name: uds-marketplace
-description: A Helm chart for Defense Unicorns Marketplace
+name: uds-appstore
+description: A Helm chart for the Airgap App Store
 type: application
 version: 0.0.1
 

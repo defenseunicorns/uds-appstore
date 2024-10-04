@@ -1,13 +1,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: uds-marketplace-cluster-role-binding
+  name: uds-appstore-cluster-role-binding
   namespace: {{ .Release.Namespace }}
 subjects:
   - kind: ServiceAccount
-    name: uds-marketplace-sa
+    name: uds-appstore-sa
     namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
-  name: uds-marketplace-cluster-role
+  name: uds-appstore-cluster-role
   apiGroup: rbac.authorization.k8s.io

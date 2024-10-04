@@ -1,6 +1,6 @@
 ---
-name: New Epic for UDS Marketplace
-about: Add a vertical slice of functionality to UDS Marketplace
+name: New Epic for UDS App Store
+about: Add a vertical slice of functionality to UDS App Store
 title: ''
 labels: epic, needs-triage
 projects: ''

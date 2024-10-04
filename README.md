@@ -1,10 +1,10 @@
-<img width="387" alt="UDS logo white" src="https://github.com/defenseunicorns/uds-marketplace/assets/92826525/6a3fe1a6-0eb5-4269-84c3-7c02750fe549"><p>
+<img width="387" alt="UDS logo white" src="https://github.com/defenseunicorns/uds-appstore/assets/92826525/6a3fe1a6-0eb5-4269-84c3-7c02750fe549"><p>
 
-# 🦄 UDS-Marketplace
+# 🦄 Airgap App Store
 
-UDS Marketplace (_the product_) is a user interface that facilitates the discovery of UDS Packages and provides detailed information about them. It enables users to make informed decisions regarding the security and contracting status of packages they may want to incorporate into their mission environments.
+Airgap App Store (_the product_) is a user interface that facilitates the discovery of UDS Packages and provides detailed information about them. It enables users to make informed decisions regarding the security and contracting status of packages they may want to incorporate into their mission environments.
 
-The UDS Marketplace team supports the "path to 1000 apps" initiative 🚀, increasing the ability of Mission Heroes to access necessary tools in their required environments through the UDS ecosystem. We aim to lower the barrier for converting existing tools into UDS Packages (_and subsequently make them available in UDS Marketplace_) through documented and automated mechanisms.
+The team supports the "path to 1000 apps" initiative 🚀, increasing the ability of Mission Heroes to access necessary tools in their required environments through the UDS ecosystem. We aim to lower the barrier for converting existing tools into UDS Packages (_and subsequently make them available in the Airgap App Store) through documented and automated mechanisms.
 
 ## 📦 Viewing Available Packages
 
@@ -14,15 +14,16 @@ In the meantime, you can view available packages and a pseudo backlog [here (spe
 
 ## 📞 Get in Touch
 
+<!-- TODO: update email alias -->
 Email: udsmarketplace [at] defenseunicorns.com 📧
 
 ## 🤝 Contributing
 
 (checkout our [CONTRIBUTING.md](./CONTRIBUTING.md) )
 
-If you're unsure where to start, submit a [new issue](https://github.com/defenseunicorns/uds-marketplace/issues/new/choose) or view our [backlog](https://github.com/defenseunicorns/uds-marketplace/issues) 🔍.
+If you're unsure where to start, submit a [new issue](https://github.com/defenseunicorns/uds-appstore/issues/new/choose) or view our [backlog](https://github.com/defenseunicorns/uds-appstore/issues) 🔍.
 
-Interested in contributing a new package? Check out our (_coming soon_) Package Integrators guide ✨. Until then, [this issue template](https://github.com/defenseunicorns/uds-marketplace/issues/new?assignees=&labels=epic%2C+needs-triage%2C+app-integration&projects=&template=uds_marketplace_integration.md&title=) provides a good baseline of considerations.
+Interested in contributing a new package? Check out the Package Integrators [guide](https://github.com/defenseunicorns/uds-common/blob/main/docs/package_integration/guide.md) ✨.
 
 ---
 

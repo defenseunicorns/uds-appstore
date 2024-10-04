@@ -45,7 +45,7 @@
 		<div class="flex flex-col items-center justify-between sm:flex-row">
 			<div class="mb-4 flex w-full items-center justify-between sm:mb-0 sm:w-auto">
 				<a href="/" class="flex items-center text-2xl font-medium leading-9 text-white">
-					<img src="/doug.svg" alt="uds marketplace logo" />
+					<img src="/doug.svg" alt="uds appstore logo" />
 					<span>Airgap App Store</span>
 				</a>
 				<div class="sm:hidden">
