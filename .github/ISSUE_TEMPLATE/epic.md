@@ -1,6 +1,6 @@
 ---
-name: New Epic for UDS App Store
-about: Add a vertical slice of functionality to UDS App Store
+name: New Epic for Airgap App Store
+about: Add a vertical slice of functionality to Airgap App Store
 title: ''
 labels: epic, needs-triage
 projects: ''
