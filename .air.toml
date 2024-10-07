@@ -4,8 +4,8 @@ tmp_dir = "build"
 
 [build]
   args_bin = []
-  bin = "./build/appstore"
-  cmd = "go build -o ./build/appstore main.go"
+  bin = "./build/uds-appstore"
+  cmd = "go build -o ./build/uds-appstore main.go"
   delay = 2000
   exclude_dir = ["assets", "build", "vendor", "testdata", "ui/build", "docs", "hack", "tasks"]
   exclude_file = []

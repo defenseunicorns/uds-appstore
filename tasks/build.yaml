@@ -4,7 +4,7 @@ includes:
 
 variables:
   - name: REF
-    description: "reference for the appstore image and zarf package"
+    description: "reference for the uds-appstore image and zarf package"
     # x-release-please-start-version
     default: 0.1.2
     # x-release-please-end
@@ -26,7 +26,7 @@ tasks:
         dir: ui
 
   - name: publish-uds-appstore
-    description: "publish the uds appstore including its image and Zarf pkg (multi-arch)"
+    description: "publish the uds-appstore including its image and Zarf pkg (multi-arch)"
     actions:
       - task: all
       - task: publish-zarf-packages
@@ -48,13 +48,13 @@ tasks:
       - cmd: CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build -o build/uds-appstore-arm64 .
 
   - name: build-zarf-packages
-    description: "build the uds appstore zarf packages (multi-arch)"
+    description: "build the uds-appstore zarf packages (multi-arch)"
     actions:
       - cmd: ./uds zarf p create --set REF=${REF} -a amd64 -o build --confirm
       - cmd: ./uds zarf p create --set REF=${REF} -a arm64 -o build --confirm
 
   - name: publish-zarf-packages
-    description: "publish uds appstore zarf packages (multi-arch)"
+    description: "publish uds-appstore zarf packages (multi-arch)"
     actions:
       - cmd: ./uds zarf p publish build/zarf-package-uds-appstore-amd64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
       - cmd: ./uds zarf p publish build/zarf-package-uds-appstore-arm64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds

@@ -2,7 +2,7 @@ includes:
   - build: build.yaml
 
 tasks:
-  - name: release-appstore
+  - name: release-uds-appstore
     description: "Build the UDS Appstore and publish a release. NOTE: task isn't intended to be ran local"
     actions:
       - task: build:generate-catalog

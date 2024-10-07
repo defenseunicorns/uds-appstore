@@ -8,9 +8,9 @@ ARG TARGETARCH
 USER 65532:65532
 
 # copy binary from local and expose port
-COPY --chown=65532:65532 build/appstore-${TARGETARCH} /app/appstore
+COPY --chown=65532:65532 build/uds-appstore-${TARGETARCH} /app/uds-appstore
 ENV PORT=8080
 EXPOSE 8080
 
 # run binary
-CMD ["./app/appstore"]
+CMD ["./app/uds-appstore"]

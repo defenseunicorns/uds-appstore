@@ -14,8 +14,7 @@ In the meantime, you can view available packages and a pseudo backlog [here (spe
 
 ## 📞 Get in Touch
 
-<!-- TODO: update email alias -->
-Email: udsmarketplace [at] defenseunicorns.com 📧
+Email: airgap-appstore [at] defenseunicorns.com 📧
 
 ## 🤝 Contributing
 
