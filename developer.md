@@ -99,7 +99,7 @@ uds run pre-commit
 
 ### Deploying a Slim UDS Cluster
 
-To create a k3d cluster and deploy a slim version of UDS with metrics server and appstore:
+To create a k3d cluster and deploy a slim version of UDS with metrics server and App Store:
 
 ```bash
 uds run k3d-dev-deploy
