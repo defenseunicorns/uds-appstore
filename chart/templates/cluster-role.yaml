@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: uds-marketplace-cluster-role
+  name: uds-appstore-cluster-role
   namespace: {{ .Release.Namespace }}
 rules:
   - apiGroups: ["*"]
