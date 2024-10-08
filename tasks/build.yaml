@@ -4,7 +4,7 @@ includes:
 
 variables:
   - name: REF
-    description: "reference for the marketplace image and zarf package"
+    description: "reference for the uds-appstore image and zarf package"
     # x-release-please-start-version
     default: 0.1.2
     # x-release-please-end
@@ -25,8 +25,8 @@ tasks:
       - cmd: npm run build
         dir: ui
 
-  - name: publish-uds-marketplace
-    description: "publish the uds marketplace including its image and Zarf pkg (multi-arch)"
+  - name: publish-uds-appstore
+    description: "publish the uds-appstore including its image and Zarf pkg (multi-arch)"
     actions:
       - task: all
       - task: publish-zarf-packages
@@ -35,29 +35,29 @@ tasks:
     description: "build container and push to GHCR (multi-arch)"
     actions:
       # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
-      - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-marketplace:${REF} --push .
+      - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-appstore:${REF} --push .
 
   - name: build-api-linux-amd64
     description: "build the go api server for linux amd64 (used for multi-arch container)"
     actions:
-      - cmd: CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o build/uds-marketplace-amd64 .
+      - cmd: CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o build/uds-appstore-amd64 .
 
   - name: build-api-linux-arm64
     description: "build the go api server for linux arm64 (used for multi-arch container)"
     actions:
-      - cmd: CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build -o build/uds-marketplace-arm64 .
+      - cmd: CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build -o build/uds-appstore-arm64 .
 
   - name: build-zarf-packages
-    description: "build the uds marketplace zarf packages (multi-arch)"
+    description: "build the uds-appstore zarf packages (multi-arch)"
     actions:
       - cmd: ./uds zarf p create --set REF=${REF} -a amd64 -o build --confirm
       - cmd: ./uds zarf p create --set REF=${REF} -a arm64 -o build --confirm
 
   - name: publish-zarf-packages
-    description: "publish uds marketplace zarf packages (multi-arch)"
+    description: "publish uds-appstore zarf packages (multi-arch)"
     actions:
-      - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-amd64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
-      - cmd: ./uds zarf p publish build/zarf-package-uds-marketplace-arm64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
+      - cmd: ./uds zarf p publish build/zarf-package-uds-appstore-amd64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
+      - cmd: ./uds zarf p publish build/zarf-package-uds-appstore-arm64-${REF}.tar.zst oci://ghcr.io/defenseunicorns/packages/uds
 
   - name: generate-catalog
     description: "Generate Catalog"

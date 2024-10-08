@@ -1,14 +1,14 @@
-# Welcome to UDS Marketplace
+# Welcome to The Airgap App Store
 
-Thank you for your interest in Defense Unicorns UDS Marketplace!
+Thank you for your interest in Defense Unicorns Airgap App Store!
 
-This document describes the process and requirements for contributing to this UDS Marketplace repo.
+This document describes the process and requirements for contributing to this project.
 
-If you are looking to contribute a new package, please refer to the UDS Marketplace Integration Documentation (coming soon [#48](https://github.com/defenseunicorns/uds-marketplace/issues/48))
+If you are looking to contribute a new package, please refer to the [UDS Common](https://github.com/defenseunicorns/uds-common/blob/main/README.md) and Package Badging process
 
 ## Table of Contents
 
-- [Welcome to UDS Marketplace](#welcome-to-uds-marketplace)
+- [Welcome to The Airgap App Store](#welcome-to-the-airgap-app-store)
   - [Table of Contents](#table-of-contents)
   - [Developer Experience](#developer-experience)
   - [Definition of Done](#definition-of-done)
