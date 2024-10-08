@@ -4,6 +4,7 @@
 import type { Application } from '$lib/types';
 import MiniSearch from 'minisearch';
 import { writable, type Writable } from 'svelte/store';
+import { sortApplicationsAlphabetically } from '$lib/utils';
 
 export interface Filter {
 	values: string[];
@@ -199,7 +200,6 @@ class ApplicationStore {
 		const hasFilters = Array.from(selectedFilters.values()).some((values) => values.length > 0);
 
 		let filteredApplications: Application[];
-
 		if (!hasFilters) {
 			filteredApplications = searchResults;
 		} else {
@@ -241,7 +241,8 @@ class ApplicationStore {
 		try {
 			const response = await fetch('/api/apps/index.json');
 			if (response.ok) {
-				const applications: Application[] = await response.json();
+				let applications: Application[] = await response.json();
+				applications = sortApplicationsAlphabetically(applications);
 				this.populateCatalog(applications);
 			} else {
 				throw new Error(`Failed to fetch applications: ${response.statusText}`);
