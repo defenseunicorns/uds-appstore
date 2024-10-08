@@ -56,27 +56,56 @@ describe('sortApplicationsAlphabetically', () => {
 		}
 	} as Application;
 
-	it('should sort applications alphabetically by name', () => {
+	it('should sort applications alphabetically by title', () => {
 		const applications: Application[] = [app2, app1, app3];
 
 		const sorted = sortApplicationsAlphabetically(applications);
 
-		expect(sorted[0].metadata?.name).toBe(app1.metadata?.name);
-		expect(sorted[1].metadata?.name).toBe(app2.metadata?.name);
-		expect(sorted[2].metadata?.name).toBe(app3.metadata?.name);
+		expect(sorted[0].spec?.title).toBe(app1.spec?.title);
+		expect(sorted[1].spec?.title).toBe(app2.spec?.title);
+		expect(sorted[2].spec?.title).toBe(app3.spec?.title);
 	});
 
-	it('should handle applications with identical names', () => {
+	it('should sort applications alphabetically by name if there is no title', () => {
+		const app2Title = { ...app2, spec: { ...app2.spec, title: undefined } };
+		const applications: Application[] = [app2Title, app1, app3];
+
+		const sorted = sortApplicationsAlphabetically(applications);
+
+		expect(sorted[0].spec?.title).toBe(app1.spec?.title);
+		expect(sorted[1].metadata?.name).toBe(app2.metadata?.name);
+		expect(sorted[2].spec?.title).toBe(app3.spec?.title);
+	});
+
+	it('should handle applications with identical titles', () => {
 		const applications: Application[] = [app2, app2, app1];
 
 		const sorted = sortApplicationsAlphabetically(applications);
 
-		expect(sorted[0].metadata?.name).toBe(app1.metadata?.name);
-		expect(sorted[1].metadata?.name).toBe(app2.metadata?.name);
-		expect(sorted[2].metadata?.name).toBe(app2.metadata?.name);
+		expect(sorted[0].spec?.title).toBe(app1.spec?.title);
+		expect(sorted[1].spec?.title).toBe(app2.spec?.title);
+		expect(sorted[2].spec?.title).toBe(app2.spec?.title);
 	});
 
-	it('should be case insensitive', () => {
+	it('should be case insensitive when using titles', () => {
+		const app2Lowercase = {
+			...app2,
+			spec: { ...app2.spec, title: app2.spec?.title?.toLowerCase() }
+		};
+		const app3Lowercase = {
+			...app3,
+			spec: { ...app3.spec, title: app3.spec?.title?.toLowerCase() }
+		};
+		const applications: Application[] = [app2Lowercase, app1, app3Lowercase];
+
+		const sorted = sortApplicationsAlphabetically(applications);
+
+		expect(sorted[0].spec?.title).toBe(app1.spec?.title);
+		expect(sorted[1].spec?.title).toBe(app2Lowercase.spec?.title);
+		expect(sorted[2].spec?.title).toBe(app3Lowercase.spec?.title);
+	});
+
+	it('should be case insensitive when using names', () => {
 		const app2Lowercase = { ...app2, metadata: { name: app2.metadata?.name?.toLowerCase() } };
 		const app3Lowercase = { ...app3, metadata: { name: app3.metadata?.name?.toLowerCase() } };
 		const applications: Application[] = [app2Lowercase, app1, app3Lowercase];

@@ -91,8 +91,13 @@ describe('applicationsStore', () => {
 		expect(filteredApps).toEqual([sampleApp]);
 	});
 
-	it('should sort applications alphabetically after populating (before any search is triggered)', () => {
-		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse order
+	it('should sort applications alphabetically after fetching (before any search is triggered)', async () => {
+		global.fetch = vi.fn().mockResolvedValue({
+			ok: true,
+			json: async () => [anotherApp, sampleApp] // reverse alphabetical order
+		});
+
+		await applicationStore.fetchCatalog();
 		let filteredApps: Application[] = [];
 		applicationStore.subscribe((store) => {
 			filteredApps = store.filteredApplications;
@@ -101,7 +106,7 @@ describe('applicationsStore', () => {
 	});
 
 	it('should sort applications alphabetically if there are no search filters', () => {
-		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse order
+		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse alphabetical order
 		applicationStore.filterApplications();
 		let filteredApps: Application[] = [];
 		applicationStore.subscribe((store) => {

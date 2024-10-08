@@ -25,16 +25,10 @@ const sanitize = (str: string) => {
 	return str.replace(/\n/g, ' ');
 };
 
-// Sorts an array of applications alphabetically by name and returns a new array (does not mutate the original array)
+// Sorts an array of applications alphabetically by title or name and returns a new array (does not mutate the original array)
 export const sortApplicationsAlphabetically = (applications: Application[]) =>
 	[...applications].sort((a, b) => {
-		const nameA = a.metadata?.name ? a.metadata.name.toUpperCase() : '';
-		const nameB = b.metadata?.name ? b.metadata.name.toUpperCase() : '';
-		if (nameA < nameB) {
-			return -1;
-		}
-		if (nameA > nameB) {
-			return 1;
-		}
-		return 0;
+		const nameA = a.spec?.title?.toUpperCase() ?? a.metadata?.name?.toUpperCase() ?? '';
+		const nameB = b.spec?.title?.toUpperCase() ?? b.metadata?.name?.toUpperCase() ?? '';
+		return nameA.localeCompare(nameB);
 	});
