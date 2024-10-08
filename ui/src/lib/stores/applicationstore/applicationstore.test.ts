@@ -91,6 +91,15 @@ describe('applicationsStore', () => {
 		expect(filteredApps).toEqual([sampleApp]);
 	});
 
+	it('should sort applications alphabetically after populating (before any search is triggered)', () => {
+		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse order
+		let filteredApps: Application[] = [];
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps).toEqual([sampleApp, anotherApp]);
+	});
+
 	it('should sort applications alphabetically if there are no search filters', () => {
 		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse order
 		applicationStore.filterApplications();
