@@ -201,7 +201,6 @@ class ApplicationStore {
 
 		let filteredApplications: Application[];
 		if (!hasFilters) {
-			// Sort alphabetically by name
 			filteredApplications = sortApplicationsAlphabetically(searchResults);
 		} else {
 			const filteredMap = new Map();
