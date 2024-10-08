@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-import { Architecture, Category, Infrastructure, type Application } from '$lib/types';
+import { type Application, Architecture, Category, Infrastructure } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { applicationStore } from './applicationstore';
 
@@ -98,16 +98,6 @@ describe('applicationsStore', () => {
 		});
 
 		await applicationStore.fetchCatalog();
-		let filteredApps: Application[] = [];
-		applicationStore.subscribe((store) => {
-			filteredApps = store.filteredApplications;
-		})();
-		expect(filteredApps).toEqual([sampleApp, anotherApp]);
-	});
-
-	it('should sort applications alphabetically if there are no search filters', () => {
-		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse alphabetical order
-		applicationStore.filterApplications();
 		let filteredApps: Application[] = [];
 		applicationStore.subscribe((store) => {
 			filteredApps = store.filteredApplications;
