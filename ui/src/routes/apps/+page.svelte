@@ -2,7 +2,7 @@
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 
 <script lang="ts">
-	import { Catalog } from '$lib/features';
+  import { Catalog } from '$lib/features';
 </script>
 
 <Catalog />
