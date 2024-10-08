@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.2.0](https://github.com/defenseunicorns/uds-appstore/compare/v0.1.2...v0.2.0) (2024-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename marketplace to appstore ([#287](https://github.com/defenseunicorns/uds-appstore/issues/287))
+
+### refactor
+
+* rename marketplace to appstore ([#287](https://github.com/defenseunicorns/uds-appstore/issues/287)) ([c58f4a7](https://github.com/defenseunicorns/uds-appstore/commit/c58f4a727876fd388e09b0268972bb5eb45d5cbb))
+
+
+### Features
+
+* **ui:** sort apps alphabetically ([#292](https://github.com/defenseunicorns/uds-appstore/issues/292)) ([382a701](https://github.com/defenseunicorns/uds-appstore/commit/382a7015fb10ac9a4327bc2764656e1b7c8fafac))
+* use a default icon when we are missing an official one ([#279](https://github.com/defenseunicorns/uds-appstore/issues/279)) ([0fde279](https://github.com/defenseunicorns/uds-appstore/commit/0fde27997d079286414d4524cd677192a82e2a7c))
+
+
+### Bug Fixes
+
+* **ui:** white flash ([#291](https://github.com/defenseunicorns/uds-appstore/issues/291)) ([55471eb](https://github.com/defenseunicorns/uds-appstore/commit/55471ebb40fbb58c3a555a905d8a99028a6f08ed))
+
+
+### Miscellaneous
+
+* **docs:** creating metadata ([#284](https://github.com/defenseunicorns/uds-appstore/issues/284)) ([8669345](https://github.com/defenseunicorns/uds-appstore/commit/8669345e88ba1b03cd36d72467401b9dd6becf50))
+* **ui:** turn off tabs for prettier ([#293](https://github.com/defenseunicorns/uds-appstore/issues/293)) ([1b17953](https://github.com/defenseunicorns/uds-appstore/commit/1b17953d271d9307f18f24e87e561fcc988fd55b))
+
 ## [0.1.2](https://github.com/defenseunicorns/uds-marketplace/compare/v0.1.1...v0.1.2) (2024-10-01)
 
 
