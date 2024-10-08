@@ -1,4 +1,4 @@
-name: Release UDS Marketplace
+name: Release the Airgap App Store
 
 on:
   push:
@@ -45,4 +45,4 @@ jobs:
 
       - name: Publish
         run: |
-          uds run release:release-marketplace
+          uds run release:release-uds-appstore
