@@ -5,19 +5,19 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig(({ mode }) => ({
-	plugins: [sveltekit()],
-	test: {
-		include: ['src/**/*.test.{js,ts}'],
-		environment: 'jsdom',
-		globals: true,
-		setupFiles: ['src/setupTests.ts']
-	},
-	server: {
-		fs: {
-			allow: ['tailwind.config.ts']
-		}
-	},
-	resolve: {
-		conditions: mode === 'test' ? ['browser'] : []
-	}
+  plugins: [sveltekit()],
+  test: {
+    include: ['src/**/*.test.{js,ts}'],
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['src/setupTests.ts']
+  },
+  server: {
+    fs: {
+      allow: ['tailwind.config.ts']
+    }
+  },
+  resolve: {
+    conditions: mode === 'test' ? ['browser'] : []
+  }
 }));
