@@ -2,8 +2,8 @@ includes:
   - build: build.yaml
 
 tasks:
-  - name: release-uds-appstore
-    description: "Build the Airgap App Store and publish a release. NOTE: task isn't intended to be run local"
+  - name: release-marketplace
+    description: "Build the UDS Marketplace and publish a release. NOTE: task isn't intended to be ran local"
     actions:
       - task: build:generate-catalog
       - task: build:generate-types

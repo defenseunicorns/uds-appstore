@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uds-appstore
+  name: uds-marketplace
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: uds-appstore
+      app: uds-marketplace
   template:
     metadata:
       labels:
-        app: uds-appstore
+        app: uds-marketplace
     spec:
-      serviceAccountName: uds-appstore-sa
+      serviceAccountName: uds-marketplace-sa
       containers:
-        - name: uds-appstore
+        - name: uds-marketplace
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

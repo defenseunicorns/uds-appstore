@@ -1,20 +1,20 @@
 kind: ZarfPackageConfig
 metadata:
-  name: uds-appstore
+  name: uds-marketplace
   description: tbd
   # x-release-please-start-version
   version: 0.1.2
   # x-release-please-end
 
 components:
-  - name: uds-appstore
+  - name: uds-marketplace
     required: true
     # x-release-please-start-version
     images:
-      - ghcr.io/defenseunicorns/uds-appstore:0.1.2
+      - ghcr.io/defenseunicorns/uds-marketplace:0.1.2
     # x-release-please-end
     charts:
-      - name: uds-appstore
+      - name: uds-marketplace
         localPath: ./chart
-        namespace: uds-appstore
+        namespace: uds-marketplace
         version: 0.0.1

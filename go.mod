@@ -1,4 +1,4 @@
-module github.com/defenseunicorns/uds-appstore
+module github.com/defenseunicorns/uds-marketplace
 
 go 1.22.5
 

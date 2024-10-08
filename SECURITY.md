@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-As [Airgap App Store](https://github.com/defenseunicorns/uds-appstore) has not yet reached v1.0.0, only the current latest minor release is supported.
+As [UDS Marketplace](https://github.com/defenseunicorns/uds-marketplace) has not yet reached v1.0.0, only the current latest minor release is supported.
 
 ## Reporting a Vulnerability
 

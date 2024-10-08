@@ -6,10 +6,9 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { Architecture } from '../../src/lib/types/gen';
-import { sortApplicationsAlphabetically } from '../../src/lib/utils';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const catalogData = sortApplicationsAlphabetically(
-	JSON.parse(fs.readFileSync(path.join(__dirname, '../../static/api/apps/index.json'), 'utf-8'))
+const catalogData = JSON.parse(
+	fs.readFileSync(path.join(__dirname, '../../static/api/apps/index.json'), 'utf-8')
 );
 
 test.describe('Catalog View', () => {

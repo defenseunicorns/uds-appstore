@@ -1,8 +1,8 @@
-# Airgap App Store Developer Guide
+# UDS Marketplace Developer Guide
 
 ## Table of Contents
 
-- [Airgap App Store Developer Guide](#airgap-app-store-developer-guide)
+- [UDS Marketplace Developer Guide](#uds-marketplace-developer-guide)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Environment Setup](#environment-setup)
@@ -38,8 +38,8 @@ brew install uds
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/defenseunicorns/uds-appstore.git
-   cd uds-appstore
+   git clone https://github.com/defenseunicorns/uds-marketplace.git
+   cd uds-marketplace
    ```
 
 2. Install dependencies:
@@ -99,7 +99,7 @@ uds run pre-commit
 
 ### Deploying a Slim UDS Cluster
 
-To create a k3d cluster and deploy a slim version of UDS with metrics server and App Store:
+To create a k3d cluster and deploy a slim version of UDS with metrics server and marketplace:
 
 ```bash
 uds run k3d-dev-deploy
