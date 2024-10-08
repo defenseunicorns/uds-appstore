@@ -33,3 +33,6 @@ tmp/
 venv
 .vscode
 .venv
+
+# IntelliJ
+**/.idea
