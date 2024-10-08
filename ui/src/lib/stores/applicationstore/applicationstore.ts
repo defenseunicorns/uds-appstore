@@ -201,7 +201,7 @@ class ApplicationStore {
 
 		let filteredApplications: Application[];
 		if (!hasFilters) {
-			filteredApplications = sortApplicationsAlphabetically(searchResults);
+			filteredApplications = searchResults;
 		} else {
 			const filteredMap = new Map();
 			for (const [field, values] of selectedFilters.entries()) {
