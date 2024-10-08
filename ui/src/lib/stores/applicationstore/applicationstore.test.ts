@@ -91,6 +91,16 @@ describe('applicationsStore', () => {
 		expect(filteredApps).toEqual([sampleApp]);
 	});
 
+	it('should sort applications alphabetically if there are no search filters', () => {
+		applicationStore.populateCatalog([anotherApp, sampleApp]); // reverse order
+		applicationStore.filterApplications();
+		let filteredApps: Application[] = [];
+		applicationStore.subscribe((store) => {
+			filteredApps = store.filteredApplications;
+		})();
+		expect(filteredApps).toEqual([sampleApp, anotherApp]);
+	});
+
 	it('should fetch catalog', async () => {
 		global.fetch = vi.fn().mockResolvedValue({
 			ok: true,

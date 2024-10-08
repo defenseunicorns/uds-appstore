@@ -201,7 +201,18 @@ class ApplicationStore {
 		let filteredApplications: Application[];
 
 		if (!hasFilters) {
-			filteredApplications = searchResults;
+			// Sort alphabetically by name
+			filteredApplications = searchResults.sort((a, b) => {
+				const nameA = a.metadata?.name ? a.metadata.name.toUpperCase() : '';
+				const nameB = b.metadata?.name ? b.metadata?.name?.toUpperCase() : '';
+				if (nameA < nameB) {
+					return -1;
+				}
+				if (nameA > nameB) {
+					return 1;
+				}
+				return 0;
+			});
 		} else {
 			const filteredMap = new Map();
 			for (const [field, values] of selectedFilters.entries()) {
