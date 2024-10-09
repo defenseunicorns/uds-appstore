@@ -58,7 +58,7 @@
 <form class="mx-auto w-full max-w-md">
   <label
     for="application-search"
-    class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    class="sr-only text-sm font-medium text-gray-900 dark:text-white"
   >
     Search
   </label>
@@ -70,8 +70,8 @@
       bind:this={searchInput}
       type="search"
       id="application-search"
-      class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 pe-10 ps-8 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:p-4 md:pe-14 md:ps-10 md:text-sm [&::-webkit-search-cancel-button]:hidden"
-      placeholder="Search apps"
+      class="block w-full h-[2.3125rem] rounded-lg border border-gray-300 bg-gray-50 p-2 pe-10 ps-8 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:p-4 md:pe-14 md:ps-10 md:text-sm [&::-webkit-search-cancel-button]:hidden"
+      placeholder="Search"
       bind:value={searchQuery}
       on:focus={() => {
         isFocused = true;
@@ -88,11 +88,6 @@
         >
           <Close class="h-4 w-4 md:h-6 md:w-6" />
         </button>
-      {:else if !isFocused}
-        <span class="flex items-center text-sm text-gray-500 dark:text-gray-400 md:text-base">
-          <span class="mr-0.5 font-semibold md:mr-1">⌘</span>
-          <span class="font-semibold">K</span>
-        </span>
       {/if}
     </div>
   </div>

@@ -9,12 +9,11 @@
   afterNavigate(initFlowbite);
 </script>
 
-<Navbar />
-
-<main
-  class="relative h-screen w-full overflow-hidden transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
+<div
+  class="flex min-h-screen flex-col transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
-  <div class="h-full overflow-y-auto" style="padding-top: var(--nav-height);">
+  <Navbar />
+  <main class="flex flex-1 h-full max-h-[calc(100vh-var(--navbar-height))] overflow-hidden mt-[var(--navbar-height)]">
     <slot />
-  </div>
-</main>
+  </main>
+</div>

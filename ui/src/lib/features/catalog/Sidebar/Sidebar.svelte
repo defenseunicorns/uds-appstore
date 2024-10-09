@@ -3,21 +3,21 @@
 <script lang="ts">
   import { writable } from 'svelte/store';
   import { page } from '$app/stores';
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount } from 'svelte';
   import tailwindConfig from '$lib/tailwind-config';
-  import { Category, PricingModel, Infrastructure, Architecture, ImpactLevel } from '$lib/types';
+  import { Architecture, Category, ImpactLevel, Infrastructure, PricingModel } from '$lib/types';
   import { ChevronDown } from 'carbon-icons-svelte';
-  import { type Filter, applicationStore } from '$lib/stores';
+  import { applicationStore, type Filter } from '$lib/stores';
   import type {
     CatalogStore,
     SelectedFilters
   } from '$lib/stores/applicationstore/applicationstore';
+  import { SearchInput } from '$lib/components';
 
   export const isOpen = writable(true);
   export let routes: string[] = [];
 
   let innerWidth: number;
-  let sidebarElement: HTMLElement;
   let selectedFilters: SelectedFilters;
   let collapsedFilters: { [key: string]: boolean } = {};
 
@@ -90,36 +90,20 @@
     applicationStore.filterApplications();
   }
 
-  // Update the sidebar --sidebar-width css variable
-  function updateSidebarWidth() {
-    if (sidebarElement && isValidRoute) {
-      const sidebarWidth = sidebarElement.offsetWidth;
-      document.documentElement.style.setProperty('--sidebar-width', `${sidebarWidth}px`);
-    } else {
-      document.documentElement.style.setProperty('--sidebar-width', '0px');
-    }
-  }
-
-  // Update the sidebar width and visibility on window resize
+  // Update the sidebar visibility on window resize
   function handleResize() {
     isOpen.set(!isSmallScreen);
-    updateSidebarWidth();
   }
 
   onMount(() => {
     handleResize();
-    updateSidebarWidth();
+    // updateSidebarWidth();
     window.addEventListener('resize', handleResize);
     return () => {
       clearFilters();
       unsubscribeCatalog();
       window.removeEventListener('resize', handleResize);
     };
-  });
-
-  // Update the sidebar width and visibility on navigation change
-  afterUpdate(() => {
-    updateSidebarWidth();
   });
 
   $: isSmallScreen = innerWidth < mdBreakpoint;
@@ -129,21 +113,28 @@
       clearFilters();
     }
   }
+
+  function handleSearch(searchQuery: string) {
+    applicationStore.setSearchQuery(searchQuery);
+    applicationStore.filterApplications();
+  }
 </script>
 
 <svelte:window bind:innerWidth on:resize={handleResize} />
 
 {#if isValidRoute}
   <div
-    bind:this={sidebarElement}
     id="filter-sidebar"
-    class="flex h-[calc(100vh-var(--nav-height))] min-w-64 flex-col items-start justify-start gap-3 overflow-y-hidden border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
+    class="no-scrollbar flex w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
     class:translate-x-0={$isOpen}
     class:-translate-x-full={!$isOpen}
     class:hidden={isSmallScreen}
     class:md:block={!isSmallScreen}
   >
-    <div class="flex h-full w-full flex-col items-start justify-start gap-3 overflow-y-scroll p-4">
+    <div>
+      <div class="w-full p-4">
+        <SearchInput {handleSearch} />
+      </div>
       {#each sidebarFilters as filter}
         <div
           class="flex w-full flex-col items-start justify-start gap-3 border-b border-gray-700 p-4"

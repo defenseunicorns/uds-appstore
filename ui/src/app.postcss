@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --navbar-height: 80px;
+  --sidebar-width: 16rem;
+}
+
 @layer components {
   /* width */
   ::-webkit-scrollbar {
@@ -21,6 +26,10 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(156, 163, 175, 0.75);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
   }
 
   select {
