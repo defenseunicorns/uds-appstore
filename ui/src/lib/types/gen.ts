@@ -88,7 +88,7 @@ export enum SupportedInfrastructure {
 
 export enum Security {
     FIPSImage = "FIPS Image",
-    NIST80052ControlsMapped = "NIST 800-52 Controls Mapped",
+    NIST80053ControlsMapped = "NIST 800-53 Controls Mapped",
 }
 
 export interface LinkElement {
