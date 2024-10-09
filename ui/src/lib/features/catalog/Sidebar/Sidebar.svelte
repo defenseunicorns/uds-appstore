@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import tailwindConfig from '$lib/tailwind-config';
-  import { Category, Security, SupportedInfrastructure } from '$lib/types';
+  import { Category, Security, Infrastructure } from '$lib/types';
   import { ChevronDown } from 'carbon-icons-svelte';
   import { applicationStore, type Filter } from '$lib/stores';
   import type {
@@ -25,7 +25,19 @@
     },
     {
       label: 'Supported Infrastructure',
-      values: Object.values(SupportedInfrastructure) as string[],
+      values: (() => {
+        // Types are auto-generated in alphabetical order, but we want to manually order "Edge" to the end
+        const infraValues = Object.values(Infrastructure) as string[];
+        const edgeIndex = infraValues.indexOf(Infrastructure.Edge);
+        if (edgeIndex !== -1) {
+          // Remove "on-prem" from its current position
+          const [onPrem] = infraValues.splice(edgeIndex, 1);
+          // Add "on-prem" to the end of the array
+          infraValues.push(onPrem);
+        }
+
+        return infraValues;
+      })(),
       field: 'spec.infrastructure'
     },
     {

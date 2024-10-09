@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2024-present The UDS Authors
 import { describe, expect, it } from 'vitest';
 import { sortApplicationsAlphabetically, truncateString } from './helpers';
-import { type Application, Architecture, Category, SupportedInfrastructure } from '$lib/types';
+import { type Application, Architecture, Category, Infrastructure } from '$lib/types';
 
 describe('AppCard', () => {
   const description =
@@ -27,7 +27,7 @@ describe('sortApplicationsAlphabetically', () => {
       description: 'This is apple',
       vendor: { name: 'Vendor 1', url: 'https://vendor1.com' },
       categories: [Category.Security],
-      infrastructure: [SupportedInfrastructure.OnPrem],
+      infrastructure: [Infrastructure.OnPrem],
       architecture: [Architecture.Amd64]
     }
   } as Application;
@@ -39,7 +39,7 @@ describe('sortApplicationsAlphabetically', () => {
       description: 'This is Banana',
       vendor: { name: 'Vendor 2', url: 'https://vendor2.com' },
       categories: [Category.Arcade],
-      infrastructure: [SupportedInfrastructure.AWSGov],
+      infrastructure: [Infrastructure.AWSGovCloudUS],
       architecture: [Architecture.Arm64]
     }
   } as Application;
@@ -51,7 +51,7 @@ describe('sortApplicationsAlphabetically', () => {
       description: 'This is Cherry',
       vendor: { name: 'Vendor 3', url: 'https://vendor3.com' },
       categories: [Category.Web],
-      infrastructure: [SupportedInfrastructure.AirGapped],
+      infrastructure: [Infrastructure.OnPrem],
       architecture: [Architecture.Arm64]
     }
   } as Application;
