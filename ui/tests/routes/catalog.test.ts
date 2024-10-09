@@ -5,8 +5,9 @@ import { expect, test } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { Category, SupportedInfrastructure } from '../../src/lib/types/gen';
+import { Category } from '../../src/lib/types/gen';
 import { sortApplicationsAlphabetically } from '../../src/lib/utils';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const catalogData = sortApplicationsAlphabetically(
   JSON.parse(fs.readFileSync(path.join(__dirname, '../../static/api/apps/index.json'), 'utf-8'))
