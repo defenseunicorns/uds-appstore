@@ -5,6 +5,7 @@
   import { afterNavigate } from '$app/navigation';
   import { Navbar } from '$lib/features/navigation';
   import '../app.postcss';
+  import Footer from '$lib/components/Footer.svelte';
 
   afterNavigate(initFlowbite);
 </script>
@@ -18,4 +19,5 @@
   >
     <slot />
   </main>
+  <Footer />
 </div>
