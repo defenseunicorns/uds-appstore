@@ -5,7 +5,6 @@
   import { goto } from '$app/navigation';
   import SearchInput from '$lib/components/SearchInput/SearchInput.svelte';
   import { applicationStore } from '$lib/stores/applicationstore/applicationstore';
-  import Themetoggle from '../themetoggle/themetoggle.svelte';
   import { onMount, afterUpdate } from 'svelte';
 
   let navElement: HTMLElement;
@@ -48,15 +47,9 @@
           <img src="/doug.svg" alt="airgap appstore logo" />
           <span>Airgap App Store</span>
         </a>
-        <div class="sm:hidden">
-          <Themetoggle />
-        </div>
       </div>
       <div class="mb-4 w-full sm:mb-0 sm:w-auto sm:min-w-[24rem]">
         <SearchInput {handleSearch} />
-      </div>
-      <div class="hidden items-center sm:flex">
-        <Themetoggle />
       </div>
     </div>
   </nav>
