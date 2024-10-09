@@ -158,7 +158,7 @@ test.describe('Sidebar', () => {
     const unfilteredResultsLength = unfilteredResults.length;
     console.log(`Unfiltered results: ${unfilteredResultsLength}`);
     // Apply a filter
-    await page.click(`label:has-text("${SupportedInfrastructure.AWSGov}")`);
+    await page.click(`label:has-text("${Category.Arcade}")`);
     await page.click(`label:has-text("${Category.Web}")`);
 
     // Check if the filter is applied (you may need to adjust this based on how filtered results are displayed)

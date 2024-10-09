@@ -17,13 +17,6 @@
   export const isOpen = writable(true);
   export let routes: string[] = [];
 
-  let innerWidth: number;
-  let selectedFilters: SelectedFilters;
-  let collapsedFilters: { [key: string]: boolean } = {};
-  let scrolling = false;
-
-  const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
-
   const sidebarFilters: Filter[] = [
     {
       label: 'Category',
@@ -42,6 +35,13 @@
     }
   ];
 
+  let innerWidth: number;
+  let selectedFilters: SelectedFilters;
+  let openedFilters: { [key: string]: boolean } = { [sidebarFilters[0].label]: true };
+  let scrolling = false;
+
+  const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
+
   // Subscribe to the application store
   const unsubscribeCatalog = applicationStore.subscribe((store) => {
     selectedFilters = store.selectedFilters;
@@ -50,7 +50,7 @@
   // Toggle the collapsed state of a filter
 
   function toggleFilter(filter: string) {
-    collapsedFilters[filter] = !collapsedFilters[filter];
+    openedFilters[filter] = !openedFilters[filter];
   }
 
   // Handle filter change
@@ -148,13 +148,13 @@
             <span>{filter.label}</span>
             <span
               class="h-5 w-5 transform transition-transform duration-200"
-              class:rotate-180={collapsedFilters[filter.label]}
+              class:rotate-180={!openedFilters[filter.label]}
             >
               <ChevronDown />
             </span>
           </button>
           <div
-            class:hidden={collapsedFilters[filter.label]}
+            class:hidden={!openedFilters[filter.label]}
             id="filter-values-{filter.label}"
             class="mt-2 flex w-full flex-col items-start justify-start gap-3"
           >
