@@ -2,7 +2,6 @@
 <!-- SPDX-FileCopyrightText: 2024-Present The UDS Authors -->
 
 <script lang="ts">
-  import Themetoggle from '../themetoggle/themetoggle.svelte';
   import { afterUpdate, onMount } from 'svelte';
 
   let navElement: HTMLElement;
@@ -37,12 +36,6 @@
         <img src="/doug.svg" alt="airgap appstore logo" />
         <span>Airgap App Store</span>
       </a>
-      <div class="sm:hidden">
-        <Themetoggle />
-      </div>
-    </div>
-    <div class="hidden items-center sm:flex">
-      <Themetoggle />
     </div>
   </div>
 </nav>
