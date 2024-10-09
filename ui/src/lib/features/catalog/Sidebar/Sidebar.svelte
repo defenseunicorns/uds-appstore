@@ -88,7 +88,6 @@
 
   onMount(() => {
     handleResize();
-    // updateSidebarWidth();
     window.addEventListener('resize', handleResize);
     return () => {
       clearFilters();
