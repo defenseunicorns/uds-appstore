@@ -7,11 +7,12 @@
   import Sidebar from './Sidebar/Sidebar.svelte';
   import { applicationStore } from '$lib/stores';
   import type { Application } from '$lib/types';
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
 
   let isLoading = true;
   let error: string | undefined;
   let applications: Application[] = [];
+  let scrolling = false;
 
   const unsubscribe = applicationStore.subscribe(($store) => {
     isLoading = $store.loading;
@@ -26,7 +27,12 @@
   });
 </script>
 
-<div class="flex h-full flex-col overflow-y-auto py-9 px-24">
+<div
+  class="custom-scroll flex h-full flex-col overflow-y-auto px-24 py-9"
+  class:scroll-active={scrolling}
+  on:scroll={() => (scrolling = true)}
+  on:scrollend={() => (scrolling = false)}
+>
   <div class="mb-8">
     <div class="text-2xl font-semibold leading-9">Applications Deployable on UDS</div>
     <div class="text-lg font-normal">

@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import tailwindConfig from '$lib/tailwind-config';
-  import { Architecture, Category, ImpactLevel, Infrastructure, Security, PricingModel } from '$lib/types';
+  import { Architecture, Category, Infrastructure, PricingModel, Security } from '$lib/types';
   import { ChevronDown } from 'carbon-icons-svelte';
   import { applicationStore, type Filter } from '$lib/stores';
   import type {
@@ -20,6 +20,7 @@
   let innerWidth: number;
   let selectedFilters: SelectedFilters;
   let collapsedFilters: { [key: string]: boolean } = {};
+  let scrolling = false;
 
   const mdBreakpoint = parseInt(tailwindConfig.theme.screens.md);
 
@@ -125,11 +126,14 @@
 {#if isValidRoute}
   <div
     id="filter-sidebar"
-    class="no-scrollbar flex w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800 transition-transform duration-300 ease-in-out"
+    class="custom-scroll flex w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800"
     class:translate-x-0={$isOpen}
     class:-translate-x-full={!$isOpen}
     class:hidden={isSmallScreen}
     class:md:block={!isSmallScreen}
+    class:scroll-active={scrolling}
+    on:scroll={() => (scrolling = true)}
+    on:scrollend={() => (scrolling = false)}
   >
     <div>
       <div class="w-full p-4">
