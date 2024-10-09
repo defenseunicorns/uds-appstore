@@ -81,7 +81,7 @@ export interface IconElement {
 
 export enum SupportedInfrastructure {
     AWSGov = "AWS GovCloud (US)",
-    AzureGov = "Azure Government Cloud (US)",
+    AzureGov = "Azure Government Cloud",
     OnPrem = "On-prem",
     Edge = "Edge",
 }
