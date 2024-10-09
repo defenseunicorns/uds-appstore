@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import tailwindConfig from '$lib/tailwind-config';
-  import { Architecture, Category, Infrastructure, PricingModel, Security } from '$lib/types';
+  import { Category, Security, SupportedInfrastructure } from '$lib/types';
   import { ChevronDown } from 'carbon-icons-svelte';
   import { applicationStore, type Filter } from '$lib/stores';
   import type {
@@ -31,24 +31,14 @@
       field: 'spec.categories'
     },
     {
-      label: 'Pricing Model',
-      values: Object.values(PricingModel) as string[],
-      field: 'spec.contractingDetails.pricingModel'
-    },
-    {
       label: 'Supported Infrastructure',
-      values: Object.values(Infrastructure) as string[],
+      values: Object.values(SupportedInfrastructure) as string[],
       field: 'spec.infrastructure'
     },
     {
       label: 'Security',
       values: Object.values(Security) as string[],
       field: 'spec.security'
-    },
-    {
-      label: 'Architecture',
-      values: Object.values(Architecture) as string[],
-      field: 'spec.architecture'
     }
   ];
 
@@ -136,13 +126,22 @@
     on:scrollend={() => (scrolling = false)}
   >
     <div>
-      <div class="w-full p-4">
+      <div class="sticky top-0 z-10 bg-gray-800 p-4">
+        <div class="flex items-center justify-between pb-3">
+          <h6 class="text-sm font-medium text-black dark:text-white">Filters</h6>
+          <div class="flex items-center space-x-3">
+            <button
+              on:click={clearFilters}
+              class="text-primary-600 dark:text-primary-500 flex items-center text-sm font-medium text-blue-500 hover:underline"
+            >
+              Clear all
+            </button>
+          </div>
+        </div>
         <SearchInput {handleSearch} />
       </div>
       {#each sidebarFilters as filter}
-        <div
-          class="flex w-full flex-col items-start justify-start gap-3 border-b border-gray-700 p-4"
-        >
+        <div class="flex w-full flex-col items-start justify-start gap-3 p-4">
           <button
             class="flex w-full items-center justify-between text-base font-semibold text-white"
             on:click={() => toggleFilter(filter.label)}

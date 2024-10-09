@@ -56,10 +56,7 @@
 </script>
 
 <form class="mx-auto w-full max-w-md">
-  <label
-    for="application-search"
-    class="sr-only text-sm font-medium text-gray-900 dark:text-white"
-  >
+  <label for="application-search" class="sr-only text-sm font-medium text-gray-900 dark:text-white">
     Search
   </label>
   <div class="relative">
@@ -70,8 +67,8 @@
       bind:this={searchInput}
       type="search"
       id="application-search"
-      class="block w-full h-[2.3125rem] rounded-lg border border-gray-300 bg-gray-50 p-2 pe-10 ps-8 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:p-4 md:pe-14 md:ps-10 md:text-sm [&::-webkit-search-cancel-button]:hidden"
-      placeholder="Search"
+      class="block h-[2.3125rem] w-full rounded-lg border border-gray-300 bg-gray-50 p-2 pe-10 ps-8 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:p-4 md:pe-14 md:ps-10 md:text-sm [&::-webkit-search-cancel-button]:hidden"
+      placeholder="Search apps"
       bind:value={searchQuery}
       on:focus={() => {
         isFocused = true;

@@ -3,11 +3,10 @@
 
 <script lang="ts">
   import { base } from '$app/paths';
-  import { AppCard, Alert } from '$lib/components';
-  import Sidebar from './Sidebar/Sidebar.svelte';
+  import { Alert, AppCard } from '$lib/components';
   import { applicationStore } from '$lib/stores';
   import type { Application } from '$lib/types';
-  import { onDestroy, onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
   let isLoading = true;
   let error: string | undefined;

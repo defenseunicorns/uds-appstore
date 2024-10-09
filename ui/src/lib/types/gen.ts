@@ -25,7 +25,7 @@ export interface Spec {
     contractingDetails?: ContractingDetails;
     description?:        string;
     icons?:              IconElement[];
-    infrastructure?:     Infrastructure[];
+    infrastructure?:     SupportedInfrastructure[];
     keywords?:           string[];
     links?:              LinkElement[];
     repository?:         string;
@@ -49,11 +49,12 @@ export enum Category {
     CommandAndControl = "Command and Control",
     Databases = "Databases",
     DigitalEngineering = "Digital Engineering",
-    SoftwareDev = "Software Dev",
-    Kubernetes = "Kubernetes",
+    ITManagement = "IT Management",
+    Kubernetes = "Kubernetes (K8s)",
     Networking = "Networking",
     Productivity = "Productivity",
     Security = "Security",
+    SoftwareDev = "Software Dev",
     SpaceOperations = "Space Operations",
     Web = "Web",
 }
@@ -78,10 +79,10 @@ export interface IconElement {
     [property: string]: any;
 }
 
-export enum Infrastructure {
-    AWSGov = "AWS Gov",
-    AzureGov = "Azure Gov",
-    OnPrem = "On-Prem",
+export enum SupportedInfrastructure {
+    AWSGov = "AWS GovCloud (US)",
+    AzureGov = "Azure Government Cloud (US)",
+    OnPrem = "On-prem",
     Edge = "Edge",
 }
 

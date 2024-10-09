@@ -13,7 +13,9 @@
   class="flex min-h-screen flex-col transition-all duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
 >
   <Navbar />
-  <main class="flex flex-1 h-full max-h-[calc(100vh-var(--navbar-height))] overflow-hidden mt-[var(--navbar-height)]">
+  <main
+    class="mt-[var(--navbar-height)] flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-1 overflow-hidden"
+  >
     <slot />
   </main>
 </div>
