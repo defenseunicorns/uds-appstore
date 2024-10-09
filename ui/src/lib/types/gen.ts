@@ -45,13 +45,16 @@ export enum Architecture {
 export enum Category {
     AIMl = "AI/ML",
     Arcade = "Arcade",
-    Business = "Business",
+    Collaboration = "Collaboration",
+    CommandAndControl = "Command and Control",
     Databases = "Databases",
-    DevelopmentTools = "Development Tools",
+    DigitalEngineering = "Digital Engineering",
+    SoftwareDev = "Software Dev",
     Kubernetes = "Kubernetes",
     Networking = "Networking",
     Productivity = "Productivity",
     Security = "Security",
+    SpaceOperations = "Space Operations",
     Web = "Web",
 }
 
@@ -77,23 +80,19 @@ export interface IconElement {
 
 export enum Infrastructure {
     AWSGov = "AWS Gov",
-    AirGapped = "AirGapped",
     AzureGov = "Azure Gov",
     OnPrem = "On-Prem",
+    Edge = "Edge",
+}
+
+export enum Security {
+    FIPSImage = "FIPS Image",
+    NIST80052ControlsMapped = "NIST 800-52 Controls Mapped",
 }
 
 export interface LinkElement {
     description?: string;
     url?:         string;
-    [property: string]: any;
-}
-
-export interface Security {
-    cveReport?:   boolean;
-    fips?:        boolean;
-    impactLevel?: ImpactLevel[];
-    nist80053?:   boolean;
-    sbom?:        boolean;
     [property: string]: any;
 }
 

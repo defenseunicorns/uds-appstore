@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import tailwindConfig from '$lib/tailwind-config';
-  import { Architecture, Category, ImpactLevel, Infrastructure, PricingModel } from '$lib/types';
+  import { Architecture, Category, ImpactLevel, Infrastructure, Security, PricingModel } from '$lib/types';
   import { ChevronDown } from 'carbon-icons-svelte';
   import { applicationStore, type Filter } from '$lib/stores';
   import type {
@@ -35,14 +35,14 @@
       field: 'spec.contractingDetails.pricingModel'
     },
     {
-      label: 'Impact Level',
-      values: Object.values(ImpactLevel) as string[],
-      field: 'spec.security.impactLevel'
-    },
-    {
-      label: 'Infrastructure',
+      label: 'Supported Infrastructure',
       values: Object.values(Infrastructure) as string[],
       field: 'spec.infrastructure'
+    },
+    {
+      label: 'Security',
+      values: Object.values(Security) as string[],
+      field: 'spec.security'
     },
     {
       label: 'Architecture',
