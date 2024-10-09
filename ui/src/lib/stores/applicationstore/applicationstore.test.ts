@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-import { type Application, Architecture, Category, SupportedInfrastructure } from '$lib/types';
+import { type Application, Architecture, Category, Infrastructure } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { applicationStore } from './applicationstore';
 
@@ -11,7 +11,7 @@ describe('applicationsStore', () => {
       description: 'This is app 1',
       vendor: { name: 'Vendor 1', url: 'https://vendor1.com' },
       categories: [Category.Security],
-      infrastructure: [SupportedInfrastructure.OnPrem],
+      infrastructure: [Infrastructure.OnPrem],
       architecture: [Architecture.Amd64]
     }
   } as Application;
@@ -23,7 +23,7 @@ describe('applicationsStore', () => {
       description: 'This is app 2',
       vendor: { name: 'Vendor 2', url: 'https://vendor2.com' },
       categories: [Category.Arcade],
-      infrastructure: [SupportedInfrastructure.AWSGov],
+      infrastructure: [Infrastructure.AWSGovCloudUS],
       architecture: [Architecture.Arm64]
     }
   } as Application;
@@ -80,7 +80,7 @@ describe('applicationsStore', () => {
     applicationStore.populateCatalog([sampleApp, anotherApp]);
     const filters = new Map([
       ['spec.categories', [Category.Security]],
-      ['spec.infrastructure', [SupportedInfrastructure.OnPrem]]
+      ['spec.infrastructure', [Infrastructure.OnPrem]]
     ]);
     applicationStore.setSelectedFilters(filters);
     applicationStore.filterApplications();
