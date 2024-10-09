@@ -48,7 +48,6 @@ type ApplicationContractingDetails struct {
 	SmallBusinessStatus string               `json:"smallBusinessStatus" yaml:"smallBusinessStatus" xml:"smallBusinessStatus"`
 }
 
-
 type ApplicationIcon struct {
 	Src  string `json:"src" yaml:"src" xml:"src"`
 	Type string `json:"type" yaml:"type" xml:"type"`
@@ -83,26 +82,25 @@ const (
 	ApplicationArchitectureArm64 ApplicationArchitecture = "arm64"
 	ApplicationArchitectureAmd64 ApplicationArchitecture = "amd64"
 
-	ApplicationInfrastructureAwsGov         ApplicationInfrastructure = "AWS GovCloud (US)"
-	ApplicationInfrastructureAzureGov       ApplicationInfrastructure = "Azure Government Cloud"
-	ApplicationInfrastructureOnPrem         ApplicationInfrastructure = "On-prem"
-	ApplicationInfrastructureEdge           ApplicationInfrastructure = "Edge"
+	ApplicationInfrastructureAwsGov   ApplicationInfrastructure = "AWS GovCloud (US)"
+	ApplicationInfrastructureAzureGov ApplicationInfrastructure = "Azure Government Cloud"
+	ApplicationInfrastructureOnPrem   ApplicationInfrastructure = "On-prem"
+	ApplicationInfrastructureEdge     ApplicationInfrastructure = "Edge"
 
-	ApplicationSecurityNist80053            ApplicationCategory = "NIST 800-53 Controls Mapped"
-	ApplicationSecurityFips                 ApplicationCategory = "FIPS Image"
-
-	ApplicationCategoryAiMl                     ApplicationCategory = "AI/ML"
-	ApplicationCategoryArcade                   ApplicationCategory = "Arcade"
-	ApplicationCategoryCollaboration            ApplicationCategory = "Collaboration"
-	ApplicationCategoryCommandAndControl        ApplicationCategory = "Command and Control"
-	ApplicationCategoryDatabases                ApplicationCategory = "Databases"
-	ApplicationCategoryDigitalEngineering       ApplicationCategory = "DigitalEngineering"
-	ApplicationCategoryITManagement             ApplicationCategory = "IT Management"
-	ApplicationCategoryKubernetes               ApplicationCategory = "Kubernetes (K8s)"
-	ApplicationCategoryNetworking               ApplicationCategory = "Networking"
-	ApplicationCategoryProductivity             ApplicationCategory = "Productivity"
-	ApplicationCategorySecurity                 ApplicationCategory = "Security"
-    ApplicationCategorySoftwareDev              ApplicationCategory = "Software Dev"
-	ApplicationCategorySpaceOperations          ApplicationCategory = "Space Operations"
-	ApplicationCategoryWeb                      ApplicationCategory = "Web"
+	ApplicationSecurityNist80053          ApplicationCategory = "NIST 800-53 Controls Mapped"
+	ApplicationSecurityFips               ApplicationCategory = "FIPS Image"
+	ApplicationCategoryAiMl               ApplicationCategory = "AI/ML"
+	ApplicationCategoryArcade             ApplicationCategory = "Arcade"
+	ApplicationCategoryCollaboration      ApplicationCategory = "Collaboration"
+	ApplicationCategoryCommandAndControl  ApplicationCategory = "Command and Control"
+	ApplicationCategoryDatabases          ApplicationCategory = "Databases"
+	ApplicationCategoryDigitalEngineering ApplicationCategory = "DigitalEngineering"
+	ApplicationCategoryITManagement       ApplicationCategory = "IT Management"
+	ApplicationCategoryKubernetes         ApplicationCategory = "Kubernetes (K8s)"
+	ApplicationCategoryNetworking         ApplicationCategory = "Networking"
+	ApplicationCategoryProductivity       ApplicationCategory = "Productivity"
+	ApplicationCategorySecurity           ApplicationCategory = "Security"
+	ApplicationCategorySoftwareDev        ApplicationCategory = "Software Dev"
+	ApplicationCategorySpaceOperations    ApplicationCategory = "Space Operations"
+	ApplicationCategoryWeb                ApplicationCategory = "Web"
 )
