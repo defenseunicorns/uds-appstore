@@ -27,7 +27,7 @@
 </script>
 
 <div
-  class="custom-scroll flex h-full flex-col overflow-y-auto px-24 py-9"
+  class="custom-scroll flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-col overflow-y-auto px-24 py-9"
   class:scroll-active={scrolling}
   on:scroll={() => (scrolling = true)}
   on:scrollend={() => (scrolling = false)}
