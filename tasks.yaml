@@ -32,6 +32,11 @@ tasks:
     actions:
       - task: test:all
 
+  - name: generate-catalog
+    description: "generate the appstore catalog from the files in ./apps"
+    actions:
+      - task: build:generate-catalog
+
   - name: pre-commit
     description: "run all pre-commit hooks"
     actions:

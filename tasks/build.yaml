@@ -14,6 +14,7 @@ tasks:
     description: "compile the api server and ui"
     actions:
       - task: setup:deps
+      - task: generate-types
       - task: build-ui
       - task: build-api-linux-amd64
       - task: build-api-linux-arm64
@@ -21,7 +22,6 @@ tasks:
   - name: build-ui
     description: "build ui (requires setup:deps to be run first)"
     actions:
-      - task: generate-catalog
       - cmd: npm run build
         dir: ui
 
