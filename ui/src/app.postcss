@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --navbar-height: 80px;
+  --sidebar-width: 16rem;
+  scrollbar-color: #4b5563 transparent;
+}
+
 @layer components {
-  /* width */
-  ::-webkit-scrollbar {
-    width: 10px;
+  .custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.2s ease-in-out;
+    -webkit-scrollbar-width: thin;
+  }
+  .custom-scroll.scroll-active {
+    scrollbar-color: #4b5563 transparent;
+    transition: scrollbar-color 0.2s ease-in-out;
   }
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgb(55, 65, 81);
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 0.5);
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(156, 163, 175, 0.75);
+  /* For Safari - this hides the scrollbar, but allows scrolling. TODO - figure out how to mimic fade in/out scrollbar only while scrolling */
+  .custom-scroll::-webkit-scrollbar {
+    width: 8px;
   }
 
   select {

@@ -6,7 +6,6 @@ tasks:
     description: "Build the Airgap App Store and publish a release. NOTE: task isn't intended to be run local"
     actions:
       - task: build:generate-catalog
-      - task: build:generate-types
       - task: build:compile
       - task: build:build-image
       - task: build:build-zarf-packages
