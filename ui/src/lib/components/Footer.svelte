@@ -13,7 +13,7 @@
         href: 'https://www.defenseunicorns.com/contracts',
         external: true
       },
-      { title: 'Request An App Not in App Store', href: '/request' }
+      { title: 'Request An App Not in App Store', href: '/contact' }
     ],
     'Defense Unicorns': [
       { title: 'About Company', href: 'https://www.defenseunicorns.com/', external: true },
