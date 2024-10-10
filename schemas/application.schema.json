@@ -77,35 +77,6 @@
       },
       "type": "object"
     },
-    "ApplicationSecurity": {
-      "properties": {
-        "nist80053": {
-          "type": "boolean"
-        },
-        "fips": {
-          "type": "boolean"
-        },
-        "cveReport": {
-          "type": "boolean"
-        },
-        "sbom": {
-          "type": "boolean"
-        },
-        "impactLevel": {
-          "items": {
-            "type": "string",
-            "enum": [
-              "2",
-              "4",
-              "5",
-              "6"
-            ]
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "ApplicationSpec": {
       "properties": {
         "title": {
@@ -132,13 +103,17 @@
             "enum": [
               "AI/ML",
               "Arcade",
-              "Business",
+              "Collaboration",
+              "Command And Control",
               "Databases",
-              "Development Tools",
-              "Kubernetes",
+              "Digital Engineering",
+              "IT Management",
+              "Kubernetes (K8s)",
               "Networking",
               "Productivity",
               "Security",
+              "Software Dev",
+              "Space Operations",
               "Web"
             ]
           },
@@ -151,7 +126,11 @@
           "$ref": "#/$defs/ApplicationContractingDetails"
         },
         "security": {
-          "$ref": "#/$defs/ApplicationSecurity"
+          "type": "string",
+          "enum": [
+            "NIST 800-53 Controls Mapped",
+            "FIPS Image"
+          ]
         },
         "architecture": {
           "items": {
@@ -167,10 +146,10 @@
           "items": {
             "type": "string",
             "enum": [
-              "AWS Gov",
-              "Azure Gov",
-              "On-Prem",
-              "AirGapped"
+              "AWS GovCloud (US)",
+              "Azure Government Cloud",
+              "On-prem",
+              "Edge"
             ]
           },
           "type": "array"
