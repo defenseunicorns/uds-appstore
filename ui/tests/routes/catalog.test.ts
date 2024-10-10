@@ -158,9 +158,14 @@ test.describe('Sidebar', () => {
     const unfilteredResults = await page.$$('.app-card');
     const unfilteredResultsLength = unfilteredResults.length;
     console.log(`Unfiltered results: ${unfilteredResultsLength}`);
+
+    const clearAllBtn = page.getByText('Clear all');
+    expect(clearAllBtn).toBeDisabled();
+
     // Apply a filter
     await page.click(`label:has-text("${Category.Arcade}")`);
     await page.click(`label:has-text("${Category.Web}")`);
+    expect(clearAllBtn).not.toBeDisabled();
 
     // Check if the filter is applied (you may need to adjust this based on how filtered results are displayed)
     const filteredResults = await page.$$('.app-card');

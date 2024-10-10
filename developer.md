@@ -7,13 +7,10 @@
   - [Prerequisites](#prerequisites)
   - [Environment Setup](#environment-setup)
   - [Development](#development)
-    - [Starting the API Server](#starting-the-api-server)
-    - [Starting the UI Dev Server](#starting-the-ui-dev-server)
-    - [Starting Mono Dev Server](#starting-mono-dev-server)
-  - [Testing](#testing)
-  - [Pre-commit Hooks](#pre-commit-hooks)
-  - [Deployment](#deployment)
-    - [Deploying a Slim UDS Cluster](#deploying-a-slim-uds-cluster)
+    - [Starting the Airgap App Store](#starting-the-airgap-app-store)
+    - [Testing](#testing)
+    - [Pre-commit Hooks](#pre-commit-hooks)
+  - [Generating the Catalog](#generating-the-catalog)
   - [Additional Notes](#additional-notes)
 
 ## Prerequisites
@@ -28,7 +25,7 @@ Ensure you have the following tools installed:
 
 Install UDS CLI:
 
-```bash
+```sh
 brew tap defenseunicorns/tap
 brew install uds
 ```
@@ -37,72 +34,54 @@ brew install uds
 
 1. Clone the repository:
 
-   ```bash
+   ```sh
    git clone https://github.com/defenseunicorns/uds-appstore.git
    cd uds-appstore
    ```
 
 2. Install dependencies:
 
-   ```bash
+   ```sh
    uds run setup:deps
    ```
 
 3. Install environment tools:
-   ```bash
+   ```sh
    uds run setup:install-tools
    ```
 
 ## Development
 
-### Starting the API Server
+### Starting the Airgap App Store
 
-To run the API server in development mode with hot-reloading:
+To run with hot-reloading:
 
-```bash
-uds run dev-api
-```
-
-### Starting the UI Dev Server
-
-To run the UI in development mode:
-
-```bash
-uds run dev-ui
-```
-
-### Starting Mono Dev Server
-
-To run both the API server and the UI in development mode (hot-reloading):
-
-```bash
+```sh
 uds run dev
 ```
 
-## Testing
+### Testing
 
 To run all tests:
 
-```bash
+```sh
 uds run tests
 ```
 
-## Pre-commit Hooks
+### Pre-commit Hooks
 
-```bash
+```sh
 uds run pre-commit
 ```
 
 > Note: may fix formatting and need `git add .` post pre-commit
 
-## Deployment
+## Generating the Catalog
 
-### Deploying a Slim UDS Cluster
+To generate teh catalog with data from `/apps`:
 
-To create a k3d cluster and deploy a slim version of UDS with metrics server and App Store:
-
-```bash
-uds run k3d-dev-deploy
+```sh
+uds run generate-catalog
 ```
 
 ## Additional Notes
