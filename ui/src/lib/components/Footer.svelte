@@ -29,7 +29,7 @@
 </script>
 
 <div
-  id="branding"
+  id="guarantee"
   class=" flex w-full flex-col items-center justify-center gap-5 bg-[url('/images/doug_world_official_faded.png')] bg-[length:100%_458.084%] bg-[position:-1.761px_-15.844px] bg-no-repeat"
 >
   <div class="2xl:w-8/10 flex w-11/12 flex-col items-center justify-between sm:flex-row xl:w-4/5">
@@ -76,3 +76,10 @@
   </div>
 </div>
 
+<div id="copyright" class="flex w-full justify-center bg-gray-800 py-8">
+  <div class="flex flex-col items-center">
+    <div class="text-center text-xl font-medium">Created By</div>
+    <img alt="Defense Unicorns" src="{base}/images/defense_unicorns.png" class="w-[262px]" />
+    <div class="text-center text-gray-400">© 2024 Defense Unicorns, Inc. All rights reserved.</div>
+  </div>
+</div>

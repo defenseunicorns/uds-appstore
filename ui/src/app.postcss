@@ -8,6 +8,11 @@
   scrollbar-color: #4b5563 transparent;
 }
 
+@layer base {
+  * {
+    @apply antialiased;
+  }
+}
 @layer components {
   .custom-scroll {
     scrollbar-width: thin;
