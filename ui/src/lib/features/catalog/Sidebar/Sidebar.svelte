@@ -127,7 +127,7 @@
 {#if isValidRoute}
   <div
     id="filter-sidebar"
-    class="custom-scroll flex w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800"
+    class="custom-scroll flex max-h-[calc(100vh-var(--navbar-height))] w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col items-start justify-start gap-3 overflow-y-auto border-r border-gray-700 bg-gray-800"
     class:translate-x-0={$isOpen}
     class:-translate-x-full={!$isOpen}
     class:hidden={isSmallScreen}
@@ -154,7 +154,7 @@
       {#each sidebarFilters as filter}
         <div class="flex w-full flex-col items-start justify-start gap-3 p-4">
           <button
-            class="flex w-full items-center justify-between text-base font-semibold text-white"
+            class="flex w-full items-center justify-between text-start text-base font-semibold text-white"
             on:click={() => toggleFilter(filter.label)}
           >
             <span>{filter.label}</span>
