@@ -94,7 +94,7 @@ const (
 	ApplicationCategoryCollaboration      ApplicationCategory = "Collaboration"
 	ApplicationCategoryCommandAndControl  ApplicationCategory = "Command and Control"
 	ApplicationCategoryDatabases          ApplicationCategory = "Databases"
-	ApplicationCategoryDigitalEngineering ApplicationCategory = "DigitalEngineering"
+	ApplicationCategoryDigitalEngineering ApplicationCategory = "Digital Engineering"
 	ApplicationCategoryITManagement       ApplicationCategory = "IT Management"
 	ApplicationCategoryKubernetes         ApplicationCategory = "Kubernetes (K8s)"
 	ApplicationCategoryNetworking         ApplicationCategory = "Networking"
