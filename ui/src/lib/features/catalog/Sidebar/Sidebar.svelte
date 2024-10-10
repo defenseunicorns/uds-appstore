@@ -143,7 +143,9 @@
           <div class="flex items-center space-x-3">
             <button
               on:click={clearFilters}
-              class="text-primary-600 dark:text-primary-500 flex items-center text-sm font-medium text-blue-500 hover:underline"
+              disabled={!selectedFilters.get('spec.categories') ||
+                selectedFilters.get('spec.categories')?.length === 0}
+              class="text-primary-600 dark:text-primary-500 flex items-center text-sm font-medium text-blue-500 hover:underline disabled:text-gray-500 disabled:hover:no-underline"
             >
               Clear all
             </button>
