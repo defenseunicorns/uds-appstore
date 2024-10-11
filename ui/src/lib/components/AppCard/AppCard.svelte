@@ -20,35 +20,28 @@
 </script>
 
 <div
-  class="app-card inline-flex min-h-[329px] w-full max-w-[360px] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800 md:w-[360px]"
+  class="app-card flex h-[14.25rem] w-full max-w-[16.0625rem] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 py-[20px] shadow dark:border-gray-700 dark:bg-gray-800 md:w-[360px]"
 >
   <AppCardHeader {app} />
-  <div class="flex h-[201px] flex-col items-start justify-start gap-5 self-stretch pt-5">
-    <div
-      class="app-card-description h-[120px] self-stretch overflow-hidden text-base font-normal leading-normal text-gray-700 dark:text-gray-300"
-    >
-      {#if description && description.trim() !== ''}
-        <SvelteMarkdown source={description} />
-      {:else}
-        <div class="text-sm font-medium leading-[21px] text-gray-700 dark:text-gray-300">
-          {description}
-        </div>
-      {/if}
+
+  <div class="flex flex-1 flex-col justify-between">
+    <div class="mt-3 flex text-xs dark:text-gray-300">
+      <SvelteMarkdown source={description} />
     </div>
-    <div class="inline-flex items-center justify-end gap-2.5 self-stretch">
+
+    <div class="flex justify-end">
       <Button
-        color="alternative"
-        class="dark:border-gray-300 dark:text-gray-300"
-        size="md"
+        size="xs"
+        color="dark"
+        class="dark:text-blue-400"
         on:click={() => {
           goto(`/apps/${app.metadata?.name}`);
         }}
-      >
-        Learn More
-        <svelte:fragment slot="iconRight">
+        ><div class="flex items-center gap-2">
+          Learn More
           <ArrowRight />
-        </svelte:fragment>
-      </Button>
+        </div></Button
+      >
     </div>
   </div>
 </div>

@@ -8,6 +8,18 @@
   scrollbar-color: #4b5563 transparent;
 }
 
+@layer base {
+  * {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .link {
+    @apply transition-colors duration-300 ease-in-out hover:text-white;
+  }
+}
+
 @layer components {
   .custom-scroll {
     scrollbar-width: thin;
