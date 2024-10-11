@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import { twMerge } from 'tailwind-merge';
 
-  const responsiveImageStyling = 'w-[50%] sm:w-[33%]  2xl:w-auto';
+  const responsiveImageStyling = 'w-1/2 sm:w-1/3  2xl:w-auto';
 
   type Link = { title: string; href: string; external?: boolean };
   const sections: { [category: string]: Link[] } = {
