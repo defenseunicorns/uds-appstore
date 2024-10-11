@@ -17,7 +17,7 @@
   <img src={image} class="app-card-header-icon h-[48px] w-[48px] rounded" alt="App Icon" />
 
   <div class="flex flex-col gap-1">
-    <div class="text-lg font-semibold leading-tight">{title}</div>
+    <div class="app-card-header-title text-lg font-semibold leading-tight">{title}</div>
     <div class="flex items-center gap-1">
       <span class="text-xs text-gray-500 dark:text-gray-300">By: </span>
       <a class="link text-xs font-thin text-gray-400" href={vendorUrl} rel="noopener noreferrer">
