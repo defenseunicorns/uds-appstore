@@ -1,18 +1,20 @@
 FROM cgr.dev/chainguard/node:latest-dev AS ui
 
-COPY ui/package.json /app
-COPY ui/pnpm-lock.yaml /app
+COPY ui/package.json .
+COPY ui/pnpm-lock.yaml .
 
 RUN npx pnpm i
 
-COPY ui/ /app
-RUN npm run build
+COPY schemas/ /schemas
+COPY --chown=65532:65532 ui/ .
 
-FROM cgr.dev/chainguard/busybox:latest AS data
+RUN npm run schema && npm run build
 
-WORKDIR /app
+FROM cgr.dev/chainguard/wolfi-base:latest AS data
 
-RUN apk add oras yq
+WORKDIR /work
+
+RUN apk add bash oras yq
 
 COPY hack/ ./hack
 COPY apps/ ./apps
@@ -24,7 +26,7 @@ FROM cgr.dev/chainguard/go:latest-dev AS server
 WORKDIR /app
 
 COPY --from=ui /app/build ./ui/build
-COPY --from=data /app/build/ui/static/api ./ui/build/ui/static/api
+COPY --from=data /work/ui/static/api ./ui/build/ui/static/api
 
 COPY go.mod .
 COPY go.sum .

@@ -6,7 +6,6 @@ includes:
   - build: tasks/build.yaml
   - common: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/setup.yaml
   - deploy: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.9.0/tasks/deploy.yaml
-  - release: tasks/release.yaml
 
 variables:
   - name: REF
@@ -20,16 +19,15 @@ tasks:
     description: "run the api server and ui in dev mode"
     actions:
       - task: setup:deps
-      - cmd: air -c .air.toml -build.cmd="cd ui && npm run build && cd .. && go build -o ./build/uds-appstore main.go"
-
-  - name: compile
-    description: "compile the api server and ui"
-    actions:
-      - task: build:compile
+      - task: build:generate-types
+      - task: build:generate-catalog
+      - cmd: npm run dev
+        dir: ui
 
   - name: tests
     description: "run all tests"
     actions:
+      - task: setup:deps
       - task: test:all
 
   - name: generate-catalog

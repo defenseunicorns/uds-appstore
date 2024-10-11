@@ -7,8 +7,6 @@ tasks:
     description: "Install all tools"
     actions:
       - task: golangci
-      - task: air
-      - task: pnpm
       - task: pre-commit
       - task: oras
 
@@ -16,16 +14,6 @@ tasks:
     description: "Install golangci-lint to GOPATH using install.sh"
     actions:
       - cmd: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.59.1
-
-  - name: air
-    description: "Install air to GOPATH using go install"
-    actions:
-      - cmd: go install github.com/air-verse/air@latest
-
-  - name: pnpm
-    description: "Install pnpm with npm"
-    actions:
-      - cmd: npm install -g pnpm
 
   - name: yamllint
     description: "Install yamllint using venv"

@@ -14,7 +14,7 @@ tasks:
   - name: ui-e2e
     description: "run frontend e2e tests"
     actions:
-      - cmd: npx pnpm i && npm run test:integration
+      - cmd: npm run test:integration
         dir: ui
 
   - name: ui-unit-watch
