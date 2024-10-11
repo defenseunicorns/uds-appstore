@@ -3,6 +3,7 @@
 
 <script lang="ts">
   import { getAlertColorClasses } from './alertHelpers';
+  import { twMerge } from 'tailwind-merge';
 
   export let color: string = 'dark';
   export let title: string = '';
@@ -16,7 +17,11 @@
   $: colorClasses = getAlertColorClasses(color);
 </script>
 
-<div {id} class="mb-4 rounded-lg {borderClass} p-4 {colorClasses}" role="alert">
+<div
+  {id}
+  class={twMerge(`mb-4 rounded-lg ${borderClass} p-4 ${colorClasses}`, $$props.class)}
+  role="alert"
+>
   <div class="flex items-center gap-3">
     <svg
       xmlns="http://www.w3.org/2000/svg"
