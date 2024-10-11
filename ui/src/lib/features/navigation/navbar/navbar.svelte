@@ -3,6 +3,8 @@
 
 <script lang="ts">
   import { afterUpdate, onMount } from 'svelte';
+  import { Button } from '$lib/components';
+  import { goto } from '$app/navigation';
 
   let navElement: HTMLElement;
 
@@ -28,6 +30,7 @@
 
 <nav
   bind:this={navElement}
+  id="nav"
   class="fixed left-0 right-0 top-0 z-50 h-[var(--navbar-height)] border-b border-gray-200 bg-gray-800 px-6 py-2.5 dark:border-gray-700"
 >
   <div class="flex flex-col items-center justify-between sm:flex-row">
@@ -36,6 +39,10 @@
         <img src="/doug.svg" alt="airgap appstore logo" />
         <span>Airgap App Store</span>
       </a>
+    </div>
+    <div id="navbar-links" class="hidden items-center gap-2 sm:flex sm:gap-4 md:gap-8">
+      <a href="/benefits" class="link !text-white">Why Deploy with UDS?</a>
+      <Button on:click={() => goto('/contact')}>Talk to Mission Expert</Button>
     </div>
   </div>
 </nav>
