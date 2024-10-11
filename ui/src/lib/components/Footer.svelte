@@ -64,7 +64,11 @@
         >
           <div class="text-sm font-semibold uppercase">{section[0]}</div>
           {#each section[1] as link}
-            <a href={link.href} class="link font-normal text-gray-400" target={link.external ? '_blank' : ''}>{link.title}</a>
+            <a
+              href={link.href}
+              class="link font-normal text-gray-400"
+              target={link.external ? '_blank' : ''}>{link.title}</a
+            >
           {/each}
         </div>
       {/each}
