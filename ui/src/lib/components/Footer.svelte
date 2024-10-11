@@ -21,7 +21,7 @@
       { title: 'Contact Us', href: 'https://www.defenseunicorns.com/contactus', external: true }
     ],
     'For Partners': [
-      { title: 'Contact Vendor Relations', href: 'mailto:sam.k@defenseunicorns.com' }
+      { title: 'Contact Vendor Relations', href: 'mailto: airgap-appstore@defenseunicorns.com' }
     ]
   };
 </script>
