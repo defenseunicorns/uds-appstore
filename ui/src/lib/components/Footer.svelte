@@ -29,7 +29,7 @@
 <div id="footer">
   <div
     id="guarantee"
-    class=" flex w-full flex-col items-center justify-center gap-5 bg-[url('/images/doug_world_official_faded.png')] bg-[length:100%_458.084%] bg-[position:-1.761px_-15.844px] bg-no-repeat"
+    class=" lightgray flex w-full flex-col items-center justify-center gap-5 bg-[url('/images/doug_world_official_faded.png')] bg-[length:100%_458.084%] bg-[position:-1.761px_-15.844px] bg-no-repeat"
   >
     <div class="2xl:w-8/10 flex w-11/12 flex-col items-center justify-between sm:flex-row xl:w-4/5">
       <img
