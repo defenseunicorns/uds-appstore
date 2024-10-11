@@ -20,7 +20,7 @@
 </script>
 
 <div
-  class="app-card flex h-[14.25rem] w-full max-w-[16.0625rem] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 py-[20px] shadow dark:border-gray-700 dark:bg-gray-800 md:w-[360px]"
+  class="app-card flex h-[14.25rem] w-[16.0625rem] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 py-[20px] shadow dark:border-gray-700 dark:bg-gray-800"
 >
   <AppCardHeader {app} />
 

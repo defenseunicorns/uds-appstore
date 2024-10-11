@@ -52,11 +52,9 @@
       message={`The search query "${applicationStore.getSearchQuery()}" did not match any known applications.`}
     />
   {:else}
-    <div class="catalog-apps flex flex-wrap justify-center gap-2 md:justify-start md:gap-6">
+    <div class="catalog-apps flex flex-wrap justify-center gap-4 md:justify-start md:gap-6">
       {#each applications as app}
-        <div class="mb-4 w-full sm:w-auto">
-          <AppCard {app} />
-        </div>
+        <AppCard {app} />
       {/each}
     </div>
   {/if}

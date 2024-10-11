@@ -13,7 +13,7 @@
   $: title = app.spec?.title || app.metadata?.name;
 </script>
 
-<div class="app-card-header flex flex-row items-start gap-2">
+<div class="app-card-header flex max-w-full flex-row items-start gap-2 truncate">
   <img src={image} class="app-card-header-icon h-[48px] w-[48px] rounded" alt="App Icon" />
 
   <div class="flex flex-col gap-1">
