@@ -27,7 +27,7 @@
 </script>
 
 <div
-  class="custom-scroll flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-col overflow-y-auto px-24 py-9"
+  class="custom-scroll flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-col items-center overflow-y-auto p-9"
   class:scroll-active={scrolling}
   on:scroll={() => (scrolling = true)}
   on:scrollend={() => (scrolling = false)}
@@ -52,7 +52,9 @@
       message={`The search query "${applicationStore.getSearchQuery()}" did not match any known applications.`}
     />
   {:else}
-    <div class="catalog-apps flex flex-wrap justify-center gap-4 md:justify-start md:gap-6">
+    <div
+      class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+    >
       {#each applications as app}
         <AppCard {app} />
       {/each}
