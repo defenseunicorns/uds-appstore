@@ -1,0 +1,22 @@
+---
+kind: Application
+metadata:
+  name: securecodebox
+spec:
+  title: SecureCodeBox
+  repository: https://github.com/secureCodeBox/secureCodeBox
+  description: |
+    - Continuous Security Testing for Your CI/CD Pipeline
+    - SecureCodeBox is an automated security testing solution designed to integrate into CI/CD pipelines, enabling continuous security assessment throughout the software development lifecycle. It scans applications, APIs, and infrastructure to identify vulnerabilities.
+    - SecureCodeBox ensures that security assessments are consistently performed as part of the development process, helping to catch vulnerabilities early. This helps maintain security standards and improves overall software quality.
+    - SecureCodeBox offers a user-friendly interface for managing and automating security scans, with detailed scan results presented in a dashboard. It supports orchestration and automation through Kubernetes and can be customized for different security needs.
+    - SecureCodeBox integrates with popular security scanners like Nmap, ZAP, and Nikto. It supports Kubernetes environments and integrates seamlessly with various CI/CD tools, providing reports that can be used for continuous monitoring.
+  links:
+    - description: Product Website
+      url: https://www.securecodebox.io/
+    - description: Documentation
+      url: https://www.securecodebox.io/docs/getting-started/installation
+    - description: Helm Chart
+      url: https://github.com/secureCodeBox/helm-charts
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-securecodebox
