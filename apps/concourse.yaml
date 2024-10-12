@@ -1,0 +1,16 @@
+---
+kind: Application
+metadata:
+  name: Concourse CI
+spec:
+  title: Scalable CI/CD Pipelines
+  repository: https://github.com/concourse/concourse
+  description: |
+    Concourse CI is an open-source continuous integration and delivery (CI/CD) system, focused on simplicity, scalability, and automation best practices. It enables users to create, manage, and scale pipelines that integrate seamlessly with various cloud platforms and services, providing a highly visual and declarative workflow management experience.
+  links:
+    - description: Product Website
+      url: https://concourse-ci.org
+    - description: Helm Chart
+      url: https://github.com/concourse/concourse-chart
+    - description: UDS Package Repository
+      url: https://github.com/defenseunicorns/uds-package-concourse
