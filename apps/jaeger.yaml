@@ -17,7 +17,7 @@ spec:
   links:
     - description: Product Website
       url: https://www.jaegertracing.io/
-    - description: Documentation 
+    - description: Documentation
       url: https://www.jaegertracing.io/docs/
     - description: Helm Chart
       url: https://artifacthub.io/packages/helm/jaegertracing/jaeger
