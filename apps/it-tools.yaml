@@ -1,0 +1,22 @@
+---
+kind: Application
+metadata:
+  name: IT Tools
+spec:
+  title: Collection of handy online tools for developers, with great UX.
+  repository: https://github.com/corentinth/it-tools
+  description: |
+    IT Tools is a collection of handy online tools designed specifically for developers and IT professionals,
+    offering an intuitive and user-friendly experience. It includes a variety of essential utilities such as
+    JSON formatting, URL encoding/decoding, and Base64 tools that simplify daily development tasks. Built using
+    Vue.js (Vue 3) with the Naive UI component library, IT Tools is optimized for fast, responsive performance
+    across devices. The platform is continuously updated with new features, and as an open-source project under
+    the MIT license, developers are encouraged to contribute and expand its functionality. All third-party
+    libraries are listed in the package.json file of the repository.
+  links:
+    - description: Product Website
+      url: https://it-tools.tech
+    - description: GitHub Repository
+      url: https://github.com/corentinth/it-tools
+    - description: Package Repository
+      url: https://github.com/corentinth/it-tools/blob/main/package.json
