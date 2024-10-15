@@ -17,10 +17,15 @@
       description = truncateString(app.spec.description, 150);
     }
   }
+
+  const handleClick = () => {
+    goto(`/apps/${app.metadata?.name}`);
+  };
 </script>
 
-<div
-  class="app-card flex h-[14.25rem] w-[16.0625rem] flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 py-[20px] shadow dark:border-gray-700 dark:bg-gray-800"
+<button
+  class="app-card remove-btn-style flex h-[14.25rem] w-[16.0625rem] cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pb-4 pt-5 shadow dark:border-gray-700 dark:bg-gray-800"
+  on:click={handleClick}
 >
   <AppCardHeader {app} />
 
@@ -30,13 +35,7 @@
     </div>
 
     <div class="flex justify-end">
-      <Button
-        size="xs"
-        color="dark"
-        class="dark:text-blue-400"
-        on:click={() => {
-          goto(`/apps/${app.metadata?.name}`);
-        }}
+      <Button size="xs" color="dark" class="dark:text-blue-400" on:click={handleClick}
         ><div class="flex items-center gap-2">
           Learn More
           <ArrowRight />
@@ -44,4 +43,4 @@
       >
     </div>
   </div>
-</div>
+</button>
