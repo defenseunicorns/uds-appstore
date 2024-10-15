@@ -20,12 +20,24 @@ spec:
     and integration with multiple SSO providers.
   icons:
     - src: /images/icons/argocd.svg
+  categories:
+    - Kubernetes (K8s)
+    - IT Management
+    - Software Dev
+    - Productivity
+  keywords:
+    - GitOps
+    - Continuous Delivery
+    - Kubernetes Automation
+    - Declarative Configurations
+    - Multi-Cluster Management
+    - Drift Detection
+    - Rollback Capabilities
+    - RBAC Policies
+    - SSO Integration
+    - Multi-Tenancy
   links:
     - description: Product Website
       url: https://github.com/argoproj/argo-cd
     - description: Documentation
       url: https://argo-cd.readthedocs.io/en/stable/
-    - description: Helm Chart
-      url: https://argoproj.github.io/argo-helm
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-argocd

@@ -1,0 +1,39 @@
+---
+kind: Application
+metadata:
+  name: jaeger
+spec:
+  title: Jaeger
+  repository: https://github.com/jaegertracing/jaeger
+  description: |
+    Jaeger is an open-source end-to-end distributed tracing system, designed for monitoring and troubleshooting the performance of microservices.
+    It helps developers understand how requests propagate through their systems, allowing them to identify bottlenecks, optimize performance, and enhance overall user experience.
+    With Jaeger, organizations can gain insights into their microservices architecture, enabling them to improve application performance and reliability.
+    Its robust tracing capabilities facilitate root cause analysis and help maintain service-level agreements (SLAs).
+    Jaeger offers a user-friendly interface that visualizes traces and spans, allowing users to easily navigate through transactions.
+    Key features include adaptive sampling, support for multiple storage backends, and a rich set of APIs for integration with existing workflows.
+    Jaeger integrates seamlessly with various instrumentation libraries and frameworks, including OpenTelemetry, providing a comprehensive solution for distributed tracing.
+    It also includes components such as the Jaeger Agent, Collector, and Query service for managing traces and visualizing performance metrics.
+  categories:
+    - IT Management
+    - Productivity
+    - Security
+  keywords:
+    - Distributed Tracing
+    - Microservices Monitoring
+    - Performance Optimization
+    - Root Cause Analysis
+    - Service-Level Agreements (SLA)
+    - Trace Visualization
+    - Adaptive Sampling
+    - Storage Backends
+    - API Integration
+    - OpenTelemetry Integration
+    - Jaeger Agent
+    - Jaeger Collector
+    - Performance Metrics
+  links:
+    - description: Product Website
+      url: https://www.jaegertracing.io/
+    - description: Documentation
+      url: https://www.jaegertracing.io/docs/

@@ -8,26 +8,29 @@ spec:
   tagline: |
     **The Complete DevOps Platform**
   description: |
-
     GitLab is one platform that covers 100% of your software development lifecycle with
     issues, code review, CI, CD, and release cycle analytics wrapped into an elegant UI
     so you can improve your team's software development AND accelerate your software
     delivery into critical mission environments.
   icons:
     - src: /images/icons/gitlab.svg
+  categories:
+    - Software Dev
+    - IT Management
+    - Productivity
+    - Security
+    - Collaboration
   keywords:
-    - source-control
-    - ci-cd
-  contractingDetails:
-    pricing:
-      - Free
-      - Bring Your Own License
+    - Full Software Development Lifecycle
+    - CI/CD
+    - Code Review
+    - Release Cycle Analytics
+    - GitLab Integration
+    - Mission-Critical Environments
+    - Workflow Optimization
+    - Software Delivery Acceleration
   links:
     - description: Product Website
       url: https://about.gitlab.com/
     - description: Documentation
       url: https://docs.gitlab.com/
-    - description: Helm Chart
-      url: https://gitlab.com/gitlab-org/charts/gitlab
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-gitlab"

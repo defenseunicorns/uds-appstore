@@ -20,12 +20,24 @@ spec:
     over their infrastructure.
   icons:
     - src: /images/icons/mattermost.svg
+  categories:
+    - Collaboration
+    - Security
+    - IT Management
+    - Productivity
+  keywords:
+    - Secure Collaboration
+    - Self-Hosted Messaging
+    - Data Sovereignty
+    - Team Communication
+    - Customizable Platform
+    - Privacy-Focused
+    - Development Teams
+    - DoD Teams
+    - Internal Collaboration
+    - Infrastructure Control
   links:
     - description: Product Website
       url: https://mattermost.com/
     - description: Documentation
       url: https://docs.mattermost.com/
-    - description: Helm Chart
-      url: https://helm.mattermost.com
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-mattermost"

@@ -1,0 +1,36 @@
+kind: Application
+metadata:
+  name: kiali
+spec:
+  title: Kiali
+  repository: https://github.com/kiali/kiali
+  description: |
+    Observe and Manage Your Service Mesh
+    Kiali is an observability and management tool designed for Istio-based service meshes. It provides insights into the structure, health, and performance of your microservices applications, helping to monitor and troubleshoot complex service mesh environments.
+    Kiali simplifies the management of microservices by offering a clear visualization of service mesh interactions, traffic flow, and service dependencies. This helps to quickly identify issues and ensure the stability and reliability of microservices applications.
+    Kiali includes a user-friendly dashboard with visual representations of service mesh topologies, detailed metrics, tracing capabilities, and traffic policies. It allows users to monitor application health, view performance metrics, and configure service mesh settings directly from the interface.
+    Kiali integrates seamlessly with Istio, Jaeger for distributed tracing, Prometheus for metrics collection, and Grafana for enhanced data visualization. It is designed to run in Kubernetes environments alongside Istio service meshes.
+  categories:
+    - IT Management
+    - Kubernetes (K8s)
+    - Networking
+    - Productivity
+  keywords:
+    - Service Mesh
+    - Istio
+    - Microservices Observability
+    - Microservices Management
+    - Traffic Flow Visualization
+    - Service Dependencies
+    - Performance Metrics
+    - Tracing Capabilities
+    - Jaeger Integration
+    - Prometheus Integration
+    - Grafana Integration
+    - Kubernetes
+    - Service Mesh Topology
+  links:
+    - description: Product Website
+      url: https://kiali.io/
+    - description: Documentation
+      url: https://kiali.io/docs/

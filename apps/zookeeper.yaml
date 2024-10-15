@@ -14,12 +14,27 @@ spec:
 
 
     ZooKeeper integrates seamlessly with various distributed systems and is commonly used in conjunction with Apache Hadoop, Apache Kafka, and other big data technologies. It includes client libraries for multiple programming languages, allowing easy integration into diverse application ecosystems. ZooKeeper's architecture supports high availability through replication and can scale to handle large clusters, making it suitable for both small-scale development and large production environments.
+  categories:
+    - Databases
+    - IT Management
+    - Networking
+  keywords:
+    - Distributed Systems
+    - Centralized Management
+    - Configuration Management
+    - Distributed Synchronization
+    - Naming Services
+    - Group Services
+    - High Availability
+    - Replication
+    - Apache Hadoop Integration
+    - Apache Kafka Integration
+    - Big Data Technologies
+    - Client Libraries
+    - Scalable Architecture
+    - Distributed Coordination
   links:
     - description: Product Website
       url: https://zookeeper.apache.org/
     - description: Documentation
       url: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
-    - description: Helm Chart
-      url: https://artifacthub.io/packages/helm/bitnami/zookeeper
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-zookeeper"
