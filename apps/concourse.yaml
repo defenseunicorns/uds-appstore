@@ -14,4 +14,3 @@ spec:
       url: https://github.com/concourse/concourse-chart
     - description: UDS Package Repository
       url: https://github.com/defenseunicorns/uds-package-concourse
-
