@@ -94,6 +94,26 @@
               <QuestionMarkIcon />
             </div>
             <div class="flex flex-1 pe-2">
+              How does deploying applications with UDS accelerate the ATO process?
+            </div>
+          </div></span
+        >
+        <p class="text-gray-500 dark:text-gray-400">
+          UDS accelerates the Authorization to Operate (ATO) process by utilizing automated security
+          checks, pre-configured compliance with NIST SP 800-53 controls, and a continuous
+          monitoring approach. This reduces the manual documentation and validation steps typically
+          involved in ATO, significantly cutting down the time to deployment while ensuring security
+          compliance. We accelerate not only your initial ATO but also ensure continuous
+          deployment by automating security validations as part of the delivery process.
+        </p>
+      </AccordionItem>
+      <AccordionItem>
+        <span slot="header" class="w-full text-white">
+          <div class="flex items-center gap-2">
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
               How would deploying an application with UDS impact security posture?
             </div>
           </div></span
