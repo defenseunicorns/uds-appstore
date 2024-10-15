@@ -16,11 +16,11 @@ spec:
 
     UI for Apache Kafka includes support for multi-cluster management, performance monitoring with a metrics dashboard, and configurable authentication options such as Github/Gitlab/Google OAuth 2.0. It offers compatibility with various schema registry types (Avro, JSON Schema, and Protobuf) and can be deployed locally or in the cloud using Docker containers or Helm charts for Kubernetes environments.
   categories:
-  - IT Management
-  - Kubernetes (K8s)
-  - Databases
-  - Productivity
-  - Networking
+    - IT Management
+    - Kubernetes (K8s)
+    - Databases
+    - Productivity
+    - Networking
   keywords:
     - Apache Kafka
     - Monitoring

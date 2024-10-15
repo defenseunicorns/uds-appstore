@@ -16,11 +16,11 @@ spec:
 
     Bitbucket integrates seamlessly with Jira for issue tracking, Confluence for documentation, and supports a wide range of third-party tools for AI code generation, security, testing, and monitoring. It includes Atlassian Intelligence features in its Premium tier and offers migration tools for users transitioning from Bitbucket Server or Data Center to the cloud version. Additionally, it provides APIs for custom integrations to meet specific organizational needs.
   categories:
-  - Software Dev
-  - IT Management
-  - Productivity
-  - Security
-  - Collaboration
+    - Software Dev
+    - IT Management
+    - Productivity
+    - Security
+    - Collaboration
   keywords:
     - Version Control
     - CI/CD
