@@ -10,7 +10,7 @@
 
 
   <div id="container" class="flex w-[90rem] justify-center">
-    <div id="grid" class="grid grid-cols-2 gap-16 pb-24 pt-16">
+    <div id="grid" class="grid grid-cols-1 xl:grid-cols-2 gap-16 pb-24 ">
       <div id="left-panel" class="w-[38rem]">
         <div id="left-panel-header" class="flex flex-col gap-4 pb-4">
           <div class="text-4xl font-extrabold leading-tight">
