@@ -2,21 +2,24 @@
   import Accordion from '$lib/components/Accordion/Accordion.svelte';
   import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
   import QuestionMarkIcon from '$lib/features/uds/QuestionMarkIcon.svelte';
-  import { Button } from '$lib/components';
 </script>
 
-<div class=" flex w-[90rem] flex-col items-center gap-12 bg-gray-800 py-24">
+<div class=" flex w-full flex-col items-center gap-12 bg-gray-800 px-6 py-12 md:w-[90rem] md:py-24">
   <div id="faq-title" class=" text-4xl font-extrabold leading-tight">
     Frequently asked questions
   </div>
 
   <div class="faq">
-    <Accordion flush class="w-[43.4375rem]">
+    <Accordion flush class="w-full  md:w-[43.4375rem]">
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            What does it mean that applications are pre-integrated into UDS?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
+              What does it mean that applications are pre-integrated into UDS?
+            </div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -30,10 +33,14 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Do UDS applications require additional work to configure for deployment?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
+              Do UDS applications require additional work to configure for deployment?
+            </div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -45,10 +52,12 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Can UDS be deployed into any mission environment?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">Can UDS be deployed into any mission environment?</div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -62,10 +71,12 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Does UDS follow the DoD DevSecOps Reference Design?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">Does UDS follow the DoD DevSecOps Reference Design?</div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -77,10 +88,14 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            How would deploying an application with UDS impact security posture?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
+              How would deploying an application with UDS impact security posture?
+            </div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -92,10 +107,12 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Is SLA support for UDS available?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">Is SLA support for UDS available?</div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -131,10 +148,14 @@
         your mission parameters.
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Do the applications & services that are included with UDS cost extra?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
+              Do the applications & services that are included with UDS cost extra?
+            </div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -147,10 +168,14 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Can I deploy an app on UDS that is not currently in the app store?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">
+              Can I deploy an app on UDS that is not currently in the app store?
+            </div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">
@@ -162,10 +187,12 @@
         </p>
       </AccordionItem>
       <AccordionItem>
-        <span slot="header" class="text-white">
+        <span slot="header" class="w-full text-white">
           <div class="flex items-center gap-2">
-            <QuestionMarkIcon />
-            Is UDS an extension of Platform One’s Big Bang?
+            <div class="max-sm:w-1/12">
+              <QuestionMarkIcon />
+            </div>
+            <div class="flex flex-1 pe-2">Is UDS an extension of Platform One’s Big Bang?</div>
           </div></span
         >
         <p class="text-gray-500 dark:text-gray-400">

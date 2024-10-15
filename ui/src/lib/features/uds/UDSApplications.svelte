@@ -17,7 +17,7 @@
   ];
 </script>
 
-<div id="uds-apps" class="grid grid-cols-2 gap-3.5">
+<div id="uds-apps" class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
   {#each apps as app}
     <div class="flex items-center gap-2.5">
       <svg

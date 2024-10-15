@@ -1,3 +1,7 @@
+<!--This code comes from flowbite-svelte
+https://github.com/themesberg/flowbite-svelte
+-->
+
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
   import { getContext, onMount } from 'svelte';
@@ -51,6 +55,8 @@
   let inactiveCls = twMerge(inactiveClass, classInactive);
 
   // make a custom transition function that returns the desired transition
+  // This code comes from flowbite-svelte - not modifying typing
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const multiple = (node: HTMLElement, params: any) => {
     switch (transitionType) {
       case 'blur':
@@ -80,6 +86,7 @@
     return selected.subscribe((x) => (open = x === self));
   });
 
+  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   const handleToggle = (_: Event) => selected.set(open ? {} : self);
 
   let buttonClass: string;

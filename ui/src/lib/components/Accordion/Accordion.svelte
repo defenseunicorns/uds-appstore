@@ -1,52 +1,60 @@
-<script context="module" lang="ts">
-    import { writable, type Writable } from 'svelte/store';
+<!--This code comes from flowbite-svelte
+https://github.com/themesberg/flowbite-svelte
+-->
 
-    export interface AccordionCtxType {
-        flush: boolean | undefined;
-        activeClass: string;
-        inactiveClass: string;
-        selected?: Writable<object>;
-        classActive?: string;
-        classInactive?: string;
-    }
+<!--This code comes from flowbite-svelte - not modifying typing-->
+<!-- eslint-disable no-unused-vars, no-undef, no-explicit-any -->
+<script context="module" lang="ts">
+  import { writable, type Writable } from 'svelte/store';
+
+  export interface AccordionCtxType {
+    flush: boolean | undefined;
+    activeClass: string;
+    inactiveClass: string;
+    selected?: Writable<object>;
+    classActive?: string;
+    classInactive?: string;
+  }
 </script>
 
 <script lang="ts">
-    import Frame from '$lib/utils/Frame.svelte';
-    import { twMerge } from 'tailwind-merge';
-    import { setContext, type ComponentProps } from 'svelte';
+  import Frame from '$lib/utils/Frame.svelte';
+  import { twMerge } from 'tailwind-merge';
+  import { setContext, type ComponentProps } from 'svelte';
 
-    interface $$Props extends ComponentProps<Frame> {
-        multiple?: boolean;
-        flush?: boolean;
-        activeClass?: string;
-        inactiveClass?: string;
-        defaultClass?: string;
-        classActive?: string;
-        classInactive?: string;
-    }
+  interface $$Props extends ComponentProps<Frame> {
+    multiple?: boolean;
+    flush?: boolean;
+    activeClass?: string;
+    inactiveClass?: string;
+    defaultClass?: string;
+    classActive?: string;
+    classInactive?: string;
+  }
 
-    export let multiple: $$Props['multiple'] = false;
-    export let flush: $$Props['flush'] = false;
-    export let activeClass: $$Props['activeClass'] = 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800';
-    export let inactiveClass: $$Props['inactiveClass'] = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:dark:bg-gray-800';
-    export let defaultClass: $$Props['defaultClass'] = 'text-gray-500 dark:text-gray-400';
+  export let multiple: $$Props['multiple'] = false;
+  export let flush: $$Props['flush'] = false;
+  export let activeClass: $$Props['activeClass'] =
+    'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800';
+  export let inactiveClass: $$Props['inactiveClass'] =
+    'text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:dark:bg-gray-800';
+  export let defaultClass: $$Props['defaultClass'] = 'text-gray-500 dark:text-gray-400';
 
-    const ctx: AccordionCtxType = {
-        flush,
-        activeClass: twMerge(activeClass, $$props.classActive),
-        inactiveClass: twMerge(inactiveClass, $$props.classInactive),
-        selected: multiple ? undefined : writable()
-    };
+  const ctx: AccordionCtxType = {
+    flush,
+    activeClass: twMerge(activeClass, $$props.classActive),
+    inactiveClass: twMerge(inactiveClass, $$props.classInactive),
+    selected: multiple ? undefined : writable()
+  };
 
-    setContext<AccordionCtxType>('ctx', ctx);
+  setContext<AccordionCtxType>('ctx', ctx);
 
-    let frameClass: string;
-    $: frameClass = twMerge(defaultClass, $$props.class);
+  let frameClass: string;
+  $: frameClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <Frame {...$$restProps} class={frameClass} color="none">
-    <slot />
+  <slot />
 </Frame>
 
 <!--
