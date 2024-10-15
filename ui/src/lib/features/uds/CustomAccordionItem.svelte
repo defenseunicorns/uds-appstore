@@ -7,7 +7,7 @@
 </script>
 
 <AccordionItem>
-  <span slot="header" class="w-full text-white">
+  <span id="accordion-item-header" slot="header" class="w-full text-white">
     <div class="flex items-center gap-2">
       <div class="max-sm:w-1/12">
         <QuestionMarkIcon />

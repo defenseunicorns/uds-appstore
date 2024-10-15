@@ -4,6 +4,7 @@
   import FeatureContent from '$lib/features/uds/FeatureContent.svelte';
   import { Button } from '$lib/components';
   import UDSApplications from '$lib/features/uds/UDSApplications.svelte';
+  import { goto } from '$app/navigation';
 
   const iconClass = 'h-6 w-6 text-gray-500 dark:text-gray-400';
 </script>
@@ -59,7 +60,7 @@
 
         <UDSApplications />
 
-        <Button>Talk to a Mission Expert</Button>
+        <Button on:click={() => goto('/contact')}>Talk to a Mission Expert</Button>
       </div>
     </div>
   </div>

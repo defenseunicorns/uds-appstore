@@ -3,7 +3,7 @@
   import FAQ from '$lib/features/uds/FAQ.svelte';
 </script>
 
-<div class="flex w-full flex-col items-center pb-12 pt-8 md:pb-24 lg:pt-16">
+<div id="uds-page-container" class="flex w-full flex-col items-center pb-12 pt-8 md:pb-24 lg:pt-16">
   <Applications />
   <FAQ />
 </div>
