@@ -21,15 +21,34 @@ spec:
     seamlessly with popular CI/CD tools like Jenkins, Atlassian Bamboo, and CircleCI,
     as well as various package managers including Maven, npm, Docker, and PyPi,
     making it a versatile solution for DevOps workflows.
-
   icons:
     - src: /images/icons/nexus.svg
+  categories:
+    - Software Dev
+    - IT Management
+    - Productivity
+  keywords:
+    - Binary Management
+    - Artifact Management
+    - Package Formats
+    - CI/CD Integration
+    - Caching Artifacts
+    - Private Repositories
+    - Proxy Repositories
+    - Global Component Search
+    - Repository Health Checks
+    - Maven
+    - npm
+    - Docker
+    - PyPi
+    - Jenkins Integration
+    - Atlassian Bamboo Integration
+    - CircleCI Integration
+    - DevOps Workflows
+    - Highly Available Clusters
+    - Edge Nodes
   links:
     - description: Product Website
       url: https://www.sonatype.com/products/sonatype-nexus-repository
     - description: Documentation
       url: https://help.sonatype.com/en/sonatype-nexus-repository.html
-    - description: Helm Chart
-      url: https://repo1.dso.mil/big-bang/product/packages/nexus
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-nexus

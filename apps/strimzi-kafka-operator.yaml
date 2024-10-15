@@ -10,12 +10,23 @@ spec:
     Strimzi is a powerful tool that enables running and managing Apache Kafka clusters on Kubernetes. It provides a flexible and scalable solution for deploying Kafka in various configurations, from quick development setups to production-ready environments.
 
     Strimzi simplifies Kafka deployment and management on Kubernetes, offering features like rack awareness for high availability and easy scaling. It also provides seamless integration with existing Kubernetes processes and tools, allowing users to manage complete Kafka applications using familiar workflows.
+  categories:
+    - Kubernetes (K8s)
+    - Databases
+    - IT Management
+    - Networking
+  keywords:
+    - Apache Kafka
+    - Kubernetes Integration
+    - Kafka Clusters
+    - High Availability
+    - Rack Awareness
+    - Scalable Kafka Deployments
+    - Kubernetes Workflows
+    - Kafka Management
+    - Production-Ready Environments
   links:
     - description: Product Website
       url: https://strimzi.io/
     - description: Documentation
       url: https://strimzi.io/documentation/
-    - description: Helm Chart
-      url: https://quay.io/strimzi-helm/strimzi-kafka-operator
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-strimzi-kafka-operator

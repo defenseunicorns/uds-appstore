@@ -15,16 +15,25 @@ spec:
     test your applications before taking them to production. This image bundles
     the latest versions of community-recommended plugins, including pipelines and
     Git integration.
-  keywords:
-    - ci-cd
   icons:
     - src: /images/icons/jenkins.svg
+  categories:
+    - Software Dev
+    - IT Management
+    - Productivity
+  keywords:
+    - Automation Server
+    - CI/CD
+    - Multi-Platform Support
+    - Build Automation
+    - Testing Automation
+    - Deployment Automation
+    - Pipeline Management
+    - Git Integration
+    - Community Plugins
+    - Web Interface
   links:
     - description: Product Website
       url: https://www.jenkins.io
     - description: Documentation
       url: https://www.jenkins.io/doc/
-    - description: Helm Chart
-      url: https://charts.jenkins.io
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-jenkins"

@@ -15,15 +15,25 @@ spec:
     streamline their workflows and deliver high-quality software faster.
   icons:
     - src: /images/icons/gitlab-runner.svg
+  categories:
+    - Software Dev
+    - IT Management
+    - Kubernetes (K8s)
+    - Productivity
+
   keywords:
-    - source-control
-    - ci-cd
+    - CI/CD Pipelines
+    - Automation
+    - GitLab Integration
+    - Docker Containers
+    - Kubernetes Clusters
+    - Scalable Architecture
+    - Multi-Language Support
+    - Workflow Streamlining
+    - Continuous Integration
+    - Continuous Deployment
   links:
     - description: Product Website
       url: https://about.gitlab.com/
     - description: Documentation
       url: https://docs.gitlab.com/runner/
-    - description: Helm Chart
-      url: https://gitlab.com/gitlab-org/charts/gitlab-runner
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-gitlab"
