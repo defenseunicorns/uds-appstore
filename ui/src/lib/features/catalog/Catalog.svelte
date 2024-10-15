@@ -7,6 +7,7 @@
   import { applicationStore } from '$lib/stores';
   import type { Application } from '$lib/types';
   import { onMount } from 'svelte';
+  import CatalogHeader from '$lib/features/catalog/CatalogHeader.svelte';
 
   let isLoading = true;
   let error: string | undefined;
@@ -26,17 +27,15 @@
   });
 </script>
 
+<!--Note- padding right adjusted separately to account for scrollbar-->
 <div
-  class="custom-scroll flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-col overflow-y-auto px-24 py-9"
+  class="custom-scroll flex h-full max-h-[calc(100vh-var(--navbar-height))] flex-col items-center overflow-y-auto py-9 pl-9 pr-[28px]"
   class:scroll-active={scrolling}
   on:scroll={() => (scrolling = true)}
   on:scrollend={() => (scrolling = false)}
 >
-  <div class="mb-8">
-    <div class="text-2xl font-semibold leading-9">Applications Deployable on UDS</div>
-    <div class="text-lg font-normal">
-      Secure mission applications that can be deployed anywhere with Unicorn Delivery Service.
-    </div>
+  <div class="flex w-full justify-center">
+    <CatalogHeader />
   </div>
   {#if isLoading}
     <div class="flex h-full items-center justify-center">
@@ -52,7 +51,7 @@
       message={`The search query "${applicationStore.getSearchQuery()}" did not match any known applications.`}
     />
   {:else}
-    <div class="catalog-apps flex flex-wrap justify-center gap-4 md:justify-start md:gap-6">
+    <div class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
       {#each applications as app}
         <AppCard {app} />
       {/each}
