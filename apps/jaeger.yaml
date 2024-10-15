@@ -14,12 +14,26 @@ spec:
     Key features include adaptive sampling, support for multiple storage backends, and a rich set of APIs for integration with existing workflows.
     Jaeger integrates seamlessly with various instrumentation libraries and frameworks, including OpenTelemetry, providing a comprehensive solution for distributed tracing.
     It also includes components such as the Jaeger Agent, Collector, and Query service for managing traces and visualizing performance metrics.
+  categories:
+    - IT Management
+    - Productivity
+    - Security
+  keywords:
+    - Distributed Tracing
+    - Microservices Monitoring
+    - Performance Optimization
+    - Root Cause Analysis
+    - Service-Level Agreements (SLA)
+    - Trace Visualization
+    - Adaptive Sampling
+    - Storage Backends
+    - API Integration
+    - OpenTelemetry Integration
+    - Jaeger Agent
+    - Jaeger Collector
+    - Performance Metrics
   links:
     - description: Product Website
       url: https://www.jaegertracing.io/
     - description: Documentation
       url: https://www.jaegertracing.io/docs/
-    - description: Helm Chart
-      url: https://artifacthub.io/packages/helm/jaegertracing/jaeger
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-jaeger

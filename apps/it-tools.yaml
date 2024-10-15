@@ -13,10 +13,23 @@ spec:
     across devices. The platform is continuously updated with new features, and as an open-source project under
     the MIT license, developers are encouraged to contribute and expand its functionality. All third-party
     libraries are listed in the package.json file of the repository.
+  categories:
+    - Software Dev
+    - Productivity
+    - Web
+  keywords:
+    - Developer Tools
+    - IT Tools
+    - JSON Formatting
+    - URL Encoding/Decoding
+    - Base64 Tools
+    - Vue.js
+    - Naive UI
+    - Open Source
+    - MIT License
+    - Fast Performance
+    - Responsive Design
+    - Third-Party Libraries
   links:
     - description: Product Website
       url: https://it-tools.tech
-    - description: GitHub Repository
-      url: https://github.com/corentinth/it-tools
-    - description: Package Repository
-      url: https://github.com/corentinth/it-tools/blob/main/package.json

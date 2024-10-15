@@ -6,18 +6,38 @@ spec:
   title: Wiki.js
   repository: https://github.com/Requarks/wiki
   description: |
-    - The most powerful and extensible open-source Wiki software.
-    - Wiki.js makes documentation a joy to write with its beautiful and intuitive interface, built for speed and flexibility. It allows users to create and manage wikis effortlessly.
-    - Key benefits include a blazing fast performance using the Node.js engine and the ability to deploy on almost any platform. Whether for personal use or enterprise, Wiki.js scales intelligently and securely.
-    - The user interface offers a clean, customizable experience with light and dark modes. The admin area is extensive yet intuitive, giving users full control over all aspects of the wiki.
-    - Wiki.js includes robust integration options like PostgreSQL, MySQL, MariaDB, MS SQL Server, and SQLite support. It also supports authentication methods such as local, social (Google, Facebook, etc.), and enterprise authentication (LDAP, SAML, and more). Two-factor authentication (2FA) adds an extra layer of security.
-
+    The most powerful and extensible open-source Wiki software.
+    Wiki.js makes documentation a joy to write with its beautiful and intuitive interface, built for speed and flexibility. It allows users to create and manage wikis effortlessly.
+    Key benefits include a blazing fast performance using the Node.js engine and the ability to deploy on almost any platform. Whether for personal use or enterprise, Wiki.js scales intelligently and securely.
+    The user interface offers a clean, customizable experience with light and dark modes. The admin area is extensive yet intuitive, giving users full control over all aspects of the wiki.
+    Wiki.js includes robust integration options like PostgreSQL, MySQL, MariaDB, MS SQL Server, and SQLite support. It also supports authentication methods such as local, social (Google, Facebook, etc.), and enterprise authentication (LDAP, SAML, and more). Two-factor authentication (2FA) adds an extra layer of security.
+  categories:
+    - Web
+    - Productivity
+    - IT Management
+    - Collaboration
+  keywords:
+    - Open-Source Wiki
+    - Documentation
+    - Node.js
+    - Cross-Platform Deployment
+    - Scalable Solution
+    - Customizable Interface
+    - Light/Dark Modes
+    - Database Integration
+    - PostgreSQL
+    - MySQL
+    - MariaDB
+    - MS SQL Server
+    - SQLite
+    - Authentication Options
+    - 2FA
+    - LDAP
+    - SAML
+    - Social Authentication
+    - Enterprise Authentication
   links:
     - description: Product Website
       url: https://js.wiki
     - description: documentation
       url: https://docs.requarks.io/
-    - description: Helm Chart
-      url: https://artifacthub.io/packages/helm/wiki/wiki
-    - description: UDS Package Repository
-      url: https://uds.defenseunicorns.com/packages/wiki
