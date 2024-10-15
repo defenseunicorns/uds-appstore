@@ -1,9 +1,6 @@
 <!--This code comes from flowbite-svelte
 https://github.com/themesberg/flowbite-svelte
 -->
-
-<!--This code comes from flowbite-svelte - not modifying typing-->
-<!-- eslint-disable no-unused-vars, no-undef, no-explicit-any -->
 <script context="module" lang="ts">
   import { writable, type Writable } from 'svelte/store';
 

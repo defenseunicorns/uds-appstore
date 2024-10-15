@@ -7,12 +7,10 @@ test.describe('UDS page', () => {
     const pageContainer = await page.waitForSelector('#uds-page-container', { state: 'visible' });
 
     // Open each accordion to see links
-    await pageContainer.$$eval(
-      '#accordion-item-header',
-      (allHeaders) =>
-        allHeaders.forEach(async (header) => {
-          await header.click();
-        })
+    await pageContainer.$$eval('#accordion-item-header', (allHeaders) =>
+      allHeaders.forEach(async (header) => {
+        await header.click();
+      })
     );
     // Get all links
     const links = await pageContainer.$$eval('a', (allLinks) =>
