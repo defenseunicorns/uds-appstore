@@ -87,6 +87,38 @@ test.describe('Catalog View', () => {
       }
     }
   });
+
+  test('clicking on app card navigates to the app details page', async ({ page }) => {
+    await page.goto('/apps');
+
+    await page.waitForSelector('.app-card', { state: 'visible' });
+
+    const appCards = await page.$$('.app-card');
+    const firstApp = appCards[0];
+    const appTitleElement = await firstApp.$('#app-title');
+    const appTitle = await appTitleElement?.innerHTML();
+    if (!appTitle) throw new Error('app title not found');
+    await appCards[0].click();
+
+    await expect(page).toHaveURL(`/apps/${appTitle.toLowerCase()}`);
+  });
+
+  test('clicking on Learn More btn navigates to the app details page', async ({ page }) => {
+    await page.goto('/apps');
+
+    await page.waitForSelector('.app-card', { state: 'visible' });
+
+    const appCards = await page.$$('.app-card');
+    const firstApp = appCards[0];
+    const appTitleElement = await firstApp.$('#app-title');
+    const appTitle = await appTitleElement?.innerHTML();
+    if (!appTitle) throw new Error('app title not found');
+    const learnMoreButton = await firstApp.$('text="Learn More"');
+    if (!learnMoreButton) throw new Error('button not found');
+    await learnMoreButton.click();
+
+    await expect(page).toHaveURL(`/apps/${appTitle.toLowerCase()}`);
+  });
 });
 
 test.describe('Sidebar', () => {
