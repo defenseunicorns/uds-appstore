@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.0](https://github.com/defenseunicorns/uds-appstore/compare/v0.2.0...v0.3.0) (2024-10-15)
+
+
+### Features
+
+* **ui:** catalog header and styling ([#309](https://github.com/defenseunicorns/uds-appstore/issues/309)) ([d666b54](https://github.com/defenseunicorns/uds-appstore/commit/d666b54c8fda19b85cd7c10eb7fa935d1f18dcdc))
+* **ui:** footer ([#303](https://github.com/defenseunicorns/uds-appstore/issues/303)) ([768592e](https://github.com/defenseunicorns/uds-appstore/commit/768592e114aa0038043396d0ce8f25acc9ab1ccc))
+* **ui:** navbar buttons ([#304](https://github.com/defenseunicorns/uds-appstore/issues/304)) ([ef00279](https://github.com/defenseunicorns/uds-appstore/commit/ef0027910f514432cacc41e940c20f14aadc6fa9))
+* **ui:** sidebar updates ([#296](https://github.com/defenseunicorns/uds-appstore/issues/296)) ([facdd36](https://github.com/defenseunicorns/uds-appstore/commit/facdd364a309b2c170140d48e41f9e530728aa3a))
+
+
+### Miscellaneous
+
+* increase replica count ([#320](https://github.com/defenseunicorns/uds-appstore/issues/320)) ([55b89d5](https://github.com/defenseunicorns/uds-appstore/commit/55b89d5e8e1aeccfd4c852686daa42052d172037))
+* **ui:** more card updates ([#312](https://github.com/defenseunicorns/uds-appstore/issues/312)) ([b621f32](https://github.com/defenseunicorns/uds-appstore/commit/b621f328079daf6d952d115494ac4fae9aa14b24))
+* **ui:** new catalog card style ([#305](https://github.com/defenseunicorns/uds-appstore/issues/305)) ([a0c67f1](https://github.com/defenseunicorns/uds-appstore/commit/a0c67f15cfd254b6105d96b39d0eca0320f5f045))
+* **ui:** remove light mode ([#297](https://github.com/defenseunicorns/uds-appstore/issues/297)) ([58f3a63](https://github.com/defenseunicorns/uds-appstore/commit/58f3a6335996698e92780ec7b42a2e05edbc40c8))
+* update app metadata ([#321](https://github.com/defenseunicorns/uds-appstore/issues/321)) ([b919f2e](https://github.com/defenseunicorns/uds-appstore/commit/b919f2e1bb44567c1f3b3bf0f37f99f6c213f02d))
+
 ## [0.2.0](https://github.com/defenseunicorns/uds-appstore/compare/v0.1.2...v0.2.0) (2024-10-08)
 
 
