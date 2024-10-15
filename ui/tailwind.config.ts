@@ -8,6 +8,7 @@ export default {
   theme: {
     fontFamily: {
       body: [
+          'Inter',
         'Montserrat',
         'ui-sans-serif',
         'system-ui',
@@ -25,6 +26,7 @@ export default {
         'Noto Color Emoji'
       ],
       sans: [
+          'Inter',
         'Montserrat',
         'ui-sans-serif',
         'system-ui',

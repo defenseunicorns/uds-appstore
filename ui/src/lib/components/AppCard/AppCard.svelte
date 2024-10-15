@@ -30,7 +30,7 @@
   <AppCardHeader {app} />
 
   <div class="flex flex-1 flex-col justify-between">
-    <div class="app-card-description mt-3 flex text-xs dark:text-gray-300">
+    <div class="app-card-description mt-3 flex text-xs leading-[150%] dark:text-gray-300">
       <SvelteMarkdown source={description} />
     </div>
 
