@@ -7,11 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@fontsource/inter':
         specifier: ^5.1.0
         version: 5.1.0
-    devDependencies:
       '@kubernetes/client-node':
         specifier: 1.0.0-rc6
         version: 1.0.0-rc6

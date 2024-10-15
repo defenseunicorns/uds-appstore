@@ -24,7 +24,7 @@
 </script>
 
 <button
-  class="app-card remove-btn-style flex h-[14.25rem] w-[16.0625rem] cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pt-5 pb-4 shadow dark:border-gray-700 dark:bg-gray-800"
+  class="app-card remove-btn-style flex h-[14.25rem] w-[16.0625rem] cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pb-4 pt-5 shadow dark:border-gray-700 dark:bg-gray-800"
   on:click={handleClick}
 >
   <AppCardHeader {app} />

@@ -34,6 +34,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-svelte": "2.43.0",
     "flowbite": "2.4.1",
+    "@fontsource/inter": "^5.1.0",
     "globals": "15.8.0",
     "jsdom": "24.1.1",
     "minisearch": "7.1.0",
@@ -53,8 +54,5 @@
     "vite": "5.3.4",
     "vitest": "2.0.4"
   },
-  "type": "module",
-  "dependencies": {
-    "@fontsource/inter": "^5.1.0"
-  }
+  "type": "module"
 }
