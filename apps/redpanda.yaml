@@ -16,12 +16,22 @@ spec:
     latencies for mission-critical data environments.
   icons:
     - src: /images/icons/redpanda.svg
+  categories:
+    - Databases
+    - IT Management
+    - Networking
+  keywords:
+    - Kafka-Compatible
+    - Streaming Data
+    - Real-Time Data Processing
+    - Data-Intensive Applications
+    - Scalability
+    - Low Latency
+    - Mission-Critical Data
+    - Cost Reduction
+    - Data Streams
   links:
     - description: Product Website
       url: https://www.redpanda.com/
     - description: Documentation
       url: https://docs.redpanda.com/home/
-    - description: Helm Chart
-      url: https://charts.redpanda.com/
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-redpanda

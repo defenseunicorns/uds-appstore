@@ -17,10 +17,24 @@ spec:
     in-place with an expressive collection of commands.
   icons:
     - src: /images/icons/valkey.svg
+  categories:
+    - Databases
+    - IT Management
+  keywords:
+    - Key/Value Datastore
+    - High Performance
+    - Caching
+    - Message Queues
+    - Primary Database
+    - Replication
+    - High Availability
+    - Data Structures
+    - In-Place Operations
+    - Clustering
+    - Rich Datatypes
+    - Open Source
   links:
     - description: Product Website
       url: https://valkey.io/
     - description: Documentation
       url: https://valkey.io/docs/
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-valkey"

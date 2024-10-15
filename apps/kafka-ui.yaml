@@ -15,12 +15,30 @@ spec:
     The intuitive interface allows users to easily create and configure topics, browse messages with various encoding options, manage consumer groups, and monitor broker status. It also provides dynamic topic configuration, custom serialization/deserialization plugins, role-based access control, and data masking for sensitive information.
 
     UI for Apache Kafka includes support for multi-cluster management, performance monitoring with a metrics dashboard, and configurable authentication options such as Github/Gitlab/Google OAuth 2.0. It offers compatibility with various schema registry types (Avro, JSON Schema, and Protobuf) and can be deployed locally or in the cloud using Docker containers or Helm charts for Kubernetes environments.
+  categories:
+  - IT Management
+  - Kubernetes (K8s)
+  - Databases
+  - Productivity
+  - Networking
+  keywords:
+    - Apache Kafka
+    - Monitoring
+    - Data Flow Management
+    - Multi-Cluster Management
+    - Performance Optimization
+    - Metrics Dashboard
+    - Topic Management
+    - Consumer Group Management
+    - RBAC
+    - Data Masking
+    - OAuth Authentication
+    - Schema Registry Compatibility
+    - Docker Deployment
+    - Helm Charts
+    - Cloud Deployment
   links:
     - description: Product Website
       url: https://github.com/provectus/kafka-ui
     - description: Documentation
       url: https://docs.kafka-ui.provectus.io/
-    - description: Helm Chart
-      url: https://kafbat.github.io/helm-charts
-    - description: UDS Package Repository
-      url: https://github.com/defenseunicorns/uds-package-kafka-ui
