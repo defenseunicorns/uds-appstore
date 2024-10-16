@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Accordion from '$lib/components/Accordion/Accordion.svelte';
-  import CustomAccordionItem from '$lib/features/uds/CustomAccordionItem.svelte';
+  import AccordionBlock from '$lib/components/Accordion/AccordionBlock.svelte';
+  import AccordionItemBlock from '$lib/components/Accordion/AccordionItemBlock.svelte';
 
   const faqItems: { question: string; answer: string }[] = [
     {
@@ -36,7 +36,7 @@
     {
       question: 'Is SLA support for UDS available?',
       answer:
-        "Yes, Defense Unicorns provides paid support to DoD missions with an SLA (Service Level Agreement) that meets mission requirements, ensuring that users can receive the necessary technical and operational support to maintain their mission capabilities running on UDS. Our services provide continuous monitoring, technical support, vulnerability management, and education, including: </p> <ul class='ml-8 list-disc'> <li class='text-gray-500 dark:text-gray-400'> <strong>24/7 support for critical issues</strong> to ensure rapid resolution of any high-priority issues. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Live training sessions</strong> to assist users in effectively operating UDS, helping to reduce downtime and operational risks. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Dedicated account management</strong> to provide personalized assistance and ensure the deployment aligns with mission requirements. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>CVE scans, industry leading secure images and risk mitigation</strong> which proactively address security vulnerabilities. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Online or onsite installation and deployment support</strong> to guarantee seamless integration and setup in any environment. </li> </ul> <a href='/contact' style='color: #76a9fa;'>Speak to one of our Mission Experts</a> about how to access an SLA which suits your mission parameters."
+        "Yes, Defense Unicorns provides paid support to DoD missions with an SLA (Service Level Agreement) that meets mission requirements, ensuring that users can receive the necessary technical and operational support to maintain their mission capabilities running on UDS. Our services provide continuous monitoring, technical support, vulnerability management, and education, including: </p> <ul class='ml-8 list-disc'> <li> <strong>24/7 support for critical issues</strong> to ensure rapid resolution of any high-priority issues. </li> <li> <strong>Live training sessions</strong> to assist users in effectively operating UDS, helping to reduce downtime and operational risks. </li> <li > <strong>Dedicated account management</strong> to provide personalized assistance and ensure the deployment aligns with mission requirements. </li> <li > <strong>CVE scans, industry leading secure images and risk mitigation</strong> which proactively address security vulnerabilities. </li> <li > <strong>Online or onsite installation and deployment support</strong> to guarantee seamless integration and setup in any environment. </li> </ul> <a href='/contact' style='color: #76a9fa;'>Speak to one of our Mission Experts</a> about how to access an SLA which suits your mission parameters."
     },
     {
       question: 'Do the applications & services that are included with UDS cost extra?',
@@ -56,21 +56,27 @@
   ];
 </script>
 
-<div class="flex w-full flex-col items-center gap-12 bg-gray-800 px-6 py-12 md:w-[90rem] md:py-24">
-  <div id="faq-title" class=" text-4xl font-extrabold leading-tight">
-    Frequently asked questions
+<section class="bg-white dark:bg-gray-900">
+  <div class="mx-auto w-full md:w-[43.4375rem]">
+    <h2
+      class="mb-6 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white lg:mb-8 lg:text-4xl"
+    >
+      Frequently asked questions
+    </h2>
+
+    <AccordionBlock>
+      {#each faqItems as faqItem, index}
+        <AccordionItemBlock question={faqItem.question} answer={faqItem.answer} {index} />
+      {/each}
+    </AccordionBlock>
+
+    <div class="mt-8 flex w-full justify-center">
+      <a
+        type="button"
+        class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+        target="_blank"
+        href="https://uds.defenseunicorns.com/">View UDS Documentation</a
+      >
+    </div>
   </div>
-
-  <Accordion flush class="w-full  md:w-[43.4375rem]">
-    {#each faqItems as faqItem}
-      <CustomAccordionItem question={faqItem.question} answer={faqItem.answer} />
-    {/each}
-  </Accordion>
-
-  <a
-    type="button"
-    class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
-    target="_blank"
-    href="https://uds.defenseunicorns.com/">View UDS Documentation</a
-  >
-</div>
+</section>
