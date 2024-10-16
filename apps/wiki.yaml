@@ -4,7 +4,7 @@ metadata:
   name: Wiki.js
 spec:
   title: Wiki.js
-  repository: https://github.com/Requarks/wiki
+  repository: ghcr.io/defenseunicorns/packages/uds/wiki
   description: |
     The most powerful and extensible open-source Wiki software.
     Wiki.js makes documentation a joy to write with its beautiful and intuitive interface, built for speed and flexibility. It allows users to create and manage wikis effortlessly.
