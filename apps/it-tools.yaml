@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: IT Tools
 spec:
-  title: Collection of handy online tools for developers, with great UX.
+  title: IT Tools
   repository: https://github.com/corentinth/it-tools
   description: |
     IT Tools is a collection of handy online tools designed specifically for developers and IT professionals,
