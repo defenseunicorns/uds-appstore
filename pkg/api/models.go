@@ -40,16 +40,18 @@ type PackageImage struct {
 }
 
 type ReportByPackage struct {
-	ApplicationName   string
-	PackageRepository string
-	PackageTag        null.String
-	Architecture      null.String
-	Critical          int64
-	High              int64
-	Medium            int64
-	Low               int64
-	Negligible        int64
-	Unknown           int64
+	ApplicationName   string `json:"application_name"`
+	PackageRepository string `json:"package_repository"`
+	PackageTag        string `json:"package_tag"`
+	Architecture      string `json:"architecture"`
+	Critical          int64  `json:"critical"`
+	High              int64  `json:"high"`
+	Medium            int64  `json:"medium"`
+	Low               int64  `json:"low"`
+	Negligible        int64  `json:"negligible"`
+	Info              int64  `json:"info"`
+	Unknown           int64  `json:"unknown"`
+	Total             int64  `json:"total"`
 }
 
 type ReportByPackageImage struct {

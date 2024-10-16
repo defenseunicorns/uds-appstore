@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/coreos/go-semver/semver"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
 
@@ -19,7 +20,7 @@ type Api struct {
 	db *sqlx.DB
 }
 
-func NewRouter(db *sqlx.DB) (chi.Router, error) {
+func NewRouter(db *sqlx.DB) chi.Router {
 	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)
 
 	api := &Api{
@@ -29,9 +30,10 @@ func NewRouter(db *sqlx.DB) (chi.Router, error) {
 	r := chi.NewRouter()
 
 	r.Get("/apps", api.GetApps)
-	r.Get("/apps/:name", api.GetApp)
+	r.Get("/apps/{name}", api.GetApp)
+	r.Get("/apps/{name}/flavors", api.GetAppFlavors)
 
-	return r, nil
+	return r
 }
 
 func (api *Api) GetApps(w http.ResponseWriter, r *http.Request) {
@@ -55,4 +57,33 @@ func (api *Api) GetApp(w http.ResponseWriter, r *http.Request) {
 	}
 
 	render.JSON(w, r, app)
+}
+
+type AppFlavors map[string]ReportByPackage
+
+func (api *Api) GetAppFlavors(w http.ResponseWriter, r *http.Request) {
+	name := chi.URLParam(r, "name")
+	reports := []ReportByPackage{}
+
+	if err := api.db.Select(&reports, `select * from report_by_package where application_name=$1`, name); err != nil {
+		render.Render(w, r, ErrRender(err))
+		return
+	}
+
+	flavors := make(AppFlavors)
+
+	for _, r := range reports {
+		version := semver.New(r.PackageTag)
+		flavor := r.PackageTag[strings.LastIndex(r.PackageTag, "-")+1:]
+
+		if found, ok := flavors[flavor]; ok {
+			if semver.New(found.PackageTag).LessThan(*version) {
+				flavors[flavor] = r
+			}
+		} else {
+			flavors[flavor] = r
+		}
+	}
+
+	render.JSON(w, r, flavors)
 }

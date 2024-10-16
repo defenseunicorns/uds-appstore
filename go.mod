@@ -15,6 +15,7 @@ require (
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
+	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/go-chi/render v1.0.3 // indirect
 	github.com/guregu/null/v5 v5.0.0 // indirect
 	github.com/jmoiron/sqlx v1.4.0 // indirect
