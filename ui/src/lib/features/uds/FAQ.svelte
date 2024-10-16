@@ -21,7 +21,7 @@
     {
       question: 'Does UDS follow the DoD DevSecOps Reference Design?',
       answer:
-        'Yes, UDS adheres to the DoD DevSecOps Reference Design. It follows the DevSecOps principles of integrating security into the entire software lifecycle, automating testing, and ensuring continuous monitoring. UDS incorporates security into development, deployment, and operational processes to align with the DoD’s cybersecurity and software modernization initiatives.'
+        "Yes, UDS adheres to the DoD DevSecOps Reference Design. It follows the DevSecOps principles of integrating security into the entire software lifecycle, automating testing, and ensuring continuous monitoring. UDS incorporates security into development, deployment, and operational processes to align with the DoD's cybersecurity and software modernization initiatives."
     },
     {
       question: 'How does deploying applications with UDS accelerate the ATO process?',
