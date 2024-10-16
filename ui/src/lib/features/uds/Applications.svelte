@@ -32,7 +32,7 @@
         </div>
 
         <div id="feature" class="flex gap-4">
-          <FeatureIcon name="Security"><Rocket class={iconClass} /></FeatureIcon>
+          <FeatureIcon name="Rocket"><Rocket class={iconClass} /></FeatureIcon>
           <FeatureContent
             title="Portable to Any Mission Environment"
             description="UDS is portable, supporting multiple cloud providers, on-prem infrastructure, and tactical edge solutions. With UDS, deploy the same software baseline  across contractor environments, on government systems, unclassified, classified, or even SAP environments."
@@ -40,7 +40,7 @@
         </div>
 
         <div id="feature" class="flex gap-4">
-          <FeatureIcon name="Security"><Unlocked class={iconClass} /></FeatureIcon>
+          <FeatureIcon name="Unlocked"><Unlocked class={iconClass} /></FeatureIcon>
           <FeatureContent
             title="Free of Vendor Lock"
             description="Own your baseline free of vendor lock. Built entirely on open-source capabilities, UDS uses flexible software licenses, allowing continued use of the solution even without a Defense Unicorns contract."
