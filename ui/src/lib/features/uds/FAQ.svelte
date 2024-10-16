@@ -31,7 +31,7 @@
     {
       question: 'How would deploying an application with UDS impact security posture?',
       answer:
-        'Deploying an application with UDS enhances security posture by implementing security controls within every runtime environment. The platform continuously monitors applications, automatically enforces security policies, and integrates tools for vulnerability scanning, ensuring that security risks are mitigated early and throughout the application’s lifecycle.'
+        "Deploying an application with UDS enhances security posture by implementing security controls within every runtime environment. The platform continuously monitors applications, automatically enforces security policies, and integrates tools for vulnerability scanning, ensuring that security risks are mitigated early and throughout the application's lifecycle."
     },
     {
       question: 'Is SLA support for UDS available?',
@@ -49,9 +49,9 @@
         "Yes, you can deploy an application that is not in the UDS app store. UDS supports custom deployments, allowing users to integrate their own applications into the platform, provided they follow the UDS packaging guidelines and are compatible with the underlying Kubernetes environment. If you need help or want to request an application please reach out <a href='/contact' style='color: #76a9fa;'>here</a>."
     },
     {
-      question: 'Is UDS an extension of Platform One’s Big Bang?',
+      question: "Is UDS an extension of Platform One's Big Bang?",
       answer:
-        "Yes, UDS is an extension of Big Bang. UDS builds upon the security posture established by Platform One’s Big Bang, by adding enhanced automation features through the UDS Operator and UDS Policy Engine. While Big Bang focuses on deploying secure, compliant infrastructure, UDS strengthens and extends Big Bang’s functionality, providing more automation and security features specifically tailored for application deployment and policy management. UDS can be found in <a target='_blank' href='https://repo1.dso.mil/platform-one/distros/defense-unicorns/uds-core' style='color: #76a9fa;'>Platform One’s Repo1.</a>"
+        "Yes, UDS is an extension of Big Bang. UDS builds upon the security posture established by Platform One's Big Bang, by adding enhanced automation features through the UDS Operator and UDS Policy Engine. While Big Bang focuses on deploying secure, compliant infrastructure, UDS strengthens and extends Big Bang's functionality, providing more automation and security features specifically tailored for application deployment and policy management. UDS can be found in <a target='_blank' href='https://repo1.dso.mil/platform-one/distros/defense-unicorns/uds-core' style='color: #76a9fa;'>Platform One's Repo1.</a>"
     }
   ];
 </script>
