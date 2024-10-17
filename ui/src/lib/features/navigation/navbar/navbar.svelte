@@ -41,7 +41,7 @@
       </a>
     </div>
     <div id="navbar-links" class="hidden items-center gap-2 sm:flex sm:gap-4 md:gap-8">
-      <a href="/benefits" class="link !text-white">Why Deploy with UDS?</a>
+      <a href="/uds" class="link !text-white">Why Deploy with UDS?</a>
       <Button on:click={() => goto('/contact')}>Talk to Mission Expert</Button>
     </div>
   </div>

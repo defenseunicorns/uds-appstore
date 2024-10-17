@@ -7,7 +7,7 @@
   type Link = { title: string; href: string; external?: boolean };
   const sections: { [category: string]: Link[] } = {
     'For Missions': [
-      { title: 'Benefits of Deploying on UDS', href: '/benefits' },
+      { title: 'Benefits of Deploying on UDS', href: '/uds' },
       {
         title: 'Available Contracting Vehicles',
         href: 'https://www.defenseunicorns.com/contracts',
