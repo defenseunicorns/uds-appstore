@@ -8,19 +8,18 @@
   const toggle = () => {
     open = !open;
   };
-
 </script>
 
 <h2 id={`accordion-flush-heading-${index}`}>
   <button
     type="button"
-    class="flex w-full items-center justify-between border-b border-gray-200 bg-white py-5 text-left font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+    class="flex w-full items-center justify-between border-b border-gray-700 bg-gray-900 py-5 text-left font-medium"
     data-accordion-target={`#accordion-flush-body-${index}`}
     aria-expanded="true"
     aria-controls={`accordion-flush-body-${index}`}
     on:click={toggle}
   >
-    <div class="flex items-center">
+    <div class="flex items-center text-white">
       <svg
         class="mr-2 h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-400"
         fill="currentColor"
@@ -56,7 +55,8 @@
     aria-labelledby={`accordion-flush-heading-${index}`}
     transition:slide
   >
-    <div class="border-b border-gray-200 py-5 dark:border-gray-700">
+    <div class="border-b border-gray-200 py-5 text-gray-400 dark:border-gray-700">
+      <!--eslint-disable-next-line svelte/no-at-html-tags -- Content here is static and trusted-->
       {@html answer}
     </div>
   </div>
