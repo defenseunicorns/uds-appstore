@@ -6,19 +6,19 @@ import (
 	"os"
 	"strings"
 
-	"github.com/defenseunicorns/uds-appstore/pkg/types"
+	"github.com/defenseunicorns/uds-appstore/pkg/api"
 	"github.com/invopop/jsonschema"
 )
 
 // AppstoreGenTypes is a struct that contains all the types that need to be included in the schema
 type AppstoreGenTypes struct {
-	Application types.Application
+	Application api.Application
 }
 
 // generateSchema generates the schema based on the provided type and adds enum definitions
 func generateSchema(schemaType string) ([]byte, error) {
 	reflector := &jsonschema.Reflector{
-		AllowAdditionalProperties:  true,
+		AllowAdditionalProperties:  false,
 		RequiredFromJSONSchemaTags: true,
 	}
 	var schema *jsonschema.Schema
@@ -26,7 +26,7 @@ func generateSchema(schemaType string) ([]byte, error) {
 	case "all":
 		schema = reflector.Reflect(&AppstoreGenTypes{})
 	case "application":
-		schema = reflector.Reflect(&types.Application{})
+		schema = reflector.Reflect(&api.Application{})
 
 	default:
 		return nil, fmt.Errorf("invalid schema type: %s", schemaType)

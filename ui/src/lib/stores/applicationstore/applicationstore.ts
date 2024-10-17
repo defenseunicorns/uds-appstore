@@ -26,7 +26,8 @@ export type SelectedFilters = Map<string, string[]>;
 function extractField(application: Application, fieldName: string): string {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getValue = (obj: Application, path: string[]): any => {
-    return path.reduce((acc, part) => acc && acc[part], obj);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return path.reduce((acc: any, part) => acc && acc[part], obj);
   };
 
   const fieldPath = fieldName.split('.');
@@ -58,35 +59,33 @@ class ApplicationStore {
     });
 
     this.miniSearch = new MiniSearch({
-      idField: 'metadata.name',
+      idField: 'name',
       fields: [
-        'kind',
-        'metadata.name',
-        'spec.title',
-        'spec.tagline',
-        'spec.description',
-        'spec.architecture',
-        'spec.categories',
-        'spec.contractingDetails.number',
-        'spec.contractingDetails.pricingModel',
-        'spec.contractingDetails.smallBusinessStatus',
-        'spec.contractingDetails.vehicle',
-        'spec.infrastructure',
-        'spec.keywords',
-        'spec.repository',
-        'spec.security.impactLevel',
-        'spec.vendor.name',
-        'spec.vendor.url',
-        'spec.versions'
+        'name',
+        'title',
+        'tagline',
+        'description',
+        'architecture',
+        'contractingDetails.number',
+        'contractingDetails.pricingModel',
+        'contractingDetails.smallBusinessStatus',
+        'contractingDetails.vehicle',
+        'infrastructure',
+        'keywords',
+        'repository',
+        'security.impactLevel',
+        'vendor.name',
+        'vendor.url',
+        'versions'
       ],
       extractField: extractField,
       searchOptions: {
         boost: {
-          'spec.title': 2,
-          'spec.tagline': 2,
-          'spec.description': 2,
-          'spec.categories': 2,
-          'spec.vendor.name': 2
+          'title': 2,
+          'tagline': 2,
+          'description': 2,
+          'keywords': 2,
+          'vendor.name': 2
         }
       }
     });
@@ -177,8 +176,8 @@ class ApplicationStore {
       catalog.filteredApplications = applications;
       catalog.appMap.clear();
       applications.forEach((application) => {
-        if (application.metadata && application.metadata.name) {
-          catalog.appMap.set(application.metadata.name, application);
+        if (application?.name) {
+          catalog.appMap.set(application.name, application);
         }
       });
       return catalog;
@@ -215,8 +214,8 @@ class ApplicationStore {
         });
         results.forEach((result) => {
           const application = this.getAppByName(result.id);
-          if (application && application.metadata && application.metadata.name) {
-            filteredMap.set(application.metadata.name, application);
+          if (application?.name) {
+            filteredMap.set(application.name, application);
           }
         });
       }
@@ -239,7 +238,7 @@ class ApplicationStore {
     });
 
     try {
-      const response = await fetch('/api/apps/index.json');
+      const response = await fetch('/api/apps');
       if (response.ok) {
         let applications: Application[] = await response.json();
         applications = sortApplicationsAlphabetically(applications);

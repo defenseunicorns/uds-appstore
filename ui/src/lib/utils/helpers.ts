@@ -28,7 +28,7 @@ const sanitize = (str: string) => {
 // Sorts an array of applications alphabetically by title or name and returns a new array (does not mutate the original array)
 export const sortApplicationsAlphabetically = (applications: Application[]) =>
   [...applications].sort((a, b) => {
-    const nameA = a.spec?.title?.toUpperCase() ?? a.metadata?.name?.toUpperCase() ?? '';
-    const nameB = b.spec?.title?.toUpperCase() ?? b.metadata?.name?.toUpperCase() ?? '';
+    const nameA = a.title?.toUpperCase() ?? a.name?.toUpperCase() ?? '';
+    const nameB = b.title?.toUpperCase() ?? b.name?.toUpperCase() ?? '';
     return nameA.localeCompare(nameB);
   });

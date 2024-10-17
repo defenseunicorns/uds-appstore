@@ -15,6 +15,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     fs: {
       allow: ['tailwind.config.ts']
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      }
     }
   },
   resolve: {
