@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Accordion from '$lib/components/Accordion/Accordion.svelte';
-  import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+  import Accordion from '$lib/features/uds/Accordion.svelte';
+  import AccordionItem from '$lib/features/uds/AccordionItem.svelte';
 
   const faqItems: { question: string; answer: string }[] = [
     {
