@@ -19,9 +19,9 @@
     <div id="app-title" class="app-card-header-title text-lg font-semibold leading-tight">
       {title}
     </div>
-    <div class="flex items-center gap-1">
-      <span class="text-xs text-gray-500 dark:text-gray-300">By: </span>
-      <span class="text-xs font-thin text-gray-400">
+    <div class="flex items-center gap-1 text-xs text-gray-400 line-height-[125%]">
+      <span>By: </span>
+      <span>
         {vendor}
       </span>
     </div>

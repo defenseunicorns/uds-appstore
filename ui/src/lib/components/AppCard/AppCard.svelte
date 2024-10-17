@@ -7,6 +7,7 @@
   import { ArrowRight } from 'carbon-icons-svelte';
   import { truncateString } from '$lib/utils/helpers';
   import { goto } from '$app/navigation';
+  import { APP_CARD_HEIGHT, APP_CARD_WIDTH } from '$lib/constants';
 
   export let app: Application;
 
@@ -24,7 +25,8 @@
 </script>
 
 <button
-  class="app-card remove-btn-style flex h-[14.25rem] w-[16.0625rem] cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pb-4 pt-5 shadow dark:border-gray-700 dark:bg-gray-800"
+  class={`app-card remove-btn-style flex cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pb-4 pt-5 shadow dark:border-gray-700 dark:bg-gray-800`}
+  style="height: {APP_CARD_HEIGHT}rem; width: {APP_CARD_WIDTH}rem;"
   on:click={handleClick}
 >
   <AppCardHeader {app} />
