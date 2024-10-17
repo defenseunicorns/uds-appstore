@@ -1,6 +1,6 @@
 <script lang="ts">
-  import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
   import QuestionMarkIcon from '$lib/features/uds/QuestionMarkIcon.svelte';
+  import { AccordionItem } from 'flowbite-svelte';
 
   export let question: string = '';
   export let answer: string = '';

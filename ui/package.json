@@ -17,6 +17,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
+    "@fontsource/inter": "^5.1.0",
     "@kubernetes/client-node": "1.0.0-rc6",
     "@playwright/test": "1.45.3",
     "@sveltejs/adapter-static": "3.0.2",
@@ -34,7 +35,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-svelte": "2.43.0",
     "flowbite": "2.4.1",
-    "@fontsource/inter": "^5.1.0",
+    "flowbite-svelte": "^0.47.1",
     "globals": "15.8.0",
     "jsdom": "24.1.1",
     "minisearch": "7.1.0",

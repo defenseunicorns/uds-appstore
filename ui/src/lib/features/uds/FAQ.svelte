@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Accordion from '$lib/components/Accordion/Accordion.svelte';
+  import { Accordion } from 'flowbite-svelte';
   import CustomAccordionItem from '$lib/features/uds/CustomAccordionItem.svelte';
 
   const faqItems: { question: string; answer: string }[] = [
