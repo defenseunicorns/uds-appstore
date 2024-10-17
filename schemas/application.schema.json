@@ -1,7 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/defenseunicorns/uds-appstore/pkg/types/application",
-  "$ref": "#/$defs/Application",
+  "$ref": "#/$defs/AppstoreTypes",
   "$defs": {
     "Application": {
       "properties": {
@@ -15,6 +14,7 @@
           "$ref": "#/$defs/ApplicationSpec"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationContractingDetails": {
@@ -42,6 +42,7 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationIcon": {
@@ -56,6 +57,7 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationMetadata": {
@@ -64,6 +66,7 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationResourceLink": {
@@ -75,6 +78,7 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationSpec": {
@@ -173,6 +177,7 @@
           "type": "array"
         }
       },
+      "additionalProperties": false,
       "type": "object"
     },
     "ApplicationVendor": {
@@ -190,6 +195,16 @@
           "type": "array"
         }
       },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "AppstoreTypes": {
+      "properties": {
+        "Application": {
+          "$ref": "#/$defs/Application"
+        }
+      },
+      "additionalProperties": false,
       "type": "object"
     }
   }
