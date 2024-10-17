@@ -11,7 +11,7 @@
     {
       question: 'Do UDS applications require additional work to configure for deployment?',
       answer:
-        'UDS applications are pre-integrated, the platform may still require some configuration to tailor them to specific mission environments. This is especially true for networking settings, access policies, and any environment-specific customizations. However, the UDS platform simplifies most of the deployment tasks by automating much of the configuration process and streamlining operations.'
+        'While UDS applications are pre-integrated, the platform may still require some configuration to tailor them to specific mission environments. This is especially true for networking settings, access policies, and any environment-specific customizations. However, the UDS platform simplifies most of the deployment tasks by automating much of the configuration process and streamlining operations.'
     },
     {
       question: 'Can UDS be deployed into any mission environment?',
@@ -21,12 +21,12 @@
     {
       question: 'Does UDS follow the DoD DevSecOps Reference Design?',
       answer:
-        "Yes, UDS adheres to the DoD DevSecOps Reference Design. It follows the DevSecOps principles of integrating security into the entire software lifecycle, automating testing, and ensuring continuous monitoring. UDS incorporates security into development, deployment, and operational processes to align with the DoD's cybersecurity and software modernization initiatives."
+        "Yes, UDS adheres to the <a target='_blank' href='https://dodcio.defense.gov/Portals/0/Documents/DoD%20Enterprise%20DevSecOps%20Reference%20Design%20v1.0_Public%20Release.pdf' style='color: #76a9fa;'>DoD DevSecOps Reference Design</a>. It follows the DevSecOps principles of integrating security into the entire software lifecycle, automating testing, and ensuring continuous monitoring. UDS incorporates security into development, deployment, and operational processes to align with the DoD's cybersecurity and software modernization initiatives."
     },
     {
       question: 'How does deploying applications with UDS accelerate the ATO process?',
       answer:
-        'UDS accelerates the Authorization to Operate (ATO) process by utilizing automated security checks, pre-configured compliance with NIST SP 800-53 controls, and a continuous monitoring approach. This reduces the manual documentation and validation steps typically involved in ATO, significantly cutting down the time to deployment while ensuring security compliance. We accelerate not only your initial ATO but also ensure continuous deployment by automating security validations as part of the delivery process.'
+        'UDS accelerates the Authorization to Operate (ATO) process by utilizing automated security checks, pre-configured compliance with NIST SP 800-53 controls, and a continuous monitoring approach. This reduces the manual documentation and validation steps typically involved in ATO, significantly cutting down the time to deployment while ensuring security compliance. <br /><br />We accelerate not only your initial ATO but also ensure continuous deployment by automating security validations as part of the delivery process.'
     },
     {
       question: 'How would deploying an application with UDS impact security posture?',
@@ -36,7 +36,7 @@
     {
       question: 'Is SLA support for UDS available?',
       answer:
-        "Yes, Defense Unicorns provides paid support to DoD missions with an SLA (Service Level Agreement) that meets mission requirements, ensuring that users can receive the necessary technical and operational support to maintain their mission capabilities running on UDS. Our services provide continuous monitoring, technical support, vulnerability management, and education, including: </p> <ul class='ml-8 list-disc'> <li class='text-gray-500 dark:text-gray-400'> <strong>24/7 support for critical issues</strong> to ensure rapid resolution of any high-priority issues. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Live training sessions</strong> to assist users in effectively operating UDS, helping to reduce downtime and operational risks. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Dedicated account management</strong> to provide personalized assistance and ensure the deployment aligns with mission requirements. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>CVE scans, industry leading secure images and risk mitigation</strong> which proactively address security vulnerabilities. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Online or onsite installation and deployment support</strong> to guarantee seamless integration and setup in any environment. </li> </ul> <a href='/contact' style='color: #76a9fa;'>Speak to one of our Mission Experts</a> about how to access an SLA which suits your mission parameters."
+        "Yes, Defense Unicorns provides paid support to DoD missions with an SLA (Service Level Agreement) that meets mission requirements, ensuring that users can receive the necessary technical and operational support to maintain their mission capabilities running on UDS. <br/><br/>Our services provide continuous monitoring, technical support, vulnerability management, and education, including: </p> <br/><ul class='ml-8 list-disc'> <li class='text-gray-500 dark:text-gray-400'> <strong>24/7 support for critical issues</strong> to ensure rapid resolution of any high-priority issues. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Live training sessions</strong> to assist users in effectively operating UDS, helping to reduce downtime and operational risks. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Dedicated account management</strong> to provide personalized assistance and ensure the deployment aligns with mission requirements. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>CVE scans, industry leading secure images and risk mitigation</strong> which proactively address security vulnerabilities. </li> <li class='text-gray-500 dark:text-gray-400'> <strong>Online or onsite installation and deployment support</strong> to guarantee seamless integration and setup in any environment. </li> </ul> <br/><a href='/contact' style='color: #76a9fa;'>Speak to one of our Mission Experts</a> about how to access an SLA which suits your mission parameters."
     },
     {
       question: 'Do the applications & services that are included with UDS cost extra?',
