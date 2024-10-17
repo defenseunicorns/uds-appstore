@@ -1,0 +1,35 @@
+---
+kind: Application
+metadata:
+name: DefectDojo
+spec:
+  title: DefectDojo
+  repository: https://github.com/DefectDojo/django-DefectDojo
+  description: |
+    The Open-source DevSecOps Orchestration Platform
+    DefectDojo is a security orchestration and vulnerability management tool that centralizes security operations. It automates the aggregation, deduplication, and review of results from over 180 security tools.
+    Benefit from reduced noise, improved risk prioritization, and streamlined DevSecOps workflows, making security scalable and integrated into every step of development.
+    Key features include real-time insights, vulnerability reports, and seamless tool integration for enhanced visibility and collaboration.
+    DefectDojo integrates with 180+ security tools, supports dashboards, real-time analytics, and risk management.
+  categories:
+    - Security
+    - IT Management
+    - Software Dev
+  keywords:
+    - DevSecOps
+    - Security Orchestration
+    - Vulnerability Management
+    - Tool Integration
+    - Risk Prioritization
+    - Automated Security
+    - Real-Time Insights
+    - Vulnerability Reports
+    - Dashboards
+    - Real-Time Analytics
+    - Risk Management
+    - Security Tools
+    - Deduplication
+    - DevSecOps Workflows
+  links:
+    - description: Product Website
+      url: https://defectdojo.com/
