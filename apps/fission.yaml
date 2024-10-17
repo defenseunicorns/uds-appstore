@@ -1,0 +1,37 @@
+---
+kind: Application
+metadata:
+  name: Fission
+spec:
+  title: Fission
+  repository: https://github.com/fission/fission
+  tagline: Open source, Kubernetes-native, serverless framework.
+  description: |
+    Open source, Kubernetes-native, serverless framework.
+    Fission allows developers to write short-lived functions in any language and map them to HTTP requests or other event triggers. No need to manage containers or Docker registries.
+    Key benefits include a focus on writing code without managing Kubernetes plumbing and the flexibility of deploying functions on any Kubernetes cluster.
+    The interface is simple and declarative, allowing for quick deployments and integration with Kubernetes services. Key features include operational simplicity with built-in logging, metrics, and Istio service-mesh integration.
+    Fission integrates with Prometheus, Fluentd, and Kubernetes, and provides wide language support, including Python, NodeJS, Go, C#, and PHP.
+  categories:
+    - Kubernetes (K8s)
+    - Web
+    - Software Dev
+  vendor:
+    name: Fission
+    url: https://fission.io
+    icons:
+      - src: https://fission.io/images/fission-white-logo.png
+  keywords:
+    - serverless
+    - Kubernetes
+    - functions
+    - Fission
+    - HTTP
+    - event-driven
+  links:
+    - description: Product Website
+      url: https://fission.io
+    - description: Fission Documentation
+      url: https://fission.io/docs/installation/
+    - description: Fission GitHub Repository
+      url: https://github.com/fission/fission
