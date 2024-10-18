@@ -1,0 +1,17 @@
+# Output
+/ui/.svelte-kit
+/ui/build
+/ui/static/api
+/ui/node_modules
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# # Playwright/ Vitest
+/ui/test-results
+
+# Dev
+zarf-sbom
+tmp/
+*.tar.zst

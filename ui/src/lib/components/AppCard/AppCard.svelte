@@ -6,26 +6,21 @@
   import { AppCardHeader, Button } from '$lib/components';
   import { ArrowRight } from 'carbon-icons-svelte';
   import { truncateString } from '$lib/utils/helpers';
-  import { goto } from '$app/navigation';
 
   export let app: Application;
 
   let description = 'No description available';
 
   $: {
-    if (app.spec?.description) {
-      description = truncateString(app.spec.description, 150);
+    if (app.description) {
+      description = truncateString(app.description, 150);
     }
   }
-
-  const handleClick = () => {
-    goto(`/apps/${app.metadata?.name}`);
-  };
 </script>
 
-<button
+<Button
   class="app-card remove-btn-style flex h-[14.25rem] w-[16.0625rem] cursor-pointer flex-col items-start justify-start rounded-lg border border-gray-200 bg-white px-4 pb-4 pt-5 shadow dark:border-gray-700 dark:bg-gray-800"
-  on:click={handleClick}
+  href="apps/{app.name}"
 >
   <AppCardHeader {app} />
 
@@ -35,7 +30,7 @@
     </div>
 
     <div class="flex justify-end">
-      <Button size="xs" color="dark" class="dark:text-blue-400" on:click={handleClick}
+      <Button size="xs" color="dark" class="dark:text-blue-400"
         ><div class="flex items-center gap-2">
           Learn More
           <ArrowRight />
@@ -43,4 +38,4 @@
       >
     </div>
   </div>
-</button>
+</Button>

@@ -7,9 +7,10 @@
 
   const DEFAULT_ICON = '/images/icons/default.svg';
 
-  $: image = app.spec?.icons?.[0]?.src || DEFAULT_ICON;
-  $: vendor = app.spec?.vendor?.name;
-  $: title = app.spec?.title || app.metadata?.name;
+  $: image = DEFAULT_ICON;
+  // $: image = app.icon_path || DEFAULT_ICON;
+  $: vendor = app.vendor?.name;
+  $: title = app.title || app.name;
 </script>
 
 <div class="app-card-header flex max-w-full flex-row items-start gap-2 truncate">
