@@ -14,7 +14,8 @@
     "test:integration": "playwright test",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest --watch",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "schema": "npx quicktype -s schema ../schemas/application.schema.json --just-types -o ./src/lib/types/app-store.ts"
   },
   "devDependencies": {
     "@kubernetes/client-node": "1.0.0-rc6",
@@ -42,6 +43,7 @@
     "prettier-plugin-organize-imports": "4.0.0",
     "prettier-plugin-svelte": "3.2.6",
     "prettier-plugin-tailwindcss": "0.6.5",
+    "quicktype": "^23.0.170",
     "svelte": "4.2.19",
     "svelte-check": "3.8.4",
     "svelte-markdown": "0.4.1",

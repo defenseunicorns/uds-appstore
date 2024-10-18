@@ -1,6 +1,4 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/maru-runner/main/tasks.schema.json
-includes:
-  - setup: setup.yaml
 
 variables:
   - name: REF
@@ -10,25 +8,11 @@ variables:
     # x-release-please-end
 
 tasks:
-  - name: compile
-    description: "compile the api server and ui"
-    actions:
-      - task: setup:deps
-      - task: generate-types
-      - task: build-ui
-      - task: build-api-linux-amd64
-      - task: build-api-linux-arm64
-
-  - name: build-ui
-    description: "build ui (requires setup:deps to be run first)"
-    actions:
-      - cmd: npm run build
-        dir: ui
-
-  - name: publish-uds-appstore
+  - name: release
     description: "publish the uds-appstore including its image and Zarf pkg (multi-arch)"
     actions:
-      - task: all
+      - task: build-image
+      - task: build-zarf-packages
       - task: publish-zarf-packages
 
   - name: build-image
@@ -36,16 +20,6 @@ tasks:
     actions:
       # NOTE: This breaks local development - I can't and shouldn't push a local image build. But I would need an image in order to test zarf package creation and deployment.
       - cmd: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/uds-appstore:${REF} --push .
-
-  - name: build-api-linux-amd64
-    description: "build the go api server for linux amd64 (used for multi-arch container)"
-    actions:
-      - cmd: CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o build/uds-appstore-amd64 .
-
-  - name: build-api-linux-arm64
-    description: "build the go api server for linux arm64 (used for multi-arch container)"
-    actions:
-      - cmd: CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build -o build/uds-appstore-arm64 .
 
   - name: build-zarf-packages
     description: "build the uds-appstore zarf packages (multi-arch)"
@@ -67,4 +41,7 @@ tasks:
   - name: generate-types
     description: "Generate Types"
     actions:
-      - cmd: go generate ./hack
+      - cmd: go generate .
+        dir: hack
+      - cmd: npm run schema
+        dir: ui

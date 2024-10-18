@@ -30,7 +30,6 @@ jobs:
 
       - name: Run tests
         run: |
-          uds run generate-catalog
-          uds run build:compile
+          uds run build:generate-catalog
           uds run tests
         timeout-minutes: 10

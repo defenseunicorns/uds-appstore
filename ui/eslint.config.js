@@ -29,7 +29,7 @@ export default [
   },
   {
     ignores: [
-      'src/lib/types/gen.ts', // generated code
+      'src/lib/types/app-store.ts', // generated code
       'build/',
       '.svelte-kit/',
       'dist/'
