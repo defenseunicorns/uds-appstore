@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.1](https://github.com/defenseunicorns/uds-appstore/compare/v0.3.0...v0.3.1) (2024-10-18)
+
+
+### Miscellaneous
+
+* add concourse ci metadata ([#314](https://github.com/defenseunicorns/uds-appstore/issues/314)) ([b417eea](https://github.com/defenseunicorns/uds-appstore/commit/b417eea12f91ad89f1a866a8928e3da1cd8b3e02))
+* add defectdojo metadata ([#323](https://github.com/defenseunicorns/uds-appstore/issues/323)) ([b9da99c](https://github.com/defenseunicorns/uds-appstore/commit/b9da99c916ff9f9c092f01ac74f1a41df75f69e2))
+* add fission metadata ([#332](https://github.com/defenseunicorns/uds-appstore/issues/332)) ([744d4b7](https://github.com/defenseunicorns/uds-appstore/commit/744d4b74412cc4950f696e866b259bdc17692241))
+* add kubecost metadata ([#340](https://github.com/defenseunicorns/uds-appstore/issues/340)) ([c3d36a1](https://github.com/defenseunicorns/uds-appstore/commit/c3d36a15ace703f7c4379924edd2a34f0e6bed04))
+* **data:** metadata fixes ([#326](https://github.com/defenseunicorns/uds-appstore/issues/326)) ([3da688c](https://github.com/defenseunicorns/uds-appstore/commit/3da688cb03d283e5d76b86fda4cd6261a2989351))
+
 ## [0.3.0](https://github.com/defenseunicorns/uds-appstore/compare/v0.2.0...v0.3.0) (2024-10-15)
 
 
