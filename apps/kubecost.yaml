@@ -25,7 +25,3 @@ spec:
       url: "https://kubecost.com/"
     - description: "Official Documentation"
       url: "https://docs.kubecost.com/"
-    - description: "Helm Chart"
-      url: "https://github.com/kubecost/cost-analyzer-helm-chart"
-    - description: UDS Package Repository
-      url: "https://github.com/defenseunicorns/uds-package-kubecost"
