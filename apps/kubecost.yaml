@@ -1,0 +1,27 @@
+---
+kind: "Application"
+metadata:
+  name: "Kubecost"
+spec:
+  title: "Kubecost"
+  tagline: "Monitor & reduce Kubernetes spend"
+  description: |
+    Monitor & reduce Kubernetes spend
+    Kubecost provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously reduce your cloud costs.
+    Kubecost allows you to allocate costs by any Kubernetes concepts, such as deployment, service, namespace label, and more. You can view costs across multiple clusters or API endpoints.
+    The tool offers optimization insights by providing recommendations to reduce costs while maintaining performance. You can also receive real-time notifications to catch cost overruns or outage risks.
+    Kubecost integrates with external services and tools like Microsoft Teams and Slack to maintain engineering workflows.
+  repository: https://github.com/kubecost
+  categories:
+    - "IT Management"
+    - "Kubernetes (K8s)"
+  keywords:
+    - "Kubernetes"
+    - "Cost Management"
+    - "Optimization"
+    - "Cloud"
+  links:
+    - description: "Product Website"
+      url: "https://kubecost.com/"
+    - description: "Official Documentation"
+      url: "https://docs.kubecost.com/"
